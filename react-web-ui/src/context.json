@@ -1,0 +1,38 @@
+{
+  "textLibrary": [
+    {
+      "value": "你",
+      "next": [
+        {
+          "value": "好",
+          "weight": 10
+        },
+        {
+          "value": "们",
+          "weight": 12
+        },
+        {
+          "value": "是",
+          "weight": 4
+        }
+      ]
+    },
+    {
+      "value": "好",
+      "next": [
+        {
+          "value": "，",
+          "weight": 24
+        },
+        {
+          "value": "啊",
+          "weight": 5
+        },
+        {
+          "value": "吗",
+          "weight": 15
+        }
+      ]
+    }
+  ]
+}

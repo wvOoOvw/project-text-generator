@@ -1,0 +1,16 @@
+**/node_modules/
+**/package-lock.json
+**/.vscode
+**/.git
+**/.DS_Store
+**/npm-debug.log
+**/@cache
+
+**/react-web-ui/build
+**/react-web-ui-advence/build
+**/nodejs-web-service/build
+**/nodejs-web-service/public
+**/python-huggingface-service/__pycache__
+**/python-huggingface-service/**/__pycache__
+**/electron-package/build
+**/electron-package/out
