@@ -22,34 +22,10 @@ import Slider from '@mui/material/Slider';
 import SendIcon from '@mui/icons-material/Send'
 import SettingsIcon from '@mui/icons-material/Settings'
 
-import * as echarts from 'echarts'
-import * as Diff from 'diff'
-
 import Imitation from './utils.imitation'
-
-import Table from './View.Pane.Playground.Table'
-import Graph from './View.Pane.Playground.Graph'
-import Train from './View.Pane.Playground.Train'
-import Run from './View.Pane.Playground.Run'
 
 function App() {
   return <>
-
-    {
-      Imitation.state.playgroundView === 'table' ? <Table /> : null
-    }
-
-    {
-      Imitation.state.playgroundView === 'graph' ? <Graph /> : null
-    }
-
-    {
-      Imitation.state.playgroundView === 'train' ? <Train /> : null
-    }
-
-    {
-      Imitation.state.playgroundView === 'run' ? <Run /> : null
-    }
 
   </>
 }

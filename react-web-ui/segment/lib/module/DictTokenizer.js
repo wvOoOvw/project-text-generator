@@ -5,14 +5,14 @@
  *
  * @author 老雷<leizongmin@gmail.com>
  */
- 
-var FAMILY_NAME_1 = require('./CHS_NAMES').FAMILY_NAME_1; 
-var FAMILY_NAME_2 = require('./CHS_NAMES').FAMILY_NAME_2; 
+
+var FAMILY_NAME_1 = require('./CHS_NAMES').FAMILY_NAME_1;
+var FAMILY_NAME_2 = require('./CHS_NAMES').FAMILY_NAME_2;
 var SINGLE_NAME = require('./CHS_NAMES').SINGLE_NAME;
 var DOUBLE_NAME_1 = require('./CHS_NAMES').DOUBLE_NAME_1;
 var DOUBLE_NAME_2 = require('./CHS_NAMES').DOUBLE_NAME_2;
-var debug = console.log; 
- 
+var debug = console.log;
+
 /** 模块类型 */
 exports.type = 'tokenizer';
 
@@ -51,14 +51,15 @@ exports.split = function (words) {
     var lastc = 0;
     for (var ui = 0, bw; bw = wordinfo[ui]; ui++) {
       if (bw.c > lastc) {
-        ret.push({w: word.w.substr(lastc, bw.c - lastc)});
+        ret.push({ w: word.w.substr(lastc, bw.c - lastc) });
       }
-      ret.push({w: bw.w, p: TABLE[bw.w].p, f: TABLE[bw.w].f, P: POSTAG.CHSNAME[TABLE[bw.w].p]});
+      ret.push({ w: bw.w, p: TABLE[bw.w].p, f: TABLE[bw.w].f });
+      // ret.push({w: bw.w, p: TABLE[bw.w].p, f: TABLE[bw.w].f, P: POSTAG.CHSNAME[TABLE[bw.w].p]});
       lastc = bw.c + bw.w.length;
     }
     var lastword = wordinfo[wordinfo.length - 1];
     if (lastword.c + lastword.w.length < word.w.length) {
-      ret.push({w: word.w.substr(lastword.c + lastword.w.length)});
+      ret.push({ w: word.w.substr(lastword.c + lastword.w.length) });
     }
   }
   return ret;
@@ -92,12 +93,12 @@ var matchWord = function (text, cur, preword) {
     for (var i in TABLE) {
       var w = text.substr(cur, i);
       if (w in TABLE[i]) {
-        ret.push({w: w, c: cur, f: TABLE[i][w].f});
+        ret.push({ w: w, c: cur, f: TABLE[i][w].f });
       }
     }
     cur++;
   }
-  
+
   return filterWord(ret, preword, text);
 };
 //debug(matchWord('长春市长春药店'));
@@ -114,11 +115,11 @@ var filterWord = function (words, preword, text) {
   var POSTAG = exports.segment.POSTAG;
   var TABLE = exports.segment.getDict('TABLE');
   var ret = [];
-  
+
   // 将单词按位置分组
   var wordpos = getPosInfo(words, text);
   //debug(wordpos);
-  
+
   // 使用类似于MMSG的分词算法
   // 找出所有分词可能，主要根据一下几项来评价：
   // x、词数量最少；
@@ -130,18 +131,18 @@ var filterWord = function (words, preword, text) {
   var chunks = getChunks(wordpos, 0, text);
   //debug(chunks);
   var assess = [];  // 评价表
-  
+
   // 对各个分支就行评估
   for (var i = 0, chunk; chunk = chunks[i]; i++) {
-    assess[i] = {x: chunk.length, a:0, b:0, c:0, d:0}
+    assess[i] = { x: chunk.length, a: 0, b: 0, c: 0, d: 0 }
     // 词平均长度
     var sp = text.length / chunk.length;
     // 句子经常包含的语法结构
     var has_D_V = false;  // 是否包含动词
-    
+
     // 遍历各个词
     if (preword) {
-      var prew = {w: preword.w, p: preword.p, f: preword.f}
+      var prew = { w: preword.w, p: preword.p, f: preword.f }
     } else {
       prew = false;
     }
@@ -149,12 +150,12 @@ var filterWord = function (words, preword, text) {
       if (w.w in TABLE) {
         w.p = TABLE[w.w].p;
         assess[i].a += w.f;   // 总词频
-        
+
         // ================ 检查语法结构 ===================
         if (prew) {
           // 如果上一个词是数词且当前词是量词（单位），则加分
           if ((prew.p & POSTAG.A_M) > 0 &&
-          (((TABLE[w.w].p & POSTAG.A_Q) > 0) || w.w in DATETIME)) {
+            (((TABLE[w.w].p & POSTAG.A_Q) > 0) || w.w in DATETIME)) {
             assess[i].d++;
           }
           // 如果当前词是动词
@@ -162,7 +163,7 @@ var filterWord = function (words, preword, text) {
             has_D_V = true;
             // 如果是连续的两个动词，则减分
             //if ((prew.p & POSTAG.D_V) > 0)
-              //assess[i].d--;
+            //assess[i].d--;
             // 如果是 形容词 + 动词，则加分
             if ((prew.p & POSTAG.D_A) > 0) {
               assess[i].d++;
@@ -170,14 +171,14 @@ var filterWord = function (words, preword, text) {
           }
           // 如果是地区名、机构名或形容词，后面跟地区、机构、代词、名词等，则加分
           if (((prew.p & POSTAG.A_NS) > 0 || (prew.p & POSTAG.A_NT) || (prew.p & POSTAG.D_A) > 0) &&
-          ((w.p & POSTAG.D_N) > 0 || (w.p & POSTAG.A_NR) > 0 ||
-          (w.p & POSTAG.A_NS) > 0 || (w.p & POSTAG.A_NZ) > 0 ||
-          (w.p & POSTAG.A_NT) > 0
-          )) {
+            ((w.p & POSTAG.D_N) > 0 || (w.p & POSTAG.A_NR) > 0 ||
+              (w.p & POSTAG.A_NS) > 0 || (w.p & POSTAG.A_NZ) > 0 ||
+              (w.p & POSTAG.A_NT) > 0
+            )) {
             assess[i].d++;
           }
           // 如果是 方位词 + 数量词，则加分
-          if ((prew.p & POSTAG.D_F) > 0 && 
+          if ((prew.p & POSTAG.D_F) > 0 &&
             ((w.p & POSTAG.A_M > 0) || w.p & POSTAG.D_MQ > 0)) {
             //debug(prew, w);
             assess[i].d++;
@@ -201,9 +202,9 @@ var filterWord = function (words, preword, text) {
             }
             // 如果当前是“的”+ 名词，则加分
             if ((w.w == '的' || w.w == '之') && (
-            (nextw.p & POSTAG.D_N) > 0 || (nextw.p & POSTAG.A_NR) > 0 ||
-            (nextw.p & POSTAG.A_NS) > 0 || (nextw.p & POSTAG.A_NZ) > 0 ||
-            (nextw.p & POSTAG.A_NT) > 0
+              (nextw.p & POSTAG.D_N) > 0 || (nextw.p & POSTAG.A_NR) > 0 ||
+              (nextw.p & POSTAG.A_NS) > 0 || (nextw.p & POSTAG.A_NZ) > 0 ||
+              (nextw.p & POSTAG.A_NT) > 0
             )) {
               assess[i].d += 1.5;
             }
@@ -218,16 +219,16 @@ var filterWord = function (words, preword, text) {
       prew = chunk[j];
     }
     // 如果句子中包含了至少一个动词
-    if (has_D_V === false)  assess[i].d -= 0.5;
-    
+    if (has_D_V === false) assess[i].d -= 0.5;
+
     assess[i].a = assess[i].a / chunk.length;
     assess[i].b = assess[i].b / chunk.length;
   }
-  
+
   // 计算排名
   var top = getTops(assess);
   var currchunk = chunks[top];
-  
+
   // 剔除不能识别的词
   for (var i = 0, word; word = currchunk[i]; i++) {
     if (!(word.w in TABLE)) {
@@ -235,7 +236,7 @@ var filterWord = function (words, preword, text) {
     }
   }
   ret = currchunk;
-  
+
   //debug(ret);
   return ret;
 };
@@ -259,10 +260,10 @@ var getPosInfo = function (words, text) {
   // 按单字分割文本，填补空缺的位置
   for (var i = 0; i < text.length; i++) {
     if (!wordpos[i]) {
-      wordpos[i] = [{w: text.charAt(i), c: i, f: 0}];
+      wordpos[i] = [{ w: text.charAt(i), c: i, f: 0 }];
     }
   }
-      
+
   return wordpos;
 };
 
@@ -305,7 +306,7 @@ var getChunks = function (wordpos, pos, text) {
 var getTops = function (assess) {
   //debug(assess);
   // 取各项最大值
-  var top = {x: assess[0].x, a: assess[0].a, b: assess[0].b, c: assess[0].c, d: assess[0].d}
+  var top = { x: assess[0].x, a: assess[0].a, b: assess[0].b, c: assess[0].c, d: assess[0].d }
   for (var i = 1, ass; ass = assess[i]; i++) {
     if (ass.a > top.a) top.a = ass.a;  // 取最大平均词频
     if (ass.b < top.b) top.b = ass.b;  // 取最小标准差
@@ -314,7 +315,7 @@ var getTops = function (assess) {
     if (ass.x > top.x) top.x = ass.x;  // 取最大单词数量
   }
   //debug(top);
-  
+
   // 评估排名
   var tops = [];
   for (var i = 0, ass; ass = assess[i]; i++) {
@@ -332,7 +333,7 @@ var getTops = function (assess) {
     //debug(tops[i]);debug('---');
   }
   //debug(tops.join('  '));
-  
+
   // 取分数最高的
   var curri = 0;
   var maxs = tops[0];
