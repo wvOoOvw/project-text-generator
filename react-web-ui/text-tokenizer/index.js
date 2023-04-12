@@ -11,9 +11,9 @@ DictChinese.forEach(i => {
 })
 
 const tokenizer = (text) => {
-  const process = { text: text, index: 0, result: [], next: () => next(process) }
+  const process = { text: text, index: 0, result: [], next: () => next() }
 
-  const next = (process) => {
+  const next = () => {
     const matchResult = match(process.text, process.index)
 
     process.index = process.index + matchResult.length
@@ -29,22 +29,26 @@ const tokenizer = (text) => {
 
 const match = (text, index) => {
   var searchLength = Math.min(Math.max(...Object.keys(DictChineseLengthObject).map(i => Number(i))), text.length - index)
+  var searchIndex = 1
+  var searchResult = []
 
-  while (searchLength > 1) {
-    searchResult = text.slice(index, index + searchLength)
+  while (searchIndex < searchLength + 1) {
+    searchCurrent = text.slice(index, index + searchIndex)
 
-    const resultLength = searchResult.length
+    const resultLength = searchCurrent.length
 
-    const find = DictChineseLengthObject[resultLength] ? DictChineseLengthObject[resultLength].find(i => i === searchResult) : null
+    const find = DictChineseLengthObject[resultLength] ? DictChineseLengthObject[resultLength].find(i => i === searchCurrent) : null
 
-    if (find) break
+    if (find) searchResult.push(searchCurrent)
 
-    if (!find) searchLength = searchLength - 1
+    searchIndex = searchIndex + 1
   }
 
-  return text.slice(index, index + searchLength)
+  return searchResult.length ? searchResult.pop() : text.slice(index, index + 1)
 }
 
 module.exports.tokenizer = tokenizer
 
 // const tokenizerProcess = tokenizer('木瓜是一种好吃的水果。')
+
+// while (tokenizerProcess.next) console.log(tokenizerProcess.next().result)

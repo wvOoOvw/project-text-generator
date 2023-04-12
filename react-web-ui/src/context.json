@@ -1,810 +1,1220 @@
 {
   "爱": {
-    "w": "爱",
-    "p": 4096,
-    "f": 323,
-    "next": {
+    "weight": 32,
+    "children": {
       "是什么": {
-        "w": "是什么",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "？": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "，": {
-        "w": "，",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "是": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "一旦": {
-        "w": "一旦",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "被": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "吗": {
-        "w": "吗",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "？": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "的": {
-        "w": "的",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "同时": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "呢": {
-        "w": "呢",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "？": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "加": {
-        "w": "加",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "种种": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "施与": {
-        "w": "施与",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "周围": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "是什么": {
-    "w": "是什么",
-    "p": 67108864,
-    "f": 970,
-    "next": {
+    "weight": 4,
+    "children": {
       "？": {
-        "w": "？",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "这是": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "？": {
-    "w": "？",
-    "p": 2048,
-    "next": {
+    "weight": 16,
+    "children": {
       "这是": {
-        "w": "这是",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "所有人": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "当": {
-        "w": "当",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "我们": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "在": {
-        "w": "在",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "给": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "我们": {
-        "w": "我们",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "将": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "这是": {
-    "w": "这是",
-    "p": 0,
-    "f": 877,
-    "next": {
+    "weight": 4,
+    "children": {
       "所有人": {
-        "w": "所有人",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "心底": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "所有人": {
-    "w": "所有人",
-    "p": 1048576,
-    "f": 498,
-    "next": {
+    "weight": 8,
+    "children": {
       "心底": {
-        "w": "心底",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "一个": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "，": {
-        "w": "，",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "而": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "心底": {
-    "w": "心底",
-    "p": 1048576,
-    "f": 7385,
-    "next": {
+    "weight": 4,
+    "children": {
       "一个": {
-        "w": "一个",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "永恒": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "一个": {
-    "w": "一个",
-    "p": 2097152,
-    "f": 429,
-    "next": {
+    "weight": 4,
+    "children": {
       "永恒": {
-        "w": "永恒",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "的": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "永恒": {
-    "w": "永恒",
-    "p": 536870912,
-    "f": 6349,
-    "next": {
+    "weight": 12,
+    "children": {
       "的": {
-        "w": "的",
-        "wt": 8
+        "weight": 8,
+        "children": {
+          "问题": {
+            "weight": 4,
+            "children": {}
+          },
+          "寻觅": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "。": {
-        "w": "。",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "但是": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "的": {
-    "w": "的",
-    "p": 8192,
-    "f": 1,
-    "next": {
+    "weight": 40,
+    "children": {
       "问题": {
-        "w": "问题",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "。": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "寻觅": {
-        "w": "寻觅",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "。": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "找到": {
-        "w": "找到",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "过": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "同时": {
-        "w": "同时",
-        "wt": 8
+        "weight": 8,
+        "children": {
+          "，": {
+            "weight": 8,
+            "children": {}
+          }
+        }
       },
       "爱": {
-        "w": "爱",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "加": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "方式": {
-        "w": "方式",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "理解": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "所有人": {
-        "w": "所有人",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "，": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "回报": {
-        "w": "回报",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "来": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "。": {
-        "w": "。",
-        "wt": 4
+        "weight": 4,
+        "children": {}
       }
     }
   },
   "问题": {
-    "w": "问题",
-    "p": 1048576,
-    "f": 64,
-    "next": {
+    "weight": 4,
+    "children": {
       "。": {
-        "w": "。",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "爱": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "。": {
-    "w": "。",
-    "p": 2048,
-    "next": {
+    "weight": 16,
+    "children": {
       "爱": {
-        "w": "爱",
-        "wt": 8
+        "weight": 8,
+        "children": {
+          "，": {
+            "weight": 4,
+            "children": {}
+          },
+          "一旦": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "但是": {
-        "w": "但是",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "我们": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "，": {
-    "w": "，",
-    "p": 2048,
-    "next": {
+    "weight": 28,
+    "children": {
       "是": {
-        "w": "是",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "永恒": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "它": {
-        "w": "它",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "也": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "是否": {
-        "w": "是否",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "也": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "我们": {
-        "w": "我们",
-        "wt": 8
+        "weight": 8,
+        "children": {
+          "试图": {
+            "weight": 4,
+            "children": {}
+          },
+          "是否": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "或": {
-        "w": "或",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "想": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "而": {
-        "w": "而",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "如何": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "是": {
-    "w": "是",
-    "p": 4096,
-    "f": 2,
-    "next": {
+    "weight": 8,
+    "children": {
       "永恒": {
-        "w": "永恒",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "的": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "由": {
-        "w": "由",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "期望": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "寻觅": {
-    "w": "寻觅",
-    "p": 4096,
-    "f": 11046,
-    "next": {
+    "weight": 4,
+    "children": {
       "。": {
-        "w": "。",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "爱": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "一旦": {
-    "w": "一旦",
-    "p": 136314880,
-    "f": 1132,
-    "next": {
+    "weight": 4,
+    "children": {
       "被": {
-        "w": "被",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "找到": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "被": {
-    "w": "被",
-    "p": 262144,
-    "f": 22,
-    "next": {
+    "weight": 4,
+    "children": {
       "找到": {
-        "w": "找到",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "，": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "找到": {
-    "w": "找到",
-    "p": 4096,
-    "f": 487,
-    "next": {
+    "weight": 8,
+    "children": {
       "，": {
-        "w": "，",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "它": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "过": {
-        "w": "过",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "爱": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "它": {
-    "w": "它",
-    "p": 65536,
-    "f": 75,
-    "next": {
+    "weight": 12,
+    "children": {
       "也": {
-        "w": "也",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "将": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "，": {
-        "w": "，",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "或": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "呢": {
-        "w": "呢",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "？": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "也": {
-    "w": "也",
-    "p": 134217728,
-    "f": 10,
-    "next": {
+    "weight": 12,
+    "children": {
       "将": {
-        "w": "将",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "变为": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "在": {
-        "w": "在",
-        "wt": 8
+        "weight": 8,
+        "children": {
+          "否定": {
+            "weight": 4,
+            "children": {}
+          },
+          "破坏": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "将": {
-    "w": "将",
-    "p": 134217728,
-    "f": 1460,
-    "next": {
+    "weight": 12,
+    "children": {
       "变为": {
-        "w": "变为",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "永恒": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "其": {
-        "w": "其",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "据为己有": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "爱": {
-        "w": "爱",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "施与": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "变为": {
-    "w": "变为",
-    "p": 4096,
-    "f": 3836,
-    "next": {
+    "weight": 4,
+    "children": {
       "永恒": {
-        "w": "永恒",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "。": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "但是": {
-    "w": "但是",
-    "p": 268435456,
-    "f": 151,
-    "next": {
+    "weight": 4,
+    "children": {
       "我们": {
-        "w": "我们",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "真": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "我们": {
-    "w": "我们",
-    "p": 65536,
-    "f": 20,
-    "next": {
+    "weight": 24,
+    "children": {
       "真": {
-        "w": "真",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "的": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "定义": {
-        "w": "定义",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "爱": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "所": {
-        "w": "所",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "认为": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "试图": {
-        "w": "试图",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "按": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "是否": {
-        "w": "是否",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "也": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "将": {
-        "w": "将",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "爱": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "真": {
-    "w": "真",
-    "p": 134217728,
-    "f": 296,
-    "next": {
+    "weight": 4,
+    "children": {
       "的": {
-        "w": "的",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "找到": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "过": {
-    "w": "过",
-    "p": 8192,
-    "f": 2722,
-    "next": {
+    "weight": 4,
+    "children": {
       "爱": {
-        "w": "爱",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "吗": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "吗": {
-    "w": "吗",
-    "next": {
+    "weight": 4,
+    "children": {
       "？": {
-        "w": "？",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "当": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "当": {
-    "w": "当",
-    "p": 262144,
-    "f": 591,
-    "next": {
+    "weight": 4,
+    "children": {
       "我们": {
-        "w": "我们",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "定义": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "定义": {
-    "w": "定义",
-    "p": 1048576,
-    "f": 6501,
-    "next": {
+    "weight": 4,
+    "children": {
       "爱": {
-        "w": "爱",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "的": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "同时": {
-    "w": "同时",
-    "p": 268435456,
-    "f": 125,
-    "next": {
+    "weight": 8,
+    "children": {
       "，": {
-        "w": "，",
-        "wt": 8
+        "weight": 8,
+        "children": {
+          "是否": {
+            "weight": 4,
+            "children": {}
+          },
+          "我们": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "是否": {
-    "w": "是否",
-    "p": 134217728,
-    "f": 603,
-    "next": {
+    "weight": 8,
+    "children": {
       "也": {
-        "w": "也",
-        "wt": 8
+        "weight": 8,
+        "children": {
+          "在": {
+            "weight": 8,
+            "children": {}
+          }
+        }
       }
     }
   },
   "在": {
-    "w": "在",
-    "p": 262144,
-    "f": 3,
-    "next": {
+    "weight": 12,
+    "children": {
       "否定": {
-        "w": "否定",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "爱": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "给": {
-        "w": "给",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "我们": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       },
       "破坏": {
-        "w": "破坏",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "它": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "否定": {
-    "w": "否定",
-    "p": 4096,
-    "f": 3686,
-    "next": {
+    "weight": 4,
+    "children": {
       "爱": {
-        "w": "爱",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "呢": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "呢": {
-    "w": "呢",
-    "p": 1048576,
-    "f": 1712,
-    "next": {
+    "weight": 8,
+    "children": {
       "？": {
-        "w": "？",
-        "wt": 8
+        "weight": 8,
+        "children": {
+          "在": {
+            "weight": 4,
+            "children": {}
+          },
+          "我们": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "给": {
-    "w": "给",
-    "p": 262144,
-    "f": 54,
-    "next": {
+    "weight": 4,
+    "children": {
       "我们": {
-        "w": "我们",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "所": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "所": {
-    "w": "所",
-    "p": 8192,
-    "f": 52,
-    "next": {
+    "weight": 4,
+    "children": {
       "认为": {
-        "w": "认为",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "的": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "认为": {
-    "w": "认为",
-    "p": 4096,
-    "f": 138,
-    "next": {
+    "weight": 4,
+    "children": {
       "的": {
-        "w": "的",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "爱": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "加": {
-    "w": "加",
-    "p": 4096,
-    "f": 543,
-    "next": {
+    "weight": 4,
+    "children": {
       "种种": {
-        "w": "种种",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "限制": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "种种": {
-    "w": "种种",
-    "p": 131072,
-    "f": 2140,
-    "next": {
+    "weight": 4,
+    "children": {
       "限制": {
-        "w": "限制",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "的": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "限制": {
-    "w": "限制",
-    "p": 4096,
-    "f": 1543,
-    "next": {
+    "weight": 4,
+    "children": {
       "的": {
-        "w": "的",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "同时": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "试图": {
-    "w": "试图",
-    "p": 4096,
-    "f": 5185,
-    "next": {
+    "weight": 4,
+    "children": {
       "按": {
-        "w": "按",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "自己": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "按": {
-    "w": "按",
-    "next": {
+    "weight": 4,
+    "children": {
       "自己": {
-        "w": "自己",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "的": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "自己": {
-    "w": "自己",
-    "p": 65536,
-    "f": 42,
-    "next": {
+    "weight": 4,
+    "children": {
       "的": {
-        "w": "的",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "方式": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "方式": {
-    "w": "方式",
-    "p": 1048576,
-    "f": 387,
-    "next": {
+    "weight": 4,
+    "children": {
       "理解": {
-        "w": "理解",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "它": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "理解": {
-    "w": "理解",
-    "p": 4096,
-    "f": 588,
-    "next": {
+    "weight": 4,
+    "children": {
       "它": {
-        "w": "它",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "，": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "或": {
-    "w": "或",
-    "p": 268435456,
-    "f": 81,
-    "next": {
+    "weight": 4,
+    "children": {
       "想": {
-        "w": "想",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "将": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "想": {
-    "w": "想",
-    "next": {
+    "weight": 4,
+    "children": {
       "将": {
-        "w": "将",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "其": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "其": {
-    "w": "其",
-    "p": 65536,
-    "f": 68,
-    "next": {
+    "weight": 4,
+    "children": {
       "据为己有": {
-        "w": "据为己有",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "时": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "据为己有": {
-    "w": "据为己有",
-    "p": 16777216,
-    "f": 28732,
-    "next": {
+    "weight": 4,
+    "children": {
       "时": {
-        "w": "时",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "，": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "时": {
-    "w": "时",
-    "next": {
+    "weight": 4,
+    "children": {
       "，": {
-        "w": "，",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "我们": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "破坏": {
-    "w": "破坏",
-    "p": 4096,
-    "f": 1069,
-    "next": {
+    "weight": 4,
+    "children": {
       "它": {
-        "w": "它",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "呢": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "施与": {
-    "w": "施与",
-    "p": 4096,
-    "f": 45093,
-    "next": {
+    "weight": 4,
+    "children": {
       "周围": {
-        "w": "周围",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "的": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "周围": {
-    "w": "周围",
-    "p": 33554432,
-    "f": 1280,
-    "next": {
+    "weight": 4,
+    "children": {
       "的": {
-        "w": "的",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "所有人": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "而": {
-    "w": "而",
-    "p": 268435456,
-    "f": 28,
-    "next": {
+    "weight": 4,
+    "children": {
       "如何": {
-        "w": "如何",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "给予": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "如何": {
-    "w": "如何",
-    "p": 65536,
-    "f": 226,
-    "next": {
+    "weight": 4,
+    "children": {
       "给予": {
-        "w": "给予",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "是": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "给予": {
-    "w": "给予",
-    "p": 4096,
-    "f": 1292,
-    "next": {
+    "weight": 4,
+    "children": {
       "是": {
-        "w": "是",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "由": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "由": {
-    "w": "由",
-    "p": 262144,
-    "f": 63,
-    "next": {
+    "weight": 4,
+    "children": {
       "期望": {
-        "w": "期望",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "的": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "期望": {
-    "w": "期望",
-    "p": 4096,
-    "f": 4148,
-    "next": {
+    "weight": 4,
+    "children": {
       "的": {
-        "w": "的",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "回报": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "回报": {
-    "w": "回报",
-    "p": 4096,
-    "f": 4569,
-    "next": {
+    "weight": 4,
+    "children": {
       "来": {
-        "w": "来",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "决定": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "来": {
-    "w": "来",
-    "p": 4096,
-    "f": 23,
-    "next": {
+    "weight": 4,
+    "children": {
       "决定": {
-        "w": "决定",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "的": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   },
   "决定": {
-    "w": "决定",
-    "p": 4096,
-    "f": 186,
-    "next": {
+    "weight": 4,
+    "children": {
       "的": {
-        "w": "的",
-        "wt": 4
+        "weight": 4,
+        "children": {
+          "。": {
+            "weight": 4,
+            "children": {}
+          }
+        }
       }
     }
   }

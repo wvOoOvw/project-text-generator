@@ -9,7 +9,7 @@ ImitationINS.state = {
 
   message: '',
 
-  playgroundView: 'train',
+  playgroundView: 'graph',
 
   context: context,
 }
