@@ -4,11 +4,6 @@ import Imitation from './utils.imitation'
 
 import Paper from '@mui/material/Paper'
 
-// import Table from './View.Pane.Playground.Table'
-// import Graph from './View.Pane.Playground.Graph'
-// import Train from './View.Pane.Playground.Train'
-// import Run from './View.Pane.Playground.Run'
-
 const Default = React.lazy(() => import('./View.Pane.Playground.Default'))
 const Table = React.lazy(() => import('./View.Pane.Playground.Table'))
 const Graph = React.lazy(() => import('./View.Pane.Playground.Graph'))
