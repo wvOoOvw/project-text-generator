@@ -34,4 +34,12 @@ const download = (data, name) => {
   aLink.dispatchEvent(evt)
 }
 
-export { baseIp, hash, copy, download }
+const safeNumber = (n, l) => Number(Number(n).toFixed(l))
+
+const specialWord = v => {
+  if (v === ' ') return '(sapce)'
+  if (v === '\n') return '(wrap)'
+  return v
+}
+
+export { baseIp, hash, copy, download, safeNumber, specialWord }

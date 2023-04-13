@@ -1,6 +1,6 @@
 import Imitation from 'imitation-imm/src/index'
 
-import context from './context.json'
+import library from './library.json'
 
 const ImitationINS = new Imitation()
 
@@ -9,9 +9,9 @@ ImitationINS.state = {
 
   message: '',
 
-  playgroundView: 'graph',
+  playgroundView: 'train',
 
-  context: context,
+  library: library,
 }
 
 export default ImitationINS

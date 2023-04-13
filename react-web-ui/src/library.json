@@ -1,0 +1,11229 @@
+{
+  "马克思主义": {
+    "weight": 4,
+    "children": {
+      "基本": {
+        "weight": 2,
+        "children": {
+          "思想": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "与": {
+        "weight": 2,
+        "children": {
+          "中国": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "基本": {
+    "weight": 8,
+    "children": {
+      "思想": {
+        "weight": 2,
+        "children": {
+          "是": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "问题": {
+        "weight": 2,
+        "children": {
+          "及其": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "观点": {
+        "weight": 4,
+        "children": {
+          "和": {
+            "weight": 4,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "思想": {
+    "weight": 2,
+    "children": {
+      "是": {
+        "weight": 2,
+        "children": {
+          "唯物主义": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "是": {
+    "weight": 56,
+    "children": {
+      "唯物主义": {
+        "weight": 2,
+        "children": {
+          "和": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "辩证唯物主义": {
+        "weight": 2,
+        "children": {
+          "和": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "一种": {
+        "weight": 2,
+        "children": {
+          "革命": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "无产阶级": {
+        "weight": 2,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "多样性": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "自然": {
+        "weight": 2,
+        "children": {
+          "和": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "联系": {
+        "weight": 2,
+        "children": {
+          "和": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "普遍": {
+        "weight": 2,
+        "children": {
+          "联系": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "从": {
+        "weight": 2,
+        "children": {
+          "一般": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "永恒": {
+        "weight": 2,
+        "children": {
+          "发展": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "客观": {
+        "weight": 2,
+        "children": {
+          "事物": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "唯物辩证法": {
+        "weight": 4,
+        "children": {
+          "的": {
+            "weight": 4,
+            "children": {}
+          }
+        }
+      },
+      "事物": {
+        "weight": 2,
+        "children": {
+          "发展": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "国家": {
+        "weight": 2,
+        "children": {
+          "进步": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "大学生思想政治教育": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "历史": {
+        "weight": 4,
+        "children": {
+          "的": {
+            "weight": 4,
+            "children": {}
+          }
+        }
+      },
+      "中华民族": {
+        "weight": 2,
+        "children": {
+          "伟大": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "现代": {
+        "weight": 2,
+        "children": {
+          "以来": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "在": {
+        "weight": 2,
+        "children": {
+          "中国": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "“": {
+        "weight": 2,
+        "children": {
+          "中等": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "站得住脚": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "落后": {
+        "weight": 2,
+        "children": {
+          "于": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "交换": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "创造": {
+        "weight": 2,
+        "children": {
+          "梦想": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "修复": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "完全": {
+        "weight": 2,
+        "children": {
+          "康复": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "唯物主义": {
+    "weight": 6,
+    "children": {
+      "和": {
+        "weight": 2,
+        "children": {
+          "唯心主义": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "与": {
+        "weight": 4,
+        "children": {
+          "唯心主义": {
+            "weight": 2,
+            "children": {}
+          },
+          "辩证法": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "和": {
+    "weight": 54,
+    "children": {
+      "唯心主义": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "哲学": {
+        "weight": 4,
+        "children": {
+          "观": {
+            "weight": 2,
+            "children": {}
+          },
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "历史": {
+        "weight": 2,
+        "children": {
+          "形态": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "主要": {
+        "weight": 2,
+        "children": {
+          "形式": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "方法论": {
+        "weight": 2,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "社会": {
+        "weight": 2,
+        "children": {
+          "历史": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "发展": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "多样性": {
+        "weight": 2,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "功能": {
+        "weight": 2,
+        "children": {
+          "是": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "必然": {
+        "weight": 2,
+        "children": {
+          "趋势": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "动力": {
+        "weight": 4,
+        "children": {
+          "，": {
+            "weight": 4,
+            "children": {}
+          }
+        }
+      },
+      "核心": {
+        "weight": 2,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "“": {
+        "weight": 2,
+        "children": {
+          "关键": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "非": {
+        "weight": 2,
+        "children": {
+          "主要矛盾": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "社会进步": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "德性": {
+        "weight": 2,
+        "children": {
+          "美": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "包含": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "中国人民": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "天空": {
+        "weight": 2,
+        "children": {
+          "强国": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "研究": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "强大": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "侵略": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "满足": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "任务": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "素质": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "唯心主义": {
+    "weight": 4,
+    "children": {
+      "的": {
+        "weight": 4,
+        "children": {
+          "世界观": {
+            "weight": 2,
+            "children": {}
+          },
+          "对立": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "的": {
+    "weight": 254,
+    "children": {
+      "世界观": {
+        "weight": 4,
+        "children": {
+          "和": {
+            "weight": 4,
+            "children": {}
+          }
+        }
+      },
+      "基本": {
+        "weight": 4,
+        "children": {
+          "问题": {
+            "weight": 2,
+            "children": {}
+          },
+          "观点": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "对立": {
+        "weight": 4,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          },
+          "、": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "起源": {
+        "weight": 4,
+        "children": {
+          "、": {
+            "weight": 2,
+            "children": {}
+          },
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "基础": {
+        "weight": 4,
+        "children": {
+          "，": {
+            "weight": 4,
+            "children": {}
+          }
+        }
+      },
+      "高度": {
+        "weight": 2,
+        "children": {
+          "统一": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "哲学": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "意义": {
+        "weight": 2,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "统一": {
+        "weight": 4,
+        "children": {
+          "在于": {
+            "weight": 2,
+            "children": {}
+          },
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "统一体": {
+        "weight": 2,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "产物": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "关系": {
+        "weight": 4,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          },
+          "、": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "科学": {
+        "weight": 4,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          },
+          "生产": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "整体": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "客观性": {
+        "weight": 2,
+        "children": {
+          "、": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "本质": {
+        "weight": 6,
+        "children": {
+          "和": {
+            "weight": 4,
+            "children": {}
+          },
+          "关系": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "。": {
+        "weight": 4,
+        "children": {
+          "世界": {
+            "weight": 2,
+            "children": {}
+          },
+          "这": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "，": {
+        "weight": 8,
+        "children": {
+          "运动": {
+            "weight": 2,
+            "children": {}
+          },
+          "关于": {
+            "weight": 2,
+            "children": {}
+          },
+          "多少": {
+            "weight": 2,
+            "children": {}
+          },
+          "血": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "规律性": {
+        "weight": 4,
+        "children": {
+          "、": {
+            "weight": 2,
+            "children": {}
+          },
+          "是": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "坚持": {
+        "weight": 2,
+        "children": {
+          "与": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "预防": {
+        "weight": 2,
+        "children": {
+          "、": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "源泉": {
+        "weight": 4,
+        "children": {
+          "和": {
+            "weight": 4,
+            "children": {}
+          }
+        }
+      },
+      "现实": {
+        "weight": 2,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "原动力": {
+        "weight": 2,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "同一": {
+        "weight": 2,
+        "children": {
+          "与": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "内外": {
+        "weight": 2,
+        "children": {
+          "因": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "普遍性": {
+        "weight": 2,
+        "children": {
+          "与": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "梦想": {
+        "weight": 26,
+        "children": {
+          "，": {
+            "weight": 12,
+            "children": {}
+          },
+          "。": {
+            "weight": 8,
+            "children": {}
+          },
+          "是": {
+            "weight": 4,
+            "children": {}
+          },
+          "就是": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "力量": {
+        "weight": 4,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          },
+          "在": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "继承者": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "历史": {
+        "weight": 2,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "十八": {
+        "weight": 2,
+        "children": {
+          "位": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "教育": {
+        "weight": 4,
+        "children": {
+          "政策": {
+            "weight": 2,
+            "children": {}
+          },
+          "使命": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "实现": {
+        "weight": 6,
+        "children": {
+          "是": {
+            "weight": 2,
+            "children": {}
+          },
+          "，": {
+            "weight": 2,
+            "children": {}
+          },
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "重要内容": {
+        "weight": 2,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "含义": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "、": {
+        "weight": 14,
+        "children": {
+          "具体": {
+            "weight": 2,
+            "children": {}
+          },
+          "现实": {
+            "weight": 4,
+            "children": {}
+          },
+          "客观": {
+            "weight": 2,
+            "children": {}
+          },
+          "纯洁": {
+            "weight": 2,
+            "children": {}
+          },
+          "高尚": {
+            "weight": 2,
+            "children": {}
+          },
+          "未来": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "价值": {
+        "weight": 2,
+        "children": {
+          "和": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "空洞": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "社会实践": {
+        "weight": 2,
+        "children": {
+          "中": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "人": {
+        "weight": 4,
+        "children": {
+          "在": {
+            "weight": 4,
+            "children": {}
+          }
+        }
+      },
+      "创造": {
+        "weight": 2,
+        "children": {
+          "中": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "未来": {
+        "weight": 2,
+        "children": {
+          "命运": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "发展": {
+        "weight": 4,
+        "children": {
+          "来": {
+            "weight": 2,
+            "children": {}
+          },
+          "？": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "根本利益": {
+        "weight": 2,
+        "children": {
+          "来": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "时代": {
+        "weight": 2,
+        "children": {
+          "是": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "日子": {
+        "weight": 2,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "中国": {
+        "weight": 12,
+        "children": {
+          "梦": {
+            "weight": 10,
+            "children": {}
+          },
+          "梦中": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "口中": {
+        "weight": 2,
+        "children": {
+          "到": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "伟大": {
+        "weight": 2,
+        "children": {
+          "复兴": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "旅程": {
+        "weight": 2,
+        "children": {
+          "在": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "历史事件": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "时刻": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "梦": {
+        "weight": 4,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          },
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "”": {
+        "weight": 2,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "领导": {
+        "weight": 2,
+        "children": {
+          "下": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "复兴": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "滞后": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "精确": {
+        "weight": 2,
+        "children": {
+          "部分": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "特征": {
+        "weight": 2,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "努力": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "神": {
+        "weight": 2,
+        "children": {
+          "九天": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "心中": {
+        "weight": 2,
+        "children": {
+          "实现": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "国家": {
+        "weight": 6,
+        "children": {
+          "和": {
+            "weight": 2,
+            "children": {}
+          },
+          "耽搁": {
+            "weight": 2,
+            "children": {}
+          },
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "后盾": {
+        "weight": 2,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "革命": {
+        "weight": 2,
+        "children": {
+          "是": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "动力": {
+        "weight": 2,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "工业生产": {
+        "weight": 4,
+        "children": {
+          "，": {
+            "weight": 4,
+            "children": {}
+          }
+        }
+      },
+      "斗争": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "奋斗": {
+        "weight": 2,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "治疗": {
+        "weight": 2,
+        "children": {
+          "不仅": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "工作": {
+        "weight": 2,
+        "children": {
+          "和": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "事情": {
+        "weight": 4,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          },
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "观点": {
+        "weight": 2,
+        "children": {
+          "来看": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "道路": {
+        "weight": 2,
+        "children": {
+          "明亮": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "之前": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "能力": {
+        "weight": 2,
+        "children": {
+          "和": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "世界观": {
+    "weight": 4,
+    "children": {
+      "和": {
+        "weight": 4,
+        "children": {
+          "哲学": {
+            "weight": 2,
+            "children": {}
+          },
+          "方法论": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "哲学": {
+    "weight": 8,
+    "children": {
+      "观": {
+        "weight": 2,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "的": {
+        "weight": 2,
+        "children": {
+          "基本": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "，": {
+        "weight": 4,
+        "children": {
+          "历史唯物主义": {
+            "weight": 2,
+            "children": {}
+          },
+          "是": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "观": {
+    "weight": 4,
+    "children": {
+      "。": {
+        "weight": 2,
+        "children": {
+          "哲学": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "的": {
+        "weight": 2,
+        "children": {
+          "意义": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "。": {
+    "weight": 100,
+    "children": {
+      "哲学": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "唯物史观": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "理想主义": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "马克思主义哲学": {
+        "weight": 4,
+        "children": {
+          "是": {
+            "weight": 4,
+            "children": {}
+          }
+        }
+      },
+      "科学": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "物质": {
+        "weight": 2,
+        "children": {
+          "范畴": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "世界": {
+        "weight": 4,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          },
+          "是": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "意识": {
+        "weight": 2,
+        "children": {
+          "是": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "。": {
+        "weight": 2,
+        "children": {
+          "唯物辩证法": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "唯物辩证法": {
+        "weight": 2,
+        "children": {
+          "是": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "事物": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "论": {
+        "weight": 2,
+        "children": {
+          "本质": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "对立统一规律": {
+        "weight": 2,
+        "children": {
+          "揭示": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "矛盾": {
+        "weight": 4,
+        "children": {
+          "是": {
+            "weight": 2,
+            "children": {}
+          },
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "马克思主义": {
+        "weight": 2,
+        "children": {
+          "与": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "教育": {
+        "weight": 2,
+        "children": {
+          "是": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "党": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "”": {
+        "weight": 4,
+        "children": {
+          "中国": {
+            "weight": 2,
+            "children": {}
+          },
+          "它": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "加强": {
+        "weight": 2,
+        "children": {
+          "中国": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "中国": {
+        "weight": 8,
+        "children": {
+          "的": {
+            "weight": 4,
+            "children": {}
+          },
+          "百年": {
+            "weight": 2,
+            "children": {}
+          },
+          "梦": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "数以百万计": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "因此": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "现在": {
+        "weight": 2,
+        "children": {
+          "每个人": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "这是": {
+        "weight": 2,
+        "children": {
+          "全国人民": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "这个": {
+        "weight": 4,
+        "children": {
+          "国家": {
+            "weight": 2,
+            "children": {}
+          },
+          "梦想": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "每个人": {
+        "weight": 2,
+        "children": {
+          "心中": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "中国近代史": {
+        "weight": 2,
+        "children": {
+          "中": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "习": {
+        "weight": 2,
+        "children": {
+          "近": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "只有": {
+        "weight": 2,
+        "children": {
+          "在": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "实现": {
+        "weight": 2,
+        "children": {
+          "中华民族": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "那么": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "工业生产": {
+        "weight": 2,
+        "children": {
+          "是": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "历史": {
+        "weight": 2,
+        "children": {
+          "是": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "这": {
+        "weight": 2,
+        "children": {
+          "就是": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "有了": {
+        "weight": 2,
+        "children": {
+          "先进": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "这时": {
+        "weight": 2,
+        "children": {
+          "我": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "梦想": {
+        "weight": 2,
+        "children": {
+          "是": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "当时": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "在": {
+        "weight": 4,
+        "children": {
+          "我们": {
+            "weight": 2,
+            "children": {}
+          },
+          "我想": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "所以": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "问题": {
+    "weight": 2,
+    "children": {
+      "及其": {
+        "weight": 2,
+        "children": {
+          "两个方面": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "及其": {
+    "weight": 8,
+    "children": {
+      "两个方面": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "主要": {
+        "weight": 2,
+        "children": {
+          "表现形式": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "在": {
+        "weight": 2,
+        "children": {
+          "事物": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "相互关系": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "两个方面": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "唯物主义": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "，": {
+    "weight": 190,
+    "children": {
+      "唯物主义": {
+        "weight": 2,
+        "children": {
+          "与": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "历史唯物主义": {
+        "weight": 2,
+        "children": {
+          "以": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "实现": {
+        "weight": 4,
+        "children": {
+          "了": {
+            "weight": 2,
+            "children": {}
+          },
+          "全中国人民": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "是": {
+        "weight": 6,
+        "children": {
+          "无产阶级": {
+            "weight": 2,
+            "children": {}
+          },
+          "唯物辩证法": {
+            "weight": 4,
+            "children": {}
+          }
+        }
+      },
+      "物质": {
+        "weight": 2,
+        "children": {
+          "世界": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "意识": {
+        "weight": 4,
+        "children": {
+          "与": {
+            "weight": 2,
+            "children": {}
+          },
+          "活动": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "世界": {
+        "weight": 2,
+        "children": {
+          "是": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "联系": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "运动": {
+        "weight": 2,
+        "children": {
+          "与": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "事物": {
+        "weight": 2,
+        "children": {
+          "发展": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "矛盾": {
+        "weight": 2,
+        "children": {
+          "及其": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "主要矛盾": {
+        "weight": 2,
+        "children": {
+          "与": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "主要": {
+        "weight": 2,
+        "children": {
+          "方面": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "解决": {
+        "weight": 2,
+        "children": {
+          "矛盾": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "为了": {
+        "weight": 6,
+        "children": {
+          "实现": {
+            "weight": 4,
+            "children": {}
+          },
+          "之后": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "我们": {
+        "weight": 14,
+        "children": {
+          "必须": {
+            "weight": 6,
+            "children": {}
+          },
+          "不会": {
+            "weight": 2,
+            "children": {}
+          },
+          "渴望": {
+            "weight": 2,
+            "children": {}
+          },
+          "的": {
+            "weight": 2,
+            "children": {}
+          },
+          "应该": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "弘扬": {
+        "weight": 2,
+        "children": {
+          "中国": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "凝聚": {
+        "weight": 2,
+        "children": {
+          "中国": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "肩负": {
+        "weight": 2,
+        "children": {
+          "着": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "为": {
+        "weight": 4,
+        "children": {
+          "社会主义现代化建设": {
+            "weight": 2,
+            "children": {}
+          },
+          "国家": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "为人民服务": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "以": {
+        "weight": 2,
+        "children": {
+          "德": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "提高": {
+        "weight": 2,
+        "children": {
+          "教育": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "理解": {
+        "weight": 4,
+        "children": {
+          "中国": {
+            "weight": 4,
+            "children": {}
+          }
+        }
+      },
+      "使": {
+        "weight": 10,
+        "children": {
+          "教育": {
+            "weight": 2,
+            "children": {}
+          },
+          "大学生": {
+            "weight": 2,
+            "children": {}
+          },
+          "梦想": {
+            "weight": 2,
+            "children": {}
+          },
+          "时间": {
+            "weight": 4,
+            "children": {}
+          }
+        }
+      },
+      "你": {
+        "weight": 2,
+        "children": {
+          "必须": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "关于": {
+        "weight": 2,
+        "children": {
+          "它": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "不是": {
+        "weight": 4,
+        "children": {
+          "海市蜃楼": {
+            "weight": 2,
+            "children": {}
+          },
+          "一个": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "而是": {
+        "weight": 6,
+        "children": {
+          "一个": {
+            "weight": 2,
+            "children": {}
+          },
+          "深深": {
+            "weight": 2,
+            "children": {}
+          },
+          "我": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "从": {
+        "weight": 4,
+        "children": {
+          "现代": {
+            "weight": 2,
+            "children": {}
+          },
+          "秘书长": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "从中": {
+        "weight": 2,
+        "children": {
+          "国人": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "他": {
+        "weight": 2,
+        "children": {
+          "宣布": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "中国": {
+        "weight": 8,
+        "children": {
+          "梦": {
+            "weight": 2,
+            "children": {}
+          },
+          "所有的人": {
+            "weight": 2,
+            "children": {}
+          },
+          "成为": {
+            "weight": 2,
+            "children": {}
+          },
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "追寻": {
+        "weight": 2,
+        "children": {
+          "梦想": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "并": {
+        "weight": 6,
+        "children": {
+          "在": {
+            "weight": 2,
+            "children": {}
+          },
+          "克服": {
+            "weight": 2,
+            "children": {}
+          },
+          "给": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "不会": {
+        "weight": 2,
+        "children": {
+          "忘记": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "将": {
+        "weight": 2,
+        "children": {
+          "永远": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "那个": {
+        "weight": 2,
+        "children": {
+          "中国": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "坚持": {
+        "weight": 2,
+        "children": {
+          "道路": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "坚持改革开放": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "才能": {
+        "weight": 2,
+        "children": {
+          "伟大": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "我": {
+        "weight": 8,
+        "children": {
+          "看到": {
+            "weight": 2,
+            "children": {}
+          },
+          "的": {
+            "weight": 2,
+            "children": {}
+          },
+          "所有": {
+            "weight": 2,
+            "children": {}
+          },
+          "要": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "尤其是": {
+        "weight": 2,
+        "children": {
+          "缺乏": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "在": {
+        "weight": 6,
+        "children": {
+          "各个": {
+            "weight": 2,
+            "children": {}
+          },
+          "我": {
+            "weight": 4,
+            "children": {}
+          }
+        }
+      },
+      "但是": {
+        "weight": 2,
+        "children": {
+          "经过": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "每个人": {
+        "weight": 2,
+        "children": {
+          "都": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "谁": {
+        "weight": 2,
+        "children": {
+          "能否": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "多少": {
+        "weight": 4,
+        "children": {
+          "人": {
+            "weight": 2,
+            "children": {}
+          },
+          "优秀": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "血": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "寻找": {
+        "weight": 2,
+        "children": {
+          "未来": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "有了": {
+        "weight": 6,
+        "children": {
+          "先进": {
+            "weight": 4,
+            "children": {}
+          },
+          "它": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "想要": {
+        "weight": 2,
+        "children": {
+          "克服困难": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "促进": {
+        "weight": 2,
+        "children": {
+          "中国": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "振兴": {
+        "weight": 2,
+        "children": {
+          "生活": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "有能力": {
+        "weight": 2,
+        "children": {
+          "享受": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "对": {
+        "weight": 2,
+        "children": {
+          "他们": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "他们": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "而且": {
+        "weight": 2,
+        "children": {
+          "是": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "首先": {
+        "weight": 2,
+        "children": {
+          "我": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "只有": {
+        "weight": 2,
+        "children": {
+          "这样才能": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "与": {
+    "weight": 38,
+    "children": {
+      "唯心主义": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "物质": {
+        "weight": 4,
+        "children": {
+          "关系": {
+            "weight": 2,
+            "children": {}
+          },
+          "世界": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "辩证法": {
+        "weight": 2,
+        "children": {
+          "、": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "唯物辩证法": {
+        "weight": 2,
+        "children": {
+          "历史观": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "科学": {
+        "weight": 2,
+        "children": {
+          "相结合": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "人工智能": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "休息": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "现象": {
+        "weight": 2,
+        "children": {
+          "、": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "结果": {
+        "weight": 2,
+        "children": {
+          "、": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "偶然": {
+        "weight": 2,
+        "children": {
+          "、": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "现实": {
+        "weight": 2,
+        "children": {
+          "、": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "形而上学": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "实践": {
+        "weight": 2,
+        "children": {
+          "工作": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "斗争": {
+        "weight": 2,
+        "children": {
+          "及其": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "特殊性": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "非": {
+        "weight": 2,
+        "children": {
+          "主要矛盾": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "中国": {
+        "weight": 2,
+        "children": {
+          "梦": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "美国": {
+        "weight": 2,
+        "children": {
+          "梦": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "对立": {
+    "weight": 4,
+    "children": {
+      "。": {
+        "weight": 2,
+        "children": {
+          "唯物史观": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "、": {
+        "weight": 2,
+        "children": {
+          "唯物辩证法": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "唯物史观": {
+    "weight": 2,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "基本": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "观点": {
+    "weight": 6,
+    "children": {
+      "和": {
+        "weight": 4,
+        "children": {
+          "历史": {
+            "weight": 2,
+            "children": {}
+          },
+          "主要": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "来看": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "历史": {
+    "weight": 14,
+    "children": {
+      "形态": {
+        "weight": 2,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "长期": {
+        "weight": 2,
+        "children": {
+          "发展": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "。": {
+        "weight": 2,
+        "children": {
+          "党": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "的": {
+        "weight": 4,
+        "children": {
+          "、": {
+            "weight": 4,
+            "children": {}
+          }
+        }
+      },
+      "流": {
+        "weight": 2,
+        "children": {
+          "中": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "是": {
+        "weight": 2,
+        "children": {
+          "站得住脚": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "形态": {
+    "weight": 2,
+    "children": {
+      "。": {
+        "weight": 2,
+        "children": {
+          "理想主义": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "理想主义": {
+    "weight": 2,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "起源": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "起源": {
+    "weight": 4,
+    "children": {
+      "、": {
+        "weight": 2,
+        "children": {
+          "基本": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "，": {
+        "weight": 2,
+        "children": {
+          "理解": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "、": {
+    "weight": 42,
+    "children": {
+      "基本": {
+        "weight": 2,
+        "children": {
+          "观点": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "唯物辩证法": {
+        "weight": 6,
+        "children": {
+          "自然观": {
+            "weight": 2,
+            "children": {}
+          },
+          "与": {
+            "weight": 2,
+            "children": {}
+          },
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "普遍性": {
+        "weight": 2,
+        "children": {
+          "和": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "事物": {
+        "weight": 4,
+        "children": {
+          "发展": {
+            "weight": 4,
+            "children": {}
+          }
+        }
+      },
+      "原因": {
+        "weight": 2,
+        "children": {
+          "与": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "必然": {
+        "weight": 2,
+        "children": {
+          "与": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "可能性": {
+        "weight": 2,
+        "children": {
+          "与": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "对立统一": {
+        "weight": 2,
+        "children": {
+          "揭示": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "具体": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "现实": {
+        "weight": 4,
+        "children": {
+          "的": {
+            "weight": 4,
+            "children": {}
+          }
+        }
+      },
+      "客观": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "纯洁": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "高尚": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "抽象": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "未来": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "理论": {
+        "weight": 2,
+        "children": {
+          "自信": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "制度": {
+        "weight": 2,
+        "children": {
+          "自信": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "主要": {
+    "weight": 6,
+    "children": {
+      "形式": {
+        "weight": 2,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "表现形式": {
+        "weight": 2,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "方面": {
+        "weight": 2,
+        "children": {
+          "坚持": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "形式": {
+    "weight": 2,
+    "children": {
+      "。": {
+        "weight": 2,
+        "children": {
+          "马克思主义哲学": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "马克思主义哲学": {
+    "weight": 4,
+    "children": {
+      "是": {
+        "weight": 4,
+        "children": {
+          "辩证唯物主义": {
+            "weight": 2,
+            "children": {}
+          },
+          "一种": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "辩证唯物主义": {
+    "weight": 2,
+    "children": {
+      "和": {
+        "weight": 2,
+        "children": {
+          "哲学": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "历史唯物主义": {
+    "weight": 2,
+    "children": {
+      "以": {
+        "weight": 2,
+        "children": {
+          "实践": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "以": {
+    "weight": 6,
+    "children": {
+      "实践": {
+        "weight": 2,
+        "children": {
+          "为": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "德": {
+        "weight": 2,
+        "children": {
+          "为": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "“": {
+        "weight": 2,
+        "children": {
+          "中国": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "实践": {
+    "weight": 4,
+    "children": {
+      "为": {
+        "weight": 2,
+        "children": {
+          "考察": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "工作": {
+        "weight": 2,
+        "children": {
+          "中": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "为": {
+    "weight": 8,
+    "children": {
+      "考察": {
+        "weight": 2,
+        "children": {
+          "精神": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "社会主义现代化建设": {
+        "weight": 2,
+        "children": {
+          "服务": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "根本": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "国家": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "考察": {
+    "weight": 2,
+    "children": {
+      "精神": {
+        "weight": 2,
+        "children": {
+          "与": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "精神": {
+    "weight": 4,
+    "children": {
+      "与": {
+        "weight": 2,
+        "children": {
+          "物质": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "，": {
+        "weight": 2,
+        "children": {
+          "凝聚": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "物质": {
+    "weight": 8,
+    "children": {
+      "关系": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "范畴": {
+        "weight": 2,
+        "children": {
+          "与": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "世界": {
+        "weight": 4,
+        "children": {
+          "辩证统一": {
+            "weight": 2,
+            "children": {}
+          },
+          "是": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "关系": {
+    "weight": 8,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "基础": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "，": {
+        "weight": 2,
+        "children": {
+          "意识": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "、": {
+        "weight": 2,
+        "children": {
+          "事物": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "和": {
+        "weight": 2,
+        "children": {
+          "必然": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "基础": {
+    "weight": 4,
+    "children": {
+      "，": {
+        "weight": 4,
+        "children": {
+          "实现": {
+            "weight": 2,
+            "children": {}
+          },
+          "肩负": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "实现": {
+    "weight": 26,
+    "children": {
+      "了": {
+        "weight": 4,
+        "children": {
+          "唯物主义": {
+            "weight": 2,
+            "children": {}
+          },
+          "！": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "中国": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "是": {
+        "weight": 2,
+        "children": {
+          "大学生思想政治教育": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "梦想": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "中华民族": {
+        "weight": 6,
+        "children": {
+          "伟大": {
+            "weight": 2,
+            "children": {}
+          },
+          "的": {
+            "weight": 4,
+            "children": {}
+          }
+        }
+      },
+      "全中国人民": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "的": {
+        "weight": 2,
+        "children": {
+          "特征": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "，": {
+        "weight": 2,
+        "children": {
+          "中国": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "我们": {
+        "weight": 2,
+        "children": {
+          "中国": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "。": {
+        "weight": 2,
+        "children": {}
+      }
+    }
+  },
+  "了": {
+    "weight": 16,
+    "children": {
+      "唯物主义": {
+        "weight": 2,
+        "children": {
+          "与": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "实现": {
+        "weight": 2,
+        "children": {
+          "中华民族": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "各种": {
+        "weight": 4,
+        "children": {
+          "活动": {
+            "weight": 2,
+            "children": {}
+          },
+          "科研": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "成功": {
+        "weight": 2,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "！": {
+        "weight": 2,
+        "children": {
+          "我们": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "自动化": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "我": {
+        "weight": 2,
+        "children": {
+          "前进": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "辩证法": {
+    "weight": 2,
+    "children": {
+      "、": {
+        "weight": 2,
+        "children": {
+          "唯物辩证法": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "唯物辩证法": {
+    "weight": 14,
+    "children": {
+      "自然观": {
+        "weight": 2,
+        "children": {
+          "与": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "历史观": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "是": {
+        "weight": 2,
+        "children": {
+          "联系": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "与": {
+        "weight": 2,
+        "children": {
+          "形而上学": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "的": {
+        "weight": 6,
+        "children": {
+          "坚持": {
+            "weight": 2,
+            "children": {}
+          },
+          "现实": {
+            "weight": 2,
+            "children": {}
+          },
+          "本质": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "自然观": {
+    "weight": 2,
+    "children": {
+      "与": {
+        "weight": 2,
+        "children": {
+          "唯物辩证法": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "历史观": {
+    "weight": 2,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "高度": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "高度": {
+    "weight": 2,
+    "children": {
+      "统一": {
+        "weight": 2,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "统一": {
+    "weight": 6,
+    "children": {
+      "。": {
+        "weight": 2,
+        "children": {
+          "马克思主义哲学": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "在于": {
+        "weight": 2,
+        "children": {
+          "物质性": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "，": {
+        "weight": 2,
+        "children": {
+          "解决": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "一种": {
+    "weight": 4,
+    "children": {
+      "革命": {
+        "weight": 2,
+        "children": {
+          "与": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "生动": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "革命": {
+    "weight": 4,
+    "children": {
+      "与": {
+        "weight": 2,
+        "children": {
+          "科学": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "是": {
+        "weight": 2,
+        "children": {
+          "交换": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "科学": {
+    "weight": 8,
+    "children": {
+      "相结合": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "的": {
+        "weight": 2,
+        "children": {
+          "世界观": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "，": {
+        "weight": 2,
+        "children": {
+          "世界": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "生产": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "相结合": {
+    "weight": 2,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "哲学": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "无产阶级": {
+    "weight": 2,
+    "children": {
+      "。": {
+        "weight": 2,
+        "children": {
+          "科学": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "方法论": {
+    "weight": 2,
+    "children": {
+      "。": {
+        "weight": 2,
+        "children": {
+          "物质": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "范畴": {
+    "weight": 2,
+    "children": {
+      "与": {
+        "weight": 2,
+        "children": {
+          "物质": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "世界": {
+    "weight": 10,
+    "children": {
+      "辩证统一": {
+        "weight": 2,
+        "children": {
+          "观": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "的": {
+        "weight": 2,
+        "children": {
+          "统一": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "是": {
+        "weight": 6,
+        "children": {
+          "多样性": {
+            "weight": 2,
+            "children": {}
+          },
+          "普遍": {
+            "weight": 2,
+            "children": {}
+          },
+          "永恒": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "辩证统一": {
+    "weight": 2,
+    "children": {
+      "观": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "意义": {
+    "weight": 2,
+    "children": {
+      "。": {
+        "weight": 2,
+        "children": {
+          "世界": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "在于": {
+    "weight": 2,
+    "children": {
+      "物质性": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "物质性": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "物质": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "多样性": {
+    "weight": 4,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "统一体": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "。": {
+        "weight": 2,
+        "children": {
+          "事物": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "统一体": {
+    "weight": 2,
+    "children": {
+      "。": {
+        "weight": 2,
+        "children": {
+          "意识": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "意识": {
+    "weight": 6,
+    "children": {
+      "是": {
+        "weight": 2,
+        "children": {
+          "自然": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "与": {
+        "weight": 2,
+        "children": {
+          "人工智能": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "活动": {
+        "weight": 2,
+        "children": {
+          "及其": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "自然": {
+    "weight": 2,
+    "children": {
+      "和": {
+        "weight": 2,
+        "children": {
+          "社会": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "社会": {
+    "weight": 2,
+    "children": {
+      "历史": {
+        "weight": 2,
+        "children": {
+          "长期": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "长期": {
+    "weight": 2,
+    "children": {
+      "发展": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "发展": {
+    "weight": 28,
+    "children": {
+      "的": {
+        "weight": 22,
+        "children": {
+          "产物": {
+            "weight": 2,
+            "children": {}
+          },
+          "科学": {
+            "weight": 2,
+            "children": {}
+          },
+          "，": {
+            "weight": 2,
+            "children": {}
+          },
+          "规律性": {
+            "weight": 4,
+            "children": {}
+          },
+          "本质": {
+            "weight": 2,
+            "children": {}
+          },
+          "源泉": {
+            "weight": 4,
+            "children": {}
+          },
+          "原动力": {
+            "weight": 2,
+            "children": {}
+          },
+          "内外": {
+            "weight": 2,
+            "children": {}
+          },
+          "精确": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "中的": {
+        "weight": 2,
+        "children": {
+          "作用": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "来": {
+        "weight": 2,
+        "children": {
+          "分析": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "？": {
+        "weight": 2,
+        "children": {
+          "这不": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "产物": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "意识": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "人工智能": {
+    "weight": 2,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "关系": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "活动": {
+    "weight": 6,
+    "children": {
+      "及其": {
+        "weight": 2,
+        "children": {
+          "主要": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "贴近": {
+        "weight": 2,
+        "children": {
+          "大学生": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "。": {
+        "weight": 2,
+        "children": {
+          "这个": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "表现形式": {
+    "weight": 2,
+    "children": {
+      "。": {
+        "weight": 2,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "联系": {
+    "weight": 8,
+    "children": {
+      "和": {
+        "weight": 2,
+        "children": {
+          "发展": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "的": {
+        "weight": 4,
+        "children": {
+          "整体": {
+            "weight": 2,
+            "children": {}
+          },
+          "客观性": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "中": {
+        "weight": 2,
+        "children": {
+          "把握": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "普遍": {
+    "weight": 2,
+    "children": {
+      "联系": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "整体": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "联系": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "客观性": {
+    "weight": 2,
+    "children": {
+      "、": {
+        "weight": 2,
+        "children": {
+          "普遍性": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "普遍性": {
+    "weight": 4,
+    "children": {
+      "和": {
+        "weight": 2,
+        "children": {
+          "多样性": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "与": {
+        "weight": 2,
+        "children": {
+          "特殊性": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "事物": {
+    "weight": 16,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "本质": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "发展": {
+        "weight": 14,
+        "children": {
+          "的": {
+            "weight": 12,
+            "children": {}
+          },
+          "中的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "本质": {
+    "weight": 8,
+    "children": {
+      "和": {
+        "weight": 4,
+        "children": {
+          "功能": {
+            "weight": 2,
+            "children": {}
+          },
+          "核心": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "关系": {
+        "weight": 2,
+        "children": {
+          "和": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "与": {
+        "weight": 2,
+        "children": {
+          "现象": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "功能": {
+    "weight": 2,
+    "children": {
+      "是": {
+        "weight": 2,
+        "children": {
+          "从": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "从": {
+    "weight": 8,
+    "children": {
+      "一般": {
+        "weight": 2,
+        "children": {
+          "联系": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "现代": {
+        "weight": 2,
+        "children": {
+          "中国": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "秘书长": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "第一": {
+        "weight": 2,
+        "children": {
+          "颗": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "一般": {
+    "weight": 2,
+    "children": {
+      "联系": {
+        "weight": 2,
+        "children": {
+          "中": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "中": {
+    "weight": 14,
+    "children": {
+      "把握": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "对": {
+        "weight": 2,
+        "children": {
+          "形而上学": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "。": {
+        "weight": 4,
+        "children": {
+          "”": {
+            "weight": 2,
+            "children": {}
+          },
+          "数以百万计": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "种植": {
+        "weight": 2,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "有": {
+        "weight": 2,
+        "children": {
+          "很多": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "我": {
+        "weight": 2,
+        "children": {
+          "要": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "把握": {
+    "weight": 2,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "永恒": {
+    "weight": 2,
+    "children": {
+      "发展": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "运动": {
+    "weight": 2,
+    "children": {
+      "与": {
+        "weight": 2,
+        "children": {
+          "休息": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "休息": {
+    "weight": 2,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "关系": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "规律性": {
+    "weight": 4,
+    "children": {
+      "、": {
+        "weight": 2,
+        "children": {
+          "事物": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "是": {
+        "weight": 2,
+        "children": {
+          "客观": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "客观": {
+    "weight": 4,
+    "children": {
+      "事物": {
+        "weight": 2,
+        "children": {
+          "发展": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "的": {
+        "weight": 2,
+        "children": {
+          "、": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "必然": {
+    "weight": 4,
+    "children": {
+      "趋势": {
+        "weight": 2,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "与": {
+        "weight": 2,
+        "children": {
+          "偶然": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "趋势": {
+    "weight": 2,
+    "children": {
+      "。": {
+        "weight": 2,
+        "children": {
+          "论": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "论": {
+    "weight": 2,
+    "children": {
+      "本质": {
+        "weight": 2,
+        "children": {
+          "与": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "现象": {
+    "weight": 2,
+    "children": {
+      "、": {
+        "weight": 2,
+        "children": {
+          "原因": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "原因": {
+    "weight": 2,
+    "children": {
+      "与": {
+        "weight": 2,
+        "children": {
+          "结果": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "结果": {
+    "weight": 2,
+    "children": {
+      "、": {
+        "weight": 2,
+        "children": {
+          "必然": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "偶然": {
+    "weight": 2,
+    "children": {
+      "、": {
+        "weight": 2,
+        "children": {
+          "可能性": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "可能性": {
+    "weight": 2,
+    "children": {
+      "与": {
+        "weight": 2,
+        "children": {
+          "现实": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "现实": {
+    "weight": 8,
+    "children": {
+      "、": {
+        "weight": 2,
+        "children": {
+          "唯物辩证法": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "。": {
+        "weight": 2,
+        "children": {
+          "对立统一规律": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "的": {
+        "weight": 4,
+        "children": {
+          "、": {
+            "weight": 4,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "形而上学": {
+    "weight": 4,
+    "children": {
+      "的": {
+        "weight": 4,
+        "children": {
+          "对立": {
+            "weight": 2,
+            "children": {}
+          },
+          "预防": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "坚持": {
+    "weight": 8,
+    "children": {
+      "与": {
+        "weight": 2,
+        "children": {
+          "实践": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "“": {
+        "weight": 2,
+        "children": {
+          "两个": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "中国": {
+        "weight": 2,
+        "children": {
+          "道路": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "道路": {
+        "weight": 2,
+        "children": {
+          "自信": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "工作": {
+    "weight": 4,
+    "children": {
+      "中": {
+        "weight": 2,
+        "children": {
+          "对": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "和": {
+        "weight": 2,
+        "children": {
+          "任务": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "对": {
+    "weight": 4,
+    "children": {
+      "形而上学": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "他们": {
+        "weight": 2,
+        "children": {
+          "有": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "预防": {
+    "weight": 2,
+    "children": {
+      "、": {
+        "weight": 2,
+        "children": {
+          "对立统一": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "对立统一": {
+    "weight": 2,
+    "children": {
+      "揭示": {
+        "weight": 2,
+        "children": {
+          "事物": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "揭示": {
+    "weight": 4,
+    "children": {
+      "事物": {
+        "weight": 2,
+        "children": {
+          "发展": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "了事": {
+        "weight": 2,
+        "children": {
+          "物": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "源泉": {
+    "weight": 4,
+    "children": {
+      "和": {
+        "weight": 4,
+        "children": {
+          "动力": {
+            "weight": 4,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "动力": {
+    "weight": 6,
+    "children": {
+      "，": {
+        "weight": 4,
+        "children": {
+          "是": {
+            "weight": 4,
+            "children": {}
+          }
+        }
+      },
+      "。": {
+        "weight": 2,
+        "children": {
+          "有了": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "对立统一规律": {
+    "weight": 2,
+    "children": {
+      "揭示": {
+        "weight": 2,
+        "children": {
+          "了事": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "了事": {
+    "weight": 2,
+    "children": {
+      "物": {
+        "weight": 2,
+        "children": {
+          "发展": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "物": {
+    "weight": 2,
+    "children": {
+      "发展": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "核心": {
+    "weight": 2,
+    "children": {
+      "。": {
+        "weight": 2,
+        "children": {
+          "矛盾": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "矛盾": {
+    "weight": 8,
+    "children": {
+      "是": {
+        "weight": 2,
+        "children": {
+          "事物": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "的": {
+        "weight": 2,
+        "children": {
+          "同一": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "及其": {
+        "weight": 2,
+        "children": {
+          "相互关系": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "和": {
+        "weight": 2,
+        "children": {
+          "非": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "原动力": {
+    "weight": 2,
+    "children": {
+      "。": {
+        "weight": 2,
+        "children": {
+          "矛盾": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "同一": {
+    "weight": 2,
+    "children": {
+      "与": {
+        "weight": 2,
+        "children": {
+          "斗争": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "斗争": {
+    "weight": 4,
+    "children": {
+      "及其": {
+        "weight": 2,
+        "children": {
+          "在": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "，": {
+        "weight": 2,
+        "children": {
+          "我": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "在": {
+    "weight": 32,
+    "children": {
+      "事物": {
+        "weight": 2,
+        "children": {
+          "发展": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "伟大": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "讨论": {
+        "weight": 2,
+        "children": {
+          "中国": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "中国": {
+        "weight": 6,
+        "children": {
+          "大地": {
+            "weight": 2,
+            "children": {}
+          },
+          "谱写": {
+            "weight": 2,
+            "children": {}
+          },
+          "不断": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "各地": {
+        "weight": 2,
+        "children": {
+          "以": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "我们": {
+        "weight": 4,
+        "children": {
+          "心中": {
+            "weight": 2,
+            "children": {}
+          },
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "中国共产党": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "各个": {
+        "weight": 2,
+        "children": {
+          "环节": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "中国人": {
+        "weight": 2,
+        "children": {
+          "渴望": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "精神上": {
+        "weight": 2,
+        "children": {
+          "满足": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "我": {
+        "weight": 4,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          },
+          "学习": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "我想": {
+        "weight": 2,
+        "children": {
+          "要": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "中的": {
+    "weight": 2,
+    "children": {
+      "作用": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "作用": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "事物": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "内外": {
+    "weight": 2,
+    "children": {
+      "因": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "因": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "矛盾": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "相互关系": {
+    "weight": 2,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "普遍性": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "特殊性": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "主要矛盾": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "主要矛盾": {
+    "weight": 6,
+    "children": {
+      "与": {
+        "weight": 2,
+        "children": {
+          "非": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "，": {
+        "weight": 2,
+        "children": {
+          "主要": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "。": {
+        "weight": 2,
+        "children": {
+          "马克思主义": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "非": {
+    "weight": 4,
+    "children": {
+      "主要矛盾": {
+        "weight": 4,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          },
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "方面": {
+    "weight": 2,
+    "children": {
+      "坚持": {
+        "weight": 2,
+        "children": {
+          "“": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "“": {
+    "weight": 12,
+    "children": {
+      "两个": {
+        "weight": 2,
+        "children": {
+          "理论": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "关键": {
+        "weight": 2,
+        "children": {
+          "理论": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "党": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "中国": {
+        "weight": 4,
+        "children": {
+          "梦": {
+            "weight": 4,
+            "children": {}
+          }
+        }
+      },
+      "中等": {
+        "weight": 2,
+        "children": {
+          "制造": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "两个": {
+    "weight": 2,
+    "children": {
+      "理论": {
+        "weight": 2,
+        "children": {
+          "”": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "理论": {
+    "weight": 6,
+    "children": {
+      "”": {
+        "weight": 4,
+        "children": {
+          "和": {
+            "weight": 2,
+            "children": {}
+          },
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "自信": {
+        "weight": 2,
+        "children": {
+          "、": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "”": {
+    "weight": 14,
+    "children": {
+      "和": {
+        "weight": 2,
+        "children": {
+          "“": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "的": {
+        "weight": 2,
+        "children": {
+          "统一": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "中国": {
+        "weight": 2,
+        "children": {
+          "梦": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "它": {
+        "weight": 2,
+        "children": {
+          "植根": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "为主": {
+        "weight": 2,
+        "children": {
+          "题": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "。": {
+        "weight": 2,
+        "children": {
+          "只有": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "国家": {
+        "weight": 2,
+        "children": {
+          "实现": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "关键": {
+    "weight": 2,
+    "children": {
+      "理论": {
+        "weight": 2,
+        "children": {
+          "”": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "解决": {
+    "weight": 2,
+    "children": {
+      "矛盾": {
+        "weight": 2,
+        "children": {
+          "和": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "中国": {
+    "weight": 72,
+    "children": {
+      "梦": {
+        "weight": 32,
+        "children": {
+          "，": {
+            "weight": 6,
+            "children": {}
+          },
+          "的": {
+            "weight": 10,
+            "children": {}
+          },
+          "教育": {
+            "weight": 2,
+            "children": {}
+          },
+          "实现": {
+            "weight": 2,
+            "children": {}
+          },
+          "的话": {
+            "weight": 2,
+            "children": {}
+          },
+          "”": {
+            "weight": 2,
+            "children": {}
+          },
+          "是": {
+            "weight": 2,
+            "children": {}
+          },
+          "。": {
+            "weight": 2,
+            "children": {}
+          },
+          "是什么": {
+            "weight": 2,
+            "children": {}
+          },
+          "做": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "的": {
+        "weight": 16,
+        "children": {
+          "梦想": {
+            "weight": 12,
+            "children": {}
+          },
+          "力量": {
+            "weight": 2,
+            "children": {}
+          },
+          "发展": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "道路": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "精神": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "百年": {
+        "weight": 2,
+        "children": {
+          "梦想": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "大地": {
+        "weight": 2,
+        "children": {
+          "上": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "所有的人": {
+        "weight": 2,
+        "children": {
+          "都": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "谱写": {
+        "weight": 2,
+        "children": {
+          "一个": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "强大": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "成为": {
+        "weight": 2,
+        "children": {
+          "海上": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "自动化": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "不断": {
+        "weight": 2,
+        "children": {
+          "追求": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "梦想": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "梦中": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "梦": {
+    "weight": 40,
+    "children": {
+      "，": {
+        "weight": 8,
+        "children": {
+          "为了": {
+            "weight": 2,
+            "children": {}
+          },
+          "他": {
+            "weight": 2,
+            "children": {}
+          },
+          "那个": {
+            "weight": 2,
+            "children": {}
+          },
+          "中国": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "的": {
+        "weight": 10,
+        "children": {
+          "实现": {
+            "weight": 4,
+            "children": {}
+          },
+          "起源": {
+            "weight": 2,
+            "children": {}
+          },
+          "含义": {
+            "weight": 2,
+            "children": {}
+          },
+          "之前": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "教育": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "密切": {
+        "weight": 2,
+        "children": {
+          "相关": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "实现": {
+        "weight": 2,
+        "children": {
+          "中华民族": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "的话": {
+        "weight": 2,
+        "children": {
+          "题": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "”": {
+        "weight": 2,
+        "children": {
+          "为主": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "。": {
+        "weight": 6,
+        "children": {
+          "中国近代史": {
+            "weight": 2,
+            "children": {}
+          },
+          "习": {
+            "weight": 2,
+            "children": {}
+          },
+          "那么": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "是": {
+        "weight": 2,
+        "children": {
+          "历史": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "是什么": {
+        "weight": 2,
+        "children": {
+          "呢": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "做": {
+        "weight": 2,
+        "children": {
+          "一些": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "为了": {
+    "weight": 6,
+    "children": {
+      "实现": {
+        "weight": 4,
+        "children": {
+          "中国": {
+            "weight": 2,
+            "children": {}
+          },
+          "梦想": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "之后": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "梦想": {
+    "weight": 46,
+    "children": {
+      "，": {
+        "weight": 18,
+        "children": {
+          "我们": {
+            "weight": 4,
+            "children": {}
+          },
+          "为了": {
+            "weight": 2,
+            "children": {}
+          },
+          "你": {
+            "weight": 2,
+            "children": {}
+          },
+          "从": {
+            "weight": 2,
+            "children": {}
+          },
+          "中国": {
+            "weight": 2,
+            "children": {}
+          },
+          "而是": {
+            "weight": 2,
+            "children": {}
+          },
+          "并": {
+            "weight": 2,
+            "children": {}
+          },
+          "振兴": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "。": {
+        "weight": 8,
+        "children": {
+          "中国": {
+            "weight": 4,
+            "children": {}
+          },
+          "这是": {
+            "weight": 2,
+            "children": {}
+          },
+          "每个人": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "是": {
+        "weight": 6,
+        "children": {
+          "历史": {
+            "weight": 2,
+            "children": {}
+          },
+          "在": {
+            "weight": 2,
+            "children": {}
+          },
+          "创造": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "的": {
+        "weight": 6,
+        "children": {
+          "时代": {
+            "weight": 2,
+            "children": {}
+          },
+          "旅程": {
+            "weight": 2,
+            "children": {}
+          },
+          "实现": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "着": {
+        "weight": 2,
+        "children": {
+          "在": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "很": {
+        "weight": 2,
+        "children": {
+          "遥远": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "就是": {
+        "weight": 2,
+        "children": {
+          "所有": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "空虚": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "我们": {
+    "weight": 26,
+    "children": {
+      "必须": {
+        "weight": 6,
+        "children": {
+          "坚持": {
+            "weight": 2,
+            "children": {}
+          },
+          "从中": {
+            "weight": 2,
+            "children": {}
+          },
+          "享受": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "国家": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "不会": {
+        "weight": 2,
+        "children": {
+          "忘记": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "心中": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "渴望": {
+        "weight": 2,
+        "children": {
+          "我们": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "的": {
+        "weight": 6,
+        "children": {
+          "中国": {
+            "weight": 4,
+            "children": {}
+          },
+          "国家": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "都": {
+        "weight": 2,
+        "children": {
+          "希望": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "应该": {
+        "weight": 2,
+        "children": {
+          "每个人": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "中国": {
+        "weight": 2,
+        "children": {
+          "梦": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "必须": {
+    "weight": 8,
+    "children": {
+      "坚持": {
+        "weight": 2,
+        "children": {
+          "中国": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "减少": {
+        "weight": 2,
+        "children": {
+          "你": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "从中": {
+        "weight": 2,
+        "children": {
+          "国人": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "享受": {
+        "weight": 2,
+        "children": {
+          "这个": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "道路": {
+    "weight": 6,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "弘扬": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "自信": {
+        "weight": 2,
+        "children": {
+          "、": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "明亮": {
+        "weight": 2,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "弘扬": {
+    "weight": 2,
+    "children": {
+      "中国": {
+        "weight": 2,
+        "children": {
+          "精神": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "凝聚": {
+    "weight": 2,
+    "children": {
+      "中国": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "力量": {
+    "weight": 4,
+    "children": {
+      "。": {
+        "weight": 2,
+        "children": {
+          "教育": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "在": {
+        "weight": 2,
+        "children": {
+          "中国人": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "教育": {
+    "weight": 12,
+    "children": {
+      "是": {
+        "weight": 2,
+        "children": {
+          "国家": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "政策": {
+        "weight": 2,
+        "children": {
+          "要": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "使命": {
+        "weight": 2,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "，": {
+        "weight": 2,
+        "children": {
+          "提高": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "实效": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "活动": {
+        "weight": 2,
+        "children": {
+          "贴近": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "国家": {
+    "weight": 16,
+    "children": {
+      "进步": {
+        "weight": 2,
+        "children": {
+          "和": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "能够": {
+        "weight": 2,
+        "children": {
+          "唤起": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "的": {
+        "weight": 6,
+        "children": {
+          "历史事件": {
+            "weight": 2,
+            "children": {}
+          },
+          "中国": {
+            "weight": 4,
+            "children": {}
+          }
+        }
+      },
+      "实现": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "和": {
+        "weight": 2,
+        "children": {
+          "强大": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "耽搁": {
+        "weight": 2,
+        "children": {
+          "和": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "进步": {
+    "weight": 2,
+    "children": {
+      "和": {
+        "weight": 2,
+        "children": {
+          "社会进步": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "社会进步": {
+    "weight": 2,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "基础": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "肩负": {
+    "weight": 2,
+    "children": {
+      "着": {
+        "weight": 2,
+        "children": {
+          "社会主义建设": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "着": {
+    "weight": 4,
+    "children": {
+      "社会主义建设": {
+        "weight": 2,
+        "children": {
+          "者": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "在": {
+        "weight": 2,
+        "children": {
+          "中国": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "社会主义建设": {
+    "weight": 2,
+    "children": {
+      "者": {
+        "weight": 2,
+        "children": {
+          "和": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "者": {
+    "weight": 2,
+    "children": {
+      "和": {
+        "weight": 2,
+        "children": {
+          "德性": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "德性": {
+    "weight": 2,
+    "children": {
+      "美": {
+        "weight": 2,
+        "children": {
+          "全面发展": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "美": {
+    "weight": 2,
+    "children": {
+      "全面发展": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "全面发展": {
+    "weight": 2,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "继承者": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "继承者": {
+    "weight": 2,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "历史": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "党": {
+    "weight": 4,
+    "children": {
+      "的": {
+        "weight": 4,
+        "children": {
+          "十八": {
+            "weight": 2,
+            "children": {}
+          },
+          "教育": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "十八": {
+    "weight": 2,
+    "children": {
+      "位": {
+        "weight": 2,
+        "children": {
+          "领导人": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "位": {
+    "weight": 2,
+    "children": {
+      "领导人": {
+        "weight": 2,
+        "children": {
+          "强调": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "领导人": {
+    "weight": 2,
+    "children": {
+      "强调": {
+        "weight": 2,
+        "children": {
+          "：": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "强调": {
+    "weight": 2,
+    "children": {
+      "：": {
+        "weight": 2,
+        "children": {
+          "“": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "：": {
+    "weight": 2,
+    "children": {
+      "“": {
+        "weight": 2,
+        "children": {
+          "党": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "政策": {
+    "weight": 2,
+    "children": {
+      "要": {
+        "weight": 2,
+        "children": {
+          "充分": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "要": {
+    "weight": 8,
+    "children": {
+      "充分": {
+        "weight": 2,
+        "children": {
+          "渗透": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "更加": {
+        "weight": 2,
+        "children": {
+          "地": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "实现": {
+        "weight": 2,
+        "children": {
+          "我们": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "提高": {
+        "weight": 2,
+        "children": {
+          "自己": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "充分": {
+    "weight": 2,
+    "children": {
+      "渗透": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "渗透": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "为": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "社会主义现代化建设": {
+    "weight": 2,
+    "children": {
+      "服务": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "服务": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "为人民服务": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "为人民服务": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "以": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "德": {
+    "weight": 2,
+    "children": {
+      "为": {
+        "weight": 2,
+        "children": {
+          "根本": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "根本": {
+    "weight": 2,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "教育": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "使命": {
+    "weight": 2,
+    "children": {
+      "。": {
+        "weight": 2,
+        "children": {
+          "”": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "大学生思想政治教育": {
+    "weight": 2,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "重要内容": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "重要内容": {
+    "weight": 2,
+    "children": {
+      "。": {
+        "weight": 2,
+        "children": {
+          "加强": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "加强": {
+    "weight": 2,
+    "children": {
+      "中国": {
+        "weight": 2,
+        "children": {
+          "梦": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "提高": {
+    "weight": 4,
+    "children": {
+      "教育": {
+        "weight": 2,
+        "children": {
+          "实效": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "自己": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "实效": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "理解": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "理解": {
+    "weight": 4,
+    "children": {
+      "中国": {
+        "weight": 4,
+        "children": {
+          "梦": {
+            "weight": 4,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "含义": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "使": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "使": {
+    "weight": 10,
+    "children": {
+      "教育": {
+        "weight": 2,
+        "children": {
+          "活动": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "大学生": {
+        "weight": 2,
+        "children": {
+          "感受到": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "梦想": {
+        "weight": 2,
+        "children": {
+          "空虚": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "时间": {
+        "weight": 4,
+        "children": {
+          "空虚": {
+            "weight": 2,
+            "children": {}
+          },
+          "想象": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "贴近": {
+    "weight": 2,
+    "children": {
+      "大学生": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "大学生": {
+    "weight": 6,
+    "children": {
+      "，": {
+        "weight": 4,
+        "children": {
+          "使": {
+            "weight": 2,
+            "children": {}
+          },
+          "我": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "感受到": {
+        "weight": 2,
+        "children": {
+          "与": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "感受到": {
+    "weight": 2,
+    "children": {
+      "与": {
+        "weight": 2,
+        "children": {
+          "美国": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "美国": {
+    "weight": 2,
+    "children": {
+      "梦": {
+        "weight": 2,
+        "children": {
+          "密切": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "密切": {
+    "weight": 2,
+    "children": {
+      "相关": {
+        "weight": 2,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "相关": {
+    "weight": 2,
+    "children": {
+      "。": {
+        "weight": 2,
+        "children": {
+          "中国": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "你": {
+    "weight": 4,
+    "children": {
+      "必须": {
+        "weight": 2,
+        "children": {
+          "减少": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "的": {
+        "weight": 2,
+        "children": {
+          "梦想": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "减少": {
+    "weight": 2,
+    "children": {
+      "你": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "具体": {
+    "weight": 2,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "、": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "纯洁": {
+    "weight": 2,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "、": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "高尚": {
+    "weight": 2,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "关于": {
+    "weight": 2,
+    "children": {
+      "它": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "它": {
+    "weight": 12,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "价值": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "植根": {
+        "weight": 2,
+        "children": {
+          "于": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "，": {
+        "weight": 6,
+        "children": {
+          "从": {
+            "weight": 2,
+            "children": {}
+          },
+          "从中": {
+            "weight": 2,
+            "children": {}
+          },
+          "想要": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "。": {
+        "weight": 2,
+        "children": {
+          "中国": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "价值": {
+    "weight": 2,
+    "children": {
+      "和": {
+        "weight": 2,
+        "children": {
+          "包含": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "包含": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "不是": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "不是": {
+    "weight": 4,
+    "children": {
+      "海市蜃楼": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "一个": {
+        "weight": 2,
+        "children": {
+          "空洞": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "海市蜃楼": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "而是": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "而是": {
+    "weight": 6,
+    "children": {
+      "一个": {
+        "weight": 2,
+        "children": {
+          "空洞": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "深深": {
+        "weight": 2,
+        "children": {
+          "扎根": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "我": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "一个": {
+    "weight": 8,
+    "children": {
+      "空洞": {
+        "weight": 4,
+        "children": {
+          "、": {
+            "weight": 2,
+            "children": {}
+          },
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "梦": {
+        "weight": 2,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "强大": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "空洞": {
+    "weight": 6,
+    "children": {
+      "、": {
+        "weight": 2,
+        "children": {
+          "抽象": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "，": {
+        "weight": 4,
+        "children": {
+          "不是": {
+            "weight": 2,
+            "children": {}
+          },
+          "而是": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "抽象": {
+    "weight": 2,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "空洞": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "深深": {
+    "weight": 2,
+    "children": {
+      "扎根": {
+        "weight": 2,
+        "children": {
+          "于": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "扎根": {
+    "weight": 2,
+    "children": {
+      "于": {
+        "weight": 2,
+        "children": {
+          "历史": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "于": {
+    "weight": 6,
+    "children": {
+      "历史": {
+        "weight": 2,
+        "children": {
+          "流": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "一种": {
+        "weight": 2,
+        "children": {
+          "生动": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "设备": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "流": {
+    "weight": 2,
+    "children": {
+      "中": {
+        "weight": 2,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "植根": {
+    "weight": 2,
+    "children": {
+      "于": {
+        "weight": 2,
+        "children": {
+          "一种": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "生动": {
+    "weight": 2,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "社会实践": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "社会实践": {
+    "weight": 2,
+    "children": {
+      "中": {
+        "weight": 2,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "数以百万计": {
+    "weight": 2,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "人": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "人": {
+    "weight": 6,
+    "children": {
+      "在": {
+        "weight": 4,
+        "children": {
+          "伟大": {
+            "weight": 2,
+            "children": {}
+          },
+          "精神上": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "被": {
+        "weight": 2,
+        "children": {
+          "这个": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "伟大": {
+    "weight": 12,
+    "children": {
+      "的": {
+        "weight": 4,
+        "children": {
+          "创造": {
+            "weight": 2,
+            "children": {}
+          },
+          "梦想": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "复兴": {
+        "weight": 6,
+        "children": {
+          "的": {
+            "weight": 4,
+            "children": {}
+          },
+          "时": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "。": {
+        "weight": 2,
+        "children": {
+          "实现": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "创造": {
+    "weight": 4,
+    "children": {
+      "中": {
+        "weight": 2,
+        "children": {
+          "种植": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "梦想": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "种植": {
+    "weight": 2,
+    "children": {
+      "。": {
+        "weight": 2,
+        "children": {
+          "因此": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "因此": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "我们": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "从中": {
+    "weight": 4,
+    "children": {
+      "国人": {
+        "weight": 4,
+        "children": {
+          "民": {
+            "weight": 2,
+            "children": {}
+          },
+          "口": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "国人": {
+    "weight": 4,
+    "children": {
+      "民": {
+        "weight": 2,
+        "children": {
+          "和": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "口": {
+        "weight": 2,
+        "children": {
+          "最多": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "民": {
+    "weight": 2,
+    "children": {
+      "和": {
+        "weight": 2,
+        "children": {
+          "中国人民": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "中国人民": {
+    "weight": 2,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "未来": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "未来": {
+    "weight": 6,
+    "children": {
+      "命运": {
+        "weight": 2,
+        "children": {
+          "来": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "的": {
+        "weight": 4,
+        "children": {
+          "”": {
+            "weight": 2,
+            "children": {}
+          },
+          "梦想": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "命运": {
+    "weight": 2,
+    "children": {
+      "来": {
+        "weight": 2,
+        "children": {
+          "分析": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "来": {
+    "weight": 6,
+    "children": {
+      "分析": {
+        "weight": 6,
+        "children": {
+          "它": {
+            "weight": 6,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "分析": {
+    "weight": 6,
+    "children": {
+      "它": {
+        "weight": 6,
+        "children": {
+          "，": {
+            "weight": 4,
+            "children": {}
+          },
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "现代": {
+    "weight": 4,
+    "children": {
+      "中国": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "以来": {
+        "weight": 2,
+        "children": {
+          "最": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "口": {
+    "weight": 2,
+    "children": {
+      "最多": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "最多": {
+    "weight": 2,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "根本利益": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "根本利益": {
+    "weight": 2,
+    "children": {
+      "来": {
+        "weight": 2,
+        "children": {
+          "分析": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "百年": {
+    "weight": 2,
+    "children": {
+      "梦想": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "时代": {
+    "weight": 2,
+    "children": {
+      "是": {
+        "weight": 2,
+        "children": {
+          "中华民族": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "中华民族": {
+    "weight": 10,
+    "children": {
+      "伟大": {
+        "weight": 4,
+        "children": {
+          "复兴": {
+            "weight": 4,
+            "children": {}
+          }
+        }
+      },
+      "是": {
+        "weight": 2,
+        "children": {
+          "现代": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "的": {
+        "weight": 4,
+        "children": {
+          "伟大": {
+            "weight": 2,
+            "children": {}
+          },
+          "复兴": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "复兴": {
+    "weight": 8,
+    "children": {
+      "的": {
+        "weight": 4,
+        "children": {
+          "日子": {
+            "weight": 2,
+            "children": {}
+          },
+          "梦想": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "时": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "，": {
+        "weight": 2,
+        "children": {
+          "实现": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "日子": {
+    "weight": 2,
+    "children": {
+      "。": {
+        "weight": 2,
+        "children": {
+          "现在": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "现在": {
+    "weight": 2,
+    "children": {
+      "每个人": {
+        "weight": 2,
+        "children": {
+          "都": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "每个人": {
+    "weight": 8,
+    "children": {
+      "都": {
+        "weight": 6,
+        "children": {
+          "在": {
+            "weight": 2,
+            "children": {}
+          },
+          "从": {
+            "weight": 2,
+            "children": {}
+          },
+          "去": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "心中": {
+        "weight": 2,
+        "children": {
+          "都": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "都": {
+    "weight": 14,
+    "children": {
+      "在": {
+        "weight": 2,
+        "children": {
+          "讨论": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "有": {
+        "weight": 2,
+        "children": {
+          "自己": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "梦想": {
+        "weight": 2,
+        "children": {
+          "着": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "取得": {
+        "weight": 2,
+        "children": {
+          "了": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "从": {
+        "weight": 2,
+        "children": {
+          "第一": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "希望": {
+        "weight": 2,
+        "children": {
+          "有": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "去": {
+        "weight": 2,
+        "children": {
+          "努力": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "讨论": {
+    "weight": 4,
+    "children": {
+      "中国": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "，": {
+        "weight": 2,
+        "children": {
+          "追寻": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "这是": {
+    "weight": 2,
+    "children": {
+      "全国人民": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "全国人民": {
+    "weight": 2,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "中国": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "他": {
+    "weight": 2,
+    "children": {
+      "宣布": {
+        "weight": 2,
+        "children": {
+          "了": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "宣布": {
+    "weight": 2,
+    "children": {
+      "了": {
+        "weight": 2,
+        "children": {
+          "实现": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "秘书长": {
+    "weight": 2,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "口中": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "口中": {
+    "weight": 2,
+    "children": {
+      "到": {
+        "weight": 2,
+        "children": {
+          "中华民族": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "到": {
+    "weight": 4,
+    "children": {
+      "中华民族": {
+        "weight": 2,
+        "children": {
+          "是": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "今天": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "以来": {
+    "weight": 2,
+    "children": {
+      "最": {
+        "weight": 2,
+        "children": {
+          "伟大": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "最": {
+    "weight": 2,
+    "children": {
+      "伟大": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "时": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "中国": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "的话": {
+    "weight": 2,
+    "children": {
+      "题": {
+        "weight": 2,
+        "children": {
+          "被": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "题": {
+    "weight": 4,
+    "children": {
+      "被": {
+        "weight": 2,
+        "children": {
+          "广泛": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "开展": {
+        "weight": 2,
+        "children": {
+          "了": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "被": {
+    "weight": 4,
+    "children": {
+      "广泛": {
+        "weight": 2,
+        "children": {
+          "讨论": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "这个": {
+        "weight": 2,
+        "children": {
+          "强大": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "广泛": {
+    "weight": 2,
+    "children": {
+      "讨论": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "追寻": {
+    "weight": 2,
+    "children": {
+      "梦想": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "旅程": {
+    "weight": 2,
+    "children": {
+      "在": {
+        "weight": 2,
+        "children": {
+          "中国": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "大地": {
+    "weight": 2,
+    "children": {
+      "上": {
+        "weight": 2,
+        "children": {
+          "展开": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "上": {
+    "weight": 2,
+    "children": {
+      "展开": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "展开": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "并": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "并": {
+    "weight": 6,
+    "children": {
+      "在": {
+        "weight": 2,
+        "children": {
+          "各地": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "克服": {
+        "weight": 2,
+        "children": {
+          "了": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "给": {
+        "weight": 2,
+        "children": {
+          "了": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "各地": {
+    "weight": 2,
+    "children": {
+      "以": {
+        "weight": 2,
+        "children": {
+          "“": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "为主": {
+    "weight": 2,
+    "children": {
+      "题": {
+        "weight": 2,
+        "children": {
+          "开展": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "开展": {
+    "weight": 2,
+    "children": {
+      "了": {
+        "weight": 2,
+        "children": {
+          "各种": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "各种": {
+    "weight": 4,
+    "children": {
+      "活动": {
+        "weight": 2,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "科研": {
+        "weight": 2,
+        "children": {
+          "挑战": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "这个": {
+    "weight": 8,
+    "children": {
+      "国家": {
+        "weight": 2,
+        "children": {
+          "能够": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "梦想": {
+        "weight": 2,
+        "children": {
+          "很": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "强大": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "过程": {
+        "weight": 2,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "能够": {
+    "weight": 2,
+    "children": {
+      "唤起": {
+        "weight": 2,
+        "children": {
+          "人民": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "唤起": {
+    "weight": 2,
+    "children": {
+      "人民": {
+        "weight": 2,
+        "children": {
+          "心中": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "人民": {
+    "weight": 2,
+    "children": {
+      "心中": {
+        "weight": 2,
+        "children": {
+          "中国": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "心中": {
+    "weight": 8,
+    "children": {
+      "中国": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "都": {
+        "weight": 2,
+        "children": {
+          "有": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "，": {
+        "weight": 2,
+        "children": {
+          "我们": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "实现": {
+        "weight": 2,
+        "children": {
+          "了": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "有": {
+    "weight": 8,
+    "children": {
+      "自己": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "很多": {
+        "weight": 2,
+        "children": {
+          "我们": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "一个": {
+        "weight": 2,
+        "children": {
+          "强大": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "梦想": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "自己": {
+    "weight": 8,
+    "children": {
+      "的": {
+        "weight": 8,
+        "children": {
+          "梦想": {
+            "weight": 2,
+            "children": {}
+          },
+          "工作": {
+            "weight": 2,
+            "children": {}
+          },
+          "事情": {
+            "weight": 2,
+            "children": {}
+          },
+          "能力": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "所有的人": {
+    "weight": 2,
+    "children": {
+      "都": {
+        "weight": 2,
+        "children": {
+          "梦想": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "谱写": {
+    "weight": 2,
+    "children": {
+      "一个": {
+        "weight": 2,
+        "children": {
+          "梦": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "中国近代史": {
+    "weight": 2,
+    "children": {
+      "中": {
+        "weight": 2,
+        "children": {
+          "有": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "很多": {
+    "weight": 2,
+    "children": {
+      "我们": {
+        "weight": 2,
+        "children": {
+          "国家": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "历史事件": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "我们": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "不会": {
+    "weight": 4,
+    "children": {
+      "忘记": {
+        "weight": 4,
+        "children": {
+          "那些": {
+            "weight": 4,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "忘记": {
+    "weight": 4,
+    "children": {
+      "那些": {
+        "weight": 4,
+        "children": {
+          "屈辱": {
+            "weight": 4,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "那些": {
+    "weight": 4,
+    "children": {
+      "屈辱": {
+        "weight": 4,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          },
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "屈辱": {
+    "weight": 4,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "不会": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "的": {
+        "weight": 2,
+        "children": {
+          "时刻": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "时刻": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "将": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "将": {
+    "weight": 2,
+    "children": {
+      "永远": {
+        "weight": 2,
+        "children": {
+          "铭记": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "永远": {
+    "weight": 2,
+    "children": {
+      "铭记": {
+        "weight": 2,
+        "children": {
+          "在": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "铭记": {
+    "weight": 2,
+    "children": {
+      "在": {
+        "weight": 2,
+        "children": {
+          "我们": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "渴望": {
+    "weight": 4,
+    "children": {
+      "我们": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "的": {
+        "weight": 2,
+        "children": {
+          "心中": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "那个": {
+    "weight": 2,
+    "children": {
+      "中国": {
+        "weight": 2,
+        "children": {
+          "强大": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "强大": {
+    "weight": 8,
+    "children": {
+      "的": {
+        "weight": 8,
+        "children": {
+          "梦": {
+            "weight": 2,
+            "children": {}
+          },
+          "国家": {
+            "weight": 4,
+            "children": {}
+          },
+          "后盾": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "成为": {
+    "weight": 2,
+    "children": {
+      "海上": {
+        "weight": 2,
+        "children": {
+          "强国": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "海上": {
+    "weight": 2,
+    "children": {
+      "强国": {
+        "weight": 2,
+        "children": {
+          "和": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "强国": {
+    "weight": 4,
+    "children": {
+      "和": {
+        "weight": 2,
+        "children": {
+          "天空": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "的": {
+        "weight": 2,
+        "children": {
+          "梦": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "天空": {
+    "weight": 2,
+    "children": {
+      "强国": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "习": {
+    "weight": 2,
+    "children": {
+      "近": {
+        "weight": 2,
+        "children": {
+          "平": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "近": {
+    "weight": 2,
+    "children": {
+      "平": {
+        "weight": 2,
+        "children": {
+          "同志": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "平": {
+    "weight": 2,
+    "children": {
+      "同志": {
+        "weight": 2,
+        "children": {
+          "指出": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "同志": {
+    "weight": 2,
+    "children": {
+      "指出": {
+        "weight": 2,
+        "children": {
+          "“": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "指出": {
+    "weight": 2,
+    "children": {
+      "“": {
+        "weight": 2,
+        "children": {
+          "中国": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "只有": {
+    "weight": 4,
+    "children": {
+      "在": {
+        "weight": 2,
+        "children": {
+          "中国共产党": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "这样才能": {
+        "weight": 2,
+        "children": {
+          "够": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "中国共产党": {
+    "weight": 2,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "领导": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "领导": {
+    "weight": 2,
+    "children": {
+      "下": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "下": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "坚持": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "自信": {
+    "weight": 6,
+    "children": {
+      "、": {
+        "weight": 4,
+        "children": {
+          "理论": {
+            "weight": 2,
+            "children": {}
+          },
+          "制度": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "，": {
+        "weight": 2,
+        "children": {
+          "坚持改革开放": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "制度": {
+    "weight": 2,
+    "children": {
+      "自信": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "坚持改革开放": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "才能": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "才能": {
+    "weight": 2,
+    "children": {
+      "伟大": {
+        "weight": 2,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "全中国人民": {
+    "weight": 2,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "中国": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "那么": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "我们": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "是什么": {
+    "weight": 2,
+    "children": {
+      "呢": {
+        "weight": 2,
+        "children": {
+          "？": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "呢": {
+    "weight": 2,
+    "children": {
+      "？": {
+        "weight": 2,
+        "children": {
+          "我是": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "？": {
+    "weight": 4,
+    "children": {
+      "我是": {
+        "weight": 2,
+        "children": {
+          "一": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "这不": {
+        "weight": 2,
+        "children": {
+          "仅仅是": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "我是": {
+    "weight": 2,
+    "children": {
+      "一": {
+        "weight": 2,
+        "children": {
+          "名": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "一": {
+    "weight": 2,
+    "children": {
+      "名": {
+        "weight": 2,
+        "children": {
+          "大学生": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "名": {
+    "weight": 2,
+    "children": {
+      "大学生": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "我": {
+    "weight": 26,
+    "children": {
+      "看到": {
+        "weight": 2,
+        "children": {
+          "中国": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "的": {
+        "weight": 8,
+        "children": {
+          "梦想": {
+            "weight": 4,
+            "children": {}
+          },
+          "力量": {
+            "weight": 2,
+            "children": {}
+          },
+          "观点": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "选择": {
+        "weight": 2,
+        "children": {
+          "了": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "前进": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "所有": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "就": {
+        "weight": 2,
+        "children": {
+          "知道了": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "应该": {
+        "weight": 2,
+        "children": {
+          "做好": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "学习": {
+        "weight": 2,
+        "children": {
+          "中": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "要": {
+        "weight": 4,
+        "children": {
+          "更加": {
+            "weight": 2,
+            "children": {}
+          },
+          "提高": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "看到": {
+    "weight": 2,
+    "children": {
+      "中国": {
+        "weight": 2,
+        "children": {
+          "自动化": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "自动化": {
+    "weight": 4,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "滞后": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "，": {
+        "weight": 2,
+        "children": {
+          "寻找": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "滞后": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "尤其是": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "尤其是": {
+    "weight": 2,
+    "children": {
+      "缺乏": {
+        "weight": 2,
+        "children": {
+          "自我": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "缺乏": {
+    "weight": 2,
+    "children": {
+      "自我": {
+        "weight": 2,
+        "children": {
+          "发展": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "自我": {
+    "weight": 2,
+    "children": {
+      "发展": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "精确": {
+    "weight": 2,
+    "children": {
+      "部分": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "部分": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "我": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "不断": {
+    "weight": 2,
+    "children": {
+      "追求": {
+        "weight": 2,
+        "children": {
+          "探究": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "追求": {
+    "weight": 2,
+    "children": {
+      "探究": {
+        "weight": 2,
+        "children": {
+          "和": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "探究": {
+    "weight": 2,
+    "children": {
+      "和": {
+        "weight": 2,
+        "children": {
+          "研究": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "研究": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "并": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "克服": {
+    "weight": 2,
+    "children": {
+      "了": {
+        "weight": 2,
+        "children": {
+          "各种": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "科研": {
+    "weight": 2,
+    "children": {
+      "挑战": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "挑战": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "在": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "各个": {
+    "weight": 2,
+    "children": {
+      "环节": {
+        "weight": 2,
+        "children": {
+          "都": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "环节": {
+    "weight": 2,
+    "children": {
+      "都": {
+        "weight": 2,
+        "children": {
+          "取得": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "取得": {
+    "weight": 2,
+    "children": {
+      "了": {
+        "weight": 2,
+        "children": {
+          "成功": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "成功": {
+    "weight": 2,
+    "children": {
+      "。": {
+        "weight": 2,
+        "children": {
+          "工业生产": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "工业生产": {
+    "weight": 6,
+    "children": {
+      "是": {
+        "weight": 2,
+        "children": {
+          "“": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "，": {
+        "weight": 4,
+        "children": {
+          "有了": {
+            "weight": 4,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "中等": {
+    "weight": 2,
+    "children": {
+      "制造": {
+        "weight": 2,
+        "children": {
+          "”": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "制造": {
+    "weight": 2,
+    "children": {
+      "”": {
+        "weight": 2,
+        "children": {
+          "国家": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "特征": {
+    "weight": 2,
+    "children": {
+      "。": {
+        "weight": 2,
+        "children": {
+          "这个": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "很": {
+    "weight": 2,
+    "children": {
+      "遥远": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "遥远": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "但是": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "但是": {
+    "weight": 2,
+    "children": {
+      "经过": {
+        "weight": 2,
+        "children": {
+          "长寿": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "经过": {
+    "weight": 2,
+    "children": {
+      "长寿": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "长寿": {
+    "weight": 2,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "努力": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "努力": {
+    "weight": 6,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "每个人": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "地": {
+        "weight": 2,
+        "children": {
+          "完成": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "奋进": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "第一": {
+    "weight": 2,
+    "children": {
+      "颗": {
+        "weight": 2,
+        "children": {
+          "原子弹": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "颗": {
+    "weight": 2,
+    "children": {
+      "原子弹": {
+        "weight": 2,
+        "children": {
+          "爆炸": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "原子弹": {
+    "weight": 2,
+    "children": {
+      "爆炸": {
+        "weight": 2,
+        "children": {
+          "到": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "爆炸": {
+    "weight": 2,
+    "children": {
+      "到": {
+        "weight": 2,
+        "children": {
+          "今天": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "今天": {
+    "weight": 2,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "神": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "神": {
+    "weight": 2,
+    "children": {
+      "九天": {
+        "weight": 2,
+        "children": {
+          "堂": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "九天": {
+    "weight": 2,
+    "children": {
+      "堂": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "堂": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "谁": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "谁": {
+    "weight": 2,
+    "children": {
+      "能否": {
+        "weight": 2,
+        "children": {
+          "认": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "能否": {
+    "weight": 2,
+    "children": {
+      "认": {
+        "weight": 2,
+        "children": {
+          "中国科学技术": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "认": {
+    "weight": 2,
+    "children": {
+      "中国科学技术": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "中国科学技术": {
+    "weight": 2,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "发展": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "这不": {
+    "weight": 2,
+    "children": {
+      "仅仅是": {
+        "weight": 2,
+        "children": {
+          "我": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "仅仅是": {
+    "weight": 2,
+    "children": {
+      "我": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "中国人": {
+    "weight": 4,
+    "children": {
+      "渴望": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "头脑": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "！": {
+    "weight": 2,
+    "children": {
+      "我们": {
+        "weight": 2,
+        "children": {
+          "都": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "希望": {
+    "weight": 2,
+    "children": {
+      "有": {
+        "weight": 2,
+        "children": {
+          "一个": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "后盾": {
+    "weight": 2,
+    "children": {
+      "。": {
+        "weight": 2,
+        "children": {
+          "历史": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "站得住脚": {
+    "weight": 2,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "多少": {
+    "weight": 4,
+    "children": {
+      "人": {
+        "weight": 2,
+        "children": {
+          "被": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "优秀": {
+        "weight": 2,
+        "children": {
+          "是": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "耽搁": {
+    "weight": 2,
+    "children": {
+      "和": {
+        "weight": 2,
+        "children": {
+          "侵略": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "侵略": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "多少": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "优秀": {
+    "weight": 2,
+    "children": {
+      "是": {
+        "weight": 2,
+        "children": {
+          "落后": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "落后": {
+    "weight": 2,
+    "children": {
+      "于": {
+        "weight": 2,
+        "children": {
+          "设备": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "设备": {
+    "weight": 2,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "血": {
+    "weight": 2,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "革命": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "交换": {
+    "weight": 2,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "这": {
+    "weight": 2,
+    "children": {
+      "就是": {
+        "weight": 2,
+        "children": {
+          "为什么": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "就是": {
+    "weight": 4,
+    "children": {
+      "为什么": {
+        "weight": 2,
+        "children": {
+          "我": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "所有": {
+        "weight": 2,
+        "children": {
+          "中国人": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "为什么": {
+    "weight": 2,
+    "children": {
+      "我": {
+        "weight": 2,
+        "children": {
+          "选择": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "选择": {
+    "weight": 2,
+    "children": {
+      "了": {
+        "weight": 2,
+        "children": {
+          "自动化": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "寻找": {
+    "weight": 2,
+    "children": {
+      "未来": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "给": {
+    "weight": 2,
+    "children": {
+      "了": {
+        "weight": 2,
+        "children": {
+          "我": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "前进": {
+    "weight": 2,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "动力": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "有了": {
+    "weight": 8,
+    "children": {
+      "先进": {
+        "weight": 6,
+        "children": {
+          "的": {
+            "weight": 6,
+            "children": {}
+          }
+        }
+      },
+      "它": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "先进": {
+    "weight": 6,
+    "children": {
+      "的": {
+        "weight": 6,
+        "children": {
+          "科学": {
+            "weight": 2,
+            "children": {}
+          },
+          "工业生产": {
+            "weight": 4,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "生产": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "有了": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "想要": {
+    "weight": 2,
+    "children": {
+      "克服困难": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "克服困难": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "促进": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "促进": {
+    "weight": 2,
+    "children": {
+      "中国": {
+        "weight": 2,
+        "children": {
+          "梦想": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "所有": {
+    "weight": 4,
+    "children": {
+      "中国人": {
+        "weight": 2,
+        "children": {
+          "头脑": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "的": {
+        "weight": 2,
+        "children": {
+          "奋斗": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "头脑": {
+    "weight": 2,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "斗争": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "奋斗": {
+    "weight": 2,
+    "children": {
+      "。": {
+        "weight": 2,
+        "children": {
+          "这时": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "这时": {
+    "weight": 2,
+    "children": {
+      "我": {
+        "weight": 2,
+        "children": {
+          "就": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "就": {
+    "weight": 2,
+    "children": {
+      "知道了": {
+        "weight": 2,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "知道了": {
+    "weight": 2,
+    "children": {
+      "。": {
+        "weight": 2,
+        "children": {
+          "梦想": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "振兴": {
+    "weight": 2,
+    "children": {
+      "生活": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "生活": {
+    "weight": 4,
+    "children": {
+      "，": {
+        "weight": 4,
+        "children": {
+          "有能力": {
+            "weight": 2,
+            "children": {}
+          },
+          "使": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "有能力": {
+    "weight": 2,
+    "children": {
+      "享受": {
+        "weight": 2,
+        "children": {
+          "生活": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "享受": {
+    "weight": 4,
+    "children": {
+      "生活": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "这个": {
+        "weight": 2,
+        "children": {
+          "过程": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "空虚": {
+    "weight": 4,
+    "children": {
+      "，": {
+        "weight": 4,
+        "children": {
+          "使": {
+            "weight": 4,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "时间": {
+    "weight": 4,
+    "children": {
+      "空虚": {
+        "weight": 2,
+        "children": {
+          "，": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "想象": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "想象": {
+    "weight": 2,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "人": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "精神上": {
+    "weight": 2,
+    "children": {
+      "满足": {
+        "weight": 2,
+        "children": {
+          "和": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "满足": {
+    "weight": 4,
+    "children": {
+      "和": {
+        "weight": 2,
+        "children": {
+          "满足": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "，": {
+        "weight": 2,
+        "children": {
+          "对": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "他们": {
+    "weight": 4,
+    "children": {
+      "有": {
+        "weight": 2,
+        "children": {
+          "梦想": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "的": {
+        "weight": 2,
+        "children": {
+          "治疗": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "过程": {
+    "weight": 2,
+    "children": {
+      "。": {
+        "weight": 2,
+        "children": {
+          "当时": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "当时": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "他们": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "治疗": {
+    "weight": 2,
+    "children": {
+      "不仅": {
+        "weight": 2,
+        "children": {
+          "是": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "不仅": {
+    "weight": 2,
+    "children": {
+      "是": {
+        "weight": 2,
+        "children": {
+          "修复": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "修复": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "而且": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "而且": {
+    "weight": 2,
+    "children": {
+      "是": {
+        "weight": 2,
+        "children": {
+          "完全": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "完全": {
+    "weight": 2,
+    "children": {
+      "康复": {
+        "weight": 2,
+        "children": {
+          "。": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "康复": {
+    "weight": 2,
+    "children": {
+      "。": {
+        "weight": 2,
+        "children": {
+          "在": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "梦中": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "我们": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "应该": {
+    "weight": 4,
+    "children": {
+      "每个人": {
+        "weight": 2,
+        "children": {
+          "都": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "做好": {
+        "weight": 2,
+        "children": {
+          "自己": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "去": {
+    "weight": 4,
+    "children": {
+      "努力": {
+        "weight": 2,
+        "children": {
+          "地": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "完成": {
+        "weight": 2,
+        "children": {
+          "中国": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "地": {
+    "weight": 4,
+    "children": {
+      "完成": {
+        "weight": 2,
+        "children": {
+          "自己": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "努力": {
+        "weight": 2,
+        "children": {
+          "奋进": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "完成": {
+    "weight": 4,
+    "children": {
+      "自己": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "中国": {
+        "weight": 2,
+        "children": {
+          "梦": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "任务": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "为": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "做": {
+    "weight": 2,
+    "children": {
+      "一些": {
+        "weight": 2,
+        "children": {
+          "实际": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "一些": {
+    "weight": 2,
+    "children": {
+      "实际": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "实际": {
+    "weight": 2,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "事情": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "事情": {
+    "weight": 4,
+    "children": {
+      "。": {
+        "weight": 2,
+        "children": {
+          "所以": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      },
+      "，": {
+        "weight": 2,
+        "children": {
+          "在": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "所以": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "在": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "来看": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "首先": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "首先": {
+    "weight": 2,
+    "children": {
+      "我": {
+        "weight": 2,
+        "children": {
+          "应该": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "做好": {
+    "weight": 2,
+    "children": {
+      "自己": {
+        "weight": 2,
+        "children": {
+          "的": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "学习": {
+    "weight": 2,
+    "children": {
+      "中": {
+        "weight": 2,
+        "children": {
+          "我": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "更加": {
+    "weight": 2,
+    "children": {
+      "地": {
+        "weight": 2,
+        "children": {
+          "努力": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "奋进": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "为了": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "之后": {
+    "weight": 2,
+    "children": {
+      "的": {
+        "weight": 2,
+        "children": {
+          "道路": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "明亮": {
+    "weight": 2,
+    "children": {
+      "。": {
+        "weight": 2,
+        "children": {
+          "在": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "我想": {
+    "weight": 2,
+    "children": {
+      "要": {
+        "weight": 2,
+        "children": {
+          "实现": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "之前": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "我": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "能力": {
+    "weight": 2,
+    "children": {
+      "和": {
+        "weight": 2,
+        "children": {
+          "素质": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "素质": {
+    "weight": 2,
+    "children": {
+      "，": {
+        "weight": 2,
+        "children": {
+          "只有": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "这样才能": {
+    "weight": 2,
+    "children": {
+      "够": {
+        "weight": 2,
+        "children": {
+          "去": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "够": {
+    "weight": 2,
+    "children": {
+      "去": {
+        "weight": 2,
+        "children": {
+          "完成": {
+            "weight": 2,
+            "children": {}
+          }
+        }
+      }
+    }
+  }
+}

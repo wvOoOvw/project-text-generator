@@ -13,21 +13,19 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 
-import PlayArrowIcon from '@mui/icons-material/PlayArrow'
-import StopIcon from '@mui/icons-material/Stop'
 import SaveIcon from '@mui/icons-material/Save'
 import UploadIcon from '@mui/icons-material/Upload'
-import ExpandIcon from '@mui/icons-material/Expand'
-import ViewColumnIcon from '@mui/icons-material/ViewColumn'
-import DataArrayIcon from '@mui/icons-material/DataArray'
-import SendIcon from '@mui/icons-material/Send'
+import LineAxisIcon from '@mui/icons-material/LineAxis'
+import TrainIcon from '@mui/icons-material/Train'
+import PlayArrowIcon from '@mui/icons-material/PlayArrow'
+import TableChartIcon from '@mui/icons-material/TableChart'
 
 import Imitation from './utils.imitation'
 import { copy } from './utils.common'
 
 function App() {
   const save = () => {
-    copy(JSON.stringify(Imitation.state.context))
+    copy(JSON.stringify(Imitation.state.library))
     Imitation.state.message = 'Copyed'
     Imitation.dispatch()
   }
@@ -35,7 +33,7 @@ function App() {
   const load = () => {
     var data = prompt()
     if (!data) return
-    Imitation.state.context = JSON.parse(data)
+    Imitation.state.library = JSON.parse(data)
     Imitation.state.message = 'Loaded'
     Imitation.dispatch()
   }
@@ -67,10 +65,10 @@ function App() {
       <Button variant='contained' style={{ textTransform: 'none', marginRight: 8 }} onClick={save}><SaveIcon /></Button>
     </div>
     <div style={{ whiteSpace: 'nowrap' }}>
-      <Button variant={Imitation.state.playgroundView === 'table' ? 'contained' : 'outlined'} style={{ textTransform: 'none', marginLeft: 8 }} onClick={table}>Table</Button>
-      <Button variant={Imitation.state.playgroundView === 'graph' ? 'contained' : 'outlined'} style={{ textTransform: 'none', marginLeft: 8 }} onClick={graph}>Graph</Button>
-      <Button variant={Imitation.state.playgroundView === 'train' ? 'contained' : 'outlined'} style={{ textTransform: 'none', marginLeft: 8 }} onClick={train}>Train</Button>
-      <Button variant={Imitation.state.playgroundView === 'run' ? 'contained' : 'outlined'} style={{ textTransform: 'none', marginLeft: 8 }} onClick={run}>Run</Button>
+      <Button variant={Imitation.state.playgroundView === 'table' ? 'contained' : 'outlined'} style={{ textTransform: 'none', marginLeft: 8 }} onClick={table}><TableChartIcon /></Button>
+      <Button variant={Imitation.state.playgroundView === 'graph' ? 'contained' : 'outlined'} style={{ textTransform: 'none', marginLeft: 8 }} onClick={graph}><LineAxisIcon /></Button>
+      <Button variant={Imitation.state.playgroundView === 'train' ? 'contained' : 'outlined'} style={{ textTransform: 'none', marginLeft: 8 }} onClick={train}><TrainIcon /></Button>
+      <Button variant={Imitation.state.playgroundView === 'run' ? 'contained' : 'outlined'} style={{ textTransform: 'none', marginLeft: 8 }} onClick={run}><PlayArrowIcon /></Button>
     </div>
   </Paper>
 }

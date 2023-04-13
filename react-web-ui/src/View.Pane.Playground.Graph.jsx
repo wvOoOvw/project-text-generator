@@ -26,37 +26,32 @@ import SettingsIcon from '@mui/icons-material/Settings'
 
 import Imitation from './utils.imitation'
 
+import { safeNumber, specialWord } from './utils.common'
+
 import * as echarts from 'echarts'
 
-function SelectDialog(props) {
-  const [filter, setFilter] = React.useState('')
+const parse = (name) => {
 
   const format = children => {
-    const r = []
+    var r = Object.entries(children).map(i => ({ name: specialWord(i[0]), weight: i[1].weight, children: format(i[1].children), collapsed: false }))
 
-    Object.entries(children).forEach(([key, value]) => {
-      r.push({ name: key, weight: value.weight, children: format(value.children) })
-    })
+    const allWeight = r.reduce((t, i) => t + i.weight, 0)
+
+    r.forEach(i => i.percent = safeNumber(i.weight / allWeight * 100, 4))
+
+    r.sort((a, b) => b.weight - a.weight)
 
     return r
   }
 
-  const compute = children => {
-    const all = children.reduce((t, i) => t + i.weight, 0)
+  return format({ [name]: Imitation.state.library[name] })
+}
 
-    children.forEach(i => {
-      i.percent = Number(i.weight / all).toFixed(4)
-
-      i.children = compute(i.children)
-    })
-
-    return children
-  }
+function SelectDialog(props) {
+  const [filter, setFilter] = React.useState('')
 
   const onClick = v => {
-    const data = compute(format({ [v]: Imitation.state.context[v] }))
-
-    props.setData(data)
+    props.setData(parse(v))
     props.onClose()
   }
 
@@ -68,10 +63,10 @@ function SelectDialog(props) {
           <TextField variant='standard' sx={{ '& input': { fontSize: 14 } }} fullWidth value={filter} onChange={e => setFilter(e.target.value)} />
         </Grid>
         {
-          Object.entries(Imitation.state.context).filter(i => i[0].includes(filter)).map((i, index) => {
+          Object.entries(Imitation.state.library).filter(i => i[0].includes(filter)).map((i, index) => {
             return <Grid item key={index}>
-              <Card onClick={() => onClick(i[0])}>
-                <CardActionArea style={{ padding: 12 }}>{i[0]}</CardActionArea>
+              <Card onClick={() => onClick(i[0])} style={{ height: '100%' }}>
+                <CardActionArea style={{ padding: 12, lineHeight: 1, fontSize: 14 }}>{specialWord(i[0])}</CardActionArea>
               </Card>
             </Grid>
           })
@@ -88,7 +83,7 @@ function App() {
   const ref = React.useRef()
   const refEcharts = React.useRef()
 
-  const [data, setData] = React.useState([])
+  const [data, setData] = React.useState()
   const [selectDialog, setSelectDialog] = React.useState()
 
   React.useEffect(() => {
@@ -99,7 +94,7 @@ function App() {
         trigger: 'item',
         triggerOn: 'mousemove',
         borderWidth: 0,
-        formatter: i => `${i.data.name} / ${i.data.weight} / ${i.data.percent * 100}%`,
+        formatter: i => `${i.data.name} / ${i.data.weight} / ${i.data.percent}%`,
       },
       series: [
         {
@@ -108,7 +103,7 @@ function App() {
           top: '2%',
           left: '8%',
           bottom: '2%',
-          right: '16%',
+          right: '8%',
           symbolSize: 12,
           label: {
             position: 'left',
@@ -144,6 +139,11 @@ function App() {
   }, [data])
 
   React.useEffect(() => {
+    const key = Object.keys(Imitation.state.library)[0]
+    if (key !== undefined) requestAnimationFrame(() => setData(parse(Object.keys(Imitation.state.library)[0])))
+  }, [])
+
+  React.useEffect(() => {
     const observer = new ResizeObserver(en => refEcharts.current.resize())
 
     observer.observe(ref.current)
@@ -158,7 +158,6 @@ function App() {
       <div style={{ width: '100%', height: '100%' }} ref={el => ref.current = el}></div>
 
       <div style={{ position: 'absolute', bottom: 16, left: 16, width: 'fit-content', display: 'flex' }}>
-        <Button variant='contained' style={{ margin: '0 4px' }}><SendIcon /></Button>
         <Button variant='contained' style={{ margin: '0 4px' }} onClick={() => setSelectDialog(true)}><SettingsIcon /></Button>
       </div>
 
