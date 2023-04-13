@@ -1,3 +1,18 @@
+const arrayRandom = (array, number) => {
+  var r = []
+  var c = [...array]
+
+  new Array(number).fill().forEach(() => {
+    const index = Math.floor(Math.random() * c.length)
+    if (c[index]) {
+      r.push(c[index])
+      c = c.filter((i, index_) => index_ !== index)
+    }
+  })
+
+  return r
+}
+
 const generator = (token, setting, library) => {
   const process = { token: token, setting: setting, library: library, result: [], next: () => next() }
 
@@ -25,7 +40,7 @@ const match = (token, setting, library) => {
     let cache = library
 
     searchCurrent.forEach(i => {
-      cache = cache && cache[i] && cache[i].children && Object.keys(cache[i].children).length ? cache[i].children : null
+      cache = cache && cache[i] && cache[i].right && Object.keys(cache[i].right).length ? cache[i].right : null
     })
 
     if (cache) searchResult.push(cache)
@@ -33,7 +48,7 @@ const match = (token, setting, library) => {
     searchIndex = searchIndex + 1
   }
 
-  if (searchResult.length === 0) return Object.keys(library)[0]
+  if (searchResult.length === 0) return arrayRandom(Object.keys(library), 1)[0]
 
   const currentResult = Object.entries(searchResult[searchResult.length - 1]).map(i => ({ name: i[0], weight: i[1].weight }))
 

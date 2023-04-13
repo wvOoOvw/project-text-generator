@@ -42,4 +42,9 @@ const specialWord = v => {
   return v
 }
 
-export { baseIp, hash, copy, download, safeNumber, specialWord }
+const parseDirection = v => {
+  if (v === 'LR') return ['left', 'right']
+  if (v === 'RL') return ['right', 'left']
+}
+
+export { baseIp, hash, copy, download, safeNumber, specialWord, parseDirection }

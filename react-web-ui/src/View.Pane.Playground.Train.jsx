@@ -1,24 +1,24 @@
 import React from 'react'
 
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper'
+import Grid from '@mui/material/Grid'
 import Button from '@mui/material/Button'
 import Divider from '@mui/material/Divider'
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
+import Accordion from '@mui/material/Accordion'
+import AccordionSummary from '@mui/material/AccordionSummary'
+import AccordionDetails from '@mui/material/AccordionDetails'
 import Dialog from '@mui/material/Dialog'
 import DialogContent from '@mui/material/DialogContent'
 import DialogTitle from '@mui/material/DialogTitle'
 import DialogActions from '@mui/material/DialogActions'
-import Slider from '@mui/material/Slider';
+import Slider from '@mui/material/Slider'
 
 import SendIcon from '@mui/icons-material/Send'
 import SettingsIcon from '@mui/icons-material/Settings'
+import PlayArrowIcon from '@mui/icons-material/PlayArrow'
 
 import Imitation from './utils.imitation'
 
-import { specialWord } from './utils.common'
+import { specialWord, parseDirection } from './utils.common'
 
 import { tokenizer } from '../text-tokenizer/index'
 import { calculator } from '../text-calculator/index'
@@ -29,10 +29,16 @@ function SettingDialog(props) {
     <DialogContent dividers>
       <Grid container spacing={1}>
         <Grid item xs={12} style={{ fontSize: 14 }}>
-          Record length {props.setting.recordLength}
+          Record length left {props.setting.recordLengthLeft}
         </Grid>
         <Grid item xs={12}>
-          <Slider value={props.setting.recordLength} onChange={(e, v) => props.setSetting(pre => { pre.recordLength = v; return { ...pre } })} min={1} max={10} step={1} />
+          <Slider value={props.setting.recordLengthLeft} onChange={(e, v) => props.setSetting(pre => { pre.recordLengthLeft = v; return { ...pre } })} min={1} max={10} step={1} />
+        </Grid>
+        <Grid item xs={12} style={{ fontSize: 14 }}>
+          Record length right {props.setting.recordLengthRight}
+        </Grid>
+        <Grid item xs={12}>
+          <Slider value={props.setting.recordLengthRight} onChange={(e, v) => props.setSetting(pre => { pre.recordLengthRight = v; return { ...pre } })} min={1} max={10} step={1} />
         </Grid>
         <Grid item xs={12} style={{ fontSize: 14 }}>
           Weight {props.setting.weight}
@@ -55,17 +61,21 @@ function SettingDialog(props) {
 }
 
 function ResultDialog(props) {
+  const [direction, setDirection] = React.useState('LR')
+
   const resultFlat = (children, deep = 0) => {
+    if (!children) return []
+
     const r = []
 
     Object.entries(children).forEach(([key, value]) => {
       r.push([key, value, deep])
-      r.push(...resultFlat(value.children, deep + 1))
+      r.push(...resultFlat(value[direction], deep + 1))
     })
 
     return r
-
   }
+
   return <Dialog open={props.open} sx={{ '& .MuiDialog-paper': { width: '100%', maxWidth: 720 } }} onClose={() => props.onClose()}>
     <DialogTitle style={{ fontSize: 16 }}>Result</DialogTitle>
     <DialogContent dividers>
@@ -73,7 +83,8 @@ function ResultDialog(props) {
         {
           props.resultDiff ?
             Object.entries(props.resultDiff).map(([key, value], index) => {
-              const children = resultFlat(value.children)
+              const list = resultFlat(value[parseDirection(direction)[1]])
+
               return <Grid item xs={12} key={index}>
                 <Accordion>
                   <AccordionSummary style={{ height: 48, minHeight: 0, fontSize: 16 }}>
@@ -85,7 +96,7 @@ function ResultDialog(props) {
                   <AccordionDetails>
                     <Grid container spacing={1}>
                       {
-                        children.map(([key, value, deep], index) => {
+                        list.map(([key, value, deep], index) => {
                           return <React.Fragment key={index}>
                             <Grid item xs={12}>
                               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingLeft: deep * 16 }}>
@@ -94,7 +105,7 @@ function ResultDialog(props) {
                               </div>
                             </Grid>
                             {
-                              index !== children.length - 1 ? <Grid item xs={12}><Divider /></Grid> : null
+                              index !== list.length - 1 ? <Grid item xs={12}><Divider /></Grid> : null
                             }
                           </React.Fragment>
                         })
@@ -109,14 +120,20 @@ function ResultDialog(props) {
       </Grid>
     </DialogContent>
     <DialogActions>
-      <Button variant='contained' onClick={() => props.apply()}>Apply</Button>
+      {
+        direction === 'LR' ? <Button variant='contained' style={{ margin: '0 4px' }} onClick={() => setDirection('RL')}><PlayArrowIcon /></Button> : null
+      }
+      {
+        direction === 'RL' ? <Button variant='contained' style={{ margin: '0 4px' }} onClick={() => setDirection('LR')}><PlayArrowIcon style={{ transform: 'rotate(180deg)' }} /></Button> : null
+      }
+      <Button variant='contained' onClick={() => props.apply()}><SendIcon /></Button>
     </DialogActions>
   </Dialog>
 }
 
 function App() {
-  const [prompt, setPrompt] = React.useState('爱是什么？这是所有人心底一个永恒的问题。爱，是永恒的寻觅。爱一旦被找到，它也将变为永恒。但是我们真的找到过爱吗？当我们定义爱的同时，是否也在否定爱呢？在给我们所认为的爱加种种限制的同时，我们试图按自己的方式理解它，或想将其据为己有时，我们是否也在破坏它呢？我们将爱施与周围的所有人，而如何给予是由期望的回报来决定的。')
-  const [setting, setSetting] = React.useState({ weight: 2, recordLength: 2, randomAddition: 0 })
+  const [prompt, setPrompt] = React.useState('中国的发展从古至今已经有六十年多了，一直秉持着社会主义的发展是中国的独有特色。相比与其他国家的资本主义发展，中国坚定不移地以社会主义发展为发展宗旨，这一行为看似简单实施起来则是困难。这对于国家领导人的能力更是一种挑战，在毛泽东带领之下的中国不断地快速发展，并且不忘社会主义的初衷，以人人为我、我为人人的群众思想发展。这是我国特色社会主义理论的雏形。习近平也在多次的公开演讲中说到，中国依旧会坚持社会主义发展进行建设，不忘初心是中国发展首要目标。可见特色社会主义理论对于中国的发展起到了很大的作用，民心所向决定了一个国家是否兴盛。然而社会主义发展正是注重群众的想法，与资本主义不同，不会将金钱和其他硬性指标作为国家发展的唯一标准线，社会主义更加致力于取悦群众的需求。这么一种民心所向的国家发展方向致使了中国可以变成现在这么的国际大国，中国特色社会主义理论从毛泽东领导时到现在的习近平领导从没有断过，中国的发展沿袭了毛泽东那个年代时定下的发展目标。中国特色社会主义理论的价值体现在国家的建设以及群众的思想，首先在国家的建设上，因为我国是社会主义国家所以党的思想、领导人的执政，这些都是要以群众的利益为出发点而去行为，与资本主义不同，不能为了国家的发展而舍弃了群众的自由或者是利益。其次从群众的思想上来说，社会主义代表着我为人人、人人为我的思想，国家的建设过程中不断地对群众灌输社会主义的思想也是建设的内容之一。只有当一个国家的群众都是为了社会的发展和共同的利益而行为时，国家才能真正达到社会主义的层次，取得更好的发展。所以，中国特色社会主义理论对于中国的发展起到了很大的作用，也是中国发展必不可缺的理论，其拥有着很高的价值。')
+  const [setting, setSetting] = React.useState({ weight: 2, recordLengthLeft: 2, recordLengthRight: 2, randomAddition: 0 })
   const [resultLibrary, setResultLibrary] = React.useState()
   const [resultDiff, setResultDiff] = React.useState()
   const [settingDialog, setSettingDialog] = React.useState()
