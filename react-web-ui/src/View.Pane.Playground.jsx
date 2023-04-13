@@ -1,57 +1,55 @@
 import React from 'react'
 
-import Grid from '@mui/material/Grid';
-import IconButton from '@mui/material/IconButton';
-import Paper from '@mui/material/Paper'
-import Button from '@mui/material/Button'
-import Divider from '@mui/material/Divider'
-import TextField from '@mui/material/TextField'
-import Switch from '@mui/material/Switch'
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import Pagination from '@mui/material/Pagination';
-import Dialog from '@mui/material/Dialog'
-import DialogContent from '@mui/material/DialogContent'
-import DialogTitle from '@mui/material/DialogTitle'
-import DialogActions from '@mui/material/DialogActions'
-import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
-import Slider from '@mui/material/Slider';
-
-import SendIcon from '@mui/icons-material/Send'
-import SettingsIcon from '@mui/icons-material/Settings'
-
-import * as echarts from 'echarts'
-import * as Diff from 'diff'
-
 import Imitation from './utils.imitation'
 
-import Table from './View.Pane.Playground.Table'
-import Graph from './View.Pane.Playground.Graph'
-import Train from './View.Pane.Playground.Train'
-import Run from './View.Pane.Playground.Run'
+import Paper from '@mui/material/Paper'
+
+// import Table from './View.Pane.Playground.Table'
+// import Graph from './View.Pane.Playground.Graph'
+// import Train from './View.Pane.Playground.Train'
+// import Run from './View.Pane.Playground.Run'
+
+const Default = React.lazy(() => import('./View.Pane.Playground.Default'))
+const Table = React.lazy(() => import('./View.Pane.Playground.Table'))
+const Graph = React.lazy(() => import('./View.Pane.Playground.Graph'))
+const Train = React.lazy(() => import('./View.Pane.Playground.Train'))
+const Run = React.lazy(() => import('./View.Pane.Playground.Run'))
+
+function SuspenseLoading() {
+  React.useEffect(() => {
+    Imitation.setState(pre => { pre.loading = pre.loading + 1; return pre })
+    return () => {
+      Imitation.setState(pre => { pre.loading = pre.loading - 1; return pre })
+    }
+  }, [])
+
+  return null
+}
 
 function App() {
-  return <>
+  return <Paper style={{ width: '100%', height: '100%', background: 'rgba(255, 255, 255, 1)', position: 'relative' }}>
 
     {
-      Imitation.state.playgroundView === 'table' ? <Table /> : null
+      Imitation.state.playgroundView === 'default' ? <React.Suspense fallback={<SuspenseLoading />} children={<Default />} /> : null
     }
 
     {
-      Imitation.state.playgroundView === 'graph' ? <Graph /> : null
+      Imitation.state.playgroundView === 'table' ? <React.Suspense fallback={<SuspenseLoading />} children={<Table />} /> : null
     }
 
     {
-      Imitation.state.playgroundView === 'train' ? <Train /> : null
+      Imitation.state.playgroundView === 'graph' ? <React.Suspense fallback={<SuspenseLoading />} children={<Graph />} /> : null
     }
 
     {
-      Imitation.state.playgroundView === 'run' ? <Run /> : null
+      Imitation.state.playgroundView === 'train' ? <React.Suspense fallback={<SuspenseLoading />} children={<Train />} /> : null
     }
 
-  </>
+    {
+      Imitation.state.playgroundView === 'run' ? <React.Suspense fallback={<SuspenseLoading />} children={<Run />} /> : null
+    }
+
+  </Paper>
 }
 
 export default App

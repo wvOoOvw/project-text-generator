@@ -1,27 +1,16 @@
 import React from 'react'
 
 import Grid from '@mui/material/Grid';
-import IconButton from '@mui/material/IconButton';
 import Paper from '@mui/material/Paper'
 import Button from '@mui/material/Button'
-import Divider from '@mui/material/Divider'
 import TextField from '@mui/material/TextField'
-import Switch from '@mui/material/Switch'
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import Pagination from '@mui/material/Pagination';
 import Dialog from '@mui/material/Dialog'
 import DialogContent from '@mui/material/DialogContent'
 import DialogTitle from '@mui/material/DialogTitle'
 import DialogActions from '@mui/material/DialogActions'
-import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
-import Slider from '@mui/material/Slider';
-import CardActionArea from '@mui/material/CardActionArea';
 import Card from '@mui/material/Card';
+import CardActionArea from '@mui/material/CardActionArea';
 
-import SendIcon from '@mui/icons-material/Send'
 import SettingsIcon from '@mui/icons-material/Settings'
 
 import Imitation from './utils.imitation'
@@ -153,15 +142,11 @@ function App() {
 
   return <>
 
-    <Paper style={{ width: '100%', height: '100%', background: 'rgba(255, 255, 255, 1)', position: 'relative' }}>
+    <div style={{ width: '100%', height: '100%' }} ref={el => ref.current = el}></div>
 
-      <div style={{ width: '100%', height: '100%' }} ref={el => ref.current = el}></div>
-
-      <div style={{ position: 'absolute', bottom: 16, left: 16, width: 'fit-content', display: 'flex' }}>
-        <Button variant='contained' style={{ margin: '0 4px' }} onClick={() => setSelectDialog(true)}><SettingsIcon /></Button>
-      </div>
-
-    </Paper>
+    <div style={{ position: 'absolute', bottom: 16, left: 16, width: 'fit-content', display: 'flex' }}>
+      <Button variant='contained' style={{ margin: '0 4px' }} onClick={() => setSelectDialog(true)}><SettingsIcon /></Button>
+    </div>
 
     <SelectDialog open={Boolean(selectDialog)} onClose={() => setSelectDialog()} setData={setData} />
 
