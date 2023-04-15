@@ -9,6 +9,7 @@ const Table = React.lazy(() => import('./View.Pane.Playground.Table'))
 const Graph = React.lazy(() => import('./View.Pane.Playground.Graph'))
 const Train = React.lazy(() => import('./View.Pane.Playground.Train'))
 const Run = React.lazy(() => import('./View.Pane.Playground.Run'))
+const Example = React.lazy(() => import('./View.Pane.Playground.Example'))
 
 function SuspenseLoading() {
   React.useEffect(() => {
@@ -42,6 +43,10 @@ function App() {
 
     {
       Imitation.state.playgroundView === 'run' ? <React.Suspense fallback={<SuspenseLoading />} children={<Run />} /> : null
+    }
+
+    {
+      Imitation.state.playgroundView === 'example' ? <React.Suspense fallback={<SuspenseLoading />} children={<Example />} /> : null
     }
 
   </Paper>

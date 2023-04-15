@@ -61,7 +61,7 @@ const match = (token, setting, library) => {
   var percentResult = currentResult
   percentResult = percentResult.sort((a, b) => b.weight - a.weight)
   percentResult = percentResult.map((i, index) => { i.percent = i.weight / weightAll; return i })
-  percentResult.reduce((t, i) => { i.toTop = t <= setting.toTop; return t + i.percent}, 0)
+  percentResult.reduce((t, i) => { i.toTop = t <= setting.toTop; return t + i.percent }, 0)
   percentResult = percentResult.filter(i => i.toTop)
 
   const weightAllAfterCollection = percentResult.reduce((t, i) => t + i.weight, 0)

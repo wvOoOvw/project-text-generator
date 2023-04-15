@@ -1,7 +1,5 @@
 import Imitation from 'imitation-imm/src/index'
 
-import library from './library.json'
-
 const ImitationINS = new Imitation()
 
 ImitationINS.state = {
@@ -11,7 +9,7 @@ ImitationINS.state = {
 
   playgroundView: 'default',
 
-  library: library,
+  library: {},
 }
 
 export default ImitationINS

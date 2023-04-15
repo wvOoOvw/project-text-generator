@@ -56,7 +56,7 @@ function SettingDialog(props) {
 
 function App() {
   const [prompt, setPrompt] = React.useState('')
-  const [setting, setSetting] = React.useState({ createTokenLength: 64, memoryContext: 2, toTop: 1, temperature: 1 })
+  const [setting, setSetting] = React.useState({ createTokenLength: 256, memoryContext: 2, toTop: 1, temperature: 1 })
   const [settingDialog, setSettingDialog] = React.useState()
 
   const run = async () => {

@@ -36,6 +36,21 @@ const download = (data, name) => {
 
 const safeNumber = (n, l) => Number(Number(n).toFixed(l))
 
+const arrayRandom = (array, number) => {
+  var r = []
+  var c = [...array]
+
+  new Array(number).fill().forEach(() => {
+    const index = Math.floor(Math.random() * c.length)
+    if (c[index]) {
+      r.push(c[index])
+      c = c.filter((i, index_) => index_ !== index)
+    }
+  })
+
+  return r
+}
+
 const specialWord = v => {
   if (v === ' ') return '(sapce)'
   if (v === '\n') return '(wrap)'
@@ -47,4 +62,4 @@ const parseDirection = v => {
   if (v === 'RL') return ['right', 'left']
 }
 
-export { baseIp, hash, copy, download, safeNumber, specialWord, parseDirection }
+export { baseIp, hash, copy, download, safeNumber, arrayRandom, specialWord, parseDirection }
