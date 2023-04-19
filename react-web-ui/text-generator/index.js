@@ -50,7 +50,14 @@ const match = (token, setting, library) => {
 
   if (searchResult.length === 0) return arrayRandom(Object.keys(library), 1)[0]
 
-  const currentResult = Object.entries(searchResult[searchResult.length - 1]).map(i => ({ name: i[0], weight: i[1].weight }))
+  const searchResult_ = searchResult[searchResult.length - 1]
+
+  // const searchResult_ = {}
+  // searchResult.forEach((i, index) => {
+  //   Object.entries(i).forEach((i) => searchResult_[i[0]] = { ...i[1], weight: i[1].weight * Math.pow(index + 1, 2) })
+  // })
+
+  const currentResult = Object.entries(searchResult_).map(i => ({ name: i[0], weight: i[1].weight }))
 
   const weightMiddle = currentResult.reduce((t, i) => t + i.weight, 0) / currentResult.length
 

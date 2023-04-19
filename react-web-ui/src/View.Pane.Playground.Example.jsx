@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Grid from '@mui/material/Grid'
+import Divider from '@mui/material/Divider'
 import Paper from '@mui/material/Paper'
 import Button from '@mui/material/Button'
 import TextField from '@mui/material/TextField'
@@ -29,17 +30,20 @@ function App() {
 
   return <>
 
-    <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', overflow: 'auto' }}>
-      <div style={{ maxWidth: '100%', width: 720, height: 'fit-content', margin: 16 }}>
-        <Grid container spacing={1}>
-          {/* <Grid item xs={12}>
-            <TextField variant='standard' sx={{ '& input': { fontSize: 14 } }} fullWidth value={filter} onChange={e => setFilter(e.target.value)} />
-          </Grid> */}
+    <div style={{ width: '100%', height: '100%', overflow: 'auto' }}>
+      <div style={{ height: 'fit-content', margin: 16 }}>
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            Example
+          </Grid>
+          <Grid item xs={12}>
+            <Divider />
+          </Grid>
           {
             Object.entries(example).filter(i => i[0].includes(filter)).map((i, index) => {
-              return <Grid item xs={12} key={index}>
-                <Card onClick={() => apply(i[1])} style={{ height: '100%' }}>
-                  <CardActionArea style={{ padding: 16, lineHeight: 1, fontSize: 14 }}>{i[0]}</CardActionArea>
+              return <Grid item key={index}>
+                <Card onClick={() => apply(i[1])}>
+                  <CardActionArea style={{ height: 160, width: 320, padding: 16, lineHeight: 1, fontSize: 14 }}>{i[0]}</CardActionArea>
                 </Card>
               </Grid>
             })
