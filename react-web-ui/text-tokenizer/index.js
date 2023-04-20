@@ -17,6 +17,7 @@ const tokenizer = (text) => {
     const matchResult = match(process.text, process.index)
 
     process.index = process.index + matchResult.length
+
     process.result.push(matchResult)
 
     if (process.text.length === process.index) process.next = undefined
@@ -44,11 +45,19 @@ const match = (text, index) => {
     searchIndex = searchIndex + 1
   }
 
-  return searchResult.length ? searchResult.pop() : text.slice(index, index + 1)
+  var result = searchResult.length ? searchResult.pop() : text.slice(index, index + 1)
+
+  if (result.match(/^\d+$/)) {
+    while (text[index + result.length] && text[index + result.length].match(/^\d+$/)) {
+      result = result + text[index + result.length]
+    }
+  }
+
+  return result
 }
 
 module.exports.tokenizer = tokenizer
 
-// const tokenizerProcess = tokenizer('木瓜是一种好吃的水果。')
+// const tokenizerProcess = tokenizer('小偷偷偷偷东西')
 
 // while (tokenizerProcess.next) console.log(tokenizerProcess.next().result)

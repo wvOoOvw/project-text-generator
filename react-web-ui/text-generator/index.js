@@ -17,10 +17,11 @@ const generator = (token, setting, library) => {
   const process = { token: token, setting: setting, library: library, result: [], next: () => next() }
 
   const next = () => {
-    process.result = match(process.token, process.result, process.setting, process.library)
-    process.result = optimize(process.token, process.result, process.setting, process.library)
+    const matchResult = match([...process.token, ...process.result], process.setting, process.library)
 
-    if (process.result.length >= process.setting.createTokenLength) process.next = undefined
+    process.result.push(matchResult)
+
+    if (process.result.length === process.setting.createTokenLength) process.next = undefined
 
     return process
   }
@@ -28,15 +29,13 @@ const generator = (token, setting, library) => {
   return process
 }
 
-const match = (token, result, setting, library) => {
-  const token_ = [...token, ...result]
-
-  var searchLength = Math.min(setting.memoryContext, token_.length)
+const match = (token, setting, library) => {
+  var searchLength = Math.min(setting.memoryContext, token.length)
   var searchIndex = 1
   var searchResult = []
 
   while (searchIndex < searchLength + 1) {
-    searchCurrent = token_.slice(token_.length - searchIndex, token_.length)
+    searchCurrent = token.slice(token.length - searchIndex, token.length)
 
     let cache = library
 
@@ -80,14 +79,10 @@ const match = (token, result, setting, library) => {
 
   const random = Math.random()
 
-  var result_
+  var result
 
-  percentResultAfterCollection.forEach(i => !result_ && random < i.percent ? result_ = i.name : null)
+  percentResultAfterCollection.forEach(i => !result && random < i.percent ? result = i.name : null)
 
-  return [...result, result_]
-}
-
-const optimize = (token, result, setting, library) => {
   return result
 }
 
