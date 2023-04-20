@@ -73,7 +73,7 @@ function App() {
 
     const generatorProcessLoop = async (generatorProcess) => {
       const r = await new Promise(r => {
-        const loop = () => generatorProcess.next ? requestIdleCallback(() => { generatorProcess.next(); setPrompt(pre => pre + generatorProcess.result[generatorProcess.result.length - 1]); loop() }) : r(generatorProcess.result)
+        const loop = () => generatorProcess.next ? requestIdleCallback(() => { generatorProcess.next(); setPrompt([...generatorProcess.token, ...generatorProcess.result].join('')); loop() }) : r(generatorProcess.result)
 
         loop()
       })
