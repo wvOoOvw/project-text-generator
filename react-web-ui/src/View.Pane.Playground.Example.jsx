@@ -11,6 +11,7 @@ import DialogTitle from '@mui/material/DialogTitle'
 import DialogActions from '@mui/material/DialogActions'
 import Card from '@mui/material/Card'
 import CardActionArea from '@mui/material/CardActionArea'
+import CardContent from '@mui/material/CardContent';
 
 import FolderIcon from '@mui/icons-material/Folder';
 import SendIcon from '@mui/icons-material/Send';
@@ -40,10 +41,13 @@ function App() {
             <Divider />
           </Grid>
           {
-            Object.entries(example).filter(i => i[0].includes(filter)).map((i, index) => {
+            example.filter(i => i.name.includes(filter)).map((i, index) => {
               return <Grid item key={index}>
-                <Card onClick={() => apply(i[1])}>
-                  <CardActionArea style={{ height: 160, width: 320, padding: 16, lineHeight: 1, fontSize: 14 }}>{i[0]}</CardActionArea>
+                <Card onClick={() => apply(i.data)}>
+                  <CardActionArea style={{ width: 320, padding: 16 }}>
+                    <div style={{ fontSize: 20 }}>{i.name}</div>
+                    <div style={{ marginTop: 16, height: 120 }}>{i.description}</div>
+                  </CardActionArea>
                 </Card>
               </Grid>
             })

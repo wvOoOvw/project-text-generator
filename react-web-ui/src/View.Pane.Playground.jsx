@@ -5,7 +5,6 @@ import Imitation from './utils.imitation'
 import Paper from '@mui/material/Paper'
 
 const Default = React.lazy(() => import('./View.Pane.Playground.Default'))
-const Table = React.lazy(() => import('./View.Pane.Playground.Table'))
 const Graph = React.lazy(() => import('./View.Pane.Playground.Graph'))
 const Train = React.lazy(() => import('./View.Pane.Playground.Train'))
 const Run = React.lazy(() => import('./View.Pane.Playground.Run'))
@@ -29,9 +28,9 @@ function App() {
       Imitation.state.playgroundView === 'default' ? <React.Suspense fallback={<SuspenseLoading />} children={<Default />} /> : null
     }
 
-    {
+    {/* {
       Imitation.state.playgroundView === 'table' ? <React.Suspense fallback={<SuspenseLoading />} children={<Table />} /> : null
-    }
+    } */}
 
     {
       Imitation.state.playgroundView === 'graph' ? <React.Suspense fallback={<SuspenseLoading />} children={<Graph />} /> : null

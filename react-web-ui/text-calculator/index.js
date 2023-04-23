@@ -1,6 +1,8 @@
 const safeNumber = (n, l) => Number(Number(n).toFixed(l))
 
 const calculator = (token, setting, context) => {
+  if (setting.skipBreak) token = token.filter(i => i !== '\n')
+
   const resultLibrary = JSON.parse(JSON.stringify(context))
   const resultDiff = {}
 
