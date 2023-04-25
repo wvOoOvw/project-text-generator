@@ -66,9 +66,9 @@ function FilterDialog(props) {
 function EditDialog(props) {
   const [value, setValue] = React.useState()
 
-  const findParent = (parent) => parent.reduce((t, i) =>  t[i.name][i.direction], Imitation.state.library)
+  const findParent = (parent) => parent.reduce((t, i) => t[i.name][i.direction], Imitation.state.library)
 
-  const save = () => {
+  const update = () => {
     const parent = findParent(props.value.parent)
 
     if (Number(value.weight) !== props.value.weight) parent[props.value.name].weight = Number(value.weight)
@@ -78,6 +78,9 @@ function EditDialog(props) {
       delete parent[props.value.name]
     }
 
+    Imitation.state.message = 'Updated'
+    Imitation.dispatch()
+
     props.onUpdate()
     props.onClose()
   }
@@ -86,6 +89,9 @@ function EditDialog(props) {
     const parent = findParent(props.value.parent)
 
     delete parent[props.value.name]
+
+    Imitation.state.message = 'Removed'
+    Imitation.dispatch()
 
     props.onUpdate()
     props.onClose()
@@ -123,7 +129,7 @@ function EditDialog(props) {
     </DialogContent>
     <DialogActions>
       <Button variant='contained' onClick={remove}>Remove</Button>
-      <Button variant='contained' onClick={save}>Save</Button>
+      <Button variant='contained' onClick={update}>Update</Button>
     </DialogActions>
   </Dialog>
 }
@@ -236,8 +242,8 @@ function App() {
 
     <div style={{ position: 'absolute', bottom: 16, left: 0, right: 0, margin: 'auto', width: 'fit-content', display: 'flex' }}>
       <Button variant='contained' style={{ margin: '0 4px' }} onClick={() => setFilterDialog(true)}><FilterAltIcon /></Button>
-      <Button variant={direction === 'LR' ? 'contained' : 'outlined'} style={{ margin: '0 4px' }} onClick={() => setDirection('LR')}><PlayArrowIcon style={{ transform: 'rotate(180deg)' }} /></Button>
-      <Button variant={direction === 'RL' ? 'contained' : 'outlined'} style={{ margin: '0 4px' }} onClick={() => setDirection('RL')}><PlayArrowIcon /></Button>
+      <Button variant={direction === 'RL' ? 'contained' : 'outlined'} style={{ margin: '0 4px' }} onClick={() => setDirection('RL')}><PlayArrowIcon style={{ transform: 'rotate(180deg)' }} /></Button>
+      <Button variant={direction === 'LR' ? 'contained' : 'outlined'} style={{ margin: '0 4px' }} onClick={() => setDirection('LR')}><PlayArrowIcon /></Button>
       <Button variant={edit ? 'contained' : 'outlined'} style={{ margin: '0 4px' }} onClick={() => setEdit(pre => !pre)}><EditIcon /></Button>
     </div>
 

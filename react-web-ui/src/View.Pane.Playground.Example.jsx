@@ -15,6 +15,7 @@ import CardContent from '@mui/material/CardContent';
 
 import FolderIcon from '@mui/icons-material/Folder';
 import SendIcon from '@mui/icons-material/Send';
+import DescriptionIcon from '@mui/icons-material/Description';
 
 import Imitation from './utils.imitation'
 
@@ -34,19 +35,21 @@ function App() {
     <div style={{ width: '100%', height: '100%', overflow: 'auto' }}>
       <div style={{ height: 'fit-content', margin: 16 }}>
         <Grid container spacing={2}>
-          <Grid item xs={12}>
-            Example
-          </Grid>
-          <Grid item xs={12}>
-            <Divider />
-          </Grid>
           {
             example.filter(i => i.name.includes(filter)).map((i, index) => {
               return <Grid item key={index}>
                 <Card onClick={() => apply(i.data)}>
                   <CardActionArea style={{ width: 320, padding: 16 }}>
-                    <div style={{ fontSize: 20 }}>{i.name}</div>
-                    <div style={{ marginTop: 16, height: 120 }}>{i.description}</div>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                      <div style={{ fontSize: 16 }}>
+                        {i.name}
+                      </div>
+                      <DescriptionIcon />
+                    </div>
+
+                    <Divider style={{ margin: '16px 0' }} />
+
+                    <div style={{ height: 120, overflowY: 'auto' }}>{i.description}</div>
                   </CardActionArea>
                 </Card>
               </Grid>

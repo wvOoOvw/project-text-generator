@@ -4,18 +4,18 @@ const common3 = require('./example.common3.json')
 
 const exports = [
   {
-    name: 'common',
-    description: 'common data',
+    name: 'Marxist Theory',
+    description: `How to Build Socialism, Combining Marxist Theory to Establish the Thought of People's Democratic Dictatorship`,
     data: common
   },
   {
-    name: 'common2',
-    description: 'common2 data',
+    name: 'Internship Record',
+    description: 'Internship Record',
     data: common2
   },
   {
-    name: 'common3',
-    description: 'common3 data',
+    name: 'Marxist Theory Plus',
+    description: `How to Build Socialism, Combining Marxist Theory to Establish the Thought of People's Democratic Dictatorship`,
     data: common3
   }
 ]
