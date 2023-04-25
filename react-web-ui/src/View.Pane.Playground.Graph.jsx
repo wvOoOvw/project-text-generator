@@ -44,7 +44,7 @@ function FilterDialog(props) {
     <DialogContent dividers>
       <Grid container spacing={1}>
         <Grid item xs={12}>
-          <TextField variant='standard' sx={{ '& input': { fontSize: 14 } }} fullWidth value={filter} onChange={e => setFilter(e.target.value)} />
+          <TextField variant='standard' sx={{ '& input': { fontSize: 14 } }} fullWidth autoFocus value={filter} onChange={e => setFilter(e.target.value)} />
         </Grid>
         {
           Object.entries(Imitation.state.library).filter(i => i[0].includes(filter)).map((i, index) => {

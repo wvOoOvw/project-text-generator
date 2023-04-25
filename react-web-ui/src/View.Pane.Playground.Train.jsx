@@ -53,12 +53,13 @@ function SettingDialog(props) {
         <Grid item xs={12}>
           <Slider value={props.setting.randomAddition} onChange={(e, v) => props.setSetting(pre => { pre.randomAddition = v; return { ...pre } })} min={-1} max={1} step={0.1} />
         </Grid>
-
-        <Grid item xs={12} style={{ fontSize: 14 }}>
-          Skip break
-        </Grid>
         <Grid item xs={12}>
-          <Switch checked={props.setting.skipBreak} onChange={(e) => props.setSetting(pre => { pre.skipBreak = e.target.checked; return { ...pre } })} />
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div style={{ fontSize: 14 }}>
+              Skip break
+            </div>
+            <Switch checked={props.setting.skipBreak} onChange={(e) => props.setSetting(pre => { pre.skipBreak = e.target.checked; return { ...pre } })} />
+          </div>
         </Grid>
       </Grid>
     </DialogContent>
