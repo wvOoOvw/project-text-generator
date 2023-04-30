@@ -25,6 +25,7 @@
     "css-loader": "^6.2.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "node-xlsx": "^0.21.2",
     "style-loader": "^3.2.1",
     "webpack": "^5.50.0",
     "webpack-bundle-analyzer": "^4.5.0",

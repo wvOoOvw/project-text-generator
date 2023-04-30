@@ -1,23 +1,24 @@
-const common = require('./example.common.json')
-const common2 = require('./example.common2.json')
-const common3 = require('./example.common3.json')
-
 const exports = [
   {
-    name: 'Marxist Theory',
+    name: 'Marxist Theory Chinese',
     description: `How to Build Socialism, Combining Marxist Theory to Establish the Thought of People's Democratic Dictatorship`,
-    data: common
+    data: require('./example.common.json')
   },
   {
-    name: 'Internship Record',
-    description: 'Internship Record',
-    data: common2
+    name: 'Marxist Theory Chinese Plus',
+    description: `How to Build Socialism, Combining Marxist Theory to Establish the Thought of People's Democratic Dictatorship`,
+    data: require('./example.common3.json')
   },
   {
-    name: 'Marxist Theory Plus',
-    description: `How to Build Socialism, Combining Marxist Theory to Establish the Thought of People's Democratic Dictatorship`,
-    data: common3
-  }
+    name: 'Internship Record Chinese',
+    description: 'Internship Record Chinese',
+    data: require('./example.common2.json')
+  },
+  {
+    name: 'Artificial intelligence English',
+    description: 'Artificial intelligence English',
+    data: require('./example.common4.json')
+  },
 ]
 
 export default exports

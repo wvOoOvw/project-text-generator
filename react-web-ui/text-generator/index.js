@@ -30,7 +30,7 @@ const generator = (token, setting, library) => {
 }
 
 const match = (token, setting, library) => {
-  var searchLength = Math.min(setting.memoryContext, token.length)
+  var searchLength = Math.min(setting.memoryContextLength, token.length)
   var searchIndex = 1
   var searchResult = []
 

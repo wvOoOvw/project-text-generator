@@ -1,8 +1,6 @@
 const safeNumber = (n, l) => Number(Number(n).toFixed(l))
 
 const calculator = (token, setting, context) => {
-  if (setting.skipBreak) token = token.filter(i => i !== '\n' && i !== ' ')
-
   const resultLibrary = JSON.parse(JSON.stringify(context))
   const resultDiff = {}
 
@@ -10,7 +8,7 @@ const calculator = (token, setting, context) => {
 
   const next = () => {
 
-    new Array(process.setting.recordLengthLeft + 1).fill().forEach((i, index) => {
+    new Array(process.setting.recordContextLengthLeft + 1).fill().forEach((i, index) => {
       const current = process.token_reverse[process.index + index]
 
       if (current === undefined) return
@@ -37,7 +35,7 @@ const calculator = (token, setting, context) => {
       }
     })
 
-    new Array(process.setting.recordLengthRight + 1).fill().forEach((i, index) => {
+    new Array(process.setting.recordContextLengthRight + 1).fill().forEach((i, index) => {
       const current = process.token[process.index + index]
 
       if (current === undefined) return

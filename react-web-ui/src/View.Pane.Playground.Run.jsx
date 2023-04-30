@@ -17,6 +17,19 @@ import Imitation from './utils.imitation'
 import { tokenizer } from '../text-tokenizer/index'
 import { generator } from '../text-generator/index'
 
+const tokenFormat = token => {
+  var r = []
+
+  token.forEach((i, index) => {
+    r.push(token[index])
+    if (token[index].match(/^[a-z|A-Z|']+$/) && token[index + 1] && token[index + 1].match(/^[a-z|A-Z|']+$/)) r.push(' ')
+    if (token[index] === '.' && token[index + 1] && token[index + 1].match(/^[a-z|A-Z|']+$/)) r.push(' ')
+    if (token[index] === ',' && token[index + 1] && token[index + 1].match(/^[a-z|A-Z|']+$/)) r.push(' ')
+  })
+
+  return r
+}
+
 function SettingDialog(props) {
   return <Dialog open={props.open} sx={{ '& .MuiDialog-paper': { width: '100%', maxWidth: 720 } }} onClose={() => props.onClose()}>
     <DialogTitle style={{ fontSize: 16 }}>Settings</DialogTitle>
@@ -29,10 +42,10 @@ function SettingDialog(props) {
           <Slider value={props.setting.createTokenLength} onChange={(e, v) => props.setSetting(pre => { pre.createTokenLength = v; return { ...pre } })} min={1} max={1024} step={1} />
         </Grid>
         <Grid item xs={12} style={{ fontSize: 14 }}>
-          Memory Context {props.setting.memoryContext}
+          Memory Context Length {props.setting.memoryContextLength}
         </Grid>
         <Grid item xs={12}>
-          <Slider value={props.setting.memoryContext} onChange={(e, v) => props.setSetting(pre => { pre.memoryContext = v; return { ...pre } })} min={1} max={10} step={1} />
+          <Slider value={props.setting.memoryContextLength} onChange={(e, v) => props.setSetting(pre => { pre.memoryContextLength = v; return { ...pre } })} min={1} max={10} step={1} />
         </Grid>
         <Grid item xs={12} style={{ fontSize: 14 }}>
           To Top {props.setting.toTop}
@@ -56,7 +69,7 @@ function SettingDialog(props) {
 
 function App() {
   const [prompt, setPrompt] = React.useState('')
-  const [setting, setSetting] = React.useState({ createTokenLength: 256, memoryContext: 2, toTop: 1, temperature: 1 })
+  const [setting, setSetting] = React.useState({ createTokenLength: 256, memoryContextLength: 2, toTop: 1, temperature: 1 })
   const [settingDialog, setSettingDialog] = React.useState()
 
   const run = async () => {
@@ -73,7 +86,7 @@ function App() {
 
     const generatorProcessLoop = async (generatorProcess) => {
       const r = await new Promise(r => {
-        const loop = () => generatorProcess.next ? requestIdleCallback(() => { generatorProcess.next(); setPrompt([...generatorProcess.token, ...generatorProcess.result].join('')); loop() }) : r(generatorProcess.result)
+        const loop = () => generatorProcess.next ? requestIdleCallback(() => { generatorProcess.next(); setPrompt([...generatorProcess.token, ...tokenFormat(generatorProcess.result)].join('')); loop() }) : r(generatorProcess.result)
 
         loop()
       })

@@ -1,13 +1,22 @@
 const DictChinese = require('./Dict.Chinese.json')
+const DictEnglish = require('./Dict.English.json')
 
-const DictChineseLengthObject = {}
+const DictLengthObject = {}
 
 DictChinese.forEach(i => {
   const length = i.length
 
-  DictChineseLengthObject[length] = DictChineseLengthObject[length] ? DictChineseLengthObject[length] : []
+  DictLengthObject[length] = DictLengthObject[length] ? DictLengthObject[length] : []
 
-  DictChineseLengthObject[length].push(i)
+  DictLengthObject[length].push(i)
+})
+
+DictEnglish.forEach(i => {
+  const length = i.length
+
+  DictLengthObject[length] = DictLengthObject[length] ? DictLengthObject[length] : []
+
+  DictLengthObject[length].push(i)
 })
 
 const tokenizer = (text) => {
@@ -29,7 +38,7 @@ const tokenizer = (text) => {
 }
 
 const match = (text, index) => {
-  var searchLength = Math.min(Math.max(...Object.keys(DictChineseLengthObject).map(i => Number(i))), text.length - index)
+  var searchLength = Math.min(Math.max(...Object.keys(DictLengthObject).map(i => Number(i))), text.length - index)
   var searchIndex = 1
   var searchResult = []
 
@@ -38,7 +47,7 @@ const match = (text, index) => {
 
     const resultLength = searchCurrent.length
 
-    const find = DictChineseLengthObject[resultLength] ? DictChineseLengthObject[resultLength].find(i => i === searchCurrent) : null
+    const find = DictLengthObject[resultLength] ? DictLengthObject[resultLength].find(i => i.toLocaleLowerCase() === searchCurrent.toLocaleLowerCase()) : null
 
     if (find) searchResult.push(searchCurrent)
 
@@ -53,11 +62,17 @@ const match = (text, index) => {
     }
   }
 
+  if (result.match(/^[a-z|A-Z|']+$/)) {
+    while (text[index + result.length] && text[index + result.length].match(/^[a-z|A-Z|']+$/)) {
+      result = result + text[index + result.length]
+    }
+  }
+
   return result
 }
 
 module.exports.tokenizer = tokenizer
 
-// const tokenizerProcess = tokenizer('小偷偷偷偷东西')
+const tokenizerProcess = tokenizer(`I'm a girl`)
 
-// while (tokenizerProcess.next) console.log(tokenizerProcess.next().result)
+while (tokenizerProcess.next) console.log(tokenizerProcess.next().result)

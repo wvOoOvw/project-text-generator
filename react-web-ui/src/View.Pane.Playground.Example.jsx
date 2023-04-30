@@ -11,7 +11,8 @@ import DialogTitle from '@mui/material/DialogTitle'
 import DialogActions from '@mui/material/DialogActions'
 import Card from '@mui/material/Card'
 import CardActionArea from '@mui/material/CardActionArea'
-import CardContent from '@mui/material/CardContent';
+import CardContent from '@mui/material/CardContent'
+import Tooltip from '@mui/material/Tooltip';
 
 import FolderIcon from '@mui/icons-material/Folder';
 import SendIcon from '@mui/icons-material/Send';
@@ -39,17 +40,23 @@ function App() {
             example.filter(i => i.name.includes(filter)).map((i, index) => {
               return <Grid item key={index}>
                 <Card onClick={() => apply(i.data)}>
-                  <CardActionArea style={{ width: 320, padding: 16 }}>
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                      <div style={{ fontSize: 16 }}>
-                        {i.name}
+                  <CardActionArea>
+                    <CardContent style={{ width: 320, height: 220, overflow: 'hidden' }}>
+
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                        <Tooltip title={i.name}>
+                          <div style={{ fontSize: 16, marginRight: 8, textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }}>
+                            {i.name}
+                          </div>
+                        </Tooltip>
+                        <DescriptionIcon style={{ flexShrink: 0 }} />
                       </div>
-                      <DescriptionIcon />
-                    </div>
 
-                    <Divider style={{ margin: '16px 0' }} />
+                      <Divider style={{ margin: '16px 0' }} />
 
-                    <div style={{ height: 120, overflowY: 'auto' }}>{i.description}</div>
+                      <div style={{ fontSize: 14, lineHeight: 1.5 }}>{i.description}</div>
+
+                    </CardContent>
                   </CardActionArea>
                 </Card>
               </Grid>
