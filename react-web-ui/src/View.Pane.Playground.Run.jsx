@@ -16,19 +16,9 @@ import Imitation from './utils.imitation'
 
 import { tokenizer } from '../text-tokenizer/index'
 import { generator } from '../text-generator/index'
+import { TextField } from '@mui/material'
 
-const tokenFormat = token => {
-  var r = []
-
-  token.forEach((i, index) => {
-    r.push(token[index])
-    if (token[index].match(/^[a-z|A-Z|']+$/) && token[index + 1] && token[index + 1].match(/^[a-z|A-Z|']+$/)) r.push(' ')
-    if (token[index] === '.' && token[index + 1] && token[index + 1].match(/^[a-z|A-Z|']+$/)) r.push(' ')
-    if (token[index] === ',' && token[index + 1] && token[index + 1].match(/^[a-z|A-Z|']+$/)) r.push(' ')
-  })
-
-  return r
-}
+import {tokenFormat} from './utils.common'
 
 function SettingDialog(props) {
   return <Dialog open={props.open} sx={{ '& .MuiDialog-paper': { width: '100%', maxWidth: 720 } }} onClose={() => props.onClose()}>
@@ -59,6 +49,12 @@ function SettingDialog(props) {
         <Grid item xs={12}>
           <Slider value={props.setting.temperature} onChange={(e, v) => props.setSetting(pre => { pre.temperature = v; return { ...pre } })} min={0} max={2} step={0.01} />
         </Grid>
+        <Grid item xs={12} style={{ fontSize: 14 }}>
+          Stop Token
+        </Grid>
+        <Grid item xs={12}>
+          <TextField sx={{ '& input': { fontSize: 14 } }} fullWidth variant='standard' value={props.setting.stopToken} onChange={e => props.setSetting(pre => { pre.stopToken = e.target.value; return { ...pre } })} />
+        </Grid>
       </Grid>
     </DialogContent>
     <DialogActions>
@@ -69,11 +65,10 @@ function SettingDialog(props) {
 
 function App() {
   const [prompt, setPrompt] = React.useState('')
-  const [setting, setSetting] = React.useState({ createTokenLength: 256, memoryContextLength: 2, toTop: 1, temperature: 1 })
+  const [setting, setSetting] = React.useState({ createTokenLength: 256, memoryContextLength: 2, toTop: 1, temperature: 1, stopToken: '<|End|>' })
   const [settingDialog, setSettingDialog] = React.useState()
 
   const run = async () => {
-
     const tokenizerProcessLoop = async (tokenizerProcess) => {
       const r = await new Promise(r => {
         const loop = () => tokenizerProcess.next ? requestIdleCallback(() => { tokenizerProcess.next(); loop() }) : r(tokenizerProcess.result)
@@ -86,7 +81,7 @@ function App() {
 
     const generatorProcessLoop = async (generatorProcess) => {
       const r = await new Promise(r => {
-        const loop = () => generatorProcess.next ? requestIdleCallback(() => { generatorProcess.next(); setPrompt([...generatorProcess.token, ...tokenFormat(generatorProcess.result)].join('')); loop() }) : r(generatorProcess.result)
+        const loop = () => generatorProcess.next ? requestIdleCallback(() => { generatorProcess.next(); setPrompt([...generatorProcess.token, ...tokenFormat(generatorProcess.result, 2)].join('')); loop() }) : r(generatorProcess.result)
 
         loop()
       })

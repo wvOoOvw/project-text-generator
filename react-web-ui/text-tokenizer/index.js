@@ -1,5 +1,6 @@
 const DictChinese = require('./Dict.Chinese.json')
 const DictEnglish = require('./Dict.English.json')
+const DictSP = require('./Dict.SP.json')
 
 const DictLengthObject = {}
 
@@ -18,6 +19,15 @@ DictEnglish.forEach(i => {
 
   DictLengthObject[length].push(i)
 })
+
+DictSP.forEach(i => {
+  const length = i.length
+
+  DictLengthObject[length] = DictLengthObject[length] ? DictLengthObject[length] : []
+
+  DictLengthObject[length].push(i)
+})
+
 
 const tokenizer = (text) => {
   const process = { text: text, index: 0, result: [], next: () => next() }
@@ -73,6 +83,6 @@ const match = (text, index) => {
 
 module.exports.tokenizer = tokenizer
 
-const tokenizerProcess = tokenizer(`I'm a girl`)
+// const tokenizerProcess = tokenizer(`I'm a girl`)
 
-while (tokenizerProcess.next) console.log(tokenizerProcess.next().result)
+// while (tokenizerProcess.next) console.log(tokenizerProcess.next().result)

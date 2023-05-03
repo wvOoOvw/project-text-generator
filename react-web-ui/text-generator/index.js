@@ -21,6 +21,7 @@ const generator = (token, setting, library) => {
 
     process.result.push(matchResult)
 
+    if (process.setting.stopToken && process.setting.stopToken.includes(matchResult)) process.next = undefined
     if (process.result.length === process.setting.createTokenLength) process.next = undefined
 
     return process

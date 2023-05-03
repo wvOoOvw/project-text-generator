@@ -26,6 +26,7 @@ function App() {
   const [filter, setFilter] = React.useState('')
 
   const apply = v => {
+    Imitation.state.playgroundView = 'run'
     Imitation.state.library = v
     Imitation.state.message = 'Loaded'
     Imitation.dispatch()

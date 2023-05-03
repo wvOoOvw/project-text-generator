@@ -9,7 +9,7 @@ ImitationINS.state = {
 
   playgroundView: 'default',
 
-  library: {},
+  library: null
 }
 
 export default ImitationINS

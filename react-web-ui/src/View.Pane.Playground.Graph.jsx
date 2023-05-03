@@ -47,13 +47,15 @@ function FilterDialog(props) {
           <TextField variant='standard' sx={{ '& input': { fontSize: 14 } }} fullWidth autoFocus value={filter} onChange={e => setFilter(e.target.value)} />
         </Grid>
         {
-          Object.entries(Imitation.state.library).filter(i => i[0].includes(filter)).map((i, index) => {
-            return <Grid item key={index}>
-              <Card onClick={() => { props.onUpdate(i[0]); props.onClose() }} style={{ height: '100%' }}>
-                <CardActionArea style={{ padding: 12, lineHeight: 1, fontSize: 14 }}>{specialWord(i[0])}</CardActionArea>
-              </Card>
-            </Grid>
-          })
+          Imitation.state.library ?
+            Object.entries(Imitation.state.library).filter(i => i[0].includes(filter)).map((i, index) => {
+              return <Grid item key={index}>
+                <Card onClick={() => { props.onUpdate(i[0]); props.onClose() }} style={{ height: '100%' }}>
+                  <CardActionArea style={{ padding: 12, lineHeight: 1, fontSize: 14 }}>{specialWord(i[0])}</CardActionArea>
+                </Card>
+              </Grid>
+            })
+            : null
         }
       </Grid>
     </DialogContent>
@@ -225,7 +227,7 @@ function App() {
   }, [edit])
 
   React.useEffect(() => {
-    requestAnimationFrame(() => setOrigin(Object.keys(Imitation.state.library)[0]))
+    if (Imitation.state.library) requestAnimationFrame(() => setOrigin(Object.keys(Imitation.state.library)[0]))
   }, [])
 
   React.useEffect(() => {

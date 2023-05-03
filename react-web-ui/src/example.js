@@ -19,6 +19,11 @@ const exports = [
     description: 'Artificial intelligence English',
     data: require('./example.common4.json')
   },
+  {
+    name: 'Dialog',
+    description: 'Dialog',
+    data: require('./example.common5.json')
+  },
 ]
 
 export default exports

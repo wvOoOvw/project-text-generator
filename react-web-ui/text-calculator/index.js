@@ -1,7 +1,7 @@
 const safeNumber = (n, l) => Number(Number(n).toFixed(l))
 
-const calculator = (token, setting, context) => {
-  const resultLibrary = JSON.parse(JSON.stringify(context))
+const calculator = (token, setting, library) => {
+  const resultLibrary = JSON.parse(JSON.stringify(library ? library : {}))
   const resultDiff = {}
 
   const process = { token: [...token], token_reverse: [...token].reverse(), setting: setting, index: 0, result: { resultLibrary, resultDiff }, next: () => next() }

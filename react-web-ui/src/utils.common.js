@@ -52,8 +52,8 @@ const arrayRandom = (array, number) => {
 }
 
 const specialWord = v => {
-  if (v === ' ') return '(sapce)'
-  if (v === '\n') return '(wrap)'
+  if (v === ' ') return '<|sapce|>'
+  if (v === '\n') return '<|wrap|>'
   return v
 }
 
@@ -62,4 +62,30 @@ const parseDirection = v => {
   if (v === 'RL') return ['right', 'left']
 }
 
-export { baseIp, hash, copy, download, safeNumber, arrayRandom, specialWord, parseDirection }
+const tokenFormat = (token, action) => {
+  if (!token) return []
+
+  var r = []
+
+  if (action === 1) {
+    token.forEach((i, index) => {
+      if (token[index] === ' ' && token[index - 1] && token[index + 1] && token[index - 1].match(/^[a-z|A-Z|']+$/) && token[index + 1].match(/^[a-z|A-Z|']+$/)) return
+      r.push(token[index])
+    })
+
+    return r
+  }
+
+  if (action === 2) {
+    token.forEach((i, index) => {
+      r.push(token[index])
+      if (token[index].match(/^[a-z|A-Z|']+$/) && token[index + 1] && token[index + 1].match(/^[a-z|A-Z|']+$/)) r.push(' ')
+      if (token[index] === '.' && token[index + 1] && token[index + 1].match(/^[a-z|A-Z|']+$/)) r.push(' ')
+      if (token[index] === ',' && token[index + 1] && token[index + 1].match(/^[a-z|A-Z|']+$/)) r.push(' ')
+    })
+
+    return r
+  }
+}
+
+export { baseIp, hash, copy, download, safeNumber, arrayRandom, specialWord, parseDirection, tokenFormat }
