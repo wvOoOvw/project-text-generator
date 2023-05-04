@@ -2,32 +2,25 @@ const DictChinese = require('./Dict.Chinese.json')
 const DictEnglish = require('./Dict.English.json')
 const DictSP = require('./Dict.SP.json')
 
-const DictLengthObject = {}
+const DictObject = {}
 
 DictChinese.forEach(i => {
-  const length = i.length
+  var useObject = DictObject
 
-  DictLengthObject[length] = DictLengthObject[length] ? DictLengthObject[length] : []
-
-  DictLengthObject[length].push(i)
+  i.split('').forEach(i_ => { useObject[i_] = useObject[i_] ? useObject[i_] : {}; useObject = useObject[i_]; })
 })
 
 DictEnglish.forEach(i => {
-  const length = i.length
+  var useObject = DictObject
 
-  DictLengthObject[length] = DictLengthObject[length] ? DictLengthObject[length] : []
-
-  DictLengthObject[length].push(i)
+  i.split('').forEach(i_ => { useObject[i_] = useObject[i_] ? useObject[i_] : {}; useObject = useObject[i_]; })
 })
 
 DictSP.forEach(i => {
-  const length = i.length
+  var useObject = DictObject
 
-  DictLengthObject[length] = DictLengthObject[length] ? DictLengthObject[length] : []
-
-  DictLengthObject[length].push(i)
+  i.split('').forEach(i_ => { useObject[i_] = useObject[i_] ? useObject[i_] : {}; useObject = useObject[i_]; })
 })
-
 
 const tokenizer = (text) => {
   const process = { text: text, index: 0, result: [], next: () => next() }
@@ -48,23 +41,25 @@ const tokenizer = (text) => {
 }
 
 const match = (text, index) => {
-  var searchLength = Math.min(Math.max(...Object.keys(DictLengthObject).map(i => Number(i))), text.length - index)
+  var searchObject = DictObject
   var searchIndex = 1
-  var searchResult = []
+  var searchResult = ''
 
-  while (searchIndex < searchLength + 1) {
-    searchCurrent = text.slice(index, index + searchIndex)
+  while (searchIndex) {
+    const current = text.slice(index + searchIndex - 1, index + searchIndex)
 
-    const resultLength = searchCurrent.length
+    if (!searchObject[current]) {
+      searchIndex = 0
+    }
 
-    const find = DictLengthObject[resultLength] ? DictLengthObject[resultLength].find(i => i.toLocaleLowerCase() === searchCurrent.toLocaleLowerCase()) : null
-
-    if (find) searchResult.push(searchCurrent)
-
-    searchIndex = searchIndex + 1
+    if (searchObject[current]) {
+      searchResult = searchResult + current
+      searchObject = searchObject[current]
+      searchIndex = searchIndex + 1
+    }
   }
 
-  var result = searchResult.length ? searchResult.pop() : text.slice(index, index + 1)
+  var result = searchResult ? searchResult : text.slice(index, index + 1)
 
   if (result.match(/^\d+$/)) {
     while (text[index + result.length] && text[index + result.length].match(/^\d+$/)) {
@@ -83,6 +78,6 @@ const match = (text, index) => {
 
 module.exports.tokenizer = tokenizer
 
-// const tokenizerProcess = tokenizer(`I'm a girl`)
+const tokenizerProcess = tokenizer(`秋天天气真好啊123`)
 
-// while (tokenizerProcess.next) console.log(tokenizerProcess.next().result)
+while (tokenizerProcess.next) console.log(tokenizerProcess.next().result)
