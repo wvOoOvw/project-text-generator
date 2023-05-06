@@ -1,28 +1,33 @@
 const exports = [
   {
-    name: 'Marxist Theory Chinese',
-    description: `How to Build Socialism, Combining Marxist Theory to Establish the Thought of People's Democratic Dictatorship`,
+    name: 'Test',
+    description: `Test`,
     data: require('./example.common.json')
   },
   {
-    name: 'Marxist Theory Chinese Plus',
-    description: `How to Build Socialism, Combining Marxist Theory to Establish the Thought of People's Democratic Dictatorship`,
-    data: require('./example.common3.json')
-  },
-  {
-    name: 'Internship Record Chinese',
-    description: 'Internship Record Chinese',
+    name: '中国的发展',
+    description: `中国的发展从古至今已经有六十年多了...`,
     data: require('./example.common2.json')
   },
   {
-    name: 'Artificial intelligence English',
-    description: 'Artificial intelligence English',
+    name: '实习记录',
+    description: '实习记录',
+    data: require('./example.common3.json')
+  },
+  {
+    name: 'Artificial intelligence',
+    description: 'Artificial intelligence',
     data: require('./example.common4.json')
   },
   {
     name: 'Dialog',
     description: 'Dialog',
     data: require('./example.common5.json')
+  },
+  {
+    name: '奥尔夫音乐律动教学法',
+    description: '奥尔夫音乐律动教学法',
+    data: require('./example.common6.json')
   },
 ]
 

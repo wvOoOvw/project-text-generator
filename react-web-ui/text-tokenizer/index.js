@@ -26,7 +26,37 @@ const tokenizer = (text) => {
   const process = { text: text, index: 0, result: [], next: () => next() }
 
   const next = () => {
-    const matchResult = match(process.text, process.index)
+    var searchObject = DictObject
+    var searchIndex = 1
+    var searchResult = ''
+
+    while (searchIndex) {
+      const current = process.text.slice(process.index + searchIndex - 1, process.index + searchIndex)
+
+      if (!searchObject[current]) {
+        searchIndex = 0
+      }
+
+      if (searchObject[current]) {
+        searchResult = searchResult + current
+        searchObject = searchObject[current]
+        searchIndex = searchIndex + 1
+      }
+    }
+
+    var matchResult = searchResult ? searchResult : process.text.slice(process.index, process.index + 1)
+
+    if (matchResult.match(/^\d+$/)) {
+      while (process.text[process.index + matchResult.length] && process.text[process.index + matchResult.length].match(/^\d+$/)) {
+        matchResult = matchResult + process.text[process.index + matchResult.length]
+      }
+    }
+
+    if (matchResult.match(/^[a-z|A-Z|']+$/)) {
+      while (process.text[process.index + matchResult.length] && process.text[process.index + matchResult.length].match(/^[a-z|A-Z|']+$/)) {
+        matchResult = matchResult + process.text[process.index + matchResult.length]
+      }
+    }
 
     process.index = process.index + matchResult.length
 
@@ -40,44 +70,8 @@ const tokenizer = (text) => {
   return process
 }
 
-const match = (text, index) => {
-  var searchObject = DictObject
-  var searchIndex = 1
-  var searchResult = ''
-
-  while (searchIndex) {
-    const current = text.slice(index + searchIndex - 1, index + searchIndex)
-
-    if (!searchObject[current]) {
-      searchIndex = 0
-    }
-
-    if (searchObject[current]) {
-      searchResult = searchResult + current
-      searchObject = searchObject[current]
-      searchIndex = searchIndex + 1
-    }
-  }
-
-  var result = searchResult ? searchResult : text.slice(index, index + 1)
-
-  if (result.match(/^\d+$/)) {
-    while (text[index + result.length] && text[index + result.length].match(/^\d+$/)) {
-      result = result + text[index + result.length]
-    }
-  }
-
-  if (result.match(/^[a-z|A-Z|']+$/)) {
-    while (text[index + result.length] && text[index + result.length].match(/^[a-z|A-Z|']+$/)) {
-      result = result + text[index + result.length]
-    }
-  }
-
-  return result
-}
-
 module.exports.tokenizer = tokenizer
 
-const tokenizerProcess = tokenizer(`秋天天气真好啊123`)
+// const tokenizerProcess = tokenizer(`秋天天气真好啊123`)
 
-while (tokenizerProcess.next) console.log(tokenizerProcess.next().result)
+// while (tokenizerProcess.next) console.log(tokenizerProcess.next().result)

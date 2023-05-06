@@ -32,13 +32,13 @@ function SettingDialog(props) {
           Record Context Length Left {props.setting.recordContextLengthLeft}
         </Grid>
         <Grid item xs={12}>
-          <Slider value={props.setting.recordContextLengthLeft} onChange={(e, v) => props.setSetting(pre => { pre.recordContextLengthLeft = v; return { ...pre } })} min={1} max={10} step={1} />
+          <Slider value={props.setting.recordContextLengthLeft} onChange={(e, v) => props.setSetting(pre => { pre.recordContextLengthLeft = v; return { ...pre } })} min={0} max={10} step={1} />
         </Grid>
         <Grid item xs={12} style={{ fontSize: 14 }}>
           Record Context Length Right {props.setting.recordContextLengthRight}
         </Grid>
         <Grid item xs={12}>
-          <Slider value={props.setting.recordContextLengthRight} onChange={(e, v) => props.setSetting(pre => { pre.recordContextLengthRight = v; return { ...pre } })} min={1} max={10} step={1} />
+          <Slider value={props.setting.recordContextLengthRight} onChange={(e, v) => props.setSetting(pre => { pre.recordContextLengthRight = v; return { ...pre } })} min={0} max={10} step={1} />
         </Grid>
         <Grid item xs={12} style={{ fontSize: 14 }}>
           Weight {props.setting.weight}

@@ -7,7 +7,6 @@ const calculator = (token, setting, library) => {
   const process = { token: [...token], token_reverse: [...token].reverse(), setting: setting, index: 0, result: { resultLibrary, resultDiff }, next: () => next() }
 
   const next = () => {
-
     new Array(process.setting.recordContextLengthLeft + 1).fill().forEach((i, index) => {
       const current = process.token_reverse[process.index + index]
 
