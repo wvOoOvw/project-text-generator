@@ -61,7 +61,7 @@ function SettingDialog(props) {
         <Grid item xs={12} style={{ fontSize: 14 }}>
           repeatLength {props.setting.repeatLength}
         </Grid>
-        <Tooltip title='detect duplicate token lengths'>
+        <Tooltip title='check duplicate token lengths, suggest setting a length greater than 8, 0 will not check'>
           <Grid item xs={12}>
             <Slider value={props.setting.repeatLength} onChange={(e, v) => props.setSetting(pre => { pre.repeatLength = v; return { ...pre } })} min={0} max={32} step={1} />
           </Grid>
@@ -69,7 +69,7 @@ function SettingDialog(props) {
         <Grid item xs={12} style={{ fontSize: 14 }}>
           repeatDistance {props.setting.repeatDistance}
         </Grid>
-        <Tooltip title='detect duplicate token distance'>
+        <Tooltip title='check duplicate token distance'>
           <Grid item xs={12}>
             <Slider value={props.setting.repeatDistance} onChange={(e, v) => props.setSetting(pre => { pre.repeatDistance = v; return { ...pre } })} min={0} max={1024} step={1} />
           </Grid>

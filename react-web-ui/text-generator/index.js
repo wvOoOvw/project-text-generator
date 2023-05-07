@@ -14,7 +14,7 @@ const arrayRandom = (array, number) => {
 }
 
 const generator = (token, setting, library) => {
-  const process = { token: token, setting: setting, library: library, result: [], repeat: [], next: () => next() }
+  const process = { token: token, setting: setting, library: library, result: [], cacheRepeat: { result: '', index: 0 }, next: () => next() }
 
   const next = () => {
     var searchToken = [...process.token, ...process.result]
@@ -37,20 +37,7 @@ const generator = (token, setting, library) => {
       searchIndex = searchIndex + 1
     }
 
-    if (searchResult !== undefined) searchResult = { ...searchResult }
-
-    if (searchResult !== undefined && Object.keys(searchResult).length !== 0) {
-      process.repeat
-        .filter(i => i.index === process.result.length)
-        .forEach(i => delete searchResult[i.token])
-    }
-
-    if (searchResult === undefined || Object.keys(searchResult).length === 0) {
-      searchResult = { ...process.library }
-      process.repeat
-        .filter(i => i.index === process.result.length)
-        .forEach(i => delete searchResult[i.token])
-    }
+    if (searchResult === undefined || Object.keys(searchResult).length === 0) searchResult = { ...process.library }
 
     if (searchResult !== undefined && Object.keys(searchResult).length !== 0) {
       searchResult = Object.entries(searchResult).map(i => ({ name: i[0], weight: i[1].weight }))
@@ -76,6 +63,8 @@ const generator = (token, setting, library) => {
       searchResult.forEach(i => matchResult === undefined && random < i.percent ? matchResult = i.name : null)
     }
 
+    if (matchResult !== undefined) process.result.push(matchResult)
+
     if (process.setting.repeatLength > 0 && process.result.length > process.setting.repeatLength) {
       const origin = process.result.slice(process.result.length - process.setting.repeatLength, process.result.length)
       const target = process.result.slice(Math.max(process.result.length - process.setting.repeatLength - process.setting.repeatDistance, 0), process.result.length - process.setting.repeatLength)
@@ -84,17 +73,13 @@ const generator = (token, setting, library) => {
       const targetString = target.join('')
 
       if (targetString.includes(originString)) {
-        const item = { token: origin[origin.length - 1], index: process.result.length - 1 }
-        if (process.repeat.find(i_ => i_.token === item.token && i_.index === item.index) === undefined) {
-          process.repeat.push(item)
-        }
-
         process.result = process.result.slice(0, process.result.length - process.setting.repeatLength)
+        process.cacheRepeat.result = process.result
+        process.cacheRepeat.index = process.cacheRepeat.result === process.result ? process.cacheRepeat.index + 1 : 0
       }
     }
 
-    if (matchResult !== undefined) process.result.push(matchResult)
-
+    if (process.cacheRepeat.index > 16) process.next = undefined
     if (matchResult === undefined) process.next = undefined
     if (process.setting.stopToken && process.setting.stopToken.includes(matchResult)) process.next = undefined
     if (process.result.length === process.setting.createTokenLength) process.next = undefined

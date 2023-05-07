@@ -5,6 +5,7 @@ import Button from '@mui/material/Button'
 
 import CopyAllIcon from '@mui/icons-material/CopyAll'
 import UploadIcon from '@mui/icons-material/Upload'
+import DownloadIcon from '@mui/icons-material/Download'
 import ClearAllIcon from '@mui/icons-material/ClearAll'
 import LineAxisIcon from '@mui/icons-material/LineAxis'
 import EditIcon from '@mui/icons-material/Edit'
@@ -23,12 +24,16 @@ function App() {
     Imitation.dispatch()
   }
 
-  const load = () => {
+  const upload = () => {
     var data = prompt()
     if (!data) return
     Imitation.state.library = JSON.parse(data)
     Imitation.state.message = 'Loaded'
     Imitation.dispatch()
+  }
+
+  const download = () => {
+    
   }
 
   const clear = () => {
@@ -40,7 +45,8 @@ function App() {
   return <Paper style={{ position: 'relative', width: '100%', height: 'fit-content', overflow: 'auto', background: 'rgba(255, 255, 255, 1)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: 16, marginBottom: 16 }}>
 
     <div style={{ whiteSpace: 'nowrap' }}>
-      <Button variant='contained' style={{ textTransform: 'none', marginRight: 8 }} onClick={load}><UploadIcon /></Button>
+      <Button variant='contained' style={{ textTransform: 'none', marginRight: 8 }} onClick={upload}><UploadIcon /></Button>
+      <Button variant='contained' style={{ textTransform: 'none', marginRight: 8 }} onClick={download}><DownloadIcon /></Button>
       <Button variant='contained' style={{ textTransform: 'none', marginRight: 8 }} onClick={copy_}><CopyAllIcon /></Button>
       <Button variant='contained' style={{ textTransform: 'none', marginRight: 8 }} onClick={clear}><ClearAllIcon /></Button>
     </div>

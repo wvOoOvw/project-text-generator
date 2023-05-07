@@ -2,11 +2,11 @@ const exports = [
   {
     name: 'Test',
     description: `Test`,
-    data: require('./example.common.json')
+    data: require('./example.common1.json')
   },
   {
-    name: '中国的发展',
-    description: `中国的发展从古至今已经有六十年多了...`,
+    name: '中国特色社会主义理论',
+    description: `中国特色社会主义理论是一个作为中国国情发展中的基石...`,
     data: require('./example.common2.json')
   },
   {

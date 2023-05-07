@@ -89,15 +89,23 @@ function App() {
 
     Imitation.setState(pre => { pre.loading = pre.loading + 1; return pre })
 
-    console.log(prompt)
+    var result = Imitation.state.library
 
-    const token = await tokenizerProcessLoop(tokenizer(prompt)).then(res => tokenFormat(res, 1))
+    const promptArray = prompt.split('\n').filter(i => i.length > 0)
 
-    console.log(token)
+    for (let index = 0; index < promptArray.length; index++) {
+      const prompt = promptArray[index]
 
-    const result = await calculatorProcessLoop(calculator(token, setting, result)).then(res => res.resultLibrary)
+      console.log(prompt)
+      
+      const token = await tokenizerProcessLoop(tokenizer(prompt)).then(res => tokenFormat(res, 1))
 
-    console.log(result)
+      console.log(token)
+
+      result = await calculatorProcessLoop(calculator(token, setting, result)).then(res => res.resultLibrary)
+
+      console.log(result)
+    }
 
     Imitation.setState(pre => { pre.loading = pre.loading - 1; return pre })
 
