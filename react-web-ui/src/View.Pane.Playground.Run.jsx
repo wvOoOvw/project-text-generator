@@ -1,7 +1,6 @@
 import React from 'react'
 
 import Grid from '@mui/material/Grid'
-import Paper from '@mui/material/Paper'
 import Button from '@mui/material/Button'
 import Dialog from '@mui/material/Dialog'
 import DialogContent from '@mui/material/DialogContent'
