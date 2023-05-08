@@ -17,7 +17,7 @@ function App() {
   const [filter, setFilter] = React.useState('')
 
   const apply = v => {
-    Imitation.state.playgroundView = 'run'
+    // Imitation.state.playgroundView = 'run'
     Imitation.state.library = v.library
     Imitation.state.train = v.train ? v.train : ''
     Imitation.state.run = v.run ? v.run : ''
