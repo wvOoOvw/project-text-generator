@@ -52,8 +52,8 @@ const arrayRandom = (array, number) => {
 }
 
 const specialWord = v => {
-  if (v === ' ') return '<|sapce|>'
-  if (v === '\n') return '<|wrap|>'
+  if (v === ' ') return '<|Sapce|>'
+  if (v === '\n') return '<|Wrap|>'
   return v
 }
 

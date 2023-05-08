@@ -38,6 +38,8 @@ function App() {
 
   const clear = () => {
     Imitation.state.library = {}
+    Imitation.state.train = ''
+    Imitation.state.run = ''
     Imitation.state.message = 'Cleared'
     Imitation.dispatch()
   }

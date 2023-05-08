@@ -18,7 +18,9 @@ function App() {
 
   const apply = v => {
     Imitation.state.playgroundView = 'run'
-    Imitation.state.library = v
+    Imitation.state.library = v.library
+    Imitation.state.train = v.train ? v.train : ''
+    Imitation.state.run = v.run ? v.run : ''
     Imitation.state.message = 'Loaded'
     Imitation.dispatch()
   }
@@ -31,7 +33,7 @@ function App() {
           {
             example.filter(i => i.name.includes(filter)).map((i, index) => {
               return <Grid item key={index}>
-                <Card onClick={() => apply(i.data)}>
+                <Card onClick={() => apply(i)}>
                   <CardActionArea>
                     <CardContent style={{ width: 320, height: 220, overflow: 'hidden' }}>
 

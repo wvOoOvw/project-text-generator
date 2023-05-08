@@ -112,17 +112,17 @@ function EditDialog(props) {
         {
           value ?
             <Grid container spacing={1}>
+              <Grid item xs={12} style={{ fontSize: 14 }}>
+                Name
+              </Grid>
               <Grid item xs={12}>
                 <TextField sx={{ '& input': { fontSize: 14 } }} fullWidth value={value.name} onChange={e => setValue(pre => { pre.name = e.target.value; return { ...pre } })} />
               </Grid>
+              <Grid item xs={12} style={{ fontSize: 14 }}>
+                Weight
+              </Grid>
               <Grid item xs={12}>
                 <TextField sx={{ '& input': { fontSize: 14 } }} fullWidth value={value.weight} onChange={e => setValue(pre => { pre.weight = e.target.value; return { ...pre } })} />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField sx={{ '& input': { fontSize: 14 } }} fullWidth value={value.allWeight} onChange={e => setValue(pre => { pre.allWeight = e.target.value; return { ...pre } })} />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField sx={{ '& input': { fontSize: 14 } }} fullWidth value={value.percent} onChange={e => setValue(pre => { pre.percent = e.target.value; return { ...pre } })} />
               </Grid>
             </Grid>
             : null
@@ -246,7 +246,7 @@ function App() {
       <Button variant='contained' style={{ margin: '0 4px' }} onClick={() => setFilterDialog(true)}><FilterAltIcon /></Button>
       <Button variant={direction === 'RL' ? 'contained' : 'outlined'} style={{ margin: '0 4px' }} onClick={() => setDirection('RL')}><PlayArrowIcon style={{ transform: 'rotate(180deg)' }} /></Button>
       <Button variant={direction === 'LR' ? 'contained' : 'outlined'} style={{ margin: '0 4px' }} onClick={() => setDirection('LR')}><PlayArrowIcon /></Button>
-      <Button variant={edit ? 'contained' : 'outlined'} style={{ margin: '0 4px' }} onClick={() => setEdit(pre => !pre)}><EditIcon /></Button>
+      {/* <Button variant={edit ? 'contained' : 'outlined'} style={{ margin: '0 4px' }} onClick={() => setEdit(pre => !pre)}><EditIcon /></Button> */}
     </div>
 
     <FilterDialog open={Boolean(filterDialog)} onClose={() => setFilterDialog()} onUpdate={filterUpdate} />
