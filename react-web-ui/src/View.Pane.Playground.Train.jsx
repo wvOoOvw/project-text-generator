@@ -9,6 +9,7 @@ import DialogActions from '@mui/material/DialogActions'
 import Slider from '@mui/material/Slider'
 import Tooltip from '@mui/material/Tooltip'
 import TextField from '@mui/material/TextField'
+import Switch from '@mui/material/Switch'
 
 import SendIcon from '@mui/icons-material/Send'
 import SettingsIcon from '@mui/icons-material/Settings'
@@ -50,13 +51,11 @@ function SettingDialog(props) {
           <Slider value={props.setting.randomAddition} onChange={(e, v) => props.setSetting(pre => { pre.randomAddition = v; return { ...pre } })} min={-1} max={1} step={0.1} />
         </Grid>
         <Grid item xs={12} style={{ fontSize: 14 }}>
-          Split Token
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div>Append</div>
+            <Switch checked={props.setting.append} onChange={(e) => props.setSetting(pre => { pre.append = e.target.checked; return { ...pre } })} />
+          </div>
         </Grid>
-        <Tooltip title='handle each of splited content'>
-          <Grid item xs={12}>
-            <TextField sx={{ '& input': { fontSize: 14 } }} fullWidth variant='standard' value={props.setting.splitToken} onChange={e => props.setSetting(pre => { pre.splitToken = e.target.value; return { ...pre } })} />
-          </Grid>
-        </Tooltip>
       </Grid>
     </DialogContent>
     <DialogActions>
@@ -67,7 +66,7 @@ function SettingDialog(props) {
 
 function App() {
   const [prompt, setPrompt] = React.useState(Imitation.state.train)
-  const [setting, setSetting] = React.useState({ weight: 2, recordContextLengthLeft: 2, recordContextLengthRight: 2, randomAddition: 0, splitToken: '<|Split|>' })
+  const [setting, setSetting] = React.useState({ weight: 2, recordContextLengthLeft: 2, recordContextLengthRight: 2, randomAddition: 0, append: false })
   const [settingDialog, setSettingDialog] = React.useState()
 
   const train = async () => {
@@ -93,9 +92,9 @@ function App() {
 
     Imitation.setState(pre => { pre.loading = pre.loading + 1; return pre })
 
-    var result = Imitation.state.library
+    var result = setting.append ? Imitation.state.library : {}
 
-    const promptArray = prompt.split(setting.splitToken).map(i => i.replace(/^[\n\s]+/g, '').replace(/[\n\s]+$/g, '')).filter(i => i.length > 0)
+    const promptArray = prompt.split(/^[\n\s]+/).filter(i => i.length > 0)
 
     for (let index = 0; index < promptArray.length; index++) {
       const prompt = promptArray[index]
