@@ -64,9 +64,9 @@ function App() {
       <Tooltip title='example'>
         <Button variant={Imitation.state.playgroundView === 'example' ? 'contained' : 'outlined'} style={{ textTransform: 'none', marginLeft: 8 }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'example'; return pre })}><AccountBalanceIcon /></Button>
       </Tooltip>
-      <Tooltip title='graph'>
+      {/* <Tooltip title='graph'>
         <Button variant={Imitation.state.playgroundView === 'graph' ? 'contained' : 'outlined'} style={{ textTransform: 'none', marginLeft: 8 }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'graph'; return pre })}><LineAxisIcon /></Button>
-      </Tooltip>
+      </Tooltip> */}
       <Tooltip title='train'>
         <Button variant={Imitation.state.playgroundView === 'train' ? 'contained' : 'outlined'} style={{ textTransform: 'none', marginLeft: 8 }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'train'; return pre })}><EditIcon /></Button>
       </Tooltip>

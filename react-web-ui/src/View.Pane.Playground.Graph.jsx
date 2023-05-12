@@ -10,6 +10,7 @@ import DialogTitle from '@mui/material/DialogTitle'
 import DialogActions from '@mui/material/DialogActions'
 import Card from '@mui/material/Card'
 import CardActionArea from '@mui/material/CardActionArea'
+import Slider from '@mui/material/Slider'
 
 import SettingsIcon from '@mui/icons-material/Settings'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow'
@@ -19,22 +20,6 @@ import FilterAltIcon from '@mui/icons-material/FilterAlt'
 import Imitation from './utils.imitation'
 
 import { safeNumber, specialWord, parseDirection } from './utils.common'
-
-import * as echarts from 'echarts'
-
-const format = (children, parent, direction) => {
-  if (!children) return []
-
-  var r = Object.entries(children).map(i => ({ name: specialWord(i[0]), weight: i[1].weight, children: format(i[1][direction], [...parent, { name: i[0], direction: direction }], direction), parent: [...parent], collapsed: false }))
-
-  const allWeight = r.reduce((t, i) => t + i.weight, 0)
-
-  r.forEach(i => { i.allWeight = allWeight; i.percent = safeNumber(i.weight / allWeight * 100, 4) })
-
-  r.sort((a, b) => b.weight - a.weight)
-
-  return r
-}
 
 function FilterDialog(props) {
   const [filter, setFilter] = React.useState('')
@@ -137,115 +122,34 @@ function EditDialog(props) {
 }
 
 function App() {
-  const ref = React.useRef()
-  const refEcharts = React.useRef()
 
-  const [origin, setOrigin] = React.useState()
-  const [direction, setDirection] = React.useState('LR')
-  const [edit, setEdit] = React.useState(false)
-  const [filterDialog, setFilterDialog] = React.useState()
-  const [editDialog, setEditDialog] = React.useState()
-  const [editValue, setEditValue] = React.useState()
+  const [promptLength, setPromptLength] = React.useState(1)
+  const [promptContent, setPromptContent] = React.useState([])
+  const [promptResult, setPromptResult] = React.useState([])
+  // const [filterDialog, setFilterDialog] = React.useState()
 
-  const filterUpdate = v => setOrigin(v)
+  const computeResult = () => {
 
-  const editUpdate = () => echartsUpdate()
-
-  const echartsUpdate = () => {
-    const data = origin ? format({ [origin]: Imitation.state.library[origin] }, [], parseDirection(direction)[1]) : []
-
-    const option = {
-      tooltip: {
-        trigger: 'item',
-        triggerOn: 'mousemove',
-        borderWidth: 0,
-        formatter: i => `${i.data.name} / ${i.data.weight} / ${i.data.percent}%`,
-      },
-      series: [
-        {
-          type: 'tree',
-          data: data,
-          top: '2%',
-          left: '8%',
-          bottom: '2%',
-          right: '8%',
-          symbolSize: 12,
-          orient: direction,
-          expandAndCollapse: edit ? false : true,
-          label: {
-            position: parseDirection(direction)[0],
-            verticalAlign: 'middle',
-            align: parseDirection(direction)[1],
-            fontSize: 12
-          },
-          leaves: {
-            label: {
-              position: parseDirection(direction)[1],
-              verticalAlign: 'middle',
-              align: parseDirection(direction)[0],
-            }
-          },
-          itemStyle: {
-            color: 'black',
-          },
-          lineStyle: {
-            color: 'black',
-            width: 1
-          },
-          emphasis: {
-            focus: 'descendant'
-          },
-          expandAndCollapse: true,
-          animationDuration: 550,
-          animationDurationUpdate: 750
-        }
-      ]
-    }
-
-    refEcharts.current.setOption(option)
   }
 
-  React.useEffect(() => {
-    refEcharts.current = echarts.init(ref.current)
-  }, [])
-
-  React.useEffect(() => {
-    echartsUpdate()
-  }, [origin, direction, edit, editValue])
-
-  React.useEffect(() => {
-    if (!edit) return null
-
-    const event = (params) => {
-      setEditDialog(true)
-      setEditValue(params.data)
-    }
-
-    refEcharts.current.on('click', event)
-
-    return () => refEcharts.current.off('click', event)
-  }, [edit])
-
-  React.useEffect(() => {
-    if (Imitation.state.library) requestAnimationFrame(() => setOrigin(Object.keys(Imitation.state.library)[0]))
-  }, [])
-
-  React.useEffect(() => {
-    const observer = new ResizeObserver(en => refEcharts.current.resize())
-
-    observer.observe(ref.current)
-
-    return () => observer.disconnect()
-  }, [])
+  React.useEffect(() => setPromptContent(new Array(promptContent).fill().map(() => [])), [promptLength])
+  React.useEffect(() => computeResult(), [promptContent])
 
   return <>
 
-    <div style={{ width: '100%', height: 'calc(100% - 64px)' }} ref={el => ref.current = el}></div>
+    <div style={{ width: '100%', height: 'calc(100% - 64px)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      {
+        new Array(promptContent).fill().map((i, index) => {
+          return <Button key={index} variant='contained' style={{ margin: 4 }}>{i ? i : '_____'}</Button>
+        })
+      }
+    </div>
 
     <div style={{ position: 'absolute', bottom: 16, left: 0, right: 0, margin: 'auto', width: 'fit-content', display: 'flex' }}>
-      <Button variant='contained' style={{ margin: '0 4px' }} onClick={() => setFilterDialog(true)}><FilterAltIcon /></Button>
-      <Button variant={direction === 'RL' ? 'contained' : 'outlined'} style={{ margin: '0 4px' }} onClick={() => setDirection('RL')}><PlayArrowIcon style={{ transform: 'rotate(180deg)' }} /></Button>
-      <Button variant={direction === 'LR' ? 'contained' : 'outlined'} style={{ margin: '0 4px' }} onClick={() => setDirection('LR')}><PlayArrowIcon /></Button>
+      <Slider value={promptLength} onChange={(e, v) => setPromptLength(v)} min={1} max={24} step={1} />
+      {/* <Button variant='contained' style={{ margin: '0 4px' }} onClick={() => setFilterDialog(true)}><FilterAltIcon /></Button> */}
+      {/* <Button variant={direction === 'RL' ? 'contained' : 'outlined'} style={{ margin: '0 4px' }} onClick={() => setDirection('RL')}><PlayArrowIcon style={{ transform: 'rotate(180deg)' }} /></Button> */}
+      {/* <Button variant={direction === 'LR' ? 'contained' : 'outlined'} style={{ margin: '0 4px' }} onClick={() => setDirection('LR')}><PlayArrowIcon /></Button> */}
       {/* <Button variant={edit ? 'contained' : 'outlined'} style={{ margin: '0 4px' }} onClick={() => setEdit(pre => !pre)}><EditIcon /></Button> */}
     </div>
 

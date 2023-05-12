@@ -27,16 +27,10 @@ function SettingDialog(props) {
     <DialogContent dividers>
       <Grid container spacing={1}>
         <Grid item xs={12} style={{ fontSize: 14 }}>
-          Record Context Length Left {props.setting.recordContextLengthLeft}
+          Record Context Length {props.setting.recordContextLength}
         </Grid>
         <Grid item xs={12}>
-          <Slider value={props.setting.recordContextLengthLeft} onChange={(e, v) => props.setSetting(pre => { pre.recordContextLengthLeft = v; return { ...pre } })} min={0} max={10} step={1} />
-        </Grid>
-        <Grid item xs={12} style={{ fontSize: 14 }}>
-          Record Context Length Right {props.setting.recordContextLengthRight}
-        </Grid>
-        <Grid item xs={12}>
-          <Slider value={props.setting.recordContextLengthRight} onChange={(e, v) => props.setSetting(pre => { pre.recordContextLengthRight = v; return { ...pre } })} min={0} max={10} step={1} />
+          <Slider value={props.setting.recordContextLength} onChange={(e, v) => props.setSetting(pre => { pre.recordContextLength = v; return { ...pre } })} min={1} max={64} step={1} />
         </Grid>
         <Grid item xs={12} style={{ fontSize: 14 }}>
           Weight {props.setting.weight}
@@ -66,7 +60,7 @@ function SettingDialog(props) {
 
 function App() {
   const [prompt, setPrompt] = React.useState(Imitation.state.train)
-  const [setting, setSetting] = React.useState({ weight: 2, recordContextLengthLeft: 2, recordContextLengthRight: 2, randomAddition: 0, append: false })
+  const [setting, setSetting] = React.useState({ weight: 2, recordContextLength: 4, randomAddition: 0, append: false })
   const [settingDialog, setSettingDialog] = React.useState()
 
   const train = async () => {
@@ -92,9 +86,9 @@ function App() {
 
     Imitation.setState(pre => { pre.loading = pre.loading + 1; return pre })
 
-    var result = setting.append ? Imitation.state.library : {}
+    var result = setting.append ? Imitation.state.library : [[], [], [], {}]
 
-    const promptArray = prompt.split(/^[\n\s]+/).filter(i => i.length > 0)
+    const promptArray = prompt.split(/[\n\s]+/).filter(i => i.length > 0)
 
     for (let index = 0; index < promptArray.length; index++) {
       const prompt = promptArray[index]
@@ -105,7 +99,7 @@ function App() {
 
       console.log(token)
 
-      result = await calculatorProcessLoop(calculator(token, setting, result)).then(res => res.resultLibrary)
+      result = await calculatorProcessLoop(calculator(token, setting, result))
 
       console.log(result)
     }

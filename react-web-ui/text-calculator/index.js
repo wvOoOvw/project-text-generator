@@ -1,75 +1,72 @@
-const safeNumber = (n, l) => Number(Number(n).toFixed(l))
+const wordFrequency = (word, frequency, token) => {
+  if (word.indexOf(token) === -1) frequency.push(0)
+  if (word.indexOf(token) === -1) word.push(token)
+
+  frequency[word.indexOf(token)] = frequency[word.indexOf(token)] + 1
+
+  return [word, frequency]
+}
 
 const calculator = (token, setting, library) => {
-  const resultLibrary = JSON.parse(JSON.stringify(library ? library : {}))
-  const resultDiff = {}
+  const resultLibrary = JSON.parse(JSON.stringify(library))
 
-  const process = { token: [...token], token_reverse: [...token].reverse(), setting: setting, index: 0, result: { resultLibrary, resultDiff }, next: () => next() }
+  const process = { token: token, setting: setting, step: 0, index: 0, resultCache: [], result: resultLibrary, next: () => next() }
 
   const next = () => {
-    if (process.setting.recordContextLengthLeft > 0) {
-      new Array(process.setting.recordContextLengthLeft + 1).fill().forEach((i, index) => {
-        const current = process.token_reverse[process.index + index]
 
-        if (current === undefined) return
+    if (process.step === 0) {
+      process.token.forEach(i => wordFrequency(process.result[0], process.result[1], i))
 
-        const resultLibrary_ = process.token_reverse.slice(process.index, process.index + index).reduce((t, i) => { t[i].left = t[i].left ? t[i].left : {}; return t[i].left }, process.result.resultLibrary)
-        const resultDiff_ = process.token_reverse.slice(process.index, process.index + index).reduce((t, i) => { t[i].left = t[i].left ? t[i].left : {}; return t[i].left }, process.result.resultDiff)
+      process.step = process.step + 1
 
-        const weightOffset = process.setting.weight + Math.random() * process.setting.randomAddition
-
-        if (resultLibrary_[current] === undefined) {
-          resultLibrary_[current] = { weight: 0 }
-        }
-        if (resultLibrary_[current] !== undefined) {
-          resultLibrary_[current].weight = resultLibrary_[current].weight + weightOffset
-          resultLibrary_[current].weight = safeNumber(resultLibrary_[current].weight, 4)
-        }
-
-        if (resultDiff_[current] === undefined) {
-          resultDiff_[current] = { weight: 0 }
-        }
-        if (resultDiff_[current] !== undefined) {
-          resultDiff_[current].weight = resultDiff_[current].weight + weightOffset
-          resultDiff_[current].weight = safeNumber(resultDiff_[current].weight, 4)
-        }
-      })
+      return process
     }
 
-    if (process.setting.recordContextLengthRight > 0) {
-      new Array(process.setting.recordContextLengthRight + 1).fill().forEach((i, index) => {
-        const current = process.token[process.index + index]
+    if (process.step === 1) {
+      process.token = process.token.map(i => process.result[0].indexOf(i))
 
-        if (current === undefined) return
+      process.step = process.step + 1
 
-        const resultLibrary_ = process.token.slice(process.index, process.index + index).reduce((t, i) => { t[i].right = t[i].right ? t[i].right : {}; return t[i].right }, process.result.resultLibrary)
-        const resultDiff_ = process.token.slice(process.index, process.index + index).reduce((t, i) => { t[i].right = t[i].right ? t[i].right : {}; return t[i].right }, process.result.resultDiff)
-
-        const weightOffset = process.setting.weight + Math.random() * process.setting.randomAddition
-
-        if (resultLibrary_[current] === undefined) {
-          resultLibrary_[current] = { weight: 0 }
-        }
-        if (resultLibrary_[current] !== undefined) {
-          resultLibrary_[current].weight = resultLibrary_[current].weight + weightOffset
-          resultLibrary_[current].weight = safeNumber(resultLibrary_[current].weight, 4)
-        }
-
-        if (resultDiff_[current] === undefined) {
-          resultDiff_[current] = { weight: 0 }
-        }
-        if (resultDiff_[current] !== undefined) {
-          resultDiff_[current].weight = resultDiff_[current].weight + weightOffset
-          resultDiff_[current].weight = safeNumber(resultDiff_[current].weight, 4)
-        }
-      })
+      return process
     }
 
-    process.index = process.index + 1
+    if (process.step === 2) {
+      const minIndex = process.index
+      const maxIndex = Math.min(process.index + process.setting.recordContextLength, token.length)
 
-    if (!process.token[process.index]) process.next = undefined
+      const current = process.token.slice(minIndex, maxIndex)
 
-    return process
+      process.result[2].push(current)
+      process.resultCache.push(current)
+
+      process.index = process.index + 1
+
+      if (process.index + process.setting.recordContextLength > token.length) process.step = process.step + 1
+      if (process.index + process.setting.recordContextLength > token.length) process.index = 0
+
+      return process
+    }
+
+    if (process.step === 3) {
+      const current = process.resultCache[process.index]
+
+      const previous = current.slice(0, current.length - 1)
+      const last = current[current.length - 1]
+
+      previous.reverse().forEach((i, index) => {
+        if (process.result[3][index] === undefined) process.result[3][index] = {}
+        if (process.result[3][index][i] === undefined) process.result[3][index][i] = []
+        if (process.result[3][index][i].find(i_ => i_[0] === last) === undefined) process.result[3][index][i].push([last, 0])
+        process.result[3][index][i].find(i_ => i_[0] === last)[1] = process.result[3][index][i].find(i_ => i_[0] === last)[1] + process.setting.weight
+      })
+
+      process.index = process.index + 1
+
+      if (process.resultCache[process.index] === undefined) process.next = undefined
+
+      return process
+    }
+
   }
 
   return process

@@ -18,19 +18,19 @@ function App() {
         <div style={{ textAlign: 'center', fontSize: 24, marginBottom: 32 }}>Text Generator Web</div>
         <Button fullWidth color='inherit' style={{ textTransform: 'none', marginBottom: 16, display: 'flex', justifyContent: 'left', alignItems: 'center', flexWrap: 'wrap', cursor: 'pointer' }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'example'; return pre })}>
           <AccountBalanceIcon style={{ marginRight: 8, width: 24, height: 24 }} />
-          <div>Step 0.  </div>
+          <div>Step 1.  </div>
           <div>preselect example model (optional)</div>
         </Button>
         <Button fullWidth color='inherit' style={{ textTransform: 'none', marginBottom: 16, display: 'flex', justifyContent: 'left', alignItems: 'center', flexWrap: 'wrap', cursor: 'pointer' }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'train'; return pre })}>
           <EditIcon style={{ marginRight: 8, width: 24, height: 24 }} />
-          <div>Step 1. </div>
+          <div>Step 2. </div>
           <div>train your custom model</div>
         </Button>
-        <Button fullWidth color='inherit' style={{ textTransform: 'none', marginBottom: 16, display: 'flex', justifyContent: 'left', alignItems: 'center', flexWrap: 'wrap', cursor: 'pointer' }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'graph'; return pre })}>
+        {/* <Button fullWidth color='inherit' style={{ textTransform: 'none', marginBottom: 16, display: 'flex', justifyContent: 'left', alignItems: 'center', flexWrap: 'wrap', cursor: 'pointer' }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'graph'; return pre })}>
           <LineAxisIcon style={{ marginRight: 8, width: 24, height: 24 }} />
           <div>Step 2. </div>
           <div>check your model's status</div>
-        </Button>
+        </Button> */}
         <Button fullWidth color='inherit' style={{ textTransform: 'none', marginBottom: 16, display: 'flex', justifyContent: 'left', alignItems: 'center', flexWrap: 'wrap', cursor: 'pointer' }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'run'; return pre })}>
           <PlayArrowIcon style={{ marginRight: 8, width: 24, height: 24 }} />
           <div>Step 3. </div>

@@ -38,7 +38,7 @@ function SettingDialog(props) {
         </Grid>
         <Tooltip title='more setting will create more coherent statements content'>
           <Grid item xs={12}>
-            <Slider value={props.setting.memoryContextLength} onChange={(e, v) => props.setSetting(pre => { pre.memoryContextLength = v; return { ...pre } })} min={1} max={10} step={1} />
+            <Slider value={props.setting.memoryContextLength} onChange={(e, v) => props.setSetting(pre => { pre.memoryContextLength = v; return { ...pre } })} min={1} max={64} step={1} />
           </Grid>
         </Tooltip>
         <Grid item xs={12} style={{ fontSize: 14 }}>
@@ -91,7 +91,7 @@ function SettingDialog(props) {
 
 function App() {
   const [prompt, setPrompt] = React.useState(Imitation.state.run)
-  const [setting, setSetting] = React.useState({ createTokenLength: 256, memoryContextLength: 2, toTop: 1, temperature: 1, repeatLength: 8, repeatDistance: 256, stopToken: '<|End|>' })
+  const [setting, setSetting] = React.useState({ createTokenLength: 256, memoryContextLength: 4, toTop: 1, temperature: 1, repeatLength: 8, repeatDistance: 256, stopToken: '<|End|>' })
   const [settingDialog, setSettingDialog] = React.useState()
 
   const run = async () => {

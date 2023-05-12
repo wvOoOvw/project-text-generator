@@ -60,7 +60,7 @@ const tokenizer = (text) => {
 
     process.index = process.index + matchResult.length
 
-    process.result.push(matchResult)
+    if (matchResult) process.result.push(matchResult)
 
     if (process.text.length === process.index) process.next = undefined
 
