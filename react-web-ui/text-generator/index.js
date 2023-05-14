@@ -1,17 +1,17 @@
 const search = (process) => {
-  var searchResult = []
+  process.searchResult = []
 
   const searchToken = [...process.token, ...process.result]
 
   const searchMinIndex = Math.max(searchToken.length - process.setting.memoryContextLength, 0)
   const searchMaxIndex = searchToken.length
 
-  const searchCurrent = searchToken.slice(searchMinIndex, searchMaxIndex).map(i => process.library[0].indexOf(i))
+  const searchCurrent = searchToken.slice(searchMinIndex, searchMaxIndex).map(i => process.library[0].indexOf(i)).reverse()
 
-  searchCurrent.reverse().forEach((i, index) => {
+  searchCurrent.forEach((i, index) => {
     // if (index !== undefined) {
     //   const key = `${index}-${index + 1}`
-    //   const value = previous.slice(index, index + 1).join('-')
+    //   const value = searchCurrent.slice(index, index + 1).join('-')
     //   if (process.library[3][key] === undefined) return
     //   if (process.library[3][key][value] === undefined) return
     //   process.library[3][key][value].forEach(i => searchResult.push({ token: i[0], weight: i[1] * Math.pow(0.5, index) }))
@@ -19,52 +19,46 @@ const search = (process) => {
 
     if (index !== undefined) {
       const key = `0-${index + 1}`
-      const value = previous.slice(0, index + 1).join('-')
+      const value = searchCurrent.slice(0, index + 1).join('-')
       if (process.library[3][key] === undefined) return
       if (process.library[3][key][value] === undefined) return
-      process.library[3][key][value].forEach(i => searchResult.push({ token: i[0], weight: i[1] * Math.pow(10, index) }))
+      process.library[3][key][value].forEach(i => process.searchResult.push({ token: i[0], weight: i[1] * Math.pow(10, index) }))
     }
   })
 
-  searchResult.forEach(i => {
-    i.token = process.library[0][i.token]
+  process.searchResult = process.searchResult.map(i => { i.token = process.library[0][i.token]; return i })
 
-    const find = searchResult.find(i_ => i_.token === i.token)
+  process.searchResult = process.searchResult.reduce((t, i) => {
+    const find = t.find(i_ => i_.token === i.token)
 
-    if (find === undefined) searchResult.push(i)
+    if (find === undefined) t.push(i)
     if (find !== undefined) find.weight = find.weight + i.weight
-  })
 
-  // searchResult.forEach(i => {
-  //   i.weight = i.weight * Math.pow(2, i.index.length)
-  //   delete i.index
-  // })
+    return t
+  }, [])
 
-  process.searchResult = searchResult.length === 0 ? [{ token: process.library[0][0], weight: 1 }] : searchResult
+  process.searchResult = process.searchResult.length === 0 ? [{ token: process.library[0][0], weight: 1 }] : process.searchResult
 }
 
 const match = (process) => {
-  const searchResult = process.searchResult
+  const weightMiddle = process.searchResult.reduce((t, i) => t + i.weight, 0) / process.searchResult.length
 
-  const weightMiddle = searchResult.reduce((t, i) => t + i.weight, 0) / searchResult.length
+  process.searchResult = process.searchResult.map(i => { i.weight = weightMiddle + (i.weight - weightMiddle) * process.setting.temperature; return i })
 
-  searchResult.forEach(i => i.weight = weightMiddle + (i.weight - weightMiddle) * process.setting.temperature)
+  const weightAll = process.searchResult.reduce((t, i) => t + i.weight, 0)
 
-  const weightAll = searchResult.reduce((t, i) => t + i.weight, 0)
+  process.searchResult = process.searchResult.sort((a, b) => b.weight - a.weight)
+  process.searchResult = process.searchResult.map((i, index) => { i.percent = i.weight / weightAll; i.percentAccumulation = index === 0 ? i.percent : i.percent + process.searchResult[index - 1].percentAccumulation; return i })
+  process.searchResult = process.searchResult.filter(i => i.percentAccumulation - i.percent <= process.setting.toTop)
 
-  searchResult = searchResult.sort((a, b) => b.weight - a.weight)
-  searchResult = searchResult.map((i, index) => { i.percent = i.weight / weightAll; return i })
-  searchResult.reduce((t, i) => { i.toTop = t <= process.setting.toTop; return t + i.percent }, 0)
-  searchResult = searchResult.filter(i => i.toTop)
+  const weightAll_ = process.searchResult.reduce((t, i) => t + i.weight, 0)
 
-  const weightAllAfterCollection = searchResult.reduce((t, i) => t + i.weight, 0)
-
-  searchResult = searchResult.sort((a, b) => b.weight - a.weight)
-  searchResult = searchResult.map((i, index) => { i.percent = i.weight / weightAllAfterCollection; i.percent = index === 0 ? i.percent : i.percent + searchResult[index - 1].percent; return i })
+  process.searchResult = process.searchResult.sort((a, b) => b.weight - a.weight)
+  process.searchResult = process.searchResult.map((i, index) => { i.percent = i.weight / weightAll_; i.percentAccumulation = index === 0 ? i.percent : i.percent + process.searchResult[index - 1].percentAccumulation; return i })
 
   const random = Math.random()
 
-  searchResult.forEach(i => process.matchResult === undefined && random < i.percent ? process.matchResult = i.token : null)
+  process.matchResult = process.searchResult.reduce((t, i) => t === null && random < i.percentAccumulation ? i.token : t, null)
 }
 
 const repeat = (process) => {
@@ -91,9 +85,6 @@ const generator = (token, setting, library) => {
       process.next = undefined
       return process
     }
-
-    process.searchResult = undefined
-    process.matchResult = undefined
 
     repeat(process)
     search(process)

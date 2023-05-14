@@ -50,10 +50,10 @@ const calculator = (token, setting, library) => {
     if (process.step === 3) {
       const current = process.resultCache[process.index]
 
-      const previous = current.slice(0, current.length - 1)
+      const previous = current.slice(0, current.length - 1).reverse()
       const last = current[current.length - 1]
 
-      previous.reverse().forEach((i, index) => {
+      previous.forEach((i, index) => {
         if (index !== undefined) {
           const key = `${index}-${index + 1}`
           const value = previous.slice(index, index + 1).join('-')
