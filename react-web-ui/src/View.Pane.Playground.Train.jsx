@@ -88,7 +88,7 @@ function App() {
 
     var result = setting.append ? Imitation.state.library : [[], [], [], {}]
 
-    const promptArray = prompt.split(/[\n\s]+/).filter(i => i.length > 0)
+    const promptArray = prompt.split(/[\n]+/).map(i => i.trim()).filter(i => i.length > 0)
 
     for (let index = 0; index < promptArray.length; index++) {
       const prompt = promptArray[index]

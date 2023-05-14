@@ -31,18 +31,18 @@ const calculator = (token, setting, library) => {
     }
 
     if (process.step === 2) {
-      const minIndex = process.index
-      const maxIndex = Math.min(process.index + process.setting.recordContextLength + 1, token.length)
+      const minIndex = Math.max(process.index - process.setting.recordContextLength - 1, 0)
+      const maxIndex = Math.min(process.index, token.length)
 
       const current = process.token.slice(minIndex, maxIndex)
 
-      process.result[2].push(current)
-      process.resultCache.push(current)
+      if (current.length > 1) process.result[2].push(current)
+      if (current.length > 1) process.resultCache.push(current)
 
       process.index = process.index + 1
 
-      if (process.index + process.setting.recordContextLength + 1 > token.length) process.step = process.step + 1
-      if (process.index + process.setting.recordContextLength + 1 > token.length) process.index = 0
+      if (process.index - process.setting.recordContextLength - 1 > token.length) process.step = process.step + 1
+      if (process.index - process.setting.recordContextLength - 1 > token.length) process.index = 0
 
       return process
     }
@@ -54,7 +54,7 @@ const calculator = (token, setting, library) => {
       const last = current[current.length - 1]
 
       previous.forEach((i, index) => {
-        if (index !== undefined) {
+        if (index > 0) {
           const key = `${index}-${index + 1}`
           const value = previous.slice(index, index + 1).join('-')
           if (process.result[3][key] === undefined) process.result[3][key] = {}
@@ -63,7 +63,7 @@ const calculator = (token, setting, library) => {
           process.result[3][key][value].find(i_ => i_[0] === last)[1] = process.result[3][key][value].find(i_ => i_[0] === last)[1] + process.setting.weight
         }
 
-        if (index > 0) {
+        if (index > -1) {
           const key = `0-${index + 1}`
           const value = previous.slice(0, index + 1).join('-')
           if (process.result[3][key] === undefined) process.result[3][key] = {}

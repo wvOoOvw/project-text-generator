@@ -9,20 +9,20 @@ const search = (process) => {
   const searchCurrent = searchToken.slice(searchMinIndex, searchMaxIndex).map(i => process.library[0].indexOf(i)).reverse()
 
   searchCurrent.forEach((i, index) => {
-    // if (index !== undefined) {
+    // if (index > 0) {
     //   const key = `${index}-${index + 1}`
     //   const value = searchCurrent.slice(index, index + 1).join('-')
     //   if (process.library[3][key] === undefined) return
     //   if (process.library[3][key][value] === undefined) return
-    //   process.library[3][key][value].forEach(i => searchResult.push({ token: i[0], weight: i[1] * Math.pow(0.5, index) }))
+    //   process.library[3][key][value].forEach(i => process.searchResult.push({ token: i[0], weight: i[1] * Math.pow(0.5, index) }))
     // }
 
-    if (index !== undefined) {
+    if (index > -1) {
       const key = `0-${index + 1}`
       const value = searchCurrent.slice(0, index + 1).join('-')
       if (process.library[3][key] === undefined) return
       if (process.library[3][key][value] === undefined) return
-      process.library[3][key][value].forEach(i => process.searchResult.push({ token: i[0], weight: i[1] * Math.pow(10, index) }))
+      process.library[3][key][value].forEach(i => process.searchResult.push({ token: i[0], weight: i[1] * Math.pow(4, index) }))
     }
   })
 
@@ -89,6 +89,8 @@ const generator = (token, setting, library) => {
     repeat(process)
     search(process)
     match(process)
+
+    console.log(process.matchResult, process.searchResult)
 
     process.index = process.index + 1
 

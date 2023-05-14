@@ -5,7 +5,8 @@ import Divider from '@mui/material/Divider'
 import Card from '@mui/material/Card'
 import CardActionArea from '@mui/material/CardActionArea'
 import CardContent from '@mui/material/CardContent'
-import Tooltip from '@mui/material/Tooltip';
+import Tooltip from '@mui/material/Tooltip'
+import Badge from '@mui/material/Badge'
 
 import DescriptionIcon from '@mui/icons-material/Description';
 
@@ -35,14 +36,16 @@ function App() {
               return <Grid item key={index}>
                 <Card onClick={() => apply(i)}>
                   <CardActionArea>
-                    <CardContent style={{ width: 320, height: 220, overflow: 'hidden' }}>
+                    <CardContent style={{ width: 320, height: 220, position: 'relative' }}>
 
                       <Tooltip title={i.name}>
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                           <div style={{ fontSize: 16, marginRight: 8, textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }}>
                             {i.name}
                           </div>
-                          <DescriptionIcon style={{ flexShrink: 0 }} />
+                          <Badge badgeContent={i.recordContextLength} color="primary">
+                            <DescriptionIcon style={{ flexShrink: 0 }} />
+                          </Badge>
                         </div>
                       </Tooltip>
 
