@@ -91,7 +91,7 @@ function SettingDialog(props) {
 
 function App() {
   const [prompt, setPrompt] = React.useState(Imitation.state.run)
-  const [setting, setSetting] = React.useState({ createTokenLength: 256, memoryContextLength: 4, toTop: 1, temperature: 1, repeatLength: 8, repeatDistance: 256, stopToken: '<|End|>' })
+  const [setting, setSetting] = React.useState({ createTokenLength: 256, memoryContextLength: 4, toTop: 0.9, temperature: 1, repeatLength: 8, repeatDistance: 256, stopToken: '<|End|>' })
   const [settingDialog, setSettingDialog] = React.useState()
 
   const run = async () => {
