@@ -17,13 +17,18 @@ import example from './example'
 function App() {
   const [filter, setFilter] = React.useState('')
 
-  const apply = v => {
+  const apply =  async (v) => {
+
+    Imitation.setState(pre => { pre.loading = pre.loading + 1; return pre })
+
+    const library =  await v.library().then(res => res.default)
     // Imitation.state.playgroundView = 'run'
-    Imitation.state.library = v.library
-    Imitation.state.train = v.train ? v.train : ''
-    Imitation.state.run = v.run ? v.run : ''
+    Imitation.state.library = library
+    Imitation.state.trainPrompt = v.trainPrompt ? v.trainPrompt : ''
+    Imitation.state.runPrompt = v.runPrompt ? v.runPrompt : ''
     Imitation.state.message = 'Loaded'
-    Imitation.dispatch()
+
+    Imitation.setState(pre => { pre.loading = pre.loading - 1; return pre })
   }
 
   return <>

@@ -29,25 +29,33 @@ function SettingDialog(props) {
         <Grid item xs={12} style={{ fontSize: 14 }}>
           Record Context Length {props.setting.recordContextLength}
         </Grid>
-        <Grid item xs={12}>
-          <Slider value={props.setting.recordContextLength} onChange={(e, v) => props.setSetting(pre => { pre.recordContextLength = v; return { ...pre } })} min={1} max={64} step={1} />
-        </Grid>
+        <Tooltip title='set the length of the record, the longer the length, the better the effect in generation, and at the same time, data storage requires a larger volume'>
+          <Grid item xs={12}>
+            <Slider value={props.setting.recordContextLength} onChange={(e, v) => props.setSetting(pre => { pre.recordContextLength = v; return { ...pre } })} min={1} max={64} step={1} />
+          </Grid>
+        </Tooltip>
         <Grid item xs={12} style={{ fontSize: 14 }}>
           Weight {props.setting.weight}
         </Grid>
-        <Grid item xs={12}>
-          <Slider value={props.setting.weight} onChange={(e, v) => props.setSetting(pre => { pre.weight = v; return { ...pre } })} min={1} max={10} step={0.1} />
-        </Grid>
+        <Tooltip title='impact on the proportion of current training data'>
+          <Grid item xs={12}>
+            <Slider value={props.setting.weight} onChange={(e, v) => props.setSetting(pre => { pre.weight = v; return { ...pre } })} min={1} max={10} step={0.1} />
+          </Grid>
+        </Tooltip>
         <Grid item xs={12} style={{ fontSize: 14 }}>
           Random Addition {props.setting.randomAddition}
         </Grid>
-        <Grid item xs={12}>
-          <Slider value={props.setting.randomAddition} onChange={(e, v) => props.setSetting(pre => { pre.randomAddition = v; return { ...pre } })} min={-1} max={1} step={0.1} />
-        </Grid>
+        <Tooltip title='add random variable influence weights'>
+          <Grid item xs={12}>
+            <Slider value={props.setting.randomAddition} onChange={(e, v) => props.setSetting(pre => { pre.randomAddition = v; return { ...pre } })} min={-1} max={1} step={0.1} />
+          </Grid>
+        </Tooltip>
         <Grid item xs={12} style={{ fontSize: 14 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <div>Append</div>
-            <Switch checked={props.setting.append} onChange={(e) => props.setSetting(pre => { pre.append = e.target.checked; return { ...pre } })} />
+            <Tooltip title='if append data on current library'>
+              <Switch checked={props.setting.append} onChange={(e) => props.setSetting(pre => { pre.append = e.target.checked; return { ...pre } })} />
+            </Tooltip>
           </div>
         </Grid>
       </Grid>
@@ -59,7 +67,7 @@ function SettingDialog(props) {
 }
 
 function App() {
-  const [prompt, setPrompt] = React.useState(Imitation.state.train)
+  const [prompt, setPrompt] = React.useState(Imitation.state.trainPrompt)
   const [setting, setSetting] = React.useState({ weight: 2, recordContextLength: 4, randomAddition: 0, append: false })
   const [settingDialog, setSettingDialog] = React.useState()
 
@@ -116,8 +124,8 @@ function App() {
     <textarea value={prompt} onChange={e => setPrompt(e.target.value)} style={{ width: '100%', height: '100%', fontSize: 14, lineHeight: 1.5, border: 'none', outline: 'none', resize: 'none', padding: 16, paddingBottom: 64 }} />
 
     <div style={{ position: 'absolute', bottom: 16, left: 0, right: 0, margin: 'auto', width: 'fit-content', display: 'flex' }}>
-      <Button variant='contained' style={{ margin: '0 4px' }} onClick={() => setSettingDialog(true)}><SettingsIcon /></Button>
-      <Button variant='contained' style={{ margin: '0 4px' }} onClick={train}><SendIcon /></Button>
+      <Button variant='contained' style={{ textTransform: 'none', margin: '0 4px' }} onClick={() => setSettingDialog(true)}>Setting</Button>
+      <Button variant='contained' style={{ textTransform: 'none', margin: '0 4px' }} onClick={train}>Train</Button>
     </div>
 
     <SettingDialog open={Boolean(settingDialog)} onClose={() => setSettingDialog()} setting={setting} setSetting={setSetting} />

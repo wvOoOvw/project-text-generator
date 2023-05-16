@@ -1,10 +1,10 @@
-const wordFrequency = (word, frequency, token) => {
-  if (word.indexOf(token) === -1) frequency.push(0)
-  if (word.indexOf(token) === -1) word.push(token)
+const tokenFrequency = (tokens, frequency, token) => {
+  if (tokens.indexOf(token) === -1) frequency.push(0)
+  if (tokens.indexOf(token) === -1) tokens.push(token)
 
-  frequency[word.indexOf(token)] = frequency[word.indexOf(token)] + 1
+  frequency[tokens.indexOf(token)] = frequency[tokens.indexOf(token)] + 1
 
-  return [word, frequency]
+  return [tokens, frequency]
 }
 
 const calculator = (token, setting, library) => {
@@ -15,7 +15,7 @@ const calculator = (token, setting, library) => {
   const next = () => {
 
     if (process.step === 0) {
-      process.token.forEach(i => wordFrequency(process.result[0], process.result[1], i))
+      process.token.forEach(i => tokenFrequency(process.result[0], process.result[1], i))
 
       process.step = process.step + 1
 

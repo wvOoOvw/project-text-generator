@@ -9,9 +9,9 @@ ImitationINS.state = {
 
   playgroundView: 'default',
 
-  library: null,
-  train: '',
-  run: '',
+  library: [[], [], [], {}],
+  trainPrompt: '',
+  runPrompt: '',
 }
 
 export default ImitationINS

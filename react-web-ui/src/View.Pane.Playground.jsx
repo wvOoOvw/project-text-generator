@@ -5,7 +5,7 @@ import Imitation from './utils.imitation'
 import Paper from '@mui/material/Paper'
 
 const Default = React.lazy(() => import('./View.Pane.Playground.Default'))
-const Graph = React.lazy(() => import('./View.Pane.Playground.Graph'))
+const Information = React.lazy(() => import('./View.Pane.Playground.Information'))
 const Train = React.lazy(() => import('./View.Pane.Playground.Train'))
 const Run = React.lazy(() => import('./View.Pane.Playground.Run'))
 const Example = React.lazy(() => import('./View.Pane.Playground.Example'))
@@ -33,7 +33,7 @@ function App() {
     } */}
 
     {
-      Imitation.state.playgroundView === 'graph' ? <React.Suspense fallback={<SuspenseLoading />} children={<Graph />} /> : null
+      Imitation.state.playgroundView === 'information' ? <React.Suspense fallback={<SuspenseLoading />} children={<Information />} /> : null
     }
 
     {
