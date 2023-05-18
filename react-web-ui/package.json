@@ -5,6 +5,7 @@
   "dependencies": {
     "@emotion/react": "^11.6.0",
     "@emotion/styled": "^11.6.0",
+    "@fingerprintjs/fingerprintjs": "^3.4.1",
     "@mui/icons-material": "^5.2.0",
     "@mui/material": "^5.2.0",
     "diff": "^5.1.0",

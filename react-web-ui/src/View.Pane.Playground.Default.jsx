@@ -15,37 +15,33 @@ function App() {
   return <>
 
     <div style={{ width: '100%', height: '100%', padding: 16, overflow: 'auto' }}>
-      
-      <div style={{ margin: 'auto', width: 'fit-content', padding: '32px 0' }}>
+
+      <div style={{ margin: 'auto', width: 'fit-content', padding: '48px 0' }}>
         <div style={{ fontSize: 32, marginBottom: 16, textAlign: 'center' }}>Text Generator Web</div>
         <div style={{ fontSize: 14, textAlign: 'center' }}>For Free</div>
       </div>
 
-      <Divider/>
+      <Divider />
 
-      <div style={{ margin: 'auto', width: 'fit-content', padding: '32px 0' }}>
+      <div style={{ margin: 'auto', width: 'fit-content', padding: '48px 0' }}>
         <div style={{ fontSize: 20, marginBottom: 32, textAlign: 'center' }}>How to use</div>
-        <Button fullWidth color='inherit' style={{ textTransform: 'none', marginBottom: 16, display: 'flex', justifyContent: 'left', alignItems: 'center', flexWrap: 'wrap', cursor: 'pointer' }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'example'; return pre })}>
-          <AccountBalanceIcon style={{ marginRight: 8, width: 24, height: 24 }} />
-          <div>Step 1.  </div>
-          <div>preselect example model (optional)</div>
+        <Button fullWidth color='inherit' style={{ textTransform: 'none', marginBottom: 16, display: 'flex', justifyContent: 'left', alignItems: 'center', flexWrap: 'wrap' }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'example'; return pre })}>
+          <div>Step 1. preselect example model (optional)</div>
         </Button>
-        <Button fullWidth color='inherit' style={{ textTransform: 'none', marginBottom: 16, display: 'flex', justifyContent: 'left', alignItems: 'center', flexWrap: 'wrap', cursor: 'pointer' }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'graph'; return pre })}>
-          <LineAxisIcon style={{ marginRight: 8, width: 24, height: 24 }} />
-          <div>Step 2. </div>
-          <div>view your model's information</div>
+        <Button fullWidth color='inherit' style={{ textTransform: 'none', marginBottom: 16, display: 'flex', justifyContent: 'left', alignItems: 'center', flexWrap: 'wrap' }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'graph'; return pre })}>
+          <div>Step 2. view your model's information</div>
         </Button>
-        <Button fullWidth color='inherit' style={{ textTransform: 'none', marginBottom: 16, display: 'flex', justifyContent: 'left', alignItems: 'center', flexWrap: 'wrap', cursor: 'pointer' }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'train'; return pre })}>
-          <EditIcon style={{ marginRight: 8, width: 24, height: 24 }} />
-          <div>Step 3. </div>
-          <div>train your custom model</div>
+        <Button fullWidth color='inherit' style={{ textTransform: 'none', marginBottom: 16, display: 'flex', justifyContent: 'left', alignItems: 'center', flexWrap: 'wrap' }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'train'; return pre })}>
+          <div>Step 3. train your custom model</div>
         </Button>
-        <Button fullWidth color='inherit' style={{ textTransform: 'none', marginBottom: 16, display: 'flex', justifyContent: 'left', alignItems: 'center', flexWrap: 'wrap', cursor: 'pointer' }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'run'; return pre })}>
-          <PlayArrowIcon style={{ marginRight: 8, width: 24, height: 24 }} />
-          <div>Step 4. </div>
-          <div>use your model</div>
+        <Button fullWidth color='inherit' style={{ textTransform: 'none', marginBottom: 16, display: 'flex', justifyContent: 'left', alignItems: 'center', flexWrap: 'wrap' }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'run'; return pre })}>
+          <div>Step 4. use your model to generate</div>
         </Button>
       </div>
+
+      <Divider />
+
+
 
     </div>
 

@@ -7,10 +7,14 @@ ImitationINS.state = {
 
   message: '',
 
+  advence: false,
+
   playgroundView: 'default',
 
-  library: [[], [], [], {}],
+  library: [[], [], {}],
+
   trainPrompt: '',
+  
   runPrompt: '',
 }
 

@@ -11,6 +11,8 @@ import TableRow from '@mui/material/TableRow'
 
 import Imitation from './utils.imitation'
 
+import { copy } from './utils.common'
+
 function App() {
 
   const [type, setType] = React.useState(0)
@@ -25,6 +27,11 @@ function App() {
   // React.useEffect(() => setPromptContent(new Array(promptContent).fill().map(() => [])), [promptLength])
   // React.useEffect(() => computeResult(), [promptContent])
 
+  const copy_ = () => {
+    copy(JSON.stringify(Imitation.state.library))
+    Imitation.setState(pre => { pre.message = 'Copy'; return pre })
+  }
+
   return <>
 
     {/* {
@@ -34,7 +41,7 @@ function App() {
       } */}
 
     {
-      type === 0 ?
+      type === 0 && Imitation.state.library[0][0] ?
         <div style={{ width: '100%', height: 'calc(100% - 64px)', margin: 'auto', padding: 16, maxWidth: 720, overflow: 'auto' }}>
           <TableContainer component={Paper}>
             <Table>
@@ -59,8 +66,8 @@ function App() {
     }
 
     <div style={{ position: 'absolute', bottom: 16, left: 0, right: 0, margin: 'auto', width: 'fit-content', display: 'flex' }}>
-      {/* <Slider value={promptLength} onChange={(e, v) => setPromptLength(v)} min={1} max={24} step={1} /> */}
-      <Button variant={type === 0 ? 'contained' : 'outlined'} style={{ textTransform: 'none', margin: '0 8px' }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 0; return pre })}>Token Frequency</Button>
+      <Button variant='contained' style={{ textTransform: 'none', margin: '0 8px' }} onClick={copy_}>Copy</Button>
+      <Button variant={type === 0 ? 'contained' : 'outlined'} style={{ textTransform: 'none', margin: '0 8px' }} onClick={() => setType(0)}>Token Frequency</Button>
     </div>
 
   </>
