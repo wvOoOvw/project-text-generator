@@ -58,7 +58,7 @@ function SettingDialog(props) {
           </Grid>
         </Tooltip>
         <Grid item xs={12} style={{ fontSize: 14 }}>
-          repeatLength {props.setting.repeatLength}
+          Repeat Length {props.setting.repeatLength}
         </Grid>
         <Tooltip title='check duplicate token lengths, suggest setting a length greater than 8, 0 will not check'>
           <Grid item xs={12}>
@@ -66,11 +66,19 @@ function SettingDialog(props) {
           </Grid>
         </Tooltip>
         <Grid item xs={12} style={{ fontSize: 14 }}>
-          repeatDistance {props.setting.repeatDistance}
+          Repeat Distance {props.setting.repeatDistance}
         </Grid>
         <Tooltip title='check duplicate token distance'>
           <Grid item xs={12}>
             <Slider value={props.setting.repeatDistance} onChange={(e, v) => props.setSetting(pre => { pre.repeatDistance = v; return { ...pre } })} min={0} max={1024} step={1} />
+          </Grid>
+        </Tooltip>
+        <Grid item xs={12} style={{ fontSize: 14 }}>
+          Punctuation Space {props.setting.punctuationSpace}
+        </Grid>
+        <Tooltip title='spacing between punctuation mark'>
+          <Grid item xs={12}>
+            <Slider value={props.setting.punctuationSpace} onChange={(e, v) => props.setSetting(pre => { pre.punctuationSpace = v; return { ...pre } })} min={0} max={64} step={1} />
           </Grid>
         </Tooltip>
         <Grid item xs={12} style={{ fontSize: 14 }}>
@@ -91,7 +99,7 @@ function SettingDialog(props) {
 
 function App() {
   const [prompt, setPrompt] = React.useState(Imitation.state.runPrompt)
-  const [setting, setSetting] = React.useState({ createTokenLength: 256, memoryContextLength: 4, toTop: 0.9, temperature: 1, repeatLength: 8, repeatDistance: 256, stopToken: '<|End|>' })
+  const [setting, setSetting] = React.useState({ createTokenLength: 256, memoryContextLength: 4, toTop: 0.9, temperature: 1, repeatLength: 8, repeatDistance: 256, punctuationSpace: 8, stopToken: '<|End|>' })
   const [settingDialog, setSettingDialog] = React.useState()
 
   const run = async () => {
@@ -131,6 +139,10 @@ function App() {
   }
 
   return <>
+
+    {
+      prompt === '' ? <div style={{ width: 'fit-content', height: 'fit-content', position: 'absolute', left: 0, right: 0, top: 0, bottom: 0, margin: 'auto', fontSize: 24, color: 'gray' }}>write prompt</div> : null
+    }
 
     <textarea value={prompt} onChange={e => setPrompt(e.target.value)} style={{ width: '100%', height: '100%', fontSize: 14, lineHeight: 1.5, border: 'none', outline: 'none', resize: 'none', padding: 16, paddingBottom: 64 }} />
 

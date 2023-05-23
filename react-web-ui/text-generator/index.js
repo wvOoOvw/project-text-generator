@@ -2,6 +2,7 @@ const search = (process) => {
   process.searchResult = []
 
   const searchToken = [...process.token, ...process.result]
+  const searchTokenReverse = [...process.token, ...process.result].reverse()
 
   const searchMinIndex = Math.max(searchToken.length - process.setting.memoryContextLength, 0)
   const searchMaxIndex = searchToken.length
@@ -22,7 +23,7 @@ const search = (process) => {
       const value = searchCurrent.slice(0, index + 1).join('-')
       if (process.library[2][key] === undefined) return
       if (process.library[2][key][value] === undefined) return
-      process.library[2][key][value].forEach(i => process.searchResult.push({ token: i[0], weight: i[1] * Math.pow(4, index) }))
+      process.library[2][key][value].forEach(i => process.searchResult.push({ token: i[0], weight: i[1] * Math.pow(10, index) }))
     }
   })
 
@@ -36,6 +37,24 @@ const search = (process) => {
 
     return t
   }, [])
+
+  process.searchResult = process.searchResult.map(i => {
+    if (i.token.match(/[！？。，]/)) {
+      const index = searchTokenReverse.findIndex(i => i.match(/[！？。，]/))
+      if (index > -1 && index < process.setting.punctuationSpace) i.weight = i.weight / 10000
+    }
+
+    if (i.token.match(/”/)) {
+      const index = searchTokenReverse.findIndex(i => i.match(/“/))
+      const index_ = searchTokenReverse.findIndex(i => i.match(/”/))
+      if (index > -1) {
+        if (index_ === -1) i.weight = i.weight * 10000
+        if (index_ > -1 && index < index_) i.weight = i.weight * 10000
+      }
+    }
+
+    return i
+  })
 
   process.searchResult = process.searchResult.length === 0 ? [{ token: process.library[0][0], weight: 1 }] : process.searchResult
 }
@@ -89,6 +108,8 @@ const generator = (token, setting, library) => {
     repeat(process)
     search(process)
     match(process)
+
+    console.log(process.searchResult, process.matchResult)
 
     process.index = process.index + 1
 

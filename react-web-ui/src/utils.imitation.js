@@ -7,6 +7,8 @@ ImitationINS.state = {
 
   message: '',
 
+  visitorId: '',
+
   advence: false,
 
   playgroundView: 'default',

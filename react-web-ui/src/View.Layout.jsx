@@ -13,7 +13,7 @@ import Advence from './View.Extal.Advence'
 
 function App() {
   React.useEffect(() => {
-    fingerprintjs.load().then(res => res.get()).then(res => console.log(res))
+    fingerprintjs.load().then(res => res.get()).then(res => Imitation.state.visitorId = res.visitorId)
   }, [])
 
   React.useEffect(() => {
