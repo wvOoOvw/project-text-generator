@@ -25,16 +25,16 @@ function App() {
 
       <div style={{ margin: 'auto', width: 'fit-content', padding: '48px 0' }}>
         <div style={{ fontSize: 20, marginBottom: 32, textAlign: 'center' }}>How to use</div>
-        <Button fullWidth color='inherit' style={{ textTransform: 'none', marginBottom: 16, display: 'flex', justifyContent: 'left', alignItems: 'center', flexWrap: 'wrap' }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'example'; return pre })}>
+        <Button fullWidth color='inherit' style={{ textTransform: 'none', marginBottom: 16, display: 'flex', justifyContent: 'left', alignItems: 'center', flexWrap: 'wrap' }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'Example'; return pre })}>
           <div>Step 1. preselect example model (optional)</div>
         </Button>
-        <Button fullWidth color='inherit' style={{ textTransform: 'none', marginBottom: 16, display: 'flex', justifyContent: 'left', alignItems: 'center', flexWrap: 'wrap' }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'graph'; return pre })}>
+        <Button fullWidth color='inherit' style={{ textTransform: 'none', marginBottom: 16, display: 'flex', justifyContent: 'left', alignItems: 'center', flexWrap: 'wrap' }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'Information'; return pre })}>
           <div>Step 2. view your model's information</div>
         </Button>
-        <Button fullWidth color='inherit' style={{ textTransform: 'none', marginBottom: 16, display: 'flex', justifyContent: 'left', alignItems: 'center', flexWrap: 'wrap' }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'train'; return pre })}>
+        <Button fullWidth color='inherit' style={{ textTransform: 'none', marginBottom: 16, display: 'flex', justifyContent: 'left', alignItems: 'center', flexWrap: 'wrap' }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'Train'; return pre })}>
           <div>Step 3. train your custom model</div>
         </Button>
-        <Button fullWidth color='inherit' style={{ textTransform: 'none', marginBottom: 16, display: 'flex', justifyContent: 'left', alignItems: 'center', flexWrap: 'wrap' }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'run'; return pre })}>
+        <Button fullWidth color='inherit' style={{ textTransform: 'none', marginBottom: 16, display: 'flex', justifyContent: 'left', alignItems: 'center', flexWrap: 'wrap' }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'Run'; return pre })}>
           <div>Step 4. use your model to generate</div>
         </Button>
       </div>

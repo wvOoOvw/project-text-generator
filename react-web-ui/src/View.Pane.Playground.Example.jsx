@@ -17,11 +17,11 @@ import example from './example'
 function App() {
   const [filter, setFilter] = React.useState('')
 
-  const apply =  async (v) => {
+  const apply = async (v) => {
 
     Imitation.setState(pre => { pre.loading = pre.loading + 1; return pre })
 
-    const library =  await v.library().then(res => res.default)
+    const library = await v.library().then(res => res.default)
     // Imitation.state.playgroundView = 'run'
     Imitation.state.library = library
     Imitation.state.trainPrompt = v.trainPrompt ? v.trainPrompt : ''
@@ -48,9 +48,7 @@ function App() {
                           <div style={{ fontSize: 16, marginRight: 8, textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }}>
                             {i.name}
                           </div>
-                          <Badge badgeContent={i.recordContextLength} color="primary">
-                            <DescriptionIcon style={{ flexShrink: 0 }} />
-                          </Badge>
+                          <DescriptionIcon style={{ flexShrink: 0 }} />
                         </div>
                       </Tooltip>
 

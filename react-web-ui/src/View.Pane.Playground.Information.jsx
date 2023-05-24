@@ -1,21 +1,40 @@
 import React from 'react'
 
-import Paper from '@mui/material/Paper'
+import Grid from '@mui/material/Grid'
 import Button from '@mui/material/Button'
-import Table from '@mui/material/Table'
-import TableBody from '@mui/material/TableBody'
-import TableCell from '@mui/material/TableCell'
-import TableContainer from '@mui/material/TableContainer'
-import TableHead from '@mui/material/TableHead'
-import TableRow from '@mui/material/TableRow'
+import Card from '@mui/material/Card'
+import CardActionArea from '@mui/material/CardActionArea'
+import TextField from '@mui/material/TextField'
+import Badge from '@mui/material/Badge'
 
 import Imitation from './utils.imitation'
 
-import { copy } from './utils.common'
+function TokenFrequency() {
+  const [filter, setFilter] = React.useState('')
 
-function App() {
+  const wordMap = React.useMemo(() => {
+    return Object.keys(Imitation.state.library[0]).map((i, index) => [Imitation.state.library[0][index], Imitation.state.library[1][index]]).filter(i => i[0].includes(filter)).sort((a, b) => b[1] - a[1])
+  }, [filter])
 
-  const [type, setType] = React.useState(0)
+  return <Grid container spacing={1}>
+    <Grid item xs={12}>
+      <TextField variant='standard' sx={{ '& input': { fontSize: 14 } }} fullWidth value={filter} onChange={e => setFilter(e.target.value)} />
+    </Grid>
+    {
+      wordMap.map((i, index) => {
+        return <Grid item key={index}>
+          <Card style={{ height: '100%' }}>
+            <Badge badgeContent={i[1]}>
+              <CardActionArea style={{ padding: 12, lineHeight: 1, fontSize: 14 }}>{i[0]}</CardActionArea>
+            </Badge>
+          </Card>
+        </Grid>
+      })
+    }
+  </Grid>
+}
+
+function Predict() {
   // const [promptLength, setPromptLength] = React.useState(1)
   // const [promptContent, setPromptContent] = React.useState([])
   // const [promptResult, setPromptResult] = React.useState([])
@@ -27,47 +46,35 @@ function App() {
   // React.useEffect(() => setPromptContent(new Array(promptContent).fill().map(() => [])), [promptLength])
   // React.useEffect(() => computeResult(), [promptContent])
 
-  const copy_ = () => {
-    copy(JSON.stringify(Imitation.state.library))
-    Imitation.setState(pre => { pre.message = 'Copy'; return pre })
-  }
+
+  return <div>
+    {/* {
+    new Array(promptContent).fill().map((i, index) => {
+      return <Button key={index} variant='contained' style={{ margin: 4 }}>{i ? i : '_____'}</Button>
+    })
+  } */}
+  </div>
+}
+
+function App() {
+
+  const [type, setType] = React.useState('TokenFrequency')
 
   return <>
 
-    {/* {
-        new Array(promptContent).fill().map((i, index) => {
-          return <Button key={index} variant='contained' style={{ margin: 4 }}>{i ? i : '_____'}</Button>
-        })
-      } */}
+    <div style={{ width: '100%', height: '100%', margin: 'auto', padding: 16, paddingBottom: 68, overflow: 'auto' }}>
+      {
+        type === 'TokenFrequency' ? <TokenFrequency /> : null
+      }
 
-    {
-      type === 0 && Imitation.state.library[0][0] ?
-        <div style={{ width: '100%', height: 'calc(100% - 64px)', margin: 'auto', padding: 16, maxWidth: 720, overflow: 'auto' }}>
-          <TableContainer component={Paper}>
-            <Table>
-              <TableHead>
-                <TableRow>
-                  <TableCell>Token</TableCell>
-                  <TableCell>Frequency</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {Imitation.state.library[0].map((i, index) => (
-                  <TableRow key={index}>
-                    <TableCell>{Imitation.state.library[0][index]}</TableCell>
-                    <TableCell>{Imitation.state.library[1][index]}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
-        </div>
-        : null
-    }
+      {
+        type === 'Predict' ? <Predict /> : null
+      }
+    </div>
 
     <div style={{ position: 'absolute', bottom: 16, left: 0, right: 0, margin: 'auto', width: 'fit-content', display: 'flex' }}>
-      <Button variant='contained' style={{ textTransform: 'none', margin: '0 8px' }} onClick={copy_}>Copy</Button>
-      <Button variant={type === 0 ? 'contained' : 'outlined'} style={{ textTransform: 'none', margin: '0 8px' }} onClick={() => setType(0)}>Token Frequency</Button>
+      <Button variant={type === 'TokenFrequency' ? 'contained' : 'outlined'} style={{ textTransform: 'none', margin: '0 8px' }} onClick={() => setType('TokenFrequency')}>TokenFrequency</Button>
+      <Button variant={type === 'Predict' ? 'contained' : 'outlined'} style={{ textTransform: 'none', margin: '0 8px' }} onClick={() => setType('Predict')}>Predict</Button>
     </div>
 
   </>

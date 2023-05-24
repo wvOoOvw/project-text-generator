@@ -11,7 +11,7 @@ ImitationINS.state = {
 
   advence: false,
 
-  playgroundView: 'default',
+  playgroundView: 'Default',
 
   library: [[], [], {}],
 

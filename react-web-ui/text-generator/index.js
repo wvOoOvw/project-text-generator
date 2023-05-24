@@ -53,6 +53,33 @@ const search = (process) => {
       }
     }
 
+    if (i.token.match(/（/)) {
+      const index = searchTokenReverse.findIndex(i => i.match(/（/))
+      const index_ = searchTokenReverse.findIndex(i => i.match(/）/))
+      if (index > -1) {
+        if (index_ === -1) i.weight = i.weight * 10000
+        if (index_ > -1 && index < index_) i.weight = i.weight * 10000
+      }
+    }
+
+    if (i.token.match(/《/)) {
+      const index = searchTokenReverse.findIndex(i => i.match(/《/))
+      const index_ = searchTokenReverse.findIndex(i => i.match(/》/))
+      if (index > -1) {
+        if (index_ === -1) i.weight = i.weight * 10000
+        if (index_ > -1 && index < index_) i.weight = i.weight * 10000
+      }
+    }
+
+    if (i.token.match(/</)) {
+      const index = searchTokenReverse.findIndex(i => i.match(/</))
+      const index_ = searchTokenReverse.findIndex(i => i.match(/>/))
+      if (index > -1) {
+        if (index_ === -1) i.weight = i.weight * 10000
+        if (index_ > -1 && index < index_) i.weight = i.weight * 10000
+      }
+    }
+
     return i
   })
 
