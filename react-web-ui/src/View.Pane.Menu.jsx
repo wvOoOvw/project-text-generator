@@ -20,7 +20,7 @@ function App() {
             {/* <Button variant='outlined' style={{ textTransform: 'none', marginRight: 8 }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'price'; return pre })}>Price</Button> */}
           </div>
           <div style={{ whiteSpace: 'nowrap' }}>
-            <Button variant={Imitation.state.playgroundView === 'Tool' ? 'contained' : 'outlined'} style={{ textTransform: 'none', marginLeft: 8 }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'Tool'; return pre })}>Tool</Button>
+            <Button variant={Imitation.state.playgroundView === 'Action' ? 'contained' : 'outlined'} style={{ textTransform: 'none', marginLeft: 8 }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'Action'; return pre })}>Action</Button>
             <Button variant={Imitation.state.playgroundView === 'Example' ? 'contained' : 'outlined'} style={{ textTransform: 'none', marginLeft: 8 }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'Example'; return pre })}>Example</Button>
             <Button variant={Imitation.state.playgroundView === 'Information' ? 'contained' : 'outlined'} style={{ textTransform: 'none', marginLeft: 8 }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'Information'; return pre })}>Information</Button>
             <Button variant={Imitation.state.playgroundView === 'Train' ? 'contained' : 'outlined'} style={{ textTransform: 'none', marginLeft: 8 }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'Train'; return pre })}>Train</Button>
@@ -43,8 +43,7 @@ function App() {
           {
             <Drawer anchor='left' open={drawer} onClose={() => setDrawer(false)} sx={{ '& .MuiPaper-root': { width: 304, height: '100%' } }}>
               <div style={{ flexShrink: 0, height: '100%', padding: 16, overflow: 'auto' }}>
-                <Button fullWidth variant='contained' style={{ textTransform: 'none', marginBottom: 8 }} onClick={clear}>Clear Storage</Button>
-                <Button fullWidth variant={Imitation.state.playgroundView === 'Tool' ? 'contained' : 'outlined'} style={{ textTransform: 'none', marginBottom: 8 }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'Tool'; return pre })}>Tool</Button>
+                <Button fullWidth variant={Imitation.state.playgroundView === 'Action' ? 'contained' : 'outlined'} style={{ textTransform: 'none', marginBottom: 8 }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'Action'; return pre })}>Action</Button>
                 <Button fullWidth variant={Imitation.state.playgroundView === 'Example' ? 'contained' : 'outlined'} style={{ textTransform: 'none', marginBottom: 8 }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'Example'; return pre })}>Example</Button>
                 <Button fullWidth variant={Imitation.state.playgroundView === 'Information' ? 'contained' : 'outlined'} style={{ textTransform: 'none', marginBottom: 8 }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'Information'; return pre })}>Information</Button>
                 <Button fullWidth variant={Imitation.state.playgroundView === 'Train' ? 'contained' : 'outlined'} style={{ textTransform: 'none', marginBottom: 8 }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'Train'; return pre })}>Train</Button>

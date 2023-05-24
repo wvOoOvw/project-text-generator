@@ -10,7 +10,7 @@ const Train = React.lazy(() => import('./View.Pane.Playground.Train'))
 const Run = React.lazy(() => import('./View.Pane.Playground.Run'))
 const Example = React.lazy(() => import('./View.Pane.Playground.Example'))
 const Price = React.lazy(() => import('./View.Pane.Playground.Price'))
-const Tool = React.lazy(() => import('./View.Pane.Playground.Tool'))
+const Action = React.lazy(() => import('./View.Pane.Playground.Action'))
 
 function SuspenseLoading() {
   React.useEffect(() => {
@@ -31,7 +31,7 @@ function App() {
     }
 
     {
-      Imitation.state.playgroundView === 'Tool' ? <React.Suspense fallback={<SuspenseLoading />} children={<Tool />} /> : null
+      Imitation.state.playgroundView === 'Action' ? <React.Suspense fallback={<SuspenseLoading />} children={<Action />} /> : null
     }
 
     {

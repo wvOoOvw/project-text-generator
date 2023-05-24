@@ -9,7 +9,7 @@ import Badge from '@mui/material/Badge'
 
 import Imitation from './utils.imitation'
 
-function TokenFrequency() {
+function Token() {
   const [filter, setFilter] = React.useState('')
 
   const wordMap = React.useMemo(() => {
@@ -58,13 +58,13 @@ function Predict() {
 
 function App() {
 
-  const [type, setType] = React.useState('TokenFrequency')
+  const [type, setType] = React.useState('Token')
 
   return <>
 
     <div style={{ width: '100%', height: '100%', margin: 'auto', padding: 16, paddingBottom: 68, overflow: 'auto' }}>
       {
-        type === 'TokenFrequency' ? <TokenFrequency /> : null
+        type === 'Token' ? <Token /> : null
       }
 
       {
@@ -73,7 +73,7 @@ function App() {
     </div>
 
     <div style={{ position: 'absolute', bottom: 16, left: 0, right: 0, margin: 'auto', width: 'fit-content', display: 'flex' }}>
-      <Button variant={type === 'TokenFrequency' ? 'contained' : 'outlined'} style={{ textTransform: 'none', margin: '0 8px' }} onClick={() => setType('TokenFrequency')}>TokenFrequency</Button>
+      <Button variant={type === 'Token' ? 'contained' : 'outlined'} style={{ textTransform: 'none', margin: '0 8px' }} onClick={() => setType('Token')}>Token</Button>
       <Button variant={type === 'Predict' ? 'contained' : 'outlined'} style={{ textTransform: 'none', margin: '0 8px' }} onClick={() => setType('Predict')}>Predict</Button>
     </div>
 
