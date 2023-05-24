@@ -25,7 +25,7 @@ function SettingDialog(props) {
     <DialogTitle style={{ fontSize: 16 }}>Settings</DialogTitle>
     <DialogContent dividers>
       <Grid container spacing={1}>
-        <Grid item xs={12} style={{ fontSize: 14 }}>
+        <Grid item xs={12}>
           Create Token Length {props.setting.createTokenLength}
         </Grid>
         <Tooltip title='more setting will create more content'>
@@ -33,7 +33,7 @@ function SettingDialog(props) {
             <Slider value={props.setting.createTokenLength} onChange={(e, v) => props.setSetting(pre => { pre.createTokenLength = v; return { ...pre } })} min={1} max={1024} step={1} />
           </Grid>
         </Tooltip>
-        <Grid item xs={12} style={{ fontSize: 14 }}>
+        <Grid item xs={12}>
           Memory Context Length {props.setting.memoryContextLength}
         </Grid>
         <Tooltip title='more setting will create more coherent statements content'>
@@ -41,7 +41,7 @@ function SettingDialog(props) {
             <Slider value={props.setting.memoryContextLength} onChange={(e, v) => props.setSetting(pre => { pre.memoryContextLength = v; return { ...pre } })} min={1} max={64} step={1} />
           </Grid>
         </Tooltip>
-        <Grid item xs={12} style={{ fontSize: 14 }}>
+        <Grid item xs={12}>
           To Top {props.setting.toTop}
         </Grid>
         <Tooltip title='more setting will create more random changes'>
@@ -49,7 +49,7 @@ function SettingDialog(props) {
             <Slider value={props.setting.toTop} onChange={(e, v) => props.setSetting(pre => { pre.toTop = v; return { ...pre } })} min={0} max={1} step={0.01} />
           </Grid>
         </Tooltip>
-        <Grid item xs={12} style={{ fontSize: 14 }}>
+        <Grid item xs={12}>
           Temperature {props.setting.temperature}
         </Grid>
         <Tooltip title='more setting will create more random changes'>
@@ -57,7 +57,7 @@ function SettingDialog(props) {
             <Slider value={props.setting.temperature} onChange={(e, v) => props.setSetting(pre => { pre.temperature = v; return { ...pre } })} min={0} max={2} step={0.01} />
           </Grid>
         </Tooltip>
-        <Grid item xs={12} style={{ fontSize: 14 }}>
+        <Grid item xs={12}>
           Repeat Length {props.setting.repeatLength}
         </Grid>
         <Tooltip title='check duplicate token lengths, suggest setting a length greater than 8, 0 will not check'>
@@ -65,7 +65,7 @@ function SettingDialog(props) {
             <Slider value={props.setting.repeatLength} onChange={(e, v) => props.setSetting(pre => { pre.repeatLength = v; return { ...pre } })} min={0} max={32} step={1} />
           </Grid>
         </Tooltip>
-        <Grid item xs={12} style={{ fontSize: 14 }}>
+        <Grid item xs={12}>
           Repeat Distance {props.setting.repeatDistance}
         </Grid>
         <Tooltip title='check duplicate token distance'>
@@ -73,7 +73,7 @@ function SettingDialog(props) {
             <Slider value={props.setting.repeatDistance} onChange={(e, v) => props.setSetting(pre => { pre.repeatDistance = v; return { ...pre } })} min={0} max={1024} step={1} />
           </Grid>
         </Tooltip>
-        <Grid item xs={12} style={{ fontSize: 14 }}>
+        <Grid item xs={12}>
           Punctuation Space {props.setting.punctuationSpace}
         </Grid>
         <Tooltip title='spacing between punctuation mark'>
@@ -81,12 +81,12 @@ function SettingDialog(props) {
             <Slider value={props.setting.punctuationSpace} onChange={(e, v) => props.setSetting(pre => { pre.punctuationSpace = v; return { ...pre } })} min={0} max={64} step={1} />
           </Grid>
         </Tooltip>
-        <Grid item xs={12} style={{ fontSize: 14 }}>
+        <Grid item xs={12}>
           Stop Token
         </Grid>
         <Tooltip title='when encountering stop token will stop generator'>
           <Grid item xs={12}>
-            <TextField sx={{ '& input': { fontSize: 14 } }} fullWidth variant='standard' value={props.setting.stopToken} onChange={e => props.setSetting(pre => { pre.stopToken = e.target.value; return { ...pre } })} />
+            <TextField autoComplete='off' fullWidth variant='standard' value={props.setting.stopToken} onChange={e => props.setSetting(pre => { pre.stopToken = e.target.value; return { ...pre } })} />
           </Grid>
         </Tooltip>
       </Grid>
@@ -144,7 +144,7 @@ function App() {
       prompt === '' ? <div style={{ width: 'fit-content', height: 'fit-content', position: 'absolute', left: 0, right: 0, top: 0, bottom: 0, margin: 'auto', fontSize: 24, color: 'gray' }}>write prompt</div> : null
     }
 
-    <textarea value={prompt} onChange={e => setPrompt(e.target.value)} style={{ width: '100%', height: '100%', fontSize: 14, lineHeight: 1.5, border: 'none', outline: 'none', resize: 'none', padding: 16, paddingBottom: 68 }} />
+    <textarea value={prompt} onChange={e => setPrompt(e.target.value)} style={{ width: '100%', height: '100%', lineHeight: 1.5, border: 'none', outline: 'none', resize: 'none', padding: 16, paddingBottom: 68 }} />
 
     <div style={{ position: 'absolute', bottom: 16, left: 0, right: 0, margin: 'auto', width: 'fit-content', display: 'flex' }}>
       <Button variant='contained' style={{ textTransform: 'none', margin: '0 4px' }} onClick={() => setSettingDialog(true)}>Setting</Button>

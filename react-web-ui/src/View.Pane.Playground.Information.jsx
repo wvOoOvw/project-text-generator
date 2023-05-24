@@ -5,7 +5,8 @@ import Button from '@mui/material/Button'
 import Card from '@mui/material/Card'
 import CardActionArea from '@mui/material/CardActionArea'
 import TextField from '@mui/material/TextField'
-import Badge from '@mui/material/Badge'
+
+import FilterAltIcon from '@mui/icons-material/FilterAlt';
 
 import Imitation from './utils.imitation'
 
@@ -13,20 +14,34 @@ function Token() {
   const [filter, setFilter] = React.useState('')
 
   const wordMap = React.useMemo(() => {
-    return Object.keys(Imitation.state.library[0]).map((i, index) => [Imitation.state.library[0][index], Imitation.state.library[1][index]]).filter(i => i[0].includes(filter)).sort((a, b) => b[1] - a[1])
+    const max = Math.max(...Imitation.state.library[1])
+
+    var result = Object.keys(Imitation.state.library[0])
+    result = result.map((i, index) => [Imitation.state.library[0][index], Imitation.state.library[1][index]])
+    result = result.filter(i => i[0].includes(filter))
+    result = result.sort((a, b) => b[1] - a[1])
+    result = result.map(i => { i[2] = i[1] / max; return i })
+
+    return result
   }, [filter])
+
+  console.log(wordMap)
 
   return <Grid container spacing={1}>
     <Grid item xs={12}>
-      <TextField variant='standard' sx={{ '& input': { fontSize: 14 } }} fullWidth value={filter} onChange={e => setFilter(e.target.value)} />
+      <div style={{ maxWidth: 720, margin: 'auto', display: 'block', position: 'relative' }}>
+        <TextField variant='standard' sx={{ '& input': { textAlign: 'center' } }} autoComplete='off' fullWidth value={filter} onChange={e => setFilter(e.target.value)} />
+        <FilterAltIcon style={{ position: 'absolute', left: 4, top: 0, bottom: 0, margin: 'auto' }} />
+      </div>
     </Grid>
     {
       wordMap.map((i, index) => {
         return <Grid item key={index}>
-          <Card style={{ height: '100%' }}>
-            <Badge badgeContent={i[1]}>
-              <CardActionArea style={{ padding: 12, lineHeight: 1, fontSize: 14 }}>{i[0]}</CardActionArea>
-            </Badge>
+          <Card>
+            <CardActionArea style={{ padding: 12, lineHeight: 1, position: 'relative' }}>
+              <span>{i[0]}</span>
+              <div style={{ position: 'absolute', right: 4, top: 4, width: 4, height: 4, borderRadius: '50%', background: `rgb(${Math.floor(235 - 235 * i[2])}, ${Math.floor(235 - 235 * i[2])}, ${Math.floor(235 - 235 * i[2])})` }}></div>
+            </CardActionArea>
           </Card>
         </Grid>
       })

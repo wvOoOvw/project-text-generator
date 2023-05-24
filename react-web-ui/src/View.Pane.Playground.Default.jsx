@@ -3,11 +3,6 @@ import React from 'react'
 import Button from '@mui/material/Button'
 import Divider from '@mui/material/Divider'
 
-import AccountBalanceIcon from '@mui/icons-material/AccountBalance'
-import LineAxisIcon from '@mui/icons-material/LineAxis'
-import EditIcon from '@mui/icons-material/Edit'
-import PlayArrowIcon from '@mui/icons-material/PlayArrow'
-
 import Imitation from './utils.imitation'
 
 function App() {
@@ -18,7 +13,7 @@ function App() {
 
       <div style={{ margin: 'auto', width: 'fit-content', padding: '48px 0' }}>
         <div style={{ fontSize: 32, marginBottom: 16, textAlign: 'center' }}>Text Generator Web</div>
-        <div style={{ fontSize: 14, textAlign: 'center' }}>For Free</div>
+        <div style={{ textAlign: 'center' }}>For Free</div>
       </div>
 
       <Divider />
@@ -35,7 +30,7 @@ function App() {
           <div>Step 3. train your custom model</div>
         </Button>
         <Button fullWidth color='inherit' style={{ textTransform: 'none', marginBottom: 16, display: 'flex', justifyContent: 'left', alignItems: 'center', flexWrap: 'wrap' }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'Run'; return pre })}>
-          <div>Step 4. use your model to generate</div>
+          <div>Step 4. use your model to generate text</div>
         </Button>
       </div>
 
