@@ -8,12 +8,16 @@ import TextField from '@mui/material/TextField'
 
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 
+import Fade from './View.Animation.Fade'
+
 import Imitation from './utils.imitation'
 
 function Token() {
+  const [wordList, setWordList] = React.useState([])
+  const [wordListRender, setWordListRender] = React.useState([])
   const [filter, setFilter] = React.useState('')
 
-  const wordMap = React.useMemo(() => {
+  React.useEffect(() => {
     const max = Math.max(...Imitation.state.library[1])
 
     var result = Object.keys(Imitation.state.library[0])
@@ -22,27 +26,46 @@ function Token() {
     result = result.sort((a, b) => b[1] - a[1])
     result = result.map(i => { i[2] = i[1] / max; return i })
 
-    return result
+    setWordListRender(result)
   }, [filter])
 
-  console.log(wordMap)
+  // React.useEffect(() => {
+  //   setWordListRender([])
+
+  //   var r
+
+  //   const loop = () => {
+  //     r = requestAnimationFrame(() => {
+  //       if (wordListRender.length < wordList.length) {
+  //         setWordListRender([...wordListRender, ...wordList.slice(wordListRender.length, wordListRender.length + 1)])
+  //         loop()
+  //       }
+  //     })
+  //   }
+
+  //   loop()
+
+  //   return () => cancelAnimationFrame(r)
+  // }, [wordList])
 
   return <Grid container spacing={1}>
-    <Grid item xs={12}>
+    <Grid item xs={12} style={{ marginBottom: 16 }}>
       <div style={{ maxWidth: 720, margin: 'auto', display: 'block', position: 'relative' }}>
         <TextField variant='standard' sx={{ '& input': { textAlign: 'center' } }} autoComplete='off' fullWidth value={filter} onChange={e => setFilter(e.target.value)} />
         <FilterAltIcon style={{ position: 'absolute', left: 4, top: 0, bottom: 0, margin: 'auto' }} />
       </div>
     </Grid>
     {
-      wordMap.map((i, index) => {
+      wordListRender.map((i, index) => {
         return <Grid item key={index}>
-          <Card>
-            <CardActionArea style={{ padding: 12, lineHeight: 1, position: 'relative' }}>
-              <span>{i[0]}</span>
-              <div style={{ position: 'absolute', right: 4, top: 4, width: 4, height: 4, borderRadius: '50%', background: `rgb(${Math.floor(235 - 235 * i[2])}, ${Math.floor(235 - 235 * i[2])}, ${Math.floor(235 - 235 * i[2])})` }}></div>
-            </CardActionArea>
-          </Card>
+          <Fade>
+            <Card>
+              <CardActionArea style={{ padding: 12, lineHeight: 1, position: 'relative' }}>
+                <span>{i[0]}</span>
+                <div style={{ position: 'absolute', right: 4, top: 4, width: 4, height: 4, borderRadius: '50%', background: `rgb(${Math.floor(235 - 235 * i[2])}, ${Math.floor(235 - 235 * i[2])}, ${Math.floor(235 - 235 * i[2])})` }}></div>
+              </CardActionArea>
+            </Card>
+          </Fade>
         </Grid>
       })
     }

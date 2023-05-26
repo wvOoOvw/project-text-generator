@@ -16,51 +16,7 @@ const hash = (n = 16, l = 1) => {
   return new Array(l).fill(undefined).map(i => Array.from(Array(n), () => Math.floor(Math.random() * 36).toString(36)).join('')).join('-').toUpperCase()
 }
 
-const copy = (data) => {
-  const input = document.createElement('input')
-  document.body.appendChild(input)
-  input.setAttribute('value', data)
-  input.select()
-  document.execCommand('copy')
-  document.body.removeChild(input)
-}
-
-const download = (data, name) => {
-  const aLink = document.createElement('a')
-  const evt = document.createEvent("MouseEvents")
-  evt.initMouseEvent("click", true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null)
-  aLink.download = name
-  aLink.href = data
-  aLink.dispatchEvent(evt)
-}
-
 const safeNumber = (n, l) => Number(Number(n).toFixed(l))
-
-const arrayRandom = (array, number) => {
-  var r = []
-  var c = [...array]
-
-  new Array(number).fill().forEach(() => {
-    const index = Math.floor(Math.random() * c.length)
-    if (c[index]) {
-      r.push(c[index])
-      c = c.filter((i, index_) => index_ !== index)
-    }
-  })
-
-  return r
-}
-
-const specialWord = v => {
-  if (v === ' ') return '<|Sapce|>'
-  if (v === '\n') return '<|Wrap|>'
-  return v
-}
-
-const parseDirection = v => {
-  if (v === 'LR') return ['left', 'right']
-  if (v === 'RL') return ['right', 'left']
-}
 
 const tokenFormat = (token, action) => {
   if (!token) return []
@@ -88,4 +44,4 @@ const tokenFormat = (token, action) => {
   }
 }
 
-export { baseIp, hash, copy, download, safeNumber, arrayRandom, specialWord, parseDirection, tokenFormat }
+export { baseIp, hash, safeNumber, tokenFormat }

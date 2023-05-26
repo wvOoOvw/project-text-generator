@@ -35,7 +35,7 @@ function App() {
     <div style={{ width: '100%', height: '100%', overflow: 'auto' }}>
       <div style={{ height: 'fit-content', margin: 16 }}>
         <Grid container spacing={2} justifyContent='center'>
-          <Grid item xs={12}>
+          <Grid item xs={12} style={{ marginBottom: 16 }}>
             <div style={{ maxWidth: 720, margin: 'auto', display: 'block', position: 'relative' }}>
               <TextField variant='standard' sx={{ '& input': { fontSize: 16, textAlign: 'center' } }} autoComplete='off' fullWidth value={filter} onChange={e => setFilter(e.target.value)} />
               <FilterAltIcon style={{ position: 'absolute', left: 4, top: 0, bottom: 0, margin: 'auto' }} />
