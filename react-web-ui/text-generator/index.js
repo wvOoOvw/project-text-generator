@@ -87,6 +87,10 @@ const search = (process) => {
 }
 
 const match = (process) => {
+  var toTop = process.setting.toTop + (1 - process.setting.toTop) * (process.cacheRepeat.index / process.setting.repeatMaxTime)
+
+  toTop = Math.max(toTop, 1)
+
   const weightMiddle = process.searchResult.reduce((t, i) => t + i.weight, 0) / process.searchResult.length
 
   process.searchResult = process.searchResult.map(i => { i.weight = weightMiddle + (i.weight - weightMiddle) * process.setting.temperature; return i })
@@ -95,7 +99,7 @@ const match = (process) => {
 
   process.searchResult = process.searchResult.sort((a, b) => b.weight - a.weight)
   process.searchResult = process.searchResult.map((i, index) => { i.percent = i.weight / weightAll; i.percentAccumulation = index === 0 ? i.percent : i.percent + process.searchResult[index - 1].percentAccumulation; return i })
-  process.searchResult = process.searchResult.filter(i => i.percentAccumulation - i.percent <= process.setting.toTop)
+  process.searchResult = process.searchResult.filter(i => i.percentAccumulation - i.percent <= toTop)
 
   const weightAll_ = process.searchResult.reduce((t, i) => t + i.weight, 0)
 
@@ -142,7 +146,7 @@ const generator = (token, setting, library) => {
 
     if (process.matchResult !== undefined) process.result.push(process.matchResult)
     if (process.matchResult === undefined) process.next = undefined
-    if (process.cacheRepeat.index > 16) process.next = undefined
+    if (process.cacheRepeat.index > process.setting.repeatMaxTime) process.next = undefined
     if (process.setting.stopToken && process.setting.stopToken.includes(process.matchResult)) process.next = undefined
     if (process.result.length === process.setting.createTokenLength) process.next = undefined
 

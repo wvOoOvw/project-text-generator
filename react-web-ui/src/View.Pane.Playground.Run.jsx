@@ -9,9 +9,6 @@ import DialogActions from '@mui/material/DialogActions'
 import Slider from '@mui/material/Slider'
 import Tooltip from '@mui/material/Tooltip'
 
-import SendIcon from '@mui/icons-material/Send'
-import SettingsIcon from '@mui/icons-material/Settings'
-
 import Imitation from './utils.imitation'
 
 import { tokenizer } from '../text-tokenizer/index'
@@ -30,7 +27,7 @@ function SettingDialog(props) {
         </Grid>
         <Tooltip title='more setting will create more content'>
           <Grid item xs={12}>
-            <Slider value={props.setting.createTokenLength} onChange={(e, v) => props.setSetting(pre => { pre.createTokenLength = v; return { ...pre } })} min={1} max={1024} step={1} />
+            <Slider value={props.setting.createTokenLength} onChange={(e, v) => props.setSetting(pre => { pre.createTokenLength = v; return { ...pre } })} min={1} max={2048} step={1} />
           </Grid>
         </Tooltip>
         <Grid item xs={12}>
@@ -74,6 +71,14 @@ function SettingDialog(props) {
           </Grid>
         </Tooltip>
         <Grid item xs={12}>
+          Repeat Max Time {props.setting.repeatMaxTime}
+        </Grid>
+        <Tooltip title='repeat over max time will stop generator'>
+          <Grid item xs={12}>
+            <Slider value={props.setting.repeatMaxTime} onChange={(e, v) => props.setSetting(pre => { pre.repeatMaxTime = v; return { ...pre } })} min={1} max={64} step={1} />
+          </Grid>
+        </Tooltip>
+        <Grid item xs={12}>
           Punctuation Space {props.setting.punctuationSpace}
         </Grid>
         <Tooltip title='spacing between punctuation mark'>
@@ -99,7 +104,7 @@ function SettingDialog(props) {
 
 function App() {
   const [prompt, setPrompt] = React.useState(Imitation.state.runPrompt)
-  const [setting, setSetting] = React.useState({ createTokenLength: 256, memoryContextLength: 4, toTop: 0.75, temperature: 1, repeatLength: 8, repeatDistance: 256, punctuationSpace: 8, stopToken: '<|End|>' })
+  const [setting, setSetting] = React.useState({ createTokenLength: 256, memoryContextLength: 4, toTop: 0.75, temperature: 1, repeatLength: 8, repeatDistance: 256, repeatMaxTime: 16, punctuationSpace: 8, stopToken: '<|End|>' })
   const [settingDialog, setSettingDialog] = React.useState()
 
   const run = async () => {
