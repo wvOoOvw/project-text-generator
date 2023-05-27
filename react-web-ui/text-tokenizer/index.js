@@ -1,5 +1,5 @@
 const DictChinese = require('./Dict.Chinese.json')
-const DictEnglish = require('./Dict.English.json')
+// const DictEnglish = require('./Dict.English.json')
 const DictSP = require('./Dict.SP.json')
 
 const DictObject = {}
@@ -10,11 +10,11 @@ DictChinese.forEach(i => {
   i.split('').forEach(i_ => { useObject[i_] = useObject[i_] ? useObject[i_] : {}; useObject = useObject[i_]; })
 })
 
-DictEnglish.forEach(i => {
-  var useObject = DictObject
+// DictEnglish.forEach(i => {
+//   var useObject = DictObject
 
-  i.split('').forEach(i_ => { useObject[i_] = useObject[i_] ? useObject[i_] : {}; useObject = useObject[i_]; })
-})
+//   i.split('').forEach(i_ => { useObject[i_] = useObject[i_] ? useObject[i_] : {}; useObject = useObject[i_]; })
+// })
 
 DictSP.forEach(i => {
   var useObject = DictObject
@@ -46,14 +46,14 @@ const tokenizer = (text) => {
 
     var matchResult = searchResult ? searchResult : process.text.slice(process.index, process.index + 1)
 
-    if (matchResult.match(/^\d+$/)) {
-      while (process.text[process.index + matchResult.length] && process.text[process.index + matchResult.length].match(/^\d+$/)) {
+    if (matchResult.match(/^[\d]+$/)) {
+      while (process.text[process.index + matchResult.length] && process.text[process.index + matchResult.length].match(/^[a-z|A-Z|\d|-|\/|\.]+$/)) {
         matchResult = matchResult + process.text[process.index + matchResult.length]
       }
     }
 
-    if (matchResult.match(/^[a-z|A-Z|']+$/)) {
-      while (process.text[process.index + matchResult.length] && process.text[process.index + matchResult.length].match(/^[a-z|A-Z|']+$/)) {
+    if (matchResult.match(/^[a-z|A-Z]+$/)) {
+      while (process.text[process.index + matchResult.length] && process.text[process.index + matchResult.length].match(/^[a-z|A-Z|\d|-|'|\/]+$/)) {
         matchResult = matchResult + process.text[process.index + matchResult.length]
       }
     }

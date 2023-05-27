@@ -121,16 +121,14 @@ function App() {
 
   return <>
 
-    {
-      prompt === '' ? <div style={{ width: 'fit-content', height: 'fit-content', position: 'absolute', left: 0, right: 0, top: 0, bottom: 0, margin: 'auto', fontSize: 24, color: 'gray' }}>write prompt</div> : null
-    }
-
     <textarea value={prompt} onChange={e => setPrompt(e.target.value)} style={{ width: '100%', height: '100%', lineHeight: 1.5, border: 'none', outline: 'none', resize: 'none', padding: 16, paddingBottom: 68 }} />
 
     <div style={{ position: 'absolute', bottom: 16, left: 0, right: 0, margin: 'auto', width: 'fit-content', display: 'flex' }}>
       <Button variant='contained' style={{ textTransform: 'none', margin: '0 4px' }} onClick={() => setSettingDialog(true)}>Setting</Button>
       <Button variant='contained' style={{ textTransform: 'none', margin: '0 4px' }} onClick={train}>Train</Button>
     </div>
+
+    <div style={{ position: 'absolute', left: 16, bottom: 16, fontSize: 12 }}>{prompt.length}</div>
 
     <SettingDialog open={Boolean(settingDialog)} onClose={() => setSettingDialog()} setting={setting} setSetting={setSetting} />
 

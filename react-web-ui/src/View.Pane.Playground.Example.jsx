@@ -7,9 +7,10 @@ import CardActionArea from '@mui/material/CardActionArea'
 import CardContent from '@mui/material/CardContent'
 import Tooltip from '@mui/material/Tooltip'
 import TextField from '@mui/material/TextField'
+import Pagination from '@mui/material/Pagination'
 
-import DescriptionIcon from '@mui/icons-material/Description';
-import FilterAltIcon from '@mui/icons-material/FilterAlt';
+import DescriptionIcon from '@mui/icons-material/Description'
+import FilterAltIcon from '@mui/icons-material/FilterAlt'
 
 import Imitation from './utils.imitation'
 
@@ -17,6 +18,8 @@ import example from './example'
 
 function App() {
   const [filter, setFilter] = React.useState('')
+  const [page, setPage] = React.useState(1)
+  const [pageSize, setPageSize] = React.useState(60)
 
   const apply = async (v) => {
     Imitation.setState(pre => { pre.loading = pre.loading + 1; return pre })
@@ -30,11 +33,13 @@ function App() {
     Imitation.setState(pre => { pre.loading = pre.loading - 1; return pre })
   }
 
+  React.useEffect(() => setPage(1), [filter])
+
   return <>
 
     <div style={{ width: '100%', height: '100%', overflow: 'auto' }}>
       <div style={{ height: 'fit-content', margin: 16 }}>
-        <Grid container spacing={2} justifyContent='center'>
+        <Grid container spacing={2} justifyContent='center' style={{ marginBottom: 16 }}>
           <Grid item xs={12} style={{ marginBottom: 16 }}>
             <div style={{ maxWidth: 720, margin: 'auto', display: 'block', position: 'relative' }}>
               <TextField variant='standard' sx={{ '& input': { fontSize: 16, textAlign: 'center' } }} autoComplete='off' fullWidth value={filter} onChange={e => setFilter(e.target.value)} />
@@ -42,28 +47,30 @@ function App() {
             </div>
           </Grid>
           {
-            example.filter(i => i.name.includes(filter) || i.description.includes(filter)).map((i, index) => {
+            example.filter(i => i.name.includes(filter) || i.description.includes(filter)).filter((i, index) => index >= (page - 1) * pageSize && index < page * pageSize).map((i, index) => {
               return <Grid item key={index}>
                 <Card onClick={() => apply(i)}>
                   <CardActionArea>
-                    <CardContent style={{ width: 320, maxWidth: '100%', height: 220, position: 'relative' }}>
-                      <Tooltip title={i.name}>
+                    <Tooltip title={i.name}>
+                      <CardContent style={{ width: 320, maxWidth: '100%', height: 220, position: 'relative' }}>
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                           <div style={{ fontSize: 16, marginRight: 8, textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }}>
                             {i.name}
                           </div>
                           <DescriptionIcon style={{ flexShrink: 0 }} />
                         </div>
-                      </Tooltip>
-                      <Divider style={{ margin: '16px 0' }} />
-                      <div style={{ lineHeight: 1.5 }}>{i.description}</div>
-                    </CardContent>
+                        <Divider style={{ margin: '16px 0' }} />
+                        <div style={{ lineHeight: 1.5 }}>{i.description}</div>
+                      </CardContent>
+                    </Tooltip>
                   </CardActionArea>
                 </Card>
               </Grid>
             })
           }
         </Grid>
+
+        <Pagination color='primary' count={Math.ceil(example.filter(i => i.name.includes(filter) || i.description.includes(filter)).length / pageSize)} page={page} onChange={(e, v) => setPage(v)} style={{ margin: 'auto', width: 'fit-content' }} />
       </div>
     </div>
 

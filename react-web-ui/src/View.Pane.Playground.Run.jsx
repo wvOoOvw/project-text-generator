@@ -86,14 +86,14 @@ function SettingDialog(props) {
             <Slider value={props.setting.punctuationSpace} onChange={(e, v) => props.setSetting(pre => { pre.punctuationSpace = v; return { ...pre } })} min={0} max={64} step={1} />
           </Grid>
         </Tooltip>
-        <Grid item xs={12}>
+        {/* <Grid item xs={12}>
           Stop Token
         </Grid>
         <Tooltip title='when encountering stop token will stop generator'>
           <Grid item xs={12}>
             <TextField autoComplete='off' fullWidth variant='standard' value={props.setting.stopToken} onChange={e => props.setSetting(pre => { pre.stopToken = e.target.value; return { ...pre } })} />
           </Grid>
-        </Tooltip>
+        </Tooltip> */}
       </Grid>
     </DialogContent>
     <DialogActions>
@@ -104,7 +104,7 @@ function SettingDialog(props) {
 
 function App() {
   const [prompt, setPrompt] = React.useState(Imitation.state.runPrompt)
-  const [setting, setSetting] = React.useState({ createTokenLength: 256, memoryContextLength: 4, toTop: 0.75, temperature: 1, repeatLength: 8, repeatDistance: 256, repeatMaxTime: 16, punctuationSpace: 8, stopToken: '<|End|>' })
+  const [setting, setSetting] = React.useState({ createTokenLength: 256, memoryContextLength: 4, toTop: 0.75, temperature: 1, repeatLength: 8, repeatDistance: 256, repeatMaxTime: 16, punctuationSpace: 8, stopToken: '' })
   const [settingDialog, setSettingDialog] = React.useState()
 
   const run = async () => {
@@ -145,16 +145,14 @@ function App() {
 
   return <>
 
-    {
-      prompt === '' ? <div style={{ width: 'fit-content', height: 'fit-content', position: 'absolute', left: 0, right: 0, top: 0, bottom: 0, margin: 'auto', fontSize: 24, color: 'gray' }}>write prompt</div> : null
-    }
-
     <textarea value={prompt} onChange={e => setPrompt(e.target.value)} style={{ width: '100%', height: '100%', lineHeight: 1.5, border: 'none', outline: 'none', resize: 'none', padding: 16, paddingBottom: 68 }} />
 
     <div style={{ position: 'absolute', bottom: 16, left: 0, right: 0, margin: 'auto', width: 'fit-content', display: 'flex' }}>
       <Button variant='contained' style={{ textTransform: 'none', margin: '0 4px' }} onClick={() => setSettingDialog(true)}>Setting</Button>
       <Button variant='contained' style={{ textTransform: 'none', margin: '0 4px' }} onClick={run}>Generate</Button>
     </div>
+
+    <div style={{ position: 'absolute', left: 16, bottom: 16, fontSize: 12 }}>{prompt.length}</div>
 
     <SettingDialog open={Boolean(settingDialog)} onClose={() => setSettingDialog()} setting={setting} setSetting={setSetting} />
 
