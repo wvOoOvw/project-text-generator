@@ -17,6 +17,7 @@ import Imitation from './utils.imitation'
 import example from './example'
 
 function App() {
+  const [origin, setOrigin] = React.useState([])
   const [filter, setFilter] = React.useState('')
   const [page, setPage] = React.useState(1)
   const [pageSize, setPageSize] = React.useState(60)
@@ -27,27 +28,39 @@ function App() {
     const library = await v.library().then(res => res.default)
     Imitation.state.library = library
     Imitation.state.trainPrompt = v.trainPrompt ? v.trainPrompt : ''
-    Imitation.state.runPrompt = v.runPrompt ? v.runPrompt : ''
+    Imitation.state.generatePrompt = v.generatePrompt ? v.generatePrompt : ''
     Imitation.state.message = 'Loaded'
 
     Imitation.setState(pre => { pre.loading = pre.loading - 1; return pre })
   }
 
+  const count = React.useMemo(() => Math.ceil(origin.filter(i => i.name.includes(filter) || i.description.includes(filter)).length / pageSize), [origin, filter, pageSize])
+
+  const renderList = React.useMemo(() => origin.filter(i => i.name.includes(filter) || i.description.includes(filter)).filter((i, index) => index >= (page - 1) * pageSize && index < page * pageSize), [origin, filter, pageSize, page])
+
+  React.useEffect(() => setOrigin(example), [])
   React.useEffect(() => setPage(1), [filter])
 
   return <>
 
     <div style={{ width: '100%', height: '100%', overflow: 'auto' }}>
       <div style={{ height: 'fit-content', margin: 16 }}>
-        <Grid container spacing={2} justifyContent='center' style={{ marginBottom: 16 }}>
-          <Grid item xs={12} style={{ marginBottom: 16 }}>
-            <div style={{ maxWidth: 720, margin: 'auto', display: 'block', position: 'relative' }}>
-              <TextField variant='standard' sx={{ '& input': { fontSize: 16, textAlign: 'center' } }} autoComplete='off' fullWidth value={filter} onChange={e => setFilter(e.target.value)} />
-              <FilterAltIcon style={{ position: 'absolute', left: 4, top: 0, bottom: 0, margin: 'auto' }} />
-            </div>
-          </Grid>
+
+        <Grid container spacing={2} justifyContent='center'>
+
           {
-            example.filter(i => i.name.includes(filter) || i.description.includes(filter)).filter((i, index) => index >= (page - 1) * pageSize && index < page * pageSize).map((i, index) => {
+            origin ?
+              <Grid item xs={12}>
+                <div style={{ maxWidth: 720, margin: 'auto', display: 'block', position: 'relative' }}>
+                  <TextField variant='standard' sx={{ '& input': { fontSize: 16, textAlign: 'center' } }} autoComplete='off' fullWidth value={filter} onChange={e => setFilter(e.target.value)} />
+                  <FilterAltIcon style={{ position: 'absolute', left: 4, top: 0, bottom: 0, margin: 'auto' }} />
+                </div>
+              </Grid>
+              : null
+          }
+
+          {
+            renderList.map((i, index) => {
               return <Grid item key={index}>
                 <Card onClick={() => apply(i)}>
                   <CardActionArea>
@@ -68,9 +81,17 @@ function App() {
               </Grid>
             })
           }
+
+          {
+            count ?
+              <Grid item xs={12}>
+                <Pagination color='primary' count={count} page={page} onChange={(e, v) => setPage(v)} style={{ margin: 'auto', width: 'fit-content' }} />
+              </Grid>
+              : null
+          }
+
         </Grid>
 
-        <Pagination color='primary' count={Math.ceil(example.filter(i => i.name.includes(filter) || i.description.includes(filter)).length / pageSize)} page={page} onChange={(e, v) => setPage(v)} style={{ margin: 'auto', width: 'fit-content' }} />
       </div>
     </div>
 

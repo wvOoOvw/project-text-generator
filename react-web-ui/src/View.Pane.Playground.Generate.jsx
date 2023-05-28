@@ -13,7 +13,6 @@ import Imitation from './utils.imitation'
 
 import { tokenizer } from '../text-tokenizer/index'
 import { generator } from '../text-generator/index'
-import { TextField } from '@mui/material'
 
 import { tokenFormat } from './utils.common'
 
@@ -103,11 +102,11 @@ function SettingDialog(props) {
 }
 
 function App() {
-  const [prompt, setPrompt] = React.useState(Imitation.state.runPrompt)
+  const [prompt, setPrompt] = React.useState(Imitation.state.generatePrompt)
   const [setting, setSetting] = React.useState({ createTokenLength: 256, memoryContextLength: 4, toTop: 0.75, temperature: 1, repeatLength: 8, repeatDistance: 256, repeatMaxTime: 16, punctuationSpace: 8, stopToken: '' })
   const [settingDialog, setSettingDialog] = React.useState()
 
-  const run = async () => {
+  const generate = async () => {
     const tokenizerProcessLoop = async (tokenizerProcess) => {
       const r = await new Promise(r => {
         const loop = () => tokenizerProcess.next ? requestIdleCallback(() => { tokenizerProcess.next(); loop() }) : r(tokenizerProcess.result)
@@ -149,7 +148,7 @@ function App() {
 
     <div style={{ position: 'absolute', bottom: 16, left: 0, right: 0, margin: 'auto', width: 'fit-content', display: 'flex' }}>
       <Button variant='contained' style={{ textTransform: 'none', margin: '0 4px' }} onClick={() => setSettingDialog(true)}>Setting</Button>
-      <Button variant='contained' style={{ textTransform: 'none', margin: '0 4px' }} onClick={run}>Generate</Button>
+      <Button variant='contained' style={{ textTransform: 'none', margin: '0 4px' }} onClick={generate}>Generate</Button>
     </div>
 
     <div style={{ position: 'absolute', left: 16, bottom: 16, fontSize: 12 }}>{prompt.length}</div>

@@ -17,7 +17,7 @@ ImitationINS.state = {
 
   trainPrompt: '',
   
-  runPrompt: '',
+  generatePrompt: '',
 }
 
 export default ImitationINS

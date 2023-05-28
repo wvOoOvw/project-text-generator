@@ -1,4 +1,4 @@
-const runPrompt = ``
+const generatePrompt = ``
 
 const trainPrompt =
 `
@@ -14,4 +14,4 @@ const name = '测试'
 
 const description = '测试...'
 
-export default { library: () => import('./example.common4.json'), runPrompt, trainPrompt, name, description }
+export default { library: () => import('./example.common4.json'), generatePrompt, trainPrompt, name, description }

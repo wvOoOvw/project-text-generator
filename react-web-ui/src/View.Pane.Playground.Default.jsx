@@ -29,7 +29,7 @@ function App() {
         <Button fullWidth color='inherit' style={{ textTransform: 'none', marginBottom: 16, display: 'flex', justifyContent: 'left', alignItems: 'center', flexWrap: 'wrap' }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'Train'; return pre })}>
           <div>Step 3. train your custom model</div>
         </Button>
-        <Button fullWidth color='inherit' style={{ textTransform: 'none', marginBottom: 16, display: 'flex', justifyContent: 'left', alignItems: 'center', flexWrap: 'wrap' }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'Run'; return pre })}>
+        <Button fullWidth color='inherit' style={{ textTransform: 'none', marginBottom: 16, display: 'flex', justifyContent: 'left', alignItems: 'center', flexWrap: 'wrap' }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'Generate'; return pre })}>
           <div>Step 4. use your model to generate text</div>
         </Button>
       </div>

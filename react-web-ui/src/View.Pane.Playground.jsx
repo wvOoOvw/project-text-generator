@@ -7,7 +7,7 @@ import Paper from '@mui/material/Paper'
 const Default = React.lazy(() => import('./View.Pane.Playground.Default'))
 const Information = React.lazy(() => import('./View.Pane.Playground.Information'))
 const Train = React.lazy(() => import('./View.Pane.Playground.Train'))
-const Run = React.lazy(() => import('./View.Pane.Playground.Run'))
+const Generate = React.lazy(() => import('./View.Pane.Playground.Generate'))
 const Example = React.lazy(() => import('./View.Pane.Playground.Example'))
 const Price = React.lazy(() => import('./View.Pane.Playground.Price'))
 const Action = React.lazy(() => import('./View.Pane.Playground.Action'))
@@ -47,7 +47,7 @@ function App() {
     }
 
     {
-      Imitation.state.playgroundView === 'Run' ? <React.Suspense fallback={<SuspenseLoading />} children={<Run />} /> : null
+      Imitation.state.playgroundView === 'Generate' ? <React.Suspense fallback={<SuspenseLoading />} children={<Generate />} /> : null
     }
 
     {

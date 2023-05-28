@@ -24,7 +24,7 @@ function App() {
             <Button variant={Imitation.state.playgroundView === 'Example' ? 'contained' : 'outlined'} style={{ textTransform: 'none', marginLeft: 8 }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'Example'; return pre })}>Example</Button>
             <Button variant={Imitation.state.playgroundView === 'Information' ? 'contained' : 'outlined'} style={{ textTransform: 'none', marginLeft: 8 }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'Information'; return pre })}>Information</Button>
             <Button variant={Imitation.state.playgroundView === 'Train' ? 'contained' : 'outlined'} style={{ textTransform: 'none', marginLeft: 8 }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'Train'; return pre })}>Train</Button>
-            <Button variant={Imitation.state.playgroundView === 'Run' ? 'contained' : 'outlined'} style={{ textTransform: 'none', marginLeft: 8 }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'Run'; return pre })}>Generate</Button>
+            <Button variant={Imitation.state.playgroundView === 'Generate' ? 'contained' : 'outlined'} style={{ textTransform: 'none', marginLeft: 8 }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'Generate'; return pre })}>Generate</Button>
           </div>
         </>
         : null
@@ -47,7 +47,7 @@ function App() {
                 <Button fullWidth variant={Imitation.state.playgroundView === 'Example' ? 'contained' : 'outlined'} style={{ textTransform: 'none', marginBottom: 8 }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'Example'; return pre })}>Example</Button>
                 <Button fullWidth variant={Imitation.state.playgroundView === 'Information' ? 'contained' : 'outlined'} style={{ textTransform: 'none', marginBottom: 8 }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'Information'; return pre })}>Information</Button>
                 <Button fullWidth variant={Imitation.state.playgroundView === 'Train' ? 'contained' : 'outlined'} style={{ textTransform: 'none', marginBottom: 8 }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'Train'; return pre })}>Train</Button>
-                <Button fullWidth variant={Imitation.state.playgroundView === 'Run' ? 'contained' : 'outlined'} style={{ textTransform: 'none', marginBottom: 8 }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'Run'; return pre })}>Generate</Button>
+                <Button fullWidth variant={Imitation.state.playgroundView === 'Generate' ? 'contained' : 'outlined'} style={{ textTransform: 'none', marginBottom: 8 }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'Generate'; return pre })}>Generate</Button>
               </div>
             </Drawer>
           }
