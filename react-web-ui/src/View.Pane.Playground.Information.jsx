@@ -7,6 +7,9 @@ import CardActionArea from '@mui/material/CardActionArea'
 import TextField from '@mui/material/TextField'
 import Pagination from '@mui/material/Pagination'
 import Slider from '@mui/material/Slider'
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogContent from '@mui/material/DialogContent';
 
 import FilterAltIcon from '@mui/icons-material/FilterAlt'
 
@@ -14,11 +17,15 @@ import Imitation from './utils.imitation'
 
 import { generator } from '../text-generator/index'
 
-function Token() {
+function Token(props) {
   const [origin, setOrigin] = React.useState([])
   const [filter, setFilter] = React.useState('')
   const [page, setPage] = React.useState(1)
   const [pageSize, setPageSize] = React.useState(200)
+
+  const onClick = v => {
+    if (props.onClick) props.onClick(v)
+  }
 
   const count = React.useMemo(() => Math.ceil(origin.filter(i => i[0].includes(filter)).length / pageSize), [origin, filter, pageSize])
 
@@ -55,7 +62,7 @@ function Token() {
       renderList.map((i, index) => {
         return <Grid item key={index}>
           <Card>
-            <CardActionArea style={{ padding: 12, lineHeight: 1, position: 'relative' }}>
+            <CardActionArea style={{ padding: 12, lineHeight: 1, position: 'relative' }} onClick={() => onClick(i[0])}>
               <span>{i[0]}</span>
               <div style={{ position: 'absolute', right: 4, top: 4, width: 4, height: 4, borderRadius: '50%', background: `rgb(${Math.floor(235 - 235 * i[2])}, ${Math.floor(235 - 235 * i[2])}, ${Math.floor(235 - 235 * i[2])})` }}></div>
             </CardActionArea>
@@ -79,49 +86,22 @@ function Predict() {
   const [promptLength, setPromptLength] = React.useState(1)
   const [promptContent, setPromptContent] = React.useState([])
   const [promptResult, setPromptResult] = React.useState([])
-  const [setting, setSetting] = React.useState({ createTokenLength: 256, memoryContextLength: 4, toTop: 0.75, temperature: 1, repeatLength: 8, repeatDistance: 256, repeatMaxTime: 16, punctuationSpace: 8, stopToken: '' })
+  const [promptModal, setPromptModal] = React.useState()
+  const [setting, setSetting] = React.useState({ createTokenLength: 256, memoryContextLength: 64, toTop: 1, temperature: 1, repeatLength: 8, repeatDistance: 256, repeatMaxTime: 16, punctuationSpace: 8, stopToken: '' })
 
-  const computeResult = async () => {
-    const tokenizerProcessLoop = async (tokenizerProcess) => {
-      const r = await new Promise(r => {
-        const loop = () => tokenizerProcess.next ? requestIdleCallback(() => { tokenizerProcess.next(); loop() }) : r(tokenizerProcess.result)
+  const computeResult = () => {
+    const generatorProcess = generator(promptContent, setting, Imitation.state.library)
 
-        loop()
-      })
+    generatorProcess.next()
 
-      return r
-    }
-
-    const generatorProcessLoop = async (generatorProcess) => {
-      const r = await new Promise(r => {
-        const loop = () => generatorProcess.next ? requestIdleCallback(() => { generatorProcess.next(); setPrompt([...generatorProcess.token, ...tokenFormat(generatorProcess.result, 2)].join('')); loop() }) : r(generatorProcess.result)
-
-        loop()
-      })
-
-      return r
-    }
-
-    Imitation.setState(pre => { pre.loading = pre.loading + 1; return pre })
-
-    console.log(prompt)
-
-    const token = await tokenizerProcessLoop(tokenizer(prompt))
-
-    console.log(token)
-
-    const result = await generatorProcessLoop(generator(token, setting, Imitation.state.library))
-
-    console.log(result)
-
-    Imitation.setState(pre => { pre.loading = pre.loading - 1; return pre })
+    setPromptResult(generatorProcess.searchResult)
   }
 
   const promptLengthMax = React.useMemo(() => Object.keys(Imitation.state.library[2]).map(i => Number(i.split('-')[1])).reduce((t, i) => Math.max(t, i), 0), [])
 
-  React.useEffect(() => setPromptContent(new Array(promptLength).fill().map(() => [])), [promptLength])
+  React.useEffect(() => setPromptContent(new Array(promptLength).fill().map(() => '')), [promptLength])
 
-  // React.useEffect(() => computeResult(), [promptContent])
+  React.useEffect(() => computeResult(), [promptContent])
 
   return <Grid container spacing={2}>
 
@@ -133,12 +113,17 @@ function Predict() {
       <Grid container spacing={1} justifyContent='center'>
         {
           promptContent.map((i, index) => {
-            return <Grid item key={index}><Button variant='contained'>____</Button></Grid>
+            return <Grid item key={index}><Button variant='contained' onClick={() => setPromptModal(index)}>{i ? i : '____'}</Button></Grid>
           })
         }
       </Grid>
     </Grid>
 
+    <Dialog open={promptModal !== undefined} sx={{ '& .MuiDialog-paper': { width: '100%', maxWidth: 1080 } }} onClose={() => setPromptModal()}>
+      <DialogContent>
+        <Token onClick={v => { promptContent[promptModal] = v; setPromptContent([...promptContent]); setPromptModal() }} />
+      </DialogContent>
+    </Dialog>
 
   </Grid>
 }
