@@ -44,41 +44,25 @@ const search = (process) => {
       if (index > -1 && index < process.setting.punctuationSpace) i.weight = i.weight / 10000
     }
 
-    if (i.token.match(/”/)) {
-      const index = searchTokenReverse.findIndex(i => i.match(/“/))
-      const index_ = searchTokenReverse.findIndex(i => i.match(/”/))
-      if (index > -1) {
-        if (index_ === -1) i.weight = i.weight * 10000
-        if (index_ > -1 && index < index_) i.weight = i.weight * 10000
-      }
-    }
+    const checkList = [[/^“$/, /^”$/], [/^<$/, /^>$/], [/^（$/, /^）$/], [/^《$/, /^》$/]]
 
-    if (i.token.match(/（/)) {
-      const index = searchTokenReverse.findIndex(i => i.match(/（/))
-      const index_ = searchTokenReverse.findIndex(i => i.match(/）/))
-      if (index > -1) {
-        if (index_ === -1) i.weight = i.weight * 10000
-        if (index_ > -1 && index < index_) i.weight = i.weight * 10000
-      }
-    }
+    checkList.forEach(i_ => {
+      const index = searchTokenReverse.findIndex(i => i.match(i_[0]))
+      const index_ = searchTokenReverse.findIndex(i => i.match(i_[1]))
 
-    if (i.token.match(/《/)) {
-      const index = searchTokenReverse.findIndex(i => i.match(/《/))
-      const index_ = searchTokenReverse.findIndex(i => i.match(/》/))
-      if (index > -1) {
-        if (index_ === -1) i.weight = i.weight * 10000
-        if (index_ > -1 && index < index_) i.weight = i.weight * 10000
+      if (i.token.match(i_[0]) !== null) {
+        if (index !== -1 && index_ === -1) i.weight = i.weight / 10000
+        if (index !== -1 && index_ !== -1 && index < index_) i.weight = i.weight / 10000
       }
-    }
 
-    if (i.token.match(/</)) {
-      const index = searchTokenReverse.findIndex(i => i.match(/</))
-      const index_ = searchTokenReverse.findIndex(i => i.match(/>/))
-      if (index > -1) {
-        if (index_ === -1) i.weight = i.weight * 10000
-        if (index_ > -1 && index < index_) i.weight = i.weight * 10000
+      if (i.token.match(i_[1]) !== null) {
+        if (index === -1 && index_ === -1) i.weight = i.weight / 10000
+        if (index === -1 && index_ !== -1) i.weight = i.weight / 10000
+        if (index !== -1 && index_ === -1) i.weight = i.weight * 10000
+        if (index !== -1 && index_ !== -1 && index < index_) i.weight = i.weight * 10000
+        if (index !== -1 && index_ !== -1 && index > index_) i.weight = i.weight / 10000
       }
-    }
+    })
 
     return i
   })
@@ -88,8 +72,6 @@ const search = (process) => {
 
 const match = (process) => {
   var toTop = process.setting.toTop + (1 - process.setting.toTop) * (process.cacheRepeat.index / process.setting.repeatMaxTime)
-
-  toTop = Math.max(toTop, 1)
 
   const weightMiddle = process.searchResult.reduce((t, i) => t + i.weight, 0) / process.searchResult.length
 

@@ -83,7 +83,6 @@ function Token(props) {
 }
 
 function Predict() {
-  const [promptLength, setPromptLength] = React.useState(1)
   const [promptContent, setPromptContent] = React.useState([])
   const [promptResult, setPromptResult] = React.useState([])
   const [promptModal, setPromptModal] = React.useState()
@@ -99,15 +98,11 @@ function Predict() {
 
   const promptLengthMax = React.useMemo(() => Object.keys(Imitation.state.library[2]).map(i => Number(i.split('-')[1])).reduce((t, i) => Math.max(t, i), 0), [])
 
-  React.useEffect(() => setPromptContent(new Array(promptLength).fill().map(() => '')), [promptLength])
+  React.useEffect(() => setPromptContent(new Array(promptLengthMax).fill().map(() => '')), [promptLengthMax])
 
   React.useEffect(() => computeResult(), [promptContent])
 
   return <Grid container spacing={2}>
-
-    <Grid item xs={12}>
-      <Slider style={{ maxWidth: 720, width: '100%', margin: 'auto', display: 'block' }} value={promptLength} onChange={(e, v) => setPromptLength(v)} min={1} max={promptLengthMax} step={1} />
-    </Grid>
 
     <Grid item xs={12}>
       <Grid container spacing={1} justifyContent='center'>
