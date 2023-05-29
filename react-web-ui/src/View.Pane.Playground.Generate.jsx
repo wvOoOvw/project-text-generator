@@ -102,9 +102,11 @@ function SettingDialog(props) {
 }
 
 function App() {
+  const ref = React.useRef()
   const [prompt, setPrompt] = React.useState(Imitation.state.generatePrompt)
   const [setting, setSetting] = React.useState({ createTokenLength: 256, memoryContextLength: 4, toTop: 0.75, temperature: 1, repeatLength: 8, repeatDistance: 256, repeatMaxTime: 16, punctuationSpace: 8, stopToken: '' })
   const [settingDialog, setSettingDialog] = React.useState()
+  const [running, setRunning] = React.useState(false)
 
   const generate = async () => {
     const tokenizerProcessLoop = async (tokenizerProcess) => {
@@ -127,6 +129,7 @@ function App() {
       return r
     }
 
+    setRunning(true)
     Imitation.setState(pre => { pre.loading = pre.loading + 1; return pre })
 
     console.log(prompt)
@@ -139,12 +142,17 @@ function App() {
 
     console.log(result)
 
+    setRunning(false)
     Imitation.setState(pre => { pre.loading = pre.loading - 1; return pre })
   }
 
+  React.useEffect(() => {
+    if (running) ref.current.scrollTop = 10000
+  }, [running, prompt])
+
   return <>
 
-    <textarea value={prompt} onChange={e => setPrompt(e.target.value)} style={{ width: '100%', height: '100%', lineHeight: 1.5, border: 'none', outline: 'none', resize: 'none', padding: 16, paddingBottom: 68 }} />
+    <textarea value={prompt} onChange={e => setPrompt(e.target.value)} style={{ width: '100%', height: '100%', lineHeight: 1.5, border: 'none', outline: 'none', resize: 'none', padding: 16, paddingBottom: 68 }} ref={el => ref.current = el} />
 
     <div style={{ position: 'absolute', bottom: 16, left: 0, right: 0, margin: 'auto', width: 'fit-content', display: 'flex' }}>
       <Button variant='contained' style={{ textTransform: 'none', margin: '0 4px' }} onClick={() => setSettingDialog(true)}>Setting</Button>

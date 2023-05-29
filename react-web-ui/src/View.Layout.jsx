@@ -1,6 +1,6 @@
 import React from 'react'
 
-import fingerprintjs from'@fingerprintjs/fingerprintjs'
+import fingerprintjs from '@fingerprintjs/fingerprintjs'
 
 import Message from './View.Global.Message'
 import Loading from './View.Global.Loading'
@@ -9,7 +9,8 @@ import Imitation from './utils.imitation'
 
 import Menu from './View.Pane.Menu'
 import Playground from './View.Pane.Playground'
-import Advence from './View.Extal.Advence'
+
+import { AdvenceDialog } from './View.Extal.Advence'
 
 function App() {
   React.useEffect(() => {
@@ -33,7 +34,7 @@ function App() {
     <Message />
     <Loading />
 
-    <Advence open={Imitation.state.advence} onClose={() => Imitation.setState(pre => { pre.advence = false; return pre })} />
+    <AdvenceDialog open={Imitation.state.advence} onClose={() => Imitation.setState(pre => { pre.advence = false; return pre })} />
 
   </>
 }

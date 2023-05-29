@@ -113,7 +113,17 @@ function Predict() {
       <Grid container spacing={1} justifyContent='center'>
         {
           promptContent.map((i, index) => {
-            return <Grid item key={index}><Button variant='contained' onClick={() => setPromptModal(index)}>{i ? i : '____'}</Button></Grid>
+            return <Grid item key={index}><Button variant='contained' onClick={() => { promptContent[index] = ''; setPromptContent([...promptContent]); setPromptModal(index) }}>{i ? i : '____'}</Button></Grid>
+          })
+        }
+      </Grid>
+    </Grid>
+
+    <Grid item xs={12}>
+      <Grid container spacing={1} justifyContent='center'>
+        {
+          promptResult.map((i, index) => {
+            return <Grid item key={index}><Button variant='outlined'>{i.token} {Number(i.percent * 100).toFixed(2)}%</Button></Grid>
           })
         }
       </Grid>

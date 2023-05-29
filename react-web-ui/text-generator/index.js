@@ -10,20 +10,20 @@ const search = (process) => {
   const searchCurrent = searchToken.slice(searchMinIndex, searchMaxIndex).map(i => process.library[0].indexOf(i)).reverse()
 
   searchCurrent.forEach((i, index) => {
-    // if (index > 0) {
-    //   const key = `${index}-${index + 1}`
-    //   const value = searchCurrent.slice(index, index + 1).join('-')
-    //   if (process.library[2][key] === undefined) return
-    //   if (process.library[2][key][value] === undefined) return
-    //   process.library[2][key][value].forEach(i => process.searchResult.push({ token: i[0], weight: i[1] * Math.pow(0.5, index) }))
-    // }
+    if (index > 0) {
+      const key = `${index}-${index + 1}`
+      const value = searchCurrent.slice(index, index + 1).join('-')
+      if (process.library[2][key] === undefined) return
+      if (process.library[2][key][value] === undefined) return
+      process.library[2][key][value].forEach(i => process.searchResult.push({ token: i[0], weight: i[1] * Math.pow(0.1, index + 1) }))
+    }
 
     if (index > -1) {
       const key = `0-${index + 1}`
       const value = searchCurrent.slice(0, index + 1).join('-')
       if (process.library[2][key] === undefined) return
       if (process.library[2][key][value] === undefined) return
-      process.library[2][key][value].forEach(i => process.searchResult.push({ token: i[0], weight: i[1] * Math.pow(10, index) }))
+      process.library[2][key][value].forEach(i => process.searchResult.push({ token: i[0], weight: i[1] * Math.pow(10, index + 1) }))
     }
   })
 
