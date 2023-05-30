@@ -141,11 +141,11 @@ function App() {
 
     <div style={{ width: '100%', height: '100%', margin: 'auto', padding: 16, paddingBottom: 68, overflow: 'auto' }}>
       {
-        type === 'Token' ? <Token /> : null
+        Imitation.state.library[2].length > 0 && type === 'Token' ? <Token /> : null
       }
 
       {
-        type === 'Predict' ? <Predict /> : null
+        Imitation.state.library[2].length > 0 && type === 'Predict' ? <Predict /> : null
       }
     </div>
 
