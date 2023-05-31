@@ -8,15 +8,11 @@ import DialogTitle from '@mui/material/DialogTitle'
 import DialogActions from '@mui/material/DialogActions'
 import Slider from '@mui/material/Slider'
 import Tooltip from '@mui/material/Tooltip'
-import TextField from '@mui/material/TextField'
 import Switch from '@mui/material/Switch'
-
-import SendIcon from '@mui/icons-material/Send'
-import SettingsIcon from '@mui/icons-material/Settings'
 
 import Imitation from './utils.imitation'
 
-import { tokenFormat } from './utils.common'
+import { tokenFormat, requestRender } from './utils.common'
 
 import { tokenizer } from '../text-tokenizer/index'
 import { calculator } from '../text-calculator/index'
@@ -74,7 +70,7 @@ function App() {
   const train = async () => {
     const tokenizerProcessLoop = async (tokenizerProcess) => {
       const r = await new Promise(r => {
-        const loop = () => tokenizerProcess.next ? requestIdleCallback(() => { tokenizerProcess.next(); loop() }) : r(tokenizerProcess.result)
+        const loop = () => tokenizerProcess.next ? requestRender()(() => { tokenizerProcess.next(); loop() }) : r(tokenizerProcess.result)
 
         loop()
       })
@@ -84,7 +80,7 @@ function App() {
 
     const calculatorProcessLoop = async (calculatorProcess) => {
       const r = await new Promise(r => {
-        const loop = () => calculatorProcess.next ? requestIdleCallback(() => { calculatorProcess.next(); loop() }) : r(calculatorProcess.result)
+        const loop = () => calculatorProcess.next ? requestRender()(() => { calculatorProcess.next(); loop() }) : r(calculatorProcess.result)
 
         loop()
       })

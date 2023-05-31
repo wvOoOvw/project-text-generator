@@ -14,7 +14,7 @@ import Imitation from './utils.imitation'
 import { tokenizer } from '../text-tokenizer/index'
 import { generator } from '../text-generator/index'
 
-import { tokenFormat } from './utils.common'
+import { tokenFormat, requestRender } from './utils.common'
 
 function SettingDialog(props) {
   return <Dialog open={props.open} sx={{ '& .MuiDialog-paper': { width: '100%', maxWidth: 720 } }} onClose={() => props.onClose()}>
@@ -111,7 +111,7 @@ function App() {
   const generate = async () => {
     const tokenizerProcessLoop = async (tokenizerProcess) => {
       const r = await new Promise(r => {
-        const loop = () => tokenizerProcess.next ? requestIdleCallback(() => { tokenizerProcess.next(); loop() }) : r(tokenizerProcess.result)
+        const loop = () => tokenizerProcess.next ? requestRender()(() => { tokenizerProcess.next(); loop() }) : r(tokenizerProcess.result)
 
         loop()
       })
@@ -121,7 +121,7 @@ function App() {
 
     const generatorProcessLoop = async (generatorProcess) => {
       const r = await new Promise(r => {
-        const loop = () => generatorProcess.next ? requestIdleCallback(() => { generatorProcess.next(); setPrompt([...generatorProcess.token, ...tokenFormat(generatorProcess.result, 2)].join('')); loop() }) : r(generatorProcess.result)
+        const loop = () => generatorProcess.next ? requestRender()(() => { generatorProcess.next(); setPrompt([...generatorProcess.token, ...tokenFormat(generatorProcess.result, 2)].join('')); loop() }) : r(generatorProcess.result)
 
         loop()
       })

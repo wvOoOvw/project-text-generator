@@ -44,4 +44,12 @@ const tokenFormat = (token, action) => {
   }
 }
 
-export { baseIp, hash, safeNumber, tokenFormat }
+const requestRender = () => {
+  if (window.requestIdleCallback) return window.requestIdleCallback
+
+  if (window.requestAnimationFrame) return window.requestAnimationFrame
+
+  return (callback) => setTimeout(() => callback, 35);
+}
+
+export { baseIp, hash, safeNumber, tokenFormat, requestRender }
