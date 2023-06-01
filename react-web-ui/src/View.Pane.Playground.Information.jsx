@@ -96,7 +96,7 @@ function Predict() {
     setPromptResult(generatorProcess.searchResult)
   }
 
-  const promptLengthMax = React.useMemo(() => Object.keys(Imitation.state.library[2]).map(i => Number(i.split('-')[1])).reduce((t, i) => Math.max(t, i), 0), [])
+  const promptLengthMax = React.useMemo(() => Object.keys(Imitation.state.library[3]).map(i => Number(i.split('-')[1])).reduce((t, i) => Math.max(t, i), 0), [])
 
   React.useEffect(() => setPromptContent(new Array(promptLengthMax).fill().map(() => '')), [promptLengthMax])
 
@@ -141,11 +141,11 @@ function App() {
 
     <div style={{ width: '100%', height: '100%', margin: 'auto', padding: 16, paddingBottom: 68, overflow: 'auto' }}>
       {
-        Object.keys(Imitation.state.library[2]).length > 0 && type === 'Token' ? <Token /> : null
+        Object.keys(Imitation.state.library[3]).length > 0 && type === 'Token' ? <Token /> : null
       }
 
       {
-        Object.keys(Imitation.state.library[2]).length > 0 && type === 'Predict' ? <Predict /> : null
+        Object.keys(Imitation.state.library[3]).length > 0 && type === 'Predict' ? <Predict /> : null
       }
     </div>
 

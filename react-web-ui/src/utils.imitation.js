@@ -13,7 +13,7 @@ ImitationINS.state = {
 
   playgroundView: 'Default',
 
-  library: [[], [], {}],
+  library: [[], [], [], {}],
 
   trainPrompt: '',
   

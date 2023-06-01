@@ -61,7 +61,7 @@ function App() {
 
           {
             renderList.map((i, index) => {
-              return <Grid item key={index}>
+              return <Grid item style={{ maxWidth: '100%' }} key={index}>
                 <Card onClick={() => apply(i)}>
                   <CardActionArea>
                     <Tooltip title={i.name}>

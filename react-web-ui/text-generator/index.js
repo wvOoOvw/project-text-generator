@@ -1,3 +1,35 @@
+function calculateSimilarity(str1, str2) {
+  const m = str1.length;
+  const n = str2.length;
+
+  if (m === 0) return n;
+  if (n === 0) return m;
+
+  const d = [];
+  for (let i = 0; i <= m; i++) {
+    d[i] = [i];
+  }
+  for (let j = 0; j <= n; j++) {
+    d[0][j] = j;
+  }
+
+  for (let j = 1; j <= n; j++) {
+    for (let i = 1; i <= m; i++) {
+      if (str1[i - 1] === str2[j - 1]) {
+        d[i][j] = d[i - 1][j - 1];
+      } else {
+        d[i][j] = Math.min(
+          d[i - 1][j] + 1, // 删除操作
+          d[i][j - 1] + 1, // 插入操作
+          d[i - 1][j - 1] + 1 // 替换操作
+        );
+      }
+    }
+  }
+
+  return 1 - d[m][n] / Math.max(m, n);
+}
+
 const search = (process) => {
   process.searchResult = []
 
@@ -13,17 +45,17 @@ const search = (process) => {
     if (index > 0) {
       const key = `${index}-${index + 1}`
       const value = searchCurrent.slice(index, index + 1).join('-')
-      if (process.library[2][key] === undefined) return
-      if (process.library[2][key][value] === undefined) return
-      process.library[2][key][value].forEach(i => process.searchResult.push({ token: i[0], weight: i[1] * Math.pow(0.1, index + 1) }))
+      if (process.library[3][key] === undefined) return
+      if (process.library[3][key][value] === undefined) return
+      process.library[3][key][value].forEach(i => process.searchResult.push({ token: i[0], weight: i[1] * Math.pow(0.1, index + 1) }))
     }
 
     if (index > -1) {
       const key = `0-${index + 1}`
       const value = searchCurrent.slice(0, index + 1).join('-')
-      if (process.library[2][key] === undefined) return
-      if (process.library[2][key][value] === undefined) return
-      process.library[2][key][value].forEach(i => process.searchResult.push({ token: i[0], weight: i[1] * Math.pow(10, index + 1) }))
+      if (process.library[3][key] === undefined) return
+      if (process.library[3][key][value] === undefined) return
+      process.library[3][key][value].forEach(i => process.searchResult.push({ token: i[0], weight: i[1] * Math.pow(10, index + 1) }))
     }
   })
 
