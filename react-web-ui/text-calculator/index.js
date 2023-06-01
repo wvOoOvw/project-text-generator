@@ -1,21 +1,17 @@
-const tokenFrequency = (tokens, frequency, token) => {
-  if (tokens.indexOf(token) === -1) frequency.push(0)
-  if (tokens.indexOf(token) === -1) tokens.push(token)
-
-  frequency[tokens.indexOf(token)] = frequency[tokens.indexOf(token)] + 1
-
-  return [tokens, frequency]
-}
-
 const calculator = (token, setting, library) => {
   const resultLibrary = JSON.parse(JSON.stringify(library))
 
-  const process = { token: token, setting: setting, step: 0, index: 0, resultCache: [], result: resultLibrary, next: () => next() }
+  const process = { token: token, setting: setting, step: 0, index: 0, recordContextCache: [], result: resultLibrary, next: () => next() }
 
   const next = () => {
 
     if (process.step === 0) {
-      process.token.forEach(i => tokenFrequency(process.result[0], process.result[1], i))
+      process.token.forEach(i => {
+        if (process.result[0].indexOf(i) === -1) process.result[1].push(0)
+        if (process.result[0].indexOf(i) === -1) process.result[0].push(i)
+      
+        process.result[1][process.result[0].indexOf(i)] = process.result[1][process.result[0].indexOf(i)] + 1
+      })
 
       process.step = process.step + 1
 
@@ -31,12 +27,42 @@ const calculator = (token, setting, library) => {
     }
 
     if (process.step === 2) {
+      process.result[2].push(process.token)
+
+      process.step = process.step + 1
+
+      return process
+    }
+
+    // if (process.step === 2) {
+    //   process.result[2] = new Array(process.result[0].length).fill().map(i => [])
+
+    //   process.step = process.step + 1
+
+    //   return process
+    // }
+
+    // if (process.step === 3) {
+    //   const current = process.token.slice(process.index, process.index + 1)[0]
+    //   const previous = process.token.slice(Math.max(process.index - process.setting.recordDiffLength, 0), process.index).reverse()
+
+    //   if (previous.length > 0) process.result[2][current].push(previous)
+
+    //   process.index = process.index + 1
+
+    //   if (process.index === token.length) process.step = process.step + 1
+    //   if (process.index === token.length) process.index = 0
+
+    //   return process
+    // }
+
+    if (process.step === 3) {
       const minIndex = Math.max(process.index - process.setting.recordContextLength - 1, 0)
       const maxIndex = Math.min(process.index, token.length)
 
       const current = process.token.slice(minIndex, maxIndex)
 
-      if (current.length > 1) process.resultCache.push(current)
+      if (current.length > 1) process.recordContextCache.push(current)
 
       process.index = process.index + 1
 
@@ -46,8 +72,8 @@ const calculator = (token, setting, library) => {
       return process
     }
 
-    if (process.step === 3) {
-      const current = process.resultCache[process.index]
+    if (process.step === 4) {
+      const current = process.recordContextCache[process.index]
 
       const previous = current.slice(0, current.length - 1).reverse()
       const last = current[current.length - 1]
@@ -74,7 +100,7 @@ const calculator = (token, setting, library) => {
 
       process.index = process.index + 1
 
-      if (process.resultCache[process.index] === undefined) process.next = undefined
+      if (process.recordContextCache[process.index] === undefined) process.next = undefined
 
       return process
     }

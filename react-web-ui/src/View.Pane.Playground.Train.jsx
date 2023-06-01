@@ -31,6 +31,14 @@ function SettingDialog(props) {
           </Grid>
         </Tooltip>
         <Grid item xs={12}>
+          Record Diff Length {props.setting.recordDiffLength}
+        </Grid>
+        <Tooltip title='set the length of the record, the longer the length, the better the effect in generation, and at the same time, data storage requires a larger volume'>
+          <Grid item xs={12}>
+            <Slider value={props.setting.recordDiffLength} onChange={(e, v) => props.setSetting(pre => { pre.recordDiffLength = v; return { ...pre } })} min={1} max={256} step={1} />
+          </Grid>
+        </Tooltip>
+        <Grid item xs={12}>
           Weight {props.setting.weight}
         </Grid>
         <Tooltip title='impact on the proportion of current training data'>
@@ -64,7 +72,7 @@ function SettingDialog(props) {
 
 function App() {
   const [prompt, setPrompt] = React.useState(Imitation.state.trainPrompt)
-  const [setting, setSetting] = React.useState({ weight: 2, recordContextLength: 4, randomAddition: 0, append: false })
+  const [setting, setSetting] = React.useState({ weight: 2, recordContextLength: 4, recordDiffLength: 64, randomAddition: 0, append: false })
   const [settingDialog, setSettingDialog] = React.useState()
 
   const train = async () => {
