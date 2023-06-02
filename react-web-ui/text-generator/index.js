@@ -91,9 +91,9 @@ const search = (process) => {
       const extra = i.filter(i => Number(i.position.split('-')[0]) > baseMaxNumber - 1)
       var allWeightExtra = extra.reduce((t, i) => t + i.weight, 0)
 
-      var weight = baseMaxWeight * baseMaxNumber
+      var weight = baseMaxWeight * Math.pow(10, baseMaxNumber - 1)
 
-      weight = weight + weight / (allWeightExtra + weight) * weight
+      weight = weight + allWeightExtra / (allWeightExtra + weight) * weight
 
       t.push({ token: process.library[0][i[0].token], weight: weight })
     }
