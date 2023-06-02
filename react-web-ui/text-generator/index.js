@@ -1,12 +1,12 @@
 function findAllIndex(arr, target) {
   var indexs = []
   var index = arr.indexOf(target)
-  
+
   while (index !== -1) {
     indexs.push(index)
     index = arr.indexOf(target, index + 1)
   }
-  
+
   return indexs
 }
 
@@ -48,36 +48,57 @@ const search = (process) => {
   const searchToken = [...process.token, ...process.result]
   const searchTokenReverse = [...process.token, ...process.result].reverse()
 
-  const searchMinIndex = Math.max(searchToken.length - process.setting.memoryContextLength, 0)
+  const memoryLength = Math.max(process.setting.memoryContextLength, process.setting.memoryContextAuxiliaryLength)
+
+  const searchMinIndex = Math.max(searchToken.length - memoryLength, 0)
   const searchMaxIndex = searchToken.length
 
   const searchCurrent = searchToken.slice(searchMinIndex, searchMaxIndex).map(i => process.library[0].indexOf(i)).reverse()
 
+  const searchObject = {}
+
   searchCurrent.forEach((i, index) => {
-    if (index > 0) {
+    if (index > 0 && index < process.setting.memoryContextAuxiliaryLength) {
       const key = `${index}-${index + 1}`
       const value = searchCurrent.slice(index, index + 1).join('-')
       if (process.library[4][key] === undefined) return
       if (process.library[4][key][value] === undefined) return
-      process.library[4][key][value].forEach(i => process.searchResult.push({ token: i[0], weight: i[1] * Math.pow(0.1, index + 1) }))
+      process.library[4][key][value].forEach(i => {
+        searchObject[i[0]] = searchObject[i[0]] ? searchObject[i[0]] : []
+        searchObject[i[0]].push({ token: i[0], weight: i[1], position: key })
+      })
     }
 
-    if (index > -1) {
+    if (index > -1 && index < process.setting.memoryContextLength) {
       const key = `0-${index + 1}`
       const value = searchCurrent.slice(0, index + 1).join('-')
       if (process.library[4][key] === undefined) return
       if (process.library[4][key][value] === undefined) return
-      process.library[4][key][value].forEach(i => process.searchResult.push({ token: i[0], weight: i[1] * Math.pow(10, index + 1) }))
+      process.library[4][key][value].forEach(i => {
+        searchObject[i[0]] = searchObject[i[0]] ? searchObject[i[0]] : []
+        searchObject[i[0]].push({ token: i[0], weight: i[1], position: key })
+      })
     }
   })
 
-  process.searchResult = process.searchResult.map(i => { i.token = process.library[0][i.token]; return i })
+  console.log(searchObject)
 
-  process.searchResult = process.searchResult.reduce((t, i) => {
-    const find = t.find(i_ => i_.token === i.token)
+  process.searchResult = Object.values(searchObject).reduce((t, i) => {
+    const base = i.filter(i => Number(i.position.split('-')[0]) === 0)
 
-    if (find === undefined) t.push(i)
-    if (find !== undefined) find.weight = find.weight + i.weight
+    if (base.length !== 0) {
+      const baseMaxNumber = Math.max(...base.map(i => Number(i.position.split('-')[1])))
+      const baseMaxWeight = Math.max(...base.map(i => i.weight))
+
+      const extra = i.filter(i => Number(i.position.split('-')[0]) > baseMaxNumber - 1)
+      var allWeightExtra = extra.reduce((t, i) => t + i.weight, 0)
+
+      var weight = baseMaxWeight * baseMaxNumber
+
+      weight = weight + weight / (allWeightExtra + weight) * weight
+
+      t.push({ token: process.library[0][i[0].token], weight: weight })
+    }
 
     return t
   }, [])
@@ -121,16 +142,16 @@ const match = (process) => {
 
   process.searchResult = process.searchResult.map(i => { i.weight = weightMiddle + (i.weight - weightMiddle) * process.setting.temperature; return i })
 
-  const weightAll = process.searchResult.reduce((t, i) => t + i.weight, 0)
+  var allWeight = process.searchResult.reduce((t, i) => t + i.weight, 0)
 
   process.searchResult = process.searchResult.sort((a, b) => b.weight - a.weight)
-  process.searchResult = process.searchResult.map((i, index) => { i.percent = i.weight / weightAll; i.percentAccumulation = index === 0 ? i.percent : i.percent + process.searchResult[index - 1].percentAccumulation; return i })
+  process.searchResult = process.searchResult.map((i, index) => { i.percent = i.weight / allWeight; i.percentAccumulation = index === 0 ? i.percent : i.percent + process.searchResult[index - 1].percentAccumulation; return i })
   process.searchResult = process.searchResult.filter(i => i.percentAccumulation - i.percent <= toTop)
 
-  const weightAll_ = process.searchResult.reduce((t, i) => t + i.weight, 0)
+  var allWeight = process.searchResult.reduce((t, i) => t + i.weight, 0)
 
   process.searchResult = process.searchResult.sort((a, b) => b.weight - a.weight)
-  process.searchResult = process.searchResult.map((i, index) => { i.percent = i.weight / weightAll_; i.percentAccumulation = index === 0 ? i.percent : i.percent + process.searchResult[index - 1].percentAccumulation; return i })
+  process.searchResult = process.searchResult.map((i, index) => { i.percent = i.weight / allWeight; i.percentAccumulation = index === 0 ? i.percent : i.percent + process.searchResult[index - 1].percentAccumulation; return i })
 
   const random = Math.random()
 

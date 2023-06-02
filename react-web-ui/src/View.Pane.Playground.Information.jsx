@@ -86,7 +86,7 @@ function Predict() {
   const [promptContent, setPromptContent] = React.useState([])
   const [promptResult, setPromptResult] = React.useState([])
   const [promptModal, setPromptModal] = React.useState()
-  const [setting, setSetting] = React.useState({ createTokenLength: 256, memoryContextLength: 64, toTop: 1, temperature: 1, repeatLength: 8, repeatDistance: 256, repeatMaxTime: 16, punctuationSpace: 8, stopToken: '' })
+  const [setting, setSetting] = React.useState({ createTokenLength: 1024, memoryContextLength: 4, memoryContextAuxiliaryLength: 4, memoryDiffLength: 64, toTop: 0.75, temperature: 1, repeatLength: 8, repeatDistance: 1024, repeatMaxTime: 16, punctuationSpace: 8, stopToken: '' })
 
   const computeResult = () => {
     const generatorProcess = generator(promptContent, setting, Imitation.state.library)

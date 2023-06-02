@@ -38,6 +38,14 @@ function SettingDialog(props) {
           </Grid>
         </Tooltip>
         <Grid item xs={12}>
+          Memory Context Auxiliary Length {props.setting.memoryContextAuxiliaryLength}
+        </Grid>
+        <Tooltip title='more setting will create more coherent statements content, if set 1 will not auxiliary'>
+          <Grid item xs={12}>
+            <Slider value={props.setting.memoryContextAuxiliaryLength} onChange={(e, v) => props.setSetting(pre => { pre.memoryContextAuxiliaryLength = v; return { ...pre } })} min={1} max={16} step={1} />
+          </Grid>
+        </Tooltip>
+        <Grid item xs={12}>
           Memory Diff Length {props.setting.memoryDiffLength}
         </Grid>
         <Tooltip title='more setting will create more coherent statements content'>
@@ -112,7 +120,7 @@ function SettingDialog(props) {
 function App() {
   const ref = React.useRef()
   const [prompt, setPrompt] = React.useState(Imitation.state.generatePrompt)
-  const [setting, setSetting] = React.useState({ createTokenLength: 1024, memoryContextLength: 4, memoryDiffLength: 64, toTop: 0.75, temperature: 1, repeatLength: 8, repeatDistance: 1024, repeatMaxTime: 16, punctuationSpace: 8, stopToken: '' })
+  const [setting, setSetting] = React.useState({ createTokenLength: 1024, memoryContextLength: 4, memoryContextAuxiliaryLength: 4, memoryDiffLength: 64, toTop: 0.75, temperature: 1, repeatLength: 8, repeatDistance: 1024, repeatMaxTime: 16, punctuationSpace: 8, stopToken: '' })
   const [settingDialog, setSettingDialog] = React.useState()
   const [running, setRunning] = React.useState(false)
 

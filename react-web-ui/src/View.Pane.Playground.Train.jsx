@@ -25,9 +25,17 @@ function SettingDialog(props) {
         <Grid item xs={12}>
           Record Context Length {props.setting.recordContextLength}
         </Grid>
-        <Tooltip title='set the length of the record, the longer the length, the better the effect in generation, and at the same time, data storage requires a larger volume'>
+        <Tooltip title='set the length of the record, the longer the length, the better the effect in generation, and at the same time, data storage requires a larger capacity'>
           <Grid item xs={12}>
             <Slider value={props.setting.recordContextLength} onChange={(e, v) => props.setSetting(pre => { pre.recordContextLength = v; return { ...pre } })} min={1} max={16} step={1} />
+          </Grid>
+        </Tooltip>
+        <Grid item xs={12}>
+          Record Context Auxiliary Length {props.setting.recordContextAuxiliaryLength}
+        </Grid>
+        <Tooltip title='set the length of the record, the longer the length, the better the effect in generation, and at the same time, data storage requires a larger capacity, if set 1 will not auxiliary'>
+          <Grid item xs={12}>
+            <Slider value={props.setting.recordContextAuxiliaryLength} onChange={(e, v) => props.setSetting(pre => { pre.recordContextAuxiliaryLength = v; return { ...pre } })} min={1} max={16} step={1} />
           </Grid>
         </Tooltip>
         <Grid item xs={12}>
@@ -64,7 +72,7 @@ function SettingDialog(props) {
 
 function App() {
   const [prompt, setPrompt] = React.useState(Imitation.state.trainPrompt)
-  const [setting, setSetting] = React.useState({ weight: 1, recordContextLength: 4, randomAddition: 0, append: false })
+  const [setting, setSetting] = React.useState({ weight: 1, recordContextLength: 4, recordContextAuxiliaryLength: 4, randomAddition: 0, append: false })
   const [settingDialog, setSettingDialog] = React.useState()
 
   const train = async () => {

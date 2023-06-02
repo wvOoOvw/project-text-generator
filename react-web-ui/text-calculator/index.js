@@ -1,7 +1,7 @@
 const calculator = (token, setting, library) => {
   const resultLibrary = JSON.parse(JSON.stringify(library))
 
-  const process = { token: token, setting: setting, step: 0, index: 0, recordContextCache: [], result: resultLibrary, next: () => next() }
+  const process = { token: token, setting: setting, step: 0, index: 0, recordCache: [], result: resultLibrary, next: () => next() }
 
   const next = () => {
 
@@ -46,29 +46,31 @@ const calculator = (token, setting, library) => {
     }
 
     if (process.step === 4) {
-      const minIndex = Math.max(process.index - process.setting.recordContextLength - 1, 0)
+      const recordLength = Math.max(process.setting.recordContextLength, process.setting.recordContextAuxiliaryLength)
+
+      const minIndex = Math.max(process.index - recordLength - 1, 0)
       const maxIndex = Math.min(process.index, token.length)
 
       const current = process.token.slice(minIndex, maxIndex)
 
-      if (current.length > 1) process.recordContextCache.push(current)
+      if (current.length > 1) process.recordCache.push(current)
 
       process.index = process.index + 1
 
-      if (process.index - process.setting.recordContextLength - 1 > token.length) process.step = process.step + 1
-      if (process.index - process.setting.recordContextLength - 1 > token.length) process.index = 0
+      if (process.index - recordLength - 1 > token.length) process.step = process.step + 1
+      if (process.index - recordLength - 1 > token.length) process.index = 0
 
       return process
     }
 
     if (process.step === 5) {
-      const current = process.recordContextCache[process.index]
+      const current = process.recordCache[process.index]
 
       const previous = current.slice(0, current.length - 1).reverse()
       const last = current[current.length - 1]
 
       previous.forEach((i, index) => {
-        if (index > 0) {
+        if (index > 0 && index < process.setting.recordContextAuxiliaryLength) {
           const key = `${index}-${index + 1}`
           const value = previous.slice(index, index + 1).join('-')
           if (process.result[4][key] === undefined) process.result[4][key] = {}
@@ -77,7 +79,7 @@ const calculator = (token, setting, library) => {
           process.result[4][key][value].find(i_ => i_[0] === last)[1] = process.result[4][key][value].find(i_ => i_[0] === last)[1] + process.setting.weight
         }
 
-        if (index > -1) {
+        if (index > -1 && index < process.setting.recordContextLength) {
           const key = `0-${index + 1}`
           const value = previous.slice(0, index + 1).join('-')
           if (process.result[4][key] === undefined) process.result[4][key] = {}
@@ -89,7 +91,7 @@ const calculator = (token, setting, library) => {
 
       process.index = process.index + 1
 
-      if (process.recordContextCache[process.index] === undefined) process.next = undefined
+      if (process.recordCache[process.index] === undefined) process.next = undefined
 
       return process
     }
