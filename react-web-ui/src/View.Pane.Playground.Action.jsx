@@ -6,7 +6,7 @@ import Imitation from './utils.imitation'
 
 function App() {
   const clear = () => {
-    Imitation.state.library = [[], [], [], {}]
+    Imitation.state.library = [[], [], [], {}, {}]
     Imitation.state.trainPrompt = ''
     Imitation.state.generatePrompt = ''
     Imitation.state.message = 'Clear'

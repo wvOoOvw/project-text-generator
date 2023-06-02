@@ -9,7 +9,7 @@ const calculator = (token, setting, library) => {
       process.token.forEach(i => {
         if (process.result[0].indexOf(i) === -1) process.result[1].push(0)
         if (process.result[0].indexOf(i) === -1) process.result[0].push(i)
-      
+
         process.result[1][process.result[0].indexOf(i)] = process.result[1][process.result[0].indexOf(i)] + 1
       })
 
@@ -34,29 +34,18 @@ const calculator = (token, setting, library) => {
       return process
     }
 
-    // if (process.step === 2) {
-    //   process.result[2] = new Array(process.result[0].length).fill().map(i => [])
-
-    //   process.step = process.step + 1
-
-    //   return process
-    // }
-
-    // if (process.step === 3) {
-    //   const current = process.token.slice(process.index, process.index + 1)[0]
-    //   const previous = process.token.slice(Math.max(process.index - process.setting.recordDiffLength, 0), process.index).reverse()
-
-    //   if (previous.length > 0) process.result[2][current].push(previous)
-
-    //   process.index = process.index + 1
-
-    //   if (process.index === token.length) process.step = process.step + 1
-    //   if (process.index === token.length) process.index = 0
-
-    //   return process
-    // }
-
     if (process.step === 3) {
+      process.token.forEach(i => {
+        if (process.result[3][i] === undefined) process.result[3][i] = []
+        if (process.result[3][i].indexOf(process.result[2].length - 1) === -1) process.result[3][i].push(process.result[2].length - 1)
+      })
+
+      process.step = process.step + 1
+
+      return process
+    }
+
+    if (process.step === 4) {
       const minIndex = Math.max(process.index - process.setting.recordContextLength - 1, 0)
       const maxIndex = Math.min(process.index, token.length)
 
@@ -72,7 +61,7 @@ const calculator = (token, setting, library) => {
       return process
     }
 
-    if (process.step === 4) {
+    if (process.step === 5) {
       const current = process.recordContextCache[process.index]
 
       const previous = current.slice(0, current.length - 1).reverse()
@@ -82,19 +71,19 @@ const calculator = (token, setting, library) => {
         if (index > 0) {
           const key = `${index}-${index + 1}`
           const value = previous.slice(index, index + 1).join('-')
-          if (process.result[3][key] === undefined) process.result[3][key] = {}
-          if (process.result[3][key][value] === undefined) process.result[3][key][value] = []
-          if (process.result[3][key][value].find(i_ => i_[0] === last) === undefined) process.result[3][key][value].push([last, 0])
-          process.result[3][key][value].find(i_ => i_[0] === last)[1] = process.result[3][key][value].find(i_ => i_[0] === last)[1] + process.setting.weight
+          if (process.result[4][key] === undefined) process.result[4][key] = {}
+          if (process.result[4][key][value] === undefined) process.result[4][key][value] = []
+          if (process.result[4][key][value].find(i_ => i_[0] === last) === undefined) process.result[4][key][value].push([last, 0])
+          process.result[4][key][value].find(i_ => i_[0] === last)[1] = process.result[4][key][value].find(i_ => i_[0] === last)[1] + process.setting.weight
         }
 
         if (index > -1) {
           const key = `0-${index + 1}`
           const value = previous.slice(0, index + 1).join('-')
-          if (process.result[3][key] === undefined) process.result[3][key] = {}
-          if (process.result[3][key][value] === undefined) process.result[3][key][value] = []
-          if (process.result[3][key][value].find(i_ => i_[0] === last) === undefined) process.result[3][key][value].push([last, 0])
-          process.result[3][key][value].find(i_ => i_[0] === last)[1] = process.result[3][key][value].find(i_ => i_[0] === last)[1] + process.setting.weight
+          if (process.result[4][key] === undefined) process.result[4][key] = {}
+          if (process.result[4][key][value] === undefined) process.result[4][key][value] = []
+          if (process.result[4][key][value].find(i_ => i_[0] === last) === undefined) process.result[4][key][value].push([last, 0])
+          process.result[4][key][value].find(i_ => i_[0] === last)[1] = process.result[4][key][value].find(i_ => i_[0] === last)[1] + process.setting.weight
         }
       })
 

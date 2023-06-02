@@ -38,6 +38,14 @@ function SettingDialog(props) {
           </Grid>
         </Tooltip>
         <Grid item xs={12}>
+          Memory Diff Length {props.setting.memoryDiffLength}
+        </Grid>
+        <Tooltip title='set the length of the record, the longer the length, the better the effect in generation, and at the same time, data storage requires a larger volume'>
+          <Grid item xs={12}>
+            <Slider value={props.setting.memoryDiffLength} onChange={(e, v) => props.setSetting(pre => { pre.memoryDiffLength = v; return { ...pre } })} min={1} max={256} step={1} />
+          </Grid>
+        </Tooltip>
+        <Grid item xs={12}>
           To Top {props.setting.toTop}
         </Grid>
         <Tooltip title='more setting will create more random changes'>
@@ -104,7 +112,7 @@ function SettingDialog(props) {
 function App() {
   const ref = React.useRef()
   const [prompt, setPrompt] = React.useState(Imitation.state.generatePrompt)
-  const [setting, setSetting] = React.useState({ createTokenLength: 256, memoryContextLength: 4, toTop: 0.75, temperature: 1, repeatLength: 8, repeatDistance: 256, repeatMaxTime: 16, punctuationSpace: 8, stopToken: '' })
+  const [setting, setSetting] = React.useState({ createTokenLength: 256, memoryContextLength: 4, memoryDiffLength: 32, toTop: 0.75, temperature: 1, repeatLength: 8, repeatDistance: 256, repeatMaxTime: 16, punctuationSpace: 8, stopToken: '' })
   const [settingDialog, setSettingDialog] = React.useState()
   const [running, setRunning] = React.useState(false)
 

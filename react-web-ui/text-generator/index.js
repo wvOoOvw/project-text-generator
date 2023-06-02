@@ -45,17 +45,17 @@ const search = (process) => {
     if (index > 0) {
       const key = `${index}-${index + 1}`
       const value = searchCurrent.slice(index, index + 1).join('-')
-      if (process.library[3][key] === undefined) return
-      if (process.library[3][key][value] === undefined) return
-      process.library[3][key][value].forEach(i => process.searchResult.push({ token: i[0], weight: i[1] * Math.pow(0.1, index + 1) }))
+      if (process.library[4][key] === undefined) return
+      if (process.library[4][key][value] === undefined) return
+      process.library[4][key][value].forEach(i => process.searchResult.push({ token: i[0], weight: i[1] * Math.pow(0.1, index + 1) }))
     }
 
     if (index > -1) {
       const key = `0-${index + 1}`
       const value = searchCurrent.slice(0, index + 1).join('-')
-      if (process.library[3][key] === undefined) return
-      if (process.library[3][key][value] === undefined) return
-      process.library[3][key][value].forEach(i => process.searchResult.push({ token: i[0], weight: i[1] * Math.pow(10, index + 1) }))
+      if (process.library[4][key] === undefined) return
+      if (process.library[4][key][value] === undefined) return
+      process.library[4][key][value].forEach(i => process.searchResult.push({ token: i[0], weight: i[1] * Math.pow(10, index + 1) }))
     }
   })
 
