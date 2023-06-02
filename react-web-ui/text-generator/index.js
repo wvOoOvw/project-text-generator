@@ -1,3 +1,15 @@
+function findAllIndex(arr, target) {
+  var indexs = []
+  var index = arr.indexOf(target)
+  
+  while (index !== -1) {
+    indexs.push(index)
+    index = arr.indexOf(target, index + 1)
+  }
+  
+  return indexs
+}
+
 function calculateSimilarity(str1, str2) {
   const m = str1.length;
   const n = str2.length;
@@ -128,8 +140,10 @@ const match = (process) => {
 const repeat = (process) => {
   if (process.setting.repeatLength === 0 || process.setting.repeatDistance === 0 || process.result.length < process.setting.repeatLength) return
 
+  const allToken = [...process.token, ...process.result]
+
   const origin = process.result.slice(process.result.length - process.setting.repeatLength, process.result.length)
-  const target = process.result.slice(Math.max(process.result.length - process.setting.repeatLength - process.setting.repeatDistance, 0), process.result.length - process.setting.repeatLength)
+  const target = allToken.slice(Math.max(allToken.length - process.setting.repeatLength - process.setting.repeatDistance, 0), allToken.length - process.setting.repeatLength)
 
   const originString = origin.join('')
   const targetString = target.join('')
