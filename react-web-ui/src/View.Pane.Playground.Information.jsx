@@ -10,12 +10,67 @@ import Slider from '@mui/material/Slider'
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
+import DialogActions from '@mui/material/DialogActions'
+import Tooltip from '@mui/material/Tooltip'
 
 import FilterAltIcon from '@mui/icons-material/FilterAlt'
 
 import Imitation from './utils.imitation'
 
 import { generator } from '../text-generator/index'
+
+function SettingDialog(props) {
+  return <Dialog open={props.open} sx={{ '& .MuiDialog-paper': { width: '100%', maxWidth: 720 } }} onClose={() => props.onClose()}>
+    <DialogTitle style={{ fontSize: 16 }}>Settings</DialogTitle>
+    <DialogContent dividers>
+      <Grid container spacing={1}>
+        <Grid item xs={12}>
+          Memory Context Length {props.setting.memoryContextLength}
+        </Grid>
+        <Tooltip title='more setting will create more coherent statements content'>
+          <Grid item xs={12}>
+            <Slider value={props.setting.memoryContextLength} onChange={(e, v) => props.setSetting(pre => { pre.memoryContextLength = v; return { ...pre } })} min={1} max={16} step={1} />
+          </Grid>
+        </Tooltip>
+        <Grid item xs={12}>
+          Memory Context Auxiliary Length {props.setting.memoryContextAuxiliaryLength}
+        </Grid>
+        <Tooltip title='more setting will create more coherent statements content, if set 1 will not auxiliary'>
+          <Grid item xs={12}>
+            <Slider value={props.setting.memoryContextAuxiliaryLength} onChange={(e, v) => props.setSetting(pre => { pre.memoryContextAuxiliaryLength = v; return { ...pre } })} min={1} max={16} step={1} />
+          </Grid>
+        </Tooltip>
+        <Grid item xs={12}>
+          Memory Diff Length {props.setting.memoryDiffLength}
+        </Grid>
+        <Tooltip title='more setting will create more coherent statements content'>
+          <Grid item xs={12}>
+            <Slider value={props.setting.memoryDiffLength} onChange={(e, v) => props.setSetting(pre => { pre.memoryDiffLength = v; return { ...pre } })} min={1} max={256} step={1} />
+          </Grid>
+        </Tooltip>
+        <Grid item xs={12}>
+          To Top {props.setting.toTop}
+        </Grid>
+        <Tooltip title='more setting will create more random changes'>
+          <Grid item xs={12}>
+            <Slider value={props.setting.toTop} onChange={(e, v) => props.setSetting(pre => { pre.toTop = v; return { ...pre } })} min={0} max={1} step={0.01} />
+          </Grid>
+        </Tooltip>
+        <Grid item xs={12}>
+          Temperature {props.setting.temperature}
+        </Grid>
+        <Tooltip title='more setting will create more random changes'>
+          <Grid item xs={12}>
+            <Slider value={props.setting.temperature} onChange={(e, v) => props.setSetting(pre => { pre.temperature = v; return { ...pre } })} min={0} max={2} step={0.01} />
+          </Grid>
+        </Tooltip>
+      </Grid>
+    </DialogContent>
+    <DialogActions>
+      <Button variant='contained' onClick={() => props.onClose()}>Save</Button>
+    </DialogActions>
+  </Dialog>
+}
 
 function Token(props) {
   const [origin, setOrigin] = React.useState([])
@@ -86,7 +141,8 @@ function Predict() {
   const [promptContent, setPromptContent] = React.useState([])
   const [promptResult, setPromptResult] = React.useState([])
   const [promptModal, setPromptModal] = React.useState()
-  const [setting, setSetting] = React.useState({ createTokenLength: 1024, memoryContextLength: 4, memoryContextAuxiliaryLength: 4, memoryDiffLength: 64, toTop: 0.75, temperature: 1, repeatLength: 8, repeatDistance: 1024, repeatMaxTime: 16, punctuationSpace: 8, stopToken: '' })
+  const [setting, setSetting] = React.useState({ createTokenLength: 1024, memoryContextLength: 4, memoryContextAuxiliaryLength: 4, memoryDiffLength: 64, toTop: 1, temperature: 1, repeatLength: 8, repeatDistance: 1024, repeatMaxTime: 16, punctuationSpace: 8, stopToken: '' })
+  const [settingDialog, setSettingDialog] = React.useState()
 
   const computeResult = () => {
     const generatorProcess = generator(promptContent, setting, Imitation.state.library)
@@ -100,12 +156,13 @@ function Predict() {
 
   React.useEffect(() => setPromptContent(new Array(promptLengthMax).fill().map(() => '')), [promptLengthMax])
 
-  React.useEffect(() => computeResult(), [promptContent])
+  React.useEffect(() => computeResult(), [promptContent, setting])
 
   return <Grid container spacing={2}>
 
     <Grid item xs={12}>
       <Grid container spacing={1} justifyContent='center'>
+        <Grid item><Button variant='contained' style={{ textTransform: 'none' }} onClick={() => setSettingDialog(true)}>Setting</Button></Grid>
         {
           promptContent.map((i, index) => {
             return <Grid item key={index}><Button variant='contained' onClick={() => { promptContent[index] = ''; setPromptContent([...promptContent]); setPromptModal(index) }}>{i ? i : '____'}</Button></Grid>
@@ -130,6 +187,8 @@ function Predict() {
       </DialogContent>
     </Dialog>
 
+    <SettingDialog open={Boolean(settingDialog)} onClose={() => setSettingDialog()} setting={setting} setSetting={setSetting} />
+
   </Grid>
 }
 
@@ -150,8 +209,8 @@ function App() {
     </div>
 
     <div style={{ position: 'absolute', bottom: 16, left: 0, right: 0, margin: 'auto', width: 'fit-content', display: 'flex' }}>
-      <Button variant={type === 'Token' ? 'contained' : 'outlined'} style={{ textTransform: 'none', margin: '0 8px' }} onClick={() => setType('Token')}>Token</Button>
-      <Button variant={type === 'Predict' ? 'contained' : 'outlined'} style={{ textTransform: 'none', margin: '0 8px' }} onClick={() => setType('Predict')}>Predict</Button>
+      <Button variant='contained' style={{ textTransform: 'none', margin: '0 8px' }} onClick={() => setType('Token')}>Token</Button>
+      <Button variant='contained' style={{ textTransform: 'none', margin: '0 8px' }} onClick={() => setType('Predict')}>Predict</Button>
     </div>
 
   </>

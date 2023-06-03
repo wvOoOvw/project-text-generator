@@ -47,14 +47,6 @@ function SettingDialog(props) {
           </Grid>
         </Tooltip>
         <Grid item xs={12}>
-          Random Addition {props.setting.randomAddition}
-        </Grid>
-        <Tooltip title='add random variable influence weights'>
-          <Grid item xs={12}>
-            <Slider value={props.setting.randomAddition} onChange={(e, v) => props.setSetting(pre => { pre.randomAddition = v; return { ...pre } })} min={-1} max={1} step={0.1} />
-          </Grid>
-        </Tooltip>
-        <Grid item xs={12}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <div>Append</div>
             <Tooltip title='if append data on current library'>
@@ -72,7 +64,7 @@ function SettingDialog(props) {
 
 function App() {
   const [prompt, setPrompt] = React.useState(Imitation.state.trainPrompt)
-  const [setting, setSetting] = React.useState({ weight: 1, recordContextLength: 4, recordContextAuxiliaryLength: 4, randomAddition: 0, append: false })
+  const [setting, setSetting] = React.useState({ weight: 1, recordContextLength: 4, recordContextAuxiliaryLength: 4, append: false })
   const [settingDialog, setSettingDialog] = React.useState()
 
   const train = async () => {

@@ -58,6 +58,10 @@ const tokenizer = (text) => {
       }
     }
 
+    if (matchResult.match(/^[与其]+$/)) {
+      if (process.text[process.index + matchResult.length] && DictObject['其'][process.text[process.index + matchResult.length]]) matchResult = '与'
+    }
+
     process.index = process.index + matchResult.length
 
     if (matchResult) process.result.push(matchResult)

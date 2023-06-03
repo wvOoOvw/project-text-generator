@@ -89,22 +89,32 @@ const search = (process) => {
       const baseMaxWeight = Math.max(...base.map(i => i.weight))
 
       const extra = i.filter(i => Number(i.position.split('-')[0]) > baseMaxNumber - 1)
-      var allWeightExtra = extra.reduce((t, i) => t + i.weight, 0)
+      const extraNumber = extra.length
+      const extraWeight = extra.reduce((t, i) => t + i.weight, 0)
 
-      var weight = baseMaxWeight * Math.pow(10, baseMaxNumber - 1)
-
-      weight = weight + allWeightExtra / (allWeightExtra + weight) * weight
-
-      t.push({ token: process.library[0][i[0].token], weight: weight })
+      t.push({ token: process.library[0][i[0].token], baseMaxNumber, baseMaxWeight, extraNumber, extraWeight })
     }
 
     return t
   }, [])
 
+  var maxWeight = process.searchResult.reduce((t, i) => Math.max(t, i.baseMaxNumber), 0)
+  var allWeight = process.searchResult.reduce((t, i) => t + i.baseMaxWeight, 0)
+  var allNumber = process.searchResult.length
+  var averageNumber = allWeight / allNumber
+
+  process.searchResult = process.searchResult.map(i => {
+    i.weight = i.baseMaxWeight
+    i.weight = i.weight + i.baseMaxWeight * Math.pow(4, i.baseMaxNumber - 1) - i.baseMaxWeight
+    i.weight = i.weight + averageNumber * Math.pow(4, i.baseMaxNumber - 1) - averageNumber
+    i.weight = i.weight + i.weight * i.extraWeight / (i.extraWeight + i.weight)
+    return i
+  })
+
   process.searchResult = process.searchResult.map(i => {
     if (i.token.match(/[！？。，]/)) {
       const index = searchTokenReverse.findIndex(i => i.match(/[！？。，]/))
-      if (index > -1 && index < process.setting.punctuationSpace) i.weight = i.weight / 10000
+      if (index > -1 && index < process.setting.punctuationSpace) i.weight = Math.pow(i.weight, 1 / 4)
     }
 
     const checkList = [[/^“$/, /^”$/], [/^<$/, /^>$/], [/^（$/, /^）$/], [/^《$/, /^》$/]]
@@ -114,16 +124,16 @@ const search = (process) => {
       const index_ = searchTokenReverse.findIndex(i => i.match(i_[1]))
 
       if (i.token.match(i_[0]) !== null) {
-        if (index !== -1 && index_ === -1) i.weight = i.weight / 10000
-        if (index !== -1 && index_ !== -1 && index < index_) i.weight = i.weight / 10000
+        if (index !== -1 && index_ === -1) i.weight = Math.pow(i.weight, 1 / 4)
+        if (index !== -1 && index_ !== -1 && index < index_) i.weight = Math.pow(i.weight, 1 / 4)
       }
 
       if (i.token.match(i_[1]) !== null) {
-        if (index === -1 && index_ === -1) i.weight = i.weight / 10000
-        if (index === -1 && index_ !== -1) i.weight = i.weight / 10000
-        if (index !== -1 && index_ === -1) i.weight = i.weight * 10000
-        if (index !== -1 && index_ !== -1 && index < index_) i.weight = i.weight * 10000
-        if (index !== -1 && index_ !== -1 && index > index_) i.weight = i.weight / 10000
+        if (index === -1 && index_ === -1) i.weight = Math.pow(i.weight, 1 / 4)
+        if (index === -1 && index_ !== -1) i.weight = Math.pow(i.weight, 1 / 4)
+        if (index !== -1 && index_ !== -1 && index > index_) i.weight = Math.pow(i.weight, 1 / 4)
+        if (index !== -1 && index_ !== -1 && index < index_) i.weight = Math.pow(i.weight, 4)
+        if (index !== -1 && index_ === -1) i.weight = Math.pow(i.weight, 4)
       }
     })
 

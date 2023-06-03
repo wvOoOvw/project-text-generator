@@ -43,7 +43,6 @@ const calculator = (token, setting, library) => {
         if (process.index - recordLength - 1 > token.length) process.index = 0
       },
       () => {
-        console.log(process.recordCache)
         const current = process.recordCache[process.index]
 
         const last = current[current.length - 1]
