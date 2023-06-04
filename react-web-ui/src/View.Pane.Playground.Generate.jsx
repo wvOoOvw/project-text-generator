@@ -38,14 +38,6 @@ function SettingDialog(props) {
           </Grid>
         </Tooltip>
         <Grid item xs={12}>
-          Memory Context Auxiliary Length {props.setting.memoryContextAuxiliaryLength}
-        </Grid>
-        <Tooltip title='more setting will create more coherent statements content, if set 1 will not auxiliary'>
-          <Grid item xs={12}>
-            <Slider value={props.setting.memoryContextAuxiliaryLength} onChange={(e, v) => props.setSetting(pre => { pre.memoryContextAuxiliaryLength = v; return { ...pre } })} min={1} max={16} step={1} />
-          </Grid>
-        </Tooltip>
-        <Grid item xs={12}>
           Memory Diff Length {props.setting.memoryDiffLength}
         </Grid>
         <Tooltip title='more setting will create more coherent statements content'>
@@ -120,11 +112,11 @@ function SettingDialog(props) {
 function App() {
   const ref = React.useRef()
   const [prompt, setPrompt] = React.useState('')
-  const [setting, setSetting] = React.useState({ createTokenLength: 1024, memoryContextLength: 4, memoryContextAuxiliaryLength: 4, memoryDiffLength: 64, toTop: 0.9, temperature: 1, repeatLength: 8, repeatDistance: 1024, repeatMaxTime: 16, punctuationSpace: 8, stopToken: '' })
+  const [setting, setSetting] = React.useState({ createTokenLength: 1024, memoryContextLength: 4, memoryDiffLength: 64, toTop: 0.9, temperature: 1, repeatLength: 8, repeatDistance: 1024, repeatMaxTime: 16, punctuationSpace: 8, stopToken: '' })
   const [settingDialog, setSettingDialog] = React.useState()
   const [running, setRunning] = React.useState(false)
 
-  const generate = async () => {
+  const generate = async (paramsSetting) => {
     const tokenizerProcessLoop = async (tokenizerProcess) => {
       const r = await new Promise(r => {
         const loop = () => tokenizerProcess.next ? requestRender()(() => { tokenizerProcess.next(); loop() }) : r(tokenizerProcess.result)
@@ -154,7 +146,7 @@ function App() {
 
     console.log(token)
 
-    const result = await generatorProcessLoop(generator(token, setting, Imitation.state.library))
+    const result = await generatorProcessLoop(generator(token, { ...setting, ...paramsSetting }, Imitation.state.library))
 
     console.log(result)
 
@@ -172,7 +164,8 @@ function App() {
 
     <div style={{ position: 'absolute', bottom: 16, left: 0, right: 0, margin: 'auto', width: 'fit-content', display: 'flex' }}>
       <Button variant='contained' style={{ textTransform: 'none', margin: '0 4px' }} onClick={() => setSettingDialog(true)}>Setting</Button>
-      <Button variant='contained' style={{ textTransform: 'none', margin: '0 4px' }} onClick={generate}>Generate</Button>
+      <Button variant='contained' style={{ textTransform: 'none', margin: '0 4px' }} onClick={() => generate()}>Generate</Button>
+      <Button variant='contained' style={{ textTransform: 'none', margin: '0 4px' }} onClick={() => generate({ createTokenLength: 1 })}>Generate Next</Button>
     </div>
 
     <div style={{ position: 'absolute', left: 16, bottom: 16, fontSize: 12 }}>{prompt.length}</div>

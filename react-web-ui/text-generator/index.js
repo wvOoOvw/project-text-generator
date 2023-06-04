@@ -48,7 +48,7 @@ const search = (process) => {
   const searchToken = [...process.token, ...process.result]
   const searchTokenReverse = [...process.token, ...process.result].reverse()
 
-  const memoryLength = Math.max(process.setting.memoryContextLength, process.setting.memoryContextAuxiliaryLength)
+  const memoryLength = process.setting.memoryContextLength
 
   const searchMinIndex = Math.max(searchToken.length - memoryLength, 0)
   const searchMaxIndex = searchToken.length
@@ -58,37 +58,27 @@ const search = (process) => {
   const searchObject = {}
 
   searchCurrent.forEach((i, index) => {
-    if (index > 0 && index < process.setting.memoryContextAuxiliaryLength) {
-      const key = `${index}-${index + 1}`
-      const value = searchCurrent.slice(index, index + 1).join('-')
-      if (process.library[4][key] === undefined) return
-      if (process.library[4][key][value] === undefined) return
-      process.library[4][key][value].forEach(i => {
-        searchObject[i[0]] = searchObject[i[0]] ? searchObject[i[0]] : []
-        searchObject[i[0]].push({ token: i[0], weight: i[1], position: key })
-      })
-    }
-
-    if (index > -1 && index < process.setting.memoryContextLength) {
-      const key = `0-${index + 1}`
-      const value = searchCurrent.slice(0, index + 1).join('-')
-      if (process.library[4][key] === undefined) return
-      if (process.library[4][key][value] === undefined) return
-      process.library[4][key][value].forEach(i => {
-        searchObject[i[0]] = searchObject[i[0]] ? searchObject[i[0]] : []
-        searchObject[i[0]].push({ token: i[0], weight: i[1], position: key })
-      })
-    }
+    if (process.library[4][index] === undefined) return
+    if (process.library[4][index][i] === undefined) return
+    process.library[4][index][i].forEach(i => {
+      searchObject[i[0]] = searchObject[i[0]] ? searchObject[i[0]] : []
+      if (i.slice(1, i.length - 1).join('/') === searchCurrent.slice(0, index).join('/')) {
+        searchObject[i[0]].push({ token: i[0], weight: i[i.length - 1], position: index, type: 'base' })
+      }
+      if (i.slice(1, i.length - 1).join('/') !== searchCurrent.slice(0, index).join('/')) {
+        searchObject[i[0]].push({ token: i[0], weight: i[i.length - 1], position: index, type: 'extra' })
+      }
+    })
   })
 
   process.searchResult = Object.values(searchObject).reduce((t, i) => {
-    const base = i.filter(i => Number(i.position.split('-')[0]) === 0)
+    const base = i.filter(i => i.type === 'base')
 
     if (base.length !== 0) {
-      const baseMaxNumber = Math.max(...base.map(i => Number(i.position.split('-')[1])))
+      const baseMaxNumber = Math.max(...base.map(i => i.position)) + 1
       const baseMaxWeight = Math.max(...base.map(i => i.weight))
 
-      const extra = i.filter(i => Number(i.position.split('-')[0]) > baseMaxNumber - 1)
+      const extra = i.filter(i => i.type === 'extra')
       const extraNumber = extra.length
       const extraWeight = extra.reduce((t, i) => t + i.weight, 0)
 
@@ -98,7 +88,7 @@ const search = (process) => {
     return t
   }, [])
 
-  var maxWeight = process.searchResult.reduce((t, i) => Math.max(t, i.baseMaxNumber), 0)
+  var maxWeight = process.searchResult.reduce((t, i) => Math.max(t, i.baseMaxWeight), 0)
   var allWeight = process.searchResult.reduce((t, i) => t + i.baseMaxWeight, 0)
   var allNumber = process.searchResult.length
   var averageWeight = allWeight / allNumber

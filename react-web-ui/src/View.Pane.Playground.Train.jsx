@@ -12,7 +12,7 @@ import Switch from '@mui/material/Switch'
 
 import Imitation from './utils.imitation'
 
-import { tokenFormat, requestRender } from './utils.common'
+import { tokenFormat, requestRender, requestCallback } from './utils.common'
 
 import { tokenizer } from '../text-tokenizer/index'
 import { calculator } from '../text-calculator/index'
@@ -31,14 +31,6 @@ function SettingDialog(props) {
           </Grid>
         </Tooltip>
         <Grid item xs={12}>
-          Record Context Auxiliary Length {props.setting.recordContextAuxiliaryLength}
-        </Grid>
-        <Tooltip title='set the length of the record, the longer the length, the better the effect in generation, and at the same time, data storage requires a larger capacity, if set 1 will not auxiliary'>
-          <Grid item xs={12}>
-            <Slider value={props.setting.recordContextAuxiliaryLength} onChange={(e, v) => props.setSetting(pre => { pre.recordContextAuxiliaryLength = v; return { ...pre } })} min={1} max={16} step={1} />
-          </Grid>
-        </Tooltip>
-        <Grid item xs={12}>
           Weight {props.setting.weight}
         </Grid>
         <Tooltip title='impact on the proportion of current training data'>
@@ -46,14 +38,6 @@ function SettingDialog(props) {
             <Slider value={props.setting.weight} onChange={(e, v) => props.setSetting(pre => { pre.weight = v; return { ...pre } })} min={0} max={10} step={0.1} />
           </Grid>
         </Tooltip>
-        <Grid item xs={12}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <div>Append</div>
-            <Tooltip title='if append data on current library'>
-              <Switch checked={props.setting.append} onChange={(e) => props.setSetting(pre => { pre.append = e.target.checked; return { ...pre } })} />
-            </Tooltip>
-          </div>
-        </Grid>
       </Grid>
     </DialogContent>
     <DialogActions>
@@ -64,13 +48,13 @@ function SettingDialog(props) {
 
 function App() {
   const [prompt, setPrompt] = React.useState(Imitation.state.library[2].map(i => i.map(i => Imitation.state.library[0][i]).join('')).join('\n\n'))
-  const [setting, setSetting] = React.useState({ weight: 1, recordContextLength: 4, recordContextAuxiliaryLength: 4, append: false })
+  const [setting, setSetting] = React.useState({ weight: 1, recordContextLength: 4 })
   const [settingDialog, setSettingDialog] = React.useState()
 
-  const train = async () => {
+  const train = async (paramsLibrary) => {
     const tokenizerProcessLoop = async (tokenizerProcess) => {
       const r = await new Promise(r => {
-        const loop = () => tokenizerProcess.next ? requestRender()(() => { tokenizerProcess.next(); loop() }) : r(tokenizerProcess.result)
+        const loop = () => tokenizerProcess.next ? requestCallback()(() => { tokenizerProcess.next(); loop() }) : r(tokenizerProcess.result)
 
         loop()
       })
@@ -80,7 +64,7 @@ function App() {
 
     const calculatorProcessLoop = async (calculatorProcess) => {
       const r = await new Promise(r => {
-        const loop = () => calculatorProcess.next ? requestRender()(() => { calculatorProcess.next(); loop() }) : r(calculatorProcess.result)
+        const loop = () => calculatorProcess.next ? requestCallback()(() => { calculatorProcess.next(); loop() }) : r(calculatorProcess.result)
 
         loop()
       })
@@ -90,7 +74,7 @@ function App() {
 
     Imitation.setState(pre => { pre.loading = pre.loading + 1; return pre })
 
-    var result = setting.append ? Imitation.state.library : [[], [], [], {}, {}]
+    var result = paramsLibrary
 
     const promptArray = prompt.split(/[\n]+/).map(i => i.trim()).filter(i => i.length > 0)
 
@@ -121,7 +105,8 @@ function App() {
 
     <div style={{ position: 'absolute', bottom: 16, left: 0, right: 0, margin: 'auto', width: 'fit-content', display: 'flex' }}>
       <Button variant='contained' style={{ textTransform: 'none', margin: '0 4px' }} onClick={() => setSettingDialog(true)}>Setting</Button>
-      <Button variant='contained' style={{ textTransform: 'none', margin: '0 4px' }} onClick={train}>Train</Button>
+      <Button variant='contained' style={{ textTransform: 'none', margin: '0 4px' }} onClick={() => train([[], [], [], [], []])}>Train</Button>
+      <Button variant='contained' style={{ textTransform: 'none', margin: '0 4px' }} onClick={() => train(Imitation.state.library)}>Train Append</Button>
     </div>
 
     <div style={{ position: 'absolute', left: 16, bottom: 16, fontSize: 12 }}>{prompt.length}</div>

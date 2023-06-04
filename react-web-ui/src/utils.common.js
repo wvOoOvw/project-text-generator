@@ -52,4 +52,8 @@ const requestRender = () => {
   return (callback) => setTimeout(() => callback, 35);
 }
 
-export { baseIp, hash, safeNumber, tokenFormat, requestRender }
+const requestCallback = () => {
+  return (callback) => callback()
+}
+
+export { baseIp, hash, safeNumber, tokenFormat, requestRender, requestCallback }

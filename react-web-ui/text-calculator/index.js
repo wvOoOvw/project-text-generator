@@ -18,17 +18,16 @@ const calculator = (token, setting, library) => {
 
         process.result[2].push(process.token)
 
+        process.result[3].push(...new Array(process.result[0].length - process.result[3].length).fill().map(i => []))
+
         process.token.forEach(i => {
-          if (process.result[3][i] === undefined) process.result[3][i] = []
           if (process.result[3][i].indexOf(process.result[2].length - 1) === -1) process.result[3][i].push(process.result[2].length - 1)
         })
 
         process.step = process.step + 1
-
-        return process
       },
       () => {
-        const recordLength = Math.max(process.setting.recordContextLength, process.setting.recordContextAuxiliaryLength)
+        const recordLength = process.setting.recordContextLength
 
         const minIndex = Math.max(process.index - recordLength - 1, 0)
         const maxIndex = Math.min(process.index, token.length)
@@ -49,23 +48,11 @@ const calculator = (token, setting, library) => {
         const previous = current.slice(0, current.length - 1).reverse()
 
         previous.forEach((i, index) => {
-          if (index > 0 && index < process.setting.recordContextAuxiliaryLength) {
-            const key = `${index}-${index + 1}`
-            const value = previous.slice(index, index + 1).join('-')
-            if (process.result[4][key] === undefined) process.result[4][key] = {}
-            if (process.result[4][key][value] === undefined) process.result[4][key][value] = []
-            if (process.result[4][key][value].find(i_ => i_[0] === last) === undefined) process.result[4][key][value].push([last, 0])
-            process.result[4][key][value].find(i_ => i_[0] === last)[1] = process.result[4][key][value].find(i_ => i_[0] === last)[1] + process.setting.weight
-          }
-
-          if (index > -1 && index < process.setting.recordContextLength) {
-            const key = `0-${index + 1}`
-            const value = previous.slice(0, index + 1).join('-')
-            if (process.result[4][key] === undefined) process.result[4][key] = {}
-            if (process.result[4][key][value] === undefined) process.result[4][key][value] = []
-            if (process.result[4][key][value].find(i_ => i_[0] === last) === undefined) process.result[4][key][value].push([last, 0])
-            process.result[4][key][value].find(i_ => i_[0] === last)[1] = process.result[4][key][value].find(i_ => i_[0] === last)[1] + process.setting.weight
-          }
+          if (process.result[4][index] === undefined) process.result[4][index] = []
+          if (process.result[4][index].length !== process.result[0].length) process.result[4][index].push(...new Array(process.result[0].length - process.result[4][index].length).fill().map(i => []))
+          const current = process.result[4][index][i].find(i_ => i_.slice(0, i_.length - 1).join('/') === [last, ...previous.slice(0, index)].join('/'))
+          if (current === undefined) process.result[4][index][i].push([last, ...previous.slice(0, index), process.setting.weight])
+          if (current !== undefined) current[current.length - 1] = current[current.length - 1] + process.setting.weight
         })
 
         process.index = process.index + 1

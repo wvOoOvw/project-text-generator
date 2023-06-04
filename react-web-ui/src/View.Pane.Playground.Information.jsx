@@ -138,7 +138,7 @@ function Token(props) {
 }
 
 function Predict() {
-  const [promptContent, setPromptContent] = React.useState([])
+  const [promptContent, setPromptContent] = React.useState(new Array(Imitation.state.library[4].length).fill().map(() => ''))
   const [promptResult, setPromptResult] = React.useState([])
   const [promptModal, setPromptModal] = React.useState()
   const [setting, setSetting] = React.useState({ createTokenLength: 1024, memoryContextLength: 4, memoryContextAuxiliaryLength: 4, memoryDiffLength: 64, toTop: 1, temperature: 1, repeatLength: 8, repeatDistance: 1024, repeatMaxTime: 16, punctuationSpace: 8, stopToken: '' })
@@ -151,10 +151,6 @@ function Predict() {
 
     setPromptResult(generatorProcess.searchResult)
   }
-
-  const promptLengthMax = React.useMemo(() => Object.keys(Imitation.state.library[4]).map(i => Number(i.split('-')[1])).reduce((t, i) => Math.max(t, i), 0), [])
-
-  React.useEffect(() => setPromptContent(new Array(promptLengthMax).fill().map(() => '')), [promptLengthMax])
 
   React.useEffect(() => computeResult(), [promptContent, setting])
 
