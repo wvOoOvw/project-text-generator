@@ -101,12 +101,13 @@ const search = (process) => {
   var maxWeight = process.searchResult.reduce((t, i) => Math.max(t, i.baseMaxNumber), 0)
   var allWeight = process.searchResult.reduce((t, i) => t + i.baseMaxWeight, 0)
   var allNumber = process.searchResult.length
-  var averageNumber = allWeight / allNumber
+  var averageWeight = allWeight / allNumber
+  var divideWeight = allWeight / 8
 
   process.searchResult = process.searchResult.map(i => {
     i.weight = i.baseMaxWeight
-    i.weight = i.weight + i.baseMaxWeight * Math.pow(4, i.baseMaxNumber - 1) - i.baseMaxWeight
-    i.weight = i.weight + averageNumber * Math.pow(4, i.baseMaxNumber - 1) - averageNumber
+    if (i.baseMaxNumber > 1) i.weight = i.weight + Math.pow(4, i.baseMaxNumber - 1) * i.baseMaxWeight
+    if (i.baseMaxNumber > 1) i.weight = i.weight + Math.pow(4, i.baseMaxNumber - 1) * divideWeight
     i.weight = i.weight + i.weight * i.extraWeight / (i.extraWeight + i.weight)
     return i
   })
@@ -124,16 +125,16 @@ const search = (process) => {
       const index_ = searchTokenReverse.findIndex(i => i.match(i_[1]))
 
       if (i.token.match(i_[0]) !== null) {
-        if (index !== -1 && index_ === -1) i.weight = Math.pow(i.weight, 1 / 4)
-        if (index !== -1 && index_ !== -1 && index < index_) i.weight = Math.pow(i.weight, 1 / 4)
+        if (index !== -1 && index_ === -1) i.weight = i.weight * Math.pow(1 / allWeight, 2)
+        if (index !== -1 && index_ !== -1 && index < index_) i.weight = i.weight * Math.pow(1 / allWeight, 2)
       }
 
       if (i.token.match(i_[1]) !== null) {
-        if (index === -1 && index_ === -1) i.weight = Math.pow(i.weight, 1 / 4)
-        if (index === -1 && index_ !== -1) i.weight = Math.pow(i.weight, 1 / 4)
-        if (index !== -1 && index_ !== -1 && index > index_) i.weight = Math.pow(i.weight, 1 / 4)
-        if (index !== -1 && index_ !== -1 && index < index_) i.weight = Math.pow(i.weight, 4)
-        if (index !== -1 && index_ === -1) i.weight = Math.pow(i.weight, 4)
+        if (index === -1 && index_ === -1) i.weight = i.weight * Math.pow(1 / allWeight, 2)
+        if (index === -1 && index_ !== -1) i.weight = i.weight * Math.pow(1 / allWeight, 2)
+        if (index !== -1 && index_ !== -1 && index > index_) i.weight = i.weight * Math.pow(1 / allWeight, 2)
+        if (index !== -1 && index_ !== -1 && index < index_) i.weight = i.weight * Math.pow(allWeight, 2)
+        if (index !== -1 && index_ === -1) i.weight = i.weight * Math.pow(allWeight, 2)
       }
     })
 
@@ -145,10 +146,11 @@ const search = (process) => {
 
 const match = (process) => {
   var toTop = process.setting.toTop + (1 - process.setting.toTop) * (process.cacheRepeat.index / process.setting.repeatMaxTime)
+  var temperature = process.setting.temperature + (0 - process.setting.temperature) * (process.cacheRepeat.index / process.setting.repeatMaxTime)
 
   const weightMiddle = process.searchResult.reduce((t, i) => t + i.weight, 0) / process.searchResult.length
 
-  process.searchResult = process.searchResult.map(i => { i.weight = weightMiddle + (i.weight - weightMiddle) * process.setting.temperature; return i })
+  process.searchResult = process.searchResult.map(i => { i.weight = weightMiddle + (i.weight - weightMiddle) * temperature; return i })
 
   var allWeight = process.searchResult.reduce((t, i) => t + i.weight, 0)
 

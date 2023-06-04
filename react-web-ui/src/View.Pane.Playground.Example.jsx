@@ -27,8 +27,6 @@ function App() {
 
     const library = await v.library().then(res => res.default)
     Imitation.state.library = library
-    Imitation.state.trainPrompt = v.trainPrompt ? v.trainPrompt : ''
-    Imitation.state.generatePrompt = v.generatePrompt ? v.generatePrompt : ''
     Imitation.state.message = 'Loaded'
 
     Imitation.setState(pre => { pre.loading = pre.loading - 1; return pre })

@@ -63,7 +63,7 @@ function SettingDialog(props) {
 }
 
 function App() {
-  const [prompt, setPrompt] = React.useState(Imitation.state.trainPrompt)
+  const [prompt, setPrompt] = React.useState(Imitation.state.library[2].map(i => i.map(i => Imitation.state.library[0][i]).join('')).join('\n\n'))
   const [setting, setSetting] = React.useState({ weight: 1, recordContextLength: 4, recordContextAuxiliaryLength: 4, append: false })
   const [settingDialog, setSettingDialog] = React.useState()
 
