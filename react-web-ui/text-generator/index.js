@@ -75,8 +75,6 @@ const search = (process) => {
     })
   })
 
-  console.log(searchObject)
-
   process.searchResult = Object.values(searchObject).reduce((t, i) => {
     const base = i.filter(i => i.type === 'base')
 

@@ -14,7 +14,7 @@ import FilterAltIcon from '@mui/icons-material/FilterAlt'
 
 import Imitation from './utils.imitation'
 
-import example from './example'
+import example from '../text-example/example'
 
 function App() {
   const [origin, setOrigin] = React.useState([])
