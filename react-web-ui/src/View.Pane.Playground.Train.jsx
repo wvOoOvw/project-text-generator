@@ -105,7 +105,7 @@ function App() {
 
     <div style={{ position: 'absolute', bottom: 16, left: 0, right: 0, margin: 'auto', width: 'fit-content', display: 'flex' }}>
       <Button variant='contained' style={{ textTransform: 'none', margin: '0 4px' }} onClick={() => setSettingDialog(true)}>Setting</Button>
-      <Button variant='contained' style={{ textTransform: 'none', margin: '0 4px' }} onClick={() => train([[], [], [], [], []])}>Train</Button>
+      <Button variant='contained' style={{ textTransform: 'none', margin: '0 4px' }} onClick={() => train([[], [], [], [], [], []])}>Train</Button>
       <Button variant='contained' style={{ textTransform: 'none', margin: '0 4px' }} onClick={() => train(Imitation.state.library)}>Train Append</Button>
     </div>
 

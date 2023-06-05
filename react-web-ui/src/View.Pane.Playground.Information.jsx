@@ -138,7 +138,7 @@ function Token(props) {
 }
 
 function Predict() {
-  const [promptContent, setPromptContent] = React.useState(new Array(Imitation.state.library[4].length).fill().map(() => ''))
+  const [promptContent, setPromptContent] = React.useState(new Array(Imitation.state.library[5].length).fill().map(() => ''))
   const [promptResult, setPromptResult] = React.useState([])
   const [promptModal, setPromptModal] = React.useState()
   const [setting, setSetting] = React.useState({ createTokenLength: 1024, memoryContextLength: 4, memoryContextAuxiliaryLength: 4, memoryDiffLength: 64, toTop: 1, temperature: 1, repeatLength: 8, repeatDistance: 1024, repeatMaxTime: 16, punctuationSpace: 8, stopToken: '' })

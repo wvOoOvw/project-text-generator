@@ -58,18 +58,24 @@ const search = (process) => {
   const searchObject = {}
 
   searchCurrent.forEach((i, index) => {
-    if (process.library[4][index] === undefined) return
-    if (process.library[4][index][i] === undefined) return
-    process.library[4][index][i].forEach(i => {
+    if (process.library[5][index] === undefined) return
+    if (process.library[5][index][i] === undefined) return
+
+    process.library[5][index][i].map(i => process.library[4][i]).forEach(i => {
+      if (index !== 0 && searchObject[i[0]] === undefined) return
+
       searchObject[i[0]] = searchObject[i[0]] ? searchObject[i[0]] : []
-      if (i.slice(1, i.length - 1).join('/') === searchCurrent.slice(0, index).join('/')) {
+      
+      if (i.slice(1, index + 1).join('/') === searchCurrent.slice(0, index).join('/')) {
         searchObject[i[0]].push({ token: i[0], weight: i[i.length - 1], position: index, type: 'base' })
       }
-      if (i.slice(1, i.length - 1).join('/') !== searchCurrent.slice(0, index).join('/')) {
+      if (i.slice(1, index + 1).join('/') !== searchCurrent.slice(0, index).join('/')) {
         searchObject[i[0]].push({ token: i[0], weight: i[i.length - 1], position: index, type: 'extra' })
       }
     })
   })
+
+  console.log(searchObject)
 
   process.searchResult = Object.values(searchObject).reduce((t, i) => {
     const base = i.filter(i => i.type === 'base')

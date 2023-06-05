@@ -34,7 +34,7 @@ const calculator = (token, setting, library) => {
 
         const current = process.token.slice(minIndex, maxIndex)
 
-        if (current.length > 1) process.recordCache.push(current)
+        if (current.length > 1 && current.length === recordLength + 1) process.recordCache.push(current)
 
         process.index = process.index + 1
 
@@ -47,12 +47,21 @@ const calculator = (token, setting, library) => {
         const last = current[current.length - 1]
         const previous = current.slice(0, current.length - 1).reverse()
 
+        var recordIndex = process.result[4].findIndex(i => i.slice(0, i.length - 1).join('/') === [last, ...previous].join('/'))
+
+        if (recordIndex !== -1) {
+          process.result[4][recordIndex][process.result[4][recordIndex].length - 1] = process.result[4][recordIndex][process.result[4][recordIndex].length - 1] + process.setting.weight
+        }
+
+        if (recordIndex === -1) {
+          recordIndex = process.result[4].length
+          process.result[4][recordIndex] = [last, ...previous, process.setting.weight]
+        }
+
         previous.forEach((i, index) => {
-          if (process.result[4][index] === undefined) process.result[4][index] = []
-          if (process.result[4][index].length !== process.result[0].length) process.result[4][index].push(...new Array(process.result[0].length - process.result[4][index].length).fill().map(i => []))
-          const current = process.result[4][index][i].find(i_ => i_.slice(0, i_.length - 1).join('/') === [last, ...previous.slice(0, index)].join('/'))
-          if (current === undefined) process.result[4][index][i].push([last, ...previous.slice(0, index), process.setting.weight])
-          if (current !== undefined) current[current.length - 1] = current[current.length - 1] + process.setting.weight
+          if (process.result[5][index] === undefined) process.result[5][index] = []
+          if (process.result[5][index].length !== process.result[0].length) process.result[5][index].push(...new Array(process.result[0].length - process.result[5][index].length).fill().map(i => []))
+          if (process.result[5][index][i].find(i_ => i_ === recordIndex) === undefined) process.result[5][index][i].push(recordIndex)
         })
 
         process.index = process.index + 1
