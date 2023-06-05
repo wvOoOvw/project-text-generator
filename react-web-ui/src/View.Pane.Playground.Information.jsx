@@ -3,6 +3,7 @@ import React from 'react'
 import Grid from '@mui/material/Grid'
 import Button from '@mui/material/Button'
 import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
 import CardActionArea from '@mui/material/CardActionArea'
 import TextField from '@mui/material/TextField'
 import Pagination from '@mui/material/Pagination'
@@ -168,10 +169,16 @@ function Predict() {
     </Grid>
 
     <Grid item xs={12}>
-      <Grid container spacing={1} justifyContent='center'>
+      <Grid container spacing={1}>
         {
           promptResult.map((i, index) => {
-            return <Grid item key={index}><Button variant='outlined'>{i.token} {Number(i.percent * 100).toFixed(2)}%</Button></Grid>
+            return <Grid item key={index}>
+              <Card>
+                <CardActionArea style={{ padding: 12, lineHeight: 1 }}>
+                  {i.token} {Number(i.percent * 100).toFixed(2)}%
+                </CardActionArea>
+              </Card>
+            </Grid>
           })
         }
       </Grid>
