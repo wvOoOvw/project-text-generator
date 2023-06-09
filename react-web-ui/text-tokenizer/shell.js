@@ -62,3 +62,25 @@ const computeLength = () => {
 
   console.log(a.length, b.length)
 }
+
+const readTxt2 = () => {
+  const txt = fs.readFileSync(path.resolve(__dirname, './a.txt')).toString()
+
+  var list = []
+
+  txt.split(/\n/).forEach(i => {
+    const item = JSON.parse(i)
+
+    const q = item.prompt
+    const a = item.answers[0].answer
+
+    const s = '<|Question|>' + q + '<|End|>' + '<|Answer|>' + a + '<|End|>'
+
+    if (q && a) list.push(s)
+
+  })
+
+  fs.writeFileSync(path.resolve(__dirname, './b.txt'), list.join('\n\n'))
+}
+
+readTxt2()

@@ -20,11 +20,12 @@ const calculator = (token, setting, library) => {
 
         process.result[3].push(...new Array(process.result[0].length - process.result[3].length).fill().map(i => []))
 
-        process.token.forEach(i => {
-          if (process.result[3][i].indexOf(process.result[2].length - 1) === -1) process.result[3][i].push(process.result[2].length - 1)
+        process.token.forEach((i, index) => {
+          process.result[3][i].push([process.result[2].length - 1, index, process.setting.weight])
         })
 
         process.step = process.step + 1
+        process.step = 100
       },
       () => {
         const recordLength = process.setting.recordContextLength

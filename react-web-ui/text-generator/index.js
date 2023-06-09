@@ -53,25 +53,32 @@ const search = (process) => {
   const searchMinIndex = Math.max(searchToken.length - memoryLength, 0)
   const searchMaxIndex = searchToken.length
 
-  const searchCurrent = searchToken.slice(searchMinIndex, searchMaxIndex).map(i => process.library[0].indexOf(i)).reverse()
+  const searchCurrent = searchToken.slice(searchMinIndex, searchMaxIndex).map(i => process.library[0].indexOf(i))
 
   const searchObject = {}
 
   searchCurrent.forEach((i, index) => {
-    if (process.library[5][index] === undefined) return
-    if (process.library[5][index][i] === undefined) return
+    if (process.library[3][i] === undefined) return
 
-    process.library[5][index][i].map(i => process.library[4][i]).forEach(i => {
-      if (index !== 0 && searchObject[i[0]] === undefined) return
+    process.library[3][i].forEach((i_) => {
+      const paragraph = process.library[2][i_[0]]
+      const paragraphIndex = i_[1]
+      const paragraphWeight = i_[2]
+      const paragraphResult = paragraph[paragraphIndex - index + searchCurrent.length]
 
-      searchObject[i[0]] = searchObject[i[0]] ? searchObject[i[0]] : []
-      
-      if (i.slice(1, index + 1).join('/') === searchCurrent.slice(0, index).join('/')) {
-        searchObject[i[0]].push({ token: i[0], weight: i[i.length - 1], position: index, type: 'base' })
-      }
-      if (i.slice(1, index + 1).join('/') !== searchCurrent.slice(0, index).join('/')) {
-        searchObject[i[0]].push({ token: i[0], weight: i[i.length - 1], position: index, type: 'extra' })
-      }
+      if (paragraphResult === undefined) return
+
+      const searchDiff = searchCurrent.slice(index, searchCurrent.length)
+      const paragraphDiff = paragraph.slice(paragraphIndex, paragraphIndex - index + searchCurrent.length)
+
+      if (searchDiff.join('/') !== paragraphDiff.join('/')) return
+
+      if (searchObject[paragraphResult] === undefined) searchObject[paragraphResult] = []
+
+      const find = searchObject[paragraphResult].find(i => i.token === paragraphResult && i.position === searchCurrent.length - index && i.type === 'base')
+
+      if (find !== undefined) find.weight = find.weight + paragraphWeight
+      if (find === undefined) searchObject[paragraphResult].push({ token: paragraphResult, weight: paragraphWeight, position: searchCurrent.length - index, type: 'base' })
     })
   })
 
@@ -79,7 +86,7 @@ const search = (process) => {
     const base = i.filter(i => i.type === 'base')
 
     if (base.length !== 0) {
-      const baseMaxNumber = Math.max(...base.map(i => i.position)) + 1
+      const baseMaxNumber = Math.max(...base.map(i => i.position))
       const baseMaxWeight = Math.max(...base.map(i => i.weight))
 
       const extra = i.filter(i => i.type === 'extra')
@@ -100,9 +107,9 @@ const search = (process) => {
 
   process.searchResult = process.searchResult.map(i => {
     i.weight = i.baseMaxWeight
-    if (i.baseMaxNumber > 1) i.weight = i.weight + Math.pow(4, i.baseMaxNumber - 1) * i.baseMaxWeight
-    if (i.baseMaxNumber > 1) i.weight = i.weight + Math.pow(4, i.baseMaxNumber - 1) * divideWeight
-    i.weight = i.weight + i.weight * i.extraWeight / (i.extraWeight + i.weight)
+    if (i.baseMaxNumber > 1) i.weight = i.weight + Math.pow(4, i.baseMaxNumber) * i.baseMaxWeight
+    if (i.baseMaxNumber > 1) i.weight = i.weight + Math.pow(4, i.baseMaxNumber) * divideWeight
+    // i.weight = i.weight + i.weight * i.extraWeight / (i.extraWeight + i.weight)
     return i
   })
 
@@ -112,7 +119,7 @@ const search = (process) => {
       if (index > -1 && index < process.setting.punctuationSpace) i.weight = Math.pow(i.weight, 1 / 4)
     }
 
-    const checkList = [[/^“$/, /^”$/], [/^<$/, /^>$/], [/^（$/, /^）$/], [/^《$/, /^》$/]]
+    const checkList = [[/^‘$/, /^’$/], [/^“$/, /^”$/], [/^<$/, /^>$/], [/^（$/, /^）$/], [/^《$/, /^》$/]]
 
     checkList.forEach(i_ => {
       const index = searchTokenReverse.findIndex(i => i.match(i_[0]))

@@ -34,14 +34,6 @@ function SettingDialog(props) {
           </Grid>
         </Tooltip>
         <Grid item xs={12}>
-          Memory Context Auxiliary Length {props.setting.memoryContextAuxiliaryLength}
-        </Grid>
-        <Tooltip title='more setting will create more coherent statements content, if set 1 will not auxiliary'>
-          <Grid item xs={12}>
-            <Slider value={props.setting.memoryContextAuxiliaryLength} onChange={(e, v) => props.setSetting(pre => { pre.memoryContextAuxiliaryLength = v; return { ...pre } })} min={1} max={16} step={1} />
-          </Grid>
-        </Tooltip>
-        <Grid item xs={12}>
           Memory Diff Length {props.setting.memoryDiffLength}
         </Grid>
         <Tooltip title='more setting will create more coherent statements content'>
@@ -108,7 +100,7 @@ function Token(props) {
         <Grid item xs={12}>
           <div style={{ maxWidth: 720, margin: 'auto', display: 'block', position: 'relative' }}>
             <TextField variant='standard' sx={{ '& input': { fontSize: 16, textAlign: 'center' } }} autoComplete='off' fullWidth value={filter} onChange={e => setFilter(e.target.value)} />
-            <FilterAltIcon style={{ position: 'absolute', left: 4, top: 0, bottom: 0, margin: 'auto' }} />
+            {/* <FilterAltIcon style={{ position: 'absolute', left: 4, top: 0, bottom: 0, margin: 'auto' }} /> */}
           </div>
         </Grid>
         : null
@@ -139,7 +131,8 @@ function Token(props) {
 }
 
 function Predict() {
-  const [promptContent, setPromptContent] = React.useState(new Array(Imitation.state.library[5].length).fill().map(() => ''))
+  const [promptLength, setPromptLength] = React.useState(4)
+  const [promptContent, setPromptContent] = React.useState([])
   const [promptResult, setPromptResult] = React.useState([])
   const [promptModal, setPromptModal] = React.useState()
   const [setting, setSetting] = React.useState({ createTokenLength: 1024, memoryContextLength: 4, memoryContextAuxiliaryLength: 4, memoryDiffLength: 64, toTop: 1, temperature: 1, repeatLength: 8, repeatDistance: 1024, repeatMaxTime: 16, punctuationSpace: 8, stopToken: '' })
@@ -155,11 +148,24 @@ function Predict() {
 
   React.useEffect(() => computeResult(), [promptContent, setting])
 
+  React.useEffect(() => setPromptContent(new Array(promptLength).fill().map(i => '')), [promptLength])
+
   return <Grid container spacing={2}>
 
     <Grid item xs={12}>
       <Grid container spacing={1} justifyContent='center'>
         <Grid item><Button variant='contained' style={{ textTransform: 'none' }} onClick={() => setSettingDialog(true)}>Setting</Button></Grid>
+      </Grid>
+    </Grid>
+
+    <Grid item xs={12}>
+      <Grid container spacing={1} justifyContent='center'>
+        <Slider value={promptLength} onChange={(e, v) => setPromptLength(v)} min={1} max={16} step={1} style={{ width: 720, maxWidth: '100%' }} />
+      </Grid>
+    </Grid>
+    
+    <Grid item xs={12}>
+      <Grid container spacing={1} justifyContent='center'>
         {
           promptContent.map((i, index) => {
             return <Grid item key={index}><Button variant='contained' onClick={() => { promptContent[index] = ''; setPromptContent([...promptContent]); setPromptModal(index) }}>{i ? i : '____'}</Button></Grid>
@@ -169,7 +175,7 @@ function Predict() {
     </Grid>
 
     <Grid item xs={12}>
-      <Grid container spacing={1}>
+      <Grid container spacing={1} justifyContent='center'>
         {
           promptResult.map((i, index) => {
             return <Grid item key={index}>
@@ -197,17 +203,17 @@ function Predict() {
 
 function App() {
 
-  const [type, setType] = React.useState('Token')
+  const [type, setType] = React.useState('Predict')
 
   return <>
 
     <div style={{ width: '100%', height: '100%', margin: 'auto', padding: 16, paddingBottom: 68, overflow: 'auto' }}>
       {
-        Object.keys(Imitation.state.library[4]).length > 0 && type === 'Token' ? <Token /> : null
+        Object.keys(Imitation.state.library[0]).length > 0 && type === 'Token' ? <Token /> : null
       }
 
       {
-        Object.keys(Imitation.state.library[4]).length > 0 && type === 'Predict' ? <Predict /> : null
+        Object.keys(Imitation.state.library[0]).length > 0 && type === 'Predict' ? <Predict /> : null
       }
     </div>
 

@@ -51,7 +51,7 @@ function App() {
               <Grid item xs={12}>
                 <div style={{ maxWidth: 720, margin: 'auto', display: 'block', position: 'relative' }}>
                   <TextField variant='standard' sx={{ '& input': { fontSize: 16, textAlign: 'center' } }} autoComplete='off' fullWidth value={filter} onChange={e => setFilter(e.target.value)} />
-                  <FilterAltIcon style={{ position: 'absolute', left: 4, top: 0, bottom: 0, margin: 'auto' }} />
+                  {/* <FilterAltIcon style={{ position: 'absolute', left: 4, top: 0, bottom: 0, margin: 'auto' }} /> */}
                 </div>
               </Grid>
               : null
@@ -68,7 +68,7 @@ function App() {
                           <div style={{ fontSize: 16, marginRight: 8, textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }}>
                             {i.name}
                           </div>
-                          <DescriptionIcon style={{ flexShrink: 0 }} />
+                          {/* <DescriptionIcon style={{ flexShrink: 0 }} /> */}
                         </div>
                         <Divider style={{ margin: '16px 0' }} />
                         <div style={{ lineHeight: 1.5 }}>{i.description}</div>
