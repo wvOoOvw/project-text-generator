@@ -31,9 +31,9 @@ function calculateSimilarity(str1, str2) {
         d[i][j] = d[i - 1][j - 1];
       } else {
         d[i][j] = Math.min(
-          d[i - 1][j] + 1, // 删除操作
-          d[i][j - 1] + 1, // 插入操作
-          d[i - 1][j - 1] + 1 // 替换操作
+          d[i - 1][j] + 1,
+          d[i][j - 1] + 1,
+          d[i - 1][j - 1] + 1
         );
       }
     }
@@ -89,29 +89,21 @@ const search = (process) => {
       const baseMaxNumber = Math.max(...base.map(i => i.position))
       const baseMaxWeight = Math.max(...base.map(i => i.weight))
 
-      const extra = i.filter(i => i.type === 'extra')
-      const extraNumber = extra.length
-      const extraWeight = extra.reduce((t, i) => t + i.weight, 0)
+      // const extra = i.filter(i => i.type === 'extra')
+      // const extraNumber = extra.length
+      // const extraWeight = extra.reduce((t, i) => t + i.weight, 0)
 
-      t.push({ token: process.library[0][i[0].token], baseMaxNumber, baseMaxWeight, extraNumber, extraWeight })
+      t.push({ token: process.library[0][i[0].token], weight: baseMaxWeight * baseMaxNumber })
     }
 
     return t
   }, [])
 
-  var maxWeight = process.searchResult.reduce((t, i) => Math.max(t, i.baseMaxWeight), 0)
-  var allWeight = process.searchResult.reduce((t, i) => t + i.baseMaxWeight, 0)
-  var allNumber = process.searchResult.length
-  var averageWeight = allWeight / allNumber
-  var divideWeight = allWeight / 8
-
-  process.searchResult = process.searchResult.map(i => {
-    i.weight = i.baseMaxWeight
-    if (i.baseMaxNumber > 1) i.weight = i.weight + Math.pow(4, i.baseMaxNumber) * i.baseMaxWeight
-    if (i.baseMaxNumber > 1) i.weight = i.weight + Math.pow(4, i.baseMaxNumber) * divideWeight
-    // i.weight = i.weight + i.weight * i.extraWeight / (i.extraWeight + i.weight)
-    return i
-  })
+  // var maxWeight = process.searchResult.reduce((t, i) => Math.max(t, i.baseMaxWeight), 0)
+  // var allWeight = process.searchResult.reduce((t, i) => t + i.baseMaxWeight, 0)
+  // var allNumber = process.searchResult.length
+  // var averageWeight = allWeight / allNumber
+  // var divideWeight = allWeight / 8
 
   process.searchResult = process.searchResult.map(i => {
     if (i.token.match(/[！？。，]/)) {
@@ -126,16 +118,16 @@ const search = (process) => {
       const index_ = searchTokenReverse.findIndex(i => i.match(i_[1]))
 
       if (i.token.match(i_[0]) !== null) {
-        if (index !== -1 && index_ === -1) i.weight = i.weight * Math.pow(1 / allWeight, 2)
-        if (index !== -1 && index_ !== -1 && index < index_) i.weight = i.weight * Math.pow(1 / allWeight, 2)
+        if (index !== -1 && index_ === -1) i.weight = i.weight / 2
+        if (index !== -1 && index_ !== -1 && index < index_) i.weight = i.weight / 2
       }
 
       if (i.token.match(i_[1]) !== null) {
-        if (index === -1 && index_ === -1) i.weight = i.weight * Math.pow(1 / allWeight, 2)
-        if (index === -1 && index_ !== -1) i.weight = i.weight * Math.pow(1 / allWeight, 2)
-        if (index !== -1 && index_ !== -1 && index > index_) i.weight = i.weight * Math.pow(1 / allWeight, 2)
-        if (index !== -1 && index_ !== -1 && index < index_) i.weight = i.weight * Math.pow(allWeight, 2)
-        if (index !== -1 && index_ === -1) i.weight = i.weight * Math.pow(allWeight, 2)
+        if (index === -1 && index_ === -1) i.weight = i.weight / 2
+        if (index === -1 && index_ !== -1) i.weight = i.weight / 2
+        if (index !== -1 && index_ !== -1 && index > index_) i.weight = i.weight / 2
+        if (index !== -1 && index_ !== -1 && index < index_) i.weight = i.weight * 2
+        if (index !== -1 && index_ === -1) i.weight = i.weight * 2
       }
     })
 
