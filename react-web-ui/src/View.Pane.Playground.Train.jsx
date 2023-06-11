@@ -80,7 +80,7 @@ function App() {
 
     var result = [[], [], [], []]
 
-    const promptArray = prompt.split(/[\n]+/).map(i => i.trim()).filter(i => i.length > 0)
+    const promptArray = prompt.split(/\n\n+/).map(i => i.trim()).filter(i => i.length > 0)
 
     const forProcessLoopCallback = async (prompt) => {
       const token = await tokenizerProcessLoop(tokenizer(prompt)).then(res => tokenFormat(res, 1))
