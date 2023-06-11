@@ -34,15 +34,7 @@ function SettingDialog(props) {
         </Grid>
         <Tooltip title='more setting will create more coherent statements content'>
           <Grid item xs={12}>
-            <Slider value={props.setting.memoryContextLength} onChange={(e, v) => props.setSetting(pre => { pre.memoryContextLength = v; return { ...pre } })} min={1} max={16} step={1} />
-          </Grid>
-        </Tooltip>
-        <Grid item xs={12}>
-          Memory Diff Length {props.setting.memoryDiffLength}
-        </Grid>
-        <Tooltip title='more setting will create more coherent statements content'>
-          <Grid item xs={12}>
-            <Slider value={props.setting.memoryDiffLength} onChange={(e, v) => props.setSetting(pre => { pre.memoryDiffLength = v; return { ...pre } })} min={1} max={256} step={1} />
+            <Slider value={props.setting.memoryContextLength} onChange={(e, v) => props.setSetting(pre => { pre.memoryContextLength = v; return { ...pre } })} min={1} max={64} step={1} />
           </Grid>
         </Tooltip>
         <Grid item xs={12}>
@@ -66,23 +58,7 @@ function SettingDialog(props) {
         </Grid>
         <Tooltip title='check duplicate token lengths, suggest setting a length greater than 8, 0 will not check'>
           <Grid item xs={12}>
-            <Slider value={props.setting.repeatLength} onChange={(e, v) => props.setSetting(pre => { pre.repeatLength = v; return { ...pre } })} min={0} max={32} step={1} />
-          </Grid>
-        </Tooltip>
-        <Grid item xs={12}>
-          Repeat Distance {props.setting.repeatDistance}
-        </Grid>
-        <Tooltip title='check duplicate token distance'>
-          <Grid item xs={12}>
-            <Slider value={props.setting.repeatDistance} onChange={(e, v) => props.setSetting(pre => { pre.repeatDistance = v; return { ...pre } })} min={0} max={2048} step={1} />
-          </Grid>
-        </Tooltip>
-        <Grid item xs={12}>
-          Repeat Max Time {props.setting.repeatMaxTime}
-        </Grid>
-        <Tooltip title='repeat over max time will stop generator'>
-          <Grid item xs={12}>
-            <Slider value={props.setting.repeatMaxTime} onChange={(e, v) => props.setSetting(pre => { pre.repeatMaxTime = v; return { ...pre } })} min={1} max={64} step={1} />
+            <Slider value={props.setting.repeatLength} onChange={(e, v) => props.setSetting(pre => { pre.repeatLength = v; return { ...pre } })} min={0} max={64} step={1} />
           </Grid>
         </Tooltip>
         <Grid item xs={12}>
@@ -93,14 +69,6 @@ function SettingDialog(props) {
             <Slider value={props.setting.punctuationSpace} onChange={(e, v) => props.setSetting(pre => { pre.punctuationSpace = v; return { ...pre } })} min={0} max={64} step={1} />
           </Grid>
         </Tooltip>
-        {/* <Grid item xs={12}>
-          Stop Token
-        </Grid>
-        <Tooltip title='when encountering stop token will stop generator'>
-          <Grid item xs={12}>
-            <TextField autoComplete='off' fullWidth variant='standard' value={props.setting.stopToken} onChange={e => props.setSetting(pre => { pre.stopToken = e.target.value; return { ...pre } })} />
-          </Grid>
-        </Tooltip> */}
       </Grid>
     </DialogContent>
     <DialogActions>
@@ -112,7 +80,7 @@ function SettingDialog(props) {
 function App() {
   const ref = React.useRef()
   const [prompt, setPrompt] = React.useState('')
-  const [setting, setSetting] = React.useState({ createTokenLength: 1024, memoryContextLength: 4, memoryDiffLength: 64, toTop: 0.9, temperature: 1, repeatLength: 8, repeatDistance: 1024, repeatMaxTime: 16, punctuationSpace: 8, stopToken: '' })
+  const [setting, setSetting] = React.useState({ createTokenLength: 1024, memoryContextLength: 4, toTop: 0.9, temperature: 1.5, repeatLength: 8, repeatDistance: 1024, repeatMaxTime: 16, punctuationSpace: 8, stopToken: '' })
   const [settingDialog, setSettingDialog] = React.useState()
   const [running, setRunning] = React.useState(false)
 

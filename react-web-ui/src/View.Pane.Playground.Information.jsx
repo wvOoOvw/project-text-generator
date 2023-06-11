@@ -14,8 +14,6 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions'
 import Tooltip from '@mui/material/Tooltip'
 
-import FilterAltIcon from '@mui/icons-material/FilterAlt'
-
 import Imitation from './utils.imitation'
 
 import { generator } from '../text-generator/index'
@@ -31,14 +29,6 @@ function SettingDialog(props) {
         <Tooltip title='more setting will create more coherent statements content'>
           <Grid item xs={12}>
             <Slider value={props.setting.memoryContextLength} onChange={(e, v) => props.setSetting(pre => { pre.memoryContextLength = v; return { ...pre } })} min={1} max={16} step={1} />
-          </Grid>
-        </Tooltip>
-        <Grid item xs={12}>
-          Memory Diff Length {props.setting.memoryDiffLength}
-        </Grid>
-        <Tooltip title='more setting will create more coherent statements content'>
-          <Grid item xs={12}>
-            <Slider value={props.setting.memoryDiffLength} onChange={(e, v) => props.setSetting(pre => { pre.memoryDiffLength = v; return { ...pre } })} min={1} max={256} step={1} />
           </Grid>
         </Tooltip>
         <Grid item xs={12}>
@@ -135,7 +125,7 @@ function Predict() {
   const [promptContent, setPromptContent] = React.useState([])
   const [promptResult, setPromptResult] = React.useState([])
   const [promptModal, setPromptModal] = React.useState()
-  const [setting, setSetting] = React.useState({ createTokenLength: 1024, memoryContextLength: 4, memoryContextAuxiliaryLength: 4, memoryDiffLength: 64, toTop: 1, temperature: 1, repeatLength: 8, repeatDistance: 1024, repeatMaxTime: 16, punctuationSpace: 8, stopToken: '' })
+  const [setting, setSetting] = React.useState({ createTokenLength: 1024, memoryContextLength: 4, toTop: 1, temperature: 1, repeatLength: 8, repeatDistance: 1024, repeatMaxTime: 16, punctuationSpace: 8, stopToken: '' })
   const [settingDialog, setSettingDialog] = React.useState()
 
   const computeResult = () => {

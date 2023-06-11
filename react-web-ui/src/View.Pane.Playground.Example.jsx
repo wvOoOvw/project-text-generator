@@ -9,9 +9,6 @@ import Tooltip from '@mui/material/Tooltip'
 import TextField from '@mui/material/TextField'
 import Pagination from '@mui/material/Pagination'
 
-import DescriptionIcon from '@mui/icons-material/Description'
-import FilterAltIcon from '@mui/icons-material/FilterAlt'
-
 import Imitation from './utils.imitation'
 
 import example from '../text-example/example'
@@ -51,7 +48,6 @@ function App() {
               <Grid item xs={12}>
                 <div style={{ maxWidth: 720, margin: 'auto', display: 'block', position: 'relative' }}>
                   <TextField variant='standard' sx={{ '& input': { fontSize: 16, textAlign: 'center' } }} autoComplete='off' fullWidth value={filter} onChange={e => setFilter(e.target.value)} />
-                  {/* <FilterAltIcon style={{ position: 'absolute', left: 4, top: 0, bottom: 0, margin: 'auto' }} /> */}
                 </div>
               </Grid>
               : null
@@ -68,7 +64,6 @@ function App() {
                           <div style={{ fontSize: 16, marginRight: 8, textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }}>
                             {i.name}
                           </div>
-                          {/* <DescriptionIcon style={{ flexShrink: 0 }} /> */}
                         </div>
                         <Divider style={{ margin: '16px 0' }} />
                         <div style={{ lineHeight: 1.5 }}>{i.description}</div>

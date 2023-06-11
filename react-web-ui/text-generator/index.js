@@ -1,41 +1,19 @@
-function findAllIndex(arr, target) {
-  var indexs = []
-  var index = arr.indexOf(target)
-
-  while (index !== -1) {
-    indexs.push(index)
-    index = arr.indexOf(target, index + 1)
-  }
-
-  return indexs
-}
-
 function calculateSimilarity(str1, str2) {
   const m = str1.length;
   const n = str2.length;
 
-  if (m === 0) return n;
-  if (n === 0) return m;
+  if (m === 0 && n === 0) return 1;
+  if (m === 0) return 0;
+  if (n === 0) return 0;
 
   const d = [];
-  for (let i = 0; i <= m; i++) {
-    d[i] = [i];
-  }
-  for (let j = 0; j <= n; j++) {
-    d[0][j] = j;
-  }
+  for (let i = 0; i <= m; i++) d[i] = [i];
+  for (let j = 0; j <= n; j++) d[0][j] = j;
 
   for (let j = 1; j <= n; j++) {
     for (let i = 1; i <= m; i++) {
-      if (str1[i - 1] === str2[j - 1]) {
-        d[i][j] = d[i - 1][j - 1];
-      } else {
-        d[i][j] = Math.min(
-          d[i - 1][j] + 1,
-          d[i][j - 1] + 1,
-          d[i - 1][j - 1] + 1
-        );
-      }
+      if (str1[i - 1] === str2[j - 1]) d[i][j] = d[i - 1][j - 1];
+      if (str1[i - 1] !== str2[j - 1]) d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + 1);
     }
   }
 
@@ -45,70 +23,74 @@ function calculateSimilarity(str1, str2) {
 const search = (process) => {
   process.searchResult = []
 
-  const searchToken = [...process.token, ...process.result]
-  const searchTokenReverse = [...process.token, ...process.result].reverse()
-
   const memoryLength = process.setting.memoryContextLength
 
-  const searchMinIndex = Math.max(searchToken.length - memoryLength, 0)
-  const searchMaxIndex = searchToken.length
+  const searchTokenReverse = [...process.token, ...process.result].reverse()
+  const searchTokenIndex = [...process.token, ...process.result].map(i => process.library[0].indexOf(i))
 
-  const searchCurrent = searchToken.slice(searchMinIndex, searchMaxIndex).map(i => process.library[0].indexOf(i))
+  const searchIndex = searchTokenIndex.length - 1
+  const searchLastToken = searchTokenIndex[searchIndex]
 
-  const searchObject = {}
+  if (process.library[3][searchLastToken] === undefined) return process.searchResult = [{ token: process.library[0][0], weight: 1 }]
 
-  searchCurrent.forEach((i, index) => {
-    if (process.library[3][i] === undefined) return
+  process.searchResult = process.library[3][searchLastToken].reduce((t, i) => {
+    const paragraph = process.library[2][i[0]]
+    const paragraphIndex = i[1]
+    const paragraphWeight = 1
+    const paragraphResult = paragraph[paragraphIndex + 1]
+    const paragraphAbove = paragraph.slice(0, paragraphIndex + 1)
 
-    process.library[3][i].forEach((i_) => {
-      const paragraph = process.library[2][i_[0]]
-      const paragraphIndex = i_[1]
-      const paragraphWeight = i_[2]
-      const paragraphResult = paragraph[paragraphIndex - index + searchCurrent.length]
+    if (paragraphResult === undefined) return t
 
-      if (paragraphResult === undefined) return
+    var length = 1
 
-      const searchDiff = searchCurrent.slice(index, searchCurrent.length)
-      const paragraphDiff = paragraph.slice(paragraphIndex, paragraphIndex - index + searchCurrent.length)
-
-      if (searchDiff.join('/') !== paragraphDiff.join('/')) return
-
-      if (searchObject[paragraphResult] === undefined) searchObject[paragraphResult] = []
-
-      const find = searchObject[paragraphResult].find(i => i.token === paragraphResult && i.position === searchCurrent.length - index && i.type === 'base')
-
-      if (find !== undefined) find.weight = find.weight + paragraphWeight
-      if (find === undefined) searchObject[paragraphResult].push({ token: paragraphResult, weight: paragraphWeight, position: searchCurrent.length - index, type: 'base' })
-    })
-  })
-
-  process.searchResult = Object.values(searchObject).reduce((t, i) => {
-    const base = i.filter(i => i.type === 'base')
-
-    if (base.length !== 0) {
-      const baseMaxNumber = Math.max(...base.map(i => i.position))
-      const baseMaxWeight = Math.max(...base.map(i => i.weight))
-
-      // const extra = i.filter(i => i.type === 'extra')
-      // const extraNumber = extra.length
-      // const extraWeight = extra.reduce((t, i) => t + i.weight, 0)
-
-      t.push({ token: process.library[0][i[0].token], weight: baseMaxWeight * baseMaxNumber })
+    while (length) {
+      if (length > memoryLength) break
+      if (length === memoryLength) break
+      if (paragraph[paragraphIndex - length] === undefined) break
+      if (searchTokenIndex[searchIndex - length] === undefined) break
+      if (paragraph[paragraphIndex - length] !== searchTokenIndex[searchIndex - length]) break
+      length = length + 1
     }
+
+    // const similarityLength = Math.min(searchTokenIndex.length, paragraphAbove.length, 32)
+
+    // const calculateSimilarityParmas = [
+    //   searchTokenIndex.slice(searchTokenIndex.length - similarityLength, Math.max(searchTokenIndex.length - length, 0)),
+    //   paragraphAbove.slice(paragraphAbove.length - similarityLength, Math.max(paragraphAbove.length - length, 0))
+    // ]
+
+    // const similarity = calculateSimilarity(...calculateSimilarityParmas)
+
+    const similarity = 1
+
+    t.push({ token: paragraphResult, weight: paragraphWeight, length: length, similarity: similarity })
 
     return t
   }, [])
 
-  // var maxWeight = process.searchResult.reduce((t, i) => Math.max(t, i.baseMaxWeight), 0)
-  // var allWeight = process.searchResult.reduce((t, i) => t + i.baseMaxWeight, 0)
-  // var allNumber = process.searchResult.length
-  // var averageWeight = allWeight / allNumber
-  // var divideWeight = allWeight / 8
+  process.searchResult = process.searchResult.reduce((t, i) => {
+    const find = t.find(i_ => i_[0].token === i.token)
+
+    if (find === undefined) t.push([i])
+    if (find !== undefined) find.push(i)
+
+    return t
+  }, [])
+
+  process.searchResult = process.searchResult.reduce((t, i) => {
+    const token = process.library[0][i[0].token]
+    const weight = i.reduce((t, i) => t + i.weight * i.length * i.similarity, 0)
+
+    t.push({ token: token, weight: weight })
+
+    return t
+  }, [])
 
   process.searchResult = process.searchResult.map(i => {
     if (i.token.match(/[！？。，]/)) {
       const index = searchTokenReverse.findIndex(i => i.match(/[！？。，]/))
-      if (index > -1 && index < process.setting.punctuationSpace) i.weight = Math.pow(i.weight, 1 / 4)
+      if (index > -1 && index < process.setting.punctuationSpace) i.weight = i.weight / 4
     }
 
     const checkList = [[/^‘$/, /^’$/], [/^“$/, /^”$/], [/^<$/, /^>$/], [/^（$/, /^）$/], [/^《$/, /^》$/]]
@@ -118,28 +100,28 @@ const search = (process) => {
       const index_ = searchTokenReverse.findIndex(i => i.match(i_[1]))
 
       if (i.token.match(i_[0]) !== null) {
-        if (index !== -1 && index_ === -1) i.weight = i.weight / 2
-        if (index !== -1 && index_ !== -1 && index < index_) i.weight = i.weight / 2
+        if (index !== -1 && index_ === -1) i.weight = i.weight / 4
+        if (index !== -1 && index_ !== -1 && index < index_) i.weight = i.weight / 4
       }
 
       if (i.token.match(i_[1]) !== null) {
-        if (index === -1 && index_ === -1) i.weight = i.weight / 2
-        if (index === -1 && index_ !== -1) i.weight = i.weight / 2
-        if (index !== -1 && index_ !== -1 && index > index_) i.weight = i.weight / 2
-        if (index !== -1 && index_ !== -1 && index < index_) i.weight = i.weight * 2
-        if (index !== -1 && index_ === -1) i.weight = i.weight * 2
+        if (index === -1 && index_ === -1) i.weight = i.weight / 4
+        if (index === -1 && index_ !== -1) i.weight = i.weight / 4
+        if (index !== -1 && index_ !== -1 && index > index_) i.weight = i.weight / 4
+        if (index !== -1 && index_ !== -1 && index < index_) i.weight = i.weight * 4
+        if (index !== -1 && index_ === -1) i.weight = i.weight * 4
       }
     })
 
     return i
   })
 
-  process.searchResult = process.searchResult.length === 0 ? [{ token: process.library[0][0], weight: 1 }] : process.searchResult
+  if (process.searchResult.length === 0) return process.searchResult = [{ token: process.library[0][0], weight: 1 }]
 }
 
 const match = (process) => {
-  var toTop = process.setting.toTop + (1 - process.setting.toTop) * (process.cacheRepeat.index / process.setting.repeatMaxTime)
-  var temperature = process.setting.temperature + (0 - process.setting.temperature) * (process.cacheRepeat.index / process.setting.repeatMaxTime)
+  var toTop = process.setting.toTop + (1 - process.setting.toTop) * (process.cacheRepeat.index / 4)
+  var temperature = process.setting.temperature + (0 - process.setting.temperature) * (process.cacheRepeat.index / 4)
 
   const weightMiddle = process.searchResult.reduce((t, i) => t + i.weight, 0) / process.searchResult.length
 
@@ -162,12 +144,12 @@ const match = (process) => {
 }
 
 const repeat = (process) => {
-  if (process.setting.repeatLength === 0 || process.setting.repeatDistance === 0 || process.result.length < process.setting.repeatLength) return
+  if (process.setting.repeatLength === 0 || process.result.length < process.setting.repeatLength) return
 
   const allToken = [...process.token, ...process.result]
 
   const origin = process.result.slice(process.result.length - process.setting.repeatLength, process.result.length)
-  const target = allToken.slice(Math.max(allToken.length - process.setting.repeatLength - process.setting.repeatDistance, 0), allToken.length - process.setting.repeatLength)
+  const target = allToken.slice(Math.max(allToken.length - process.setting.repeatLength - process.setting.createTokenLength, 0), allToken.length - process.setting.repeatLength)
 
   const originString = origin.join('')
   const targetString = target.join('')
@@ -198,7 +180,7 @@ const generator = (token, setting, library) => {
 
     if (process.matchResult !== undefined) process.result.push(process.matchResult)
     if (process.matchResult === undefined) process.next = undefined
-    if (process.cacheRepeat.index > process.setting.repeatMaxTime) process.next = undefined
+    if (process.cacheRepeat.index > 4) process.next = undefined
     if (process.setting.stopToken && process.setting.stopToken.includes(process.matchResult)) process.next = undefined
     if (process.result.length === process.setting.createTokenLength) process.next = undefined
 
