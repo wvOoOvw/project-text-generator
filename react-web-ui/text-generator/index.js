@@ -31,7 +31,7 @@ const search = (process) => {
   const searchIndex = searchTokenIndex.length - 1
   const searchLastToken = searchTokenIndex[searchIndex]
 
-  if (process.library[3][searchLastToken] === undefined) return process.searchResult = [{ token: process.library[0][0], weight: 1 }]
+  if (process.library[3][searchLastToken] === undefined) return
 
   process.searchResult = process.library[3][searchLastToken].reduce((t, i) => {
     const paragraph = process.library[2][i[0]]
@@ -115,8 +115,6 @@ const search = (process) => {
 
     return i
   })
-
-  if (process.searchResult.length === 0) return process.searchResult = [{ token: process.library[0][0], weight: 1 }]
 }
 
 const match = (process) => {
@@ -140,7 +138,7 @@ const match = (process) => {
 
   const random = Math.random()
 
-  process.matchResult = process.searchResult.reduce((t, i) => t === null && random < i.percentAccumulation ? i.token : t, null)
+  process.matchResult = process.searchResult.reduce((t, i) => t === '' && random < i.percentAccumulation ? i.token : t, '')
 }
 
 const repeat = (process) => {
@@ -178,8 +176,8 @@ const generator = (token, setting, library) => {
 
     process.index = process.index + 1
 
-    if (process.matchResult !== undefined) process.result.push(process.matchResult)
-    if (process.matchResult === undefined) process.next = undefined
+    if (process.matchResult !== '') process.result.push(process.matchResult)
+    if (process.matchResult === '') process.next = undefined
     if (process.cacheRepeat.index > 4) process.next = undefined
     if (process.setting.stopToken && process.setting.stopToken.includes(process.matchResult)) process.next = undefined
     if (process.result.length === process.setting.createTokenLength) process.next = undefined

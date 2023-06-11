@@ -2,24 +2,16 @@ const DictChinese = require('./Dict.Chinese.json')
 // const DictEnglish = require('./Dict.English.json')
 const DictSP = require('./Dict.SP.json')
 
+const Dict = [DictChinese, DictSP]
+
 const DictObject = {}
 
-DictChinese.forEach(i => {
-  var useObject = DictObject
+Dict.forEach(dict => {
+  dict.forEach(i => {
+    var useObject = DictObject
 
-  i.split('').forEach(i_ => { useObject[i_] = useObject[i_] ? useObject[i_] : {}; useObject = useObject[i_]; })
-})
-
-// DictEnglish.forEach(i => {
-//   var useObject = DictObject
-
-//   i.split('').forEach(i_ => { useObject[i_] = useObject[i_] ? useObject[i_] : {}; useObject = useObject[i_]; })
-// })
-
-DictSP.forEach(i => {
-  var useObject = DictObject
-
-  i.split('').forEach(i_ => { useObject[i_] = useObject[i_] ? useObject[i_] : {}; useObject = useObject[i_]; })
+    i.split('').forEach(i_ => { useObject[i_] = useObject[i_] ? useObject[i_] : {}; useObject = useObject[i_]; })
+  })
 })
 
 const tokenizer = (text) => {

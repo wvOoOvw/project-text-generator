@@ -25,7 +25,7 @@ function App() {
         <Button fullWidth color='inherit' style={{ textTransform: 'none', marginBottom: 16, display: 'flex', justifyContent: 'left', alignItems: 'center', flexWrap: 'wrap' }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'Example'; return pre })}>
           <div>Step 1. preselect example model (optional)</div>
         </Button>
-        <Button fullWidth color='inherit' style={{ textTransform: 'none', marginBottom: 16, display: 'flex', justifyContent: 'left', alignItems: 'center', flexWrap: 'wrap' }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'Information'; return pre })}>
+        <Button fullWidth color='inherit' style={{ textTransform: 'none', marginBottom: 16, display: 'flex', justifyContent: 'left', alignItems: 'center', flexWrap: 'wrap' }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'Predict'; return pre })}>
           <div>Step 2. view your model's information</div>
         </Button>
         <Button fullWidth color='inherit' style={{ textTransform: 'none', marginBottom: 16, display: 'flex', justifyContent: 'left', alignItems: 'center', flexWrap: 'wrap' }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'Train'; return pre })}>

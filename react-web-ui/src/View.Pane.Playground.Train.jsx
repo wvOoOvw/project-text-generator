@@ -64,25 +64,33 @@ function App() {
       return r
     }
 
+    const forProcessLoop = async (array, callback) => {
+      var index = 0
+
+      const r = await new Promise(r => {
+        const loop = () => array[index] ? requestCallback()(async () => { await callback(array[index]); index = index + 1; loop() }) : r()
+
+        loop()
+      })
+
+      return r
+    }
+
     Imitation.setState(pre => { pre.loading = pre.loading + 1; return pre })
 
     var result = [[], [], [], []]
 
     const promptArray = prompt.split(/[\n]+/).map(i => i.trim()).filter(i => i.length > 0)
 
-    for (let index = 0; index < promptArray.length; index++) {
-      const prompt = promptArray[index]
-
-      console.log(prompt)
-
+    const forProcessLoopCallback = async (prompt) => {
       const token = await tokenizerProcessLoop(tokenizer(prompt)).then(res => tokenFormat(res, 1))
-
-      console.log(token)
 
       result = await calculatorProcessLoop(calculator(token, setting, result))
 
-      console.log(result)
+      console.log(prompt, token, result)
     }
+
+    await forProcessLoop(promptArray, forProcessLoopCallback)
 
     Imitation.setState(pre => { pre.loading = pre.loading - 1; return pre })
 
