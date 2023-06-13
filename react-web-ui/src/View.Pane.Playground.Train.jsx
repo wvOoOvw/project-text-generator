@@ -8,7 +8,6 @@ import DialogTitle from '@mui/material/DialogTitle'
 import DialogActions from '@mui/material/DialogActions'
 import Slider from '@mui/material/Slider'
 import Tooltip from '@mui/material/Tooltip'
-import Switch from '@mui/material/Switch'
 
 import Imitation from './utils.imitation'
 
@@ -23,13 +22,32 @@ function SettingDialog(props) {
     <DialogContent dividers>
       <Grid container spacing={1}>
         <Grid item xs={12}>
-          Weight {props.setting.weight}
+          dimensions {props.setting.dimensions}
         </Grid>
-        <Tooltip title='impact on the proportion of current training data'>
-          <Grid item xs={12}>
-            <Slider value={props.setting.weight} onChange={(e, v) => props.setSetting(pre => { pre.weight = v; return { ...pre } })} min={0} max={10} step={0.1} />
-          </Grid>
-        </Tooltip>
+        <Grid item xs={12}>
+          <Slider value={props.setting.dimensions} onChange={(e, v) => props.setSetting(pre => { pre.dimensions = v; return { ...pre } })} min={10} max={400} step={1} />
+        </Grid>
+
+        <Grid item xs={12}>
+          windows {props.setting.windows}
+        </Grid>
+        <Grid item xs={12}>
+          <Slider value={props.setting.windows} onChange={(e, v) => props.setSetting(pre => { pre.windows = v; return { ...pre } })} min={1} max={16} step={1} />
+        </Grid>
+
+        <Grid item xs={12}>
+          rate {props.setting.rate}
+        </Grid>
+        <Grid item xs={12}>
+          <Slider value={props.setting.rate} onChange={(e, v) => props.setSetting(pre => { pre.rate = v; return { ...pre } })} min={0} max={1} step={0.01} />
+        </Grid>
+
+        <Grid item xs={12}>
+          iterations {props.setting.iterations}
+        </Grid>
+        <Grid item xs={12}>
+          <Slider value={props.setting.iterations} onChange={(e, v) => props.setSetting(pre => { pre.iterations = v; return { ...pre } })} min={1} max={200} step={1} />
+        </Grid>
       </Grid>
     </DialogContent>
     <DialogActions>
@@ -39,8 +57,8 @@ function SettingDialog(props) {
 }
 
 function App() {
-  const [prompt, setPrompt] = React.useState(Imitation.state.library[2].map(i => i.map(i => Imitation.state.library[0][i]).join('')).join('\n\n'))
-  const [setting, setSetting] = React.useState({ weight: 1 })
+  const [prompt, setPrompt] = React.useState(Imitation.state.library[1].map(i => i.map(i => Imitation.state.library[0][i]).join('')).join('\n\n'))
+  const [setting, setSetting] = React.useState({ dimensions: 100, rate: 0.1, windows: 2, iterations: 100 })
   const [settingDialog, setSettingDialog] = React.useState()
 
   const train = async () => {
@@ -64,33 +82,25 @@ function App() {
       return r
     }
 
-    const forProcessLoop = async (array, callback) => {
-      var index = 0
-
-      const r = await new Promise(r => {
-        const loop = () => array[index] ? requestCallback()(async () => { await callback(array[index]); index = index + 1; loop() }) : r()
-
-        loop()
-      })
-
-      return r
-    }
-
     Imitation.setState(pre => { pre.loading = pre.loading + 1; return pre })
-
-    var result = [[], [], [], []]
 
     const promptArray = prompt.split(/\n\n+/).map(i => i.trim()).filter(i => i.length > 0)
 
-    const forProcessLoopCallback = async (prompt) => {
+    const tokenArray = []
+
+    for (let index = 0; index < promptArray.length; index++) {
+      const prompt = promptArray[index]
+
       const token = await tokenizerProcessLoop(tokenizer(prompt)).then(res => tokenFormat(res, 1))
 
-      result = await calculatorProcessLoop(calculator(token, setting, result))
-
-      console.log(prompt, token, result)
+      tokenArray.push(token)
     }
 
-    await forProcessLoop(promptArray, forProcessLoopCallback)
+    console.log(tokenArray)
+
+    const result = await calculatorProcessLoop(calculator(tokenArray, setting, [[], [], [], [], []]))
+
+    console.log(result)
 
     Imitation.setState(pre => { pre.loading = pre.loading - 1; return pre })
 
@@ -104,7 +114,7 @@ function App() {
     <textarea value={prompt} onChange={e => setPrompt(e.target.value)} style={{ width: '100%', height: '100%', lineHeight: 1.5, border: 'none', outline: 'none', resize: 'none', padding: 16, paddingBottom: 68 }} />
 
     <div style={{ position: 'absolute', bottom: 16, left: 0, right: 0, margin: 'auto', width: 'fit-content', display: 'flex' }}>
-      {/* <Button variant='contained' style={{ textTransform: 'none', margin: '0 4px' }} onClick={() => setSettingDialog(true)}>Setting</Button> */}
+      <Button variant='contained' style={{ textTransform: 'none', margin: '0 4px' }} onClick={() => setSettingDialog(true)}>Setting</Button>
       <Button variant='contained' style={{ textTransform: 'none', margin: '0 4px' }} onClick={() => train()}>Train</Button>
     </div>
 

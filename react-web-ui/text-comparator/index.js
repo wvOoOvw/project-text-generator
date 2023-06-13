@@ -24,7 +24,7 @@ function cosineSimilarity(vec1, vec2) {
   return similarity;
 }
 
-const calculator = (token, setting, library) => {
+const comparator = (token, setting, library) => {
   const resultLibrary = library
 
   const process = { token: token, setting: setting, step: 0, index: 0, cache: [], result: resultLibrary, next: () => next() }
@@ -123,4 +123,4 @@ const calculator = (token, setting, library) => {
   return process
 }
 
-module.exports.calculator = calculator
+module.exports.comparator = comparator

@@ -106,6 +106,7 @@ function App() {
     }
 
     setRunning(true)
+
     Imitation.setState(pre => { pre.loading = pre.loading + 1; return pre })
 
     console.log(prompt)
@@ -118,8 +119,9 @@ function App() {
 
     console.log(result)
 
-    setRunning(false)
     Imitation.setState(pre => { pre.loading = pre.loading - 1; return pre })
+    
+    setRunning(false)
   }
 
   React.useEffect(() => {

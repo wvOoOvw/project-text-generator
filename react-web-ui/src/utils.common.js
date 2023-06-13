@@ -26,7 +26,7 @@ const tokenFormat = (token, action) => {
   if (action === 1) {
     token.forEach((i, index) => {
       if (token[index] === ' ' && token[index - 1] && token[index + 1] && token[index - 1].match(/^[a-z|A-Z|'|,|\.]+$/) && token[index + 1].match(/^[a-z|A-Z|'|,|\.]+$/)) return
-      r.push(token[index])
+      r.push(token[index].toLowerCase())
     })
 
     return r

@@ -11,7 +11,7 @@ import Pagination from '@mui/material/Pagination'
 
 import Imitation from './utils.imitation'
 
-import example from '../text-example/example'
+import example from '../example/example'
 
 function App() {
   const [origin, setOrigin] = React.useState([])
