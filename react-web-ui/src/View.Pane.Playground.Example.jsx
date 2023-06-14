@@ -1,6 +1,5 @@
 import React from 'react'
 
-import Grid from '@mui/material/Grid'
 import Divider from '@mui/material/Divider'
 import Card from '@mui/material/Card'
 import CardActionArea from '@mui/material/CardActionArea'
@@ -8,6 +7,9 @@ import CardContent from '@mui/material/CardContent'
 import Tooltip from '@mui/material/Tooltip'
 import TextField from '@mui/material/TextField'
 import Pagination from '@mui/material/Pagination'
+import Button from '@mui/material/Button'
+
+import FilterAltIcon from '@mui/icons-material/FilterAlt'
 
 import Imitation from './utils.imitation'
 
@@ -38,48 +40,41 @@ function App() {
 
   return <>
 
-    <div style={{ width: '100%', height: '100%', margin: 'auto', paddingBottom: 64, paddingTop: 62, overflow: 'auto' }}>
-      <div style={{ height: 'fit-content', margin: 16 }}>
+    <div style={{ width: '100%', height: '100%', margin: 'auto', paddingBottom: 64, paddingTop: 74, overflow: 'auto' }}>
+      <div style={{ height: 'fit-content', margin: 8, display: 'flex', justifyContent: 'center', alignContent: 'start', flexWrap: 'wrap' }}>
 
-        <Grid container spacing={2} justifyContent='center'>
-
-          {
-            renderList.map((i, index) => {
-              return <Grid item style={{ maxWidth: '100%' }} key={index}>
-                <Card onClick={() => apply(i)}>
-                  <CardActionArea>
-                    <Tooltip title={i.name}>
-                      <CardContent style={{ width: 320, maxWidth: '100%', height: 220, position: 'relative' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                          <div style={{ fontSize: 16, marginRight: 8, textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }}>
-                            {i.name}
-                          </div>
-                        </div>
-                        <Divider style={{ margin: '16px 0' }} />
-                        <div style={{ lineHeight: 1.5 }}>{i.description}</div>
-                      </CardContent>
-                    </Tooltip>
-                  </CardActionArea>
-                </Card>
-              </Grid>
-            })
-          }
-
-        </Grid>
+        {
+          renderList.map((i, index) => {
+            return <Card onClick={() => apply(i)} style={{ width: 320, maxWidth: '100%', height: 220, margin: 8 }} key={index}>
+              <Tooltip title={i.name}>
+                <CardActionArea style={{ width: '100%', height: '100%' }}>
+                  <CardContent style={{ width: '100%', height: '100%' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                      <div style={{ fontSize: 16, marginRight: 8, textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }}>
+                        {i.name}
+                      </div>
+                    </div>
+                    <Divider style={{ margin: '16px 0' }} />
+                    <div style={{ lineHeight: 1.5 }}>{i.description}</div>
+                  </CardContent>
+                </CardActionArea>
+              </Tooltip>
+            </Card>
+          })
+        }
 
       </div>
-    </div >
-
-    <div style={{ position: 'absolute', top: 16, left: 0, right: 0, margin: 'auto', width: 'fit-content', display: 'flex', alignItems: 'center' }}>
-      {
-        origin ? <TextField variant='standard' style={{ width: 720, maxWidth: '100%' }} sx={{ '& input': { fontSize: 16, textAlign: 'center' } }} autoComplete='off' value={filter} onChange={e => setFilter(e.target.value)} /> : null
-      }
     </div>
 
-    <div style={{ position: 'absolute', bottom: 16, left: 0, right: 0, margin: 'auto', width: 'fit-content', display: 'flex', alignItems: 'center' }}>
-      {
-        count ? <Pagination color='primary' count={count} page={page} onChange={(e, v) => setPage(v)} style={{ margin: 'auto', width: 'fit-content' }} /> : null
-      }
+    <div style={{ position: 'absolute', top: 16, left: 0, right: 0, margin: 'auto', width: 'fit-content', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+      <Button fullWidth variant='contained' color='inherit' style={{ maxWidth: 720, margin: '0px 16px', position: 'relative' }} component='div'>
+        <FilterAltIcon style={{ position: 'absolute', left: 8, top: 0, bottom: 0, margin: 'auto' }} />
+        <TextField fullWidth variant='standard' sx={{ '& input': { fontSize: 16, textAlign: 'center' } }} autoComplete='off' value={filter} onChange={e => setFilter(e.target.value)} />
+      </Button>
+    </div>
+
+    <div style={{ position: 'absolute', bottom: 16, left: 0, right: 0, margin: 'auto', width: 'fit-content', display: 'flex', alignItems: 'center', width: '100%' }}>
+      <Pagination color='primary' count={count === 0 ? 1 : count} page={page} onChange={(e, v) => setPage(v)} style={{ margin: 'auto', width: 'fit-content' }} />
     </div>
 
   </>
