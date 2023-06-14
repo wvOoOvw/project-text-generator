@@ -7,6 +7,7 @@ import DialogContent from '@mui/material/DialogContent'
 import DialogTitle from '@mui/material/DialogTitle'
 import DialogActions from '@mui/material/DialogActions'
 import Slider from '@mui/material/Slider'
+import Tooltip from '@mui/material/Tooltip'
 
 import SettingsIcon from '@mui/icons-material/Settings'
 import SendIcon from '@mui/icons-material/Send'
@@ -27,32 +28,33 @@ function SettingDialog(props) {
           dimensions {props.setting.dimensions}
         </Grid>
         <Grid item xs={12}>
-          <Slider value={props.setting.dimensions} onChange={(e, v) => props.setSetting(pre => { pre.dimensions = v; return { ...pre } })} min={10} max={400} step={1} />
+          <Slider value={props.setting.dimensions} onChange={(e, v) => props.setSetting(pre => { pre.dimensions = v; return { ...pre } })} min={0} max={200} step={1} />
         </Grid>
 
         <Grid item xs={12}>
           windows {props.setting.windows}
         </Grid>
         <Grid item xs={12}>
-          <Slider value={props.setting.windows} onChange={(e, v) => props.setSetting(pre => { pre.windows = v; return { ...pre } })} min={1} max={16} step={1} />
+          <Slider value={props.setting.windows} onChange={(e, v) => props.setSetting(pre => { pre.windows = v; return { ...pre } })} min={1} max={32} step={1} />
         </Grid>
 
         <Grid item xs={12}>
           rate {props.setting.rate}
         </Grid>
         <Grid item xs={12}>
-          <Slider value={props.setting.rate} onChange={(e, v) => props.setSetting(pre => { pre.rate = v; return { ...pre } })} min={0} max={1} step={0.01} />
+          <Slider value={props.setting.rate} onChange={(e, v) => props.setSetting(pre => { pre.rate = v; return { ...pre } })} min={0} max={0.5} step={0.01} />
         </Grid>
 
         <Grid item xs={12}>
           iterations {props.setting.iterations}
         </Grid>
         <Grid item xs={12}>
-          <Slider value={props.setting.iterations} onChange={(e, v) => props.setSetting(pre => { pre.iterations = v; return { ...pre } })} min={1} max={1000} step={1} />
+          <Slider value={props.setting.iterations} onChange={(e, v) => props.setSetting(pre => { pre.iterations = v; return { ...pre } })} min={0} max={1000} step={1} />
         </Grid>
       </Grid>
     </DialogContent>
     <DialogActions>
+      <Button variant='contained'>{props.prompt.length}</Button>
       <Button variant='contained' onClick={() => props.onClose()}>Save</Button>
     </DialogActions>
   </Dialog>
@@ -60,7 +62,7 @@ function SettingDialog(props) {
 
 function App() {
   const [prompt, setPrompt] = React.useState(Imitation.state.library[1].map(i => i.map(i => Imitation.state.library[0][i]).join('')).join('\n\n'))
-  const [setting, setSetting] = React.useState({ dimensions: 100, rate: 0.1, windows: 2, iterations: 100 })
+  const [setting, setSetting] = React.useState({ dimensions: 100, rate: 0.1, windows: 4, iterations: 100 })
   const [settingDialog, setSettingDialog] = React.useState()
 
   const train = async () => {
@@ -117,12 +119,10 @@ function App() {
 
     <div style={{ position: 'absolute', bottom: 16, left: 0, right: 0, margin: 'auto', width: 'fit-content', display: 'flex' }}>
       <Button variant='contained' style={{ textTransform: 'none', margin: '0 4px' }} onClick={() => setSettingDialog(true)}><SettingsIcon /></Button>
-      <Button variant='contained' style={{ textTransform: 'none', margin: '0 4px' }} onClick={() => train()}><SendIcon/></Button>
+      <Button variant='contained' style={{ textTransform: 'none', margin: '0 4px' }} onClick={() => train()}><SendIcon /></Button>
     </div>
 
-    {/* <div style={{ position: 'absolute', left: 16, bottom: 16, fontSize: 12 }}>{prompt.length}</div> */}
-
-    <SettingDialog open={Boolean(settingDialog)} onClose={() => setSettingDialog()} setting={setting} setSetting={setSetting} />
+    <SettingDialog open={Boolean(settingDialog)} onClose={() => setSettingDialog()} setting={setting} setSetting={setSetting} prompt={prompt} />
 
   </>
 }

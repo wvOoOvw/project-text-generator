@@ -41,7 +41,7 @@ const comparator = (token, library) => {
 
         const compareResult = cosineSimilarity(currentVectors, targetVectors) * euclideanDistance(currentVectors, targetVectors)
 
-        process.result.push({ token: process.library[0][process.index], percent: compareResult })
+        process.result.push({ token: process.library[0][process.index], index: process.index, percent: compareResult })
 
         process.index = process.index + 1
 
