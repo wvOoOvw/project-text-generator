@@ -74,6 +74,11 @@ const calculator = (token, setting, library) => {
         process.result[2].forEach((i, index) => i.forEach((i_, index_) => process.result[2][index][index_] = process.result[2][index][index_] / max))
 
         process.step = process.step + 1
+      },
+      () => {
+        process.result[2].forEach((i, index) => i.forEach((i_, index_) => process.result[2][index][index_] = Number(process.result[2][index][index_].toFixed(12))))
+
+        process.step = process.step + 1
       }
     ]
 

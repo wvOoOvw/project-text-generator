@@ -14,6 +14,21 @@ function cosineSimilarity(vec1, vec2) {
   return similarity;
 }
 
+function euclideanDistance(vec1, vec2) {
+  if (vec1.length !== vec2.length) return 0
+
+  let sumOfSquares = 0;
+
+  for (let i = 0; i < vec1.length; i++) {
+    const diff = vec1[i] - vec2[i];
+    sumOfSquares += Math.pow(diff, 2);
+  }
+
+  const distance = Math.sqrt(sumOfSquares);
+
+  return 1 / (1 + distance);
+}
+
 const comparator = (token, library) => {
   const process = { token: token, step: 0, index: 0, library: library, result: [], next: () => next() }
 
@@ -22,11 +37,11 @@ const comparator = (token, library) => {
     const functions = [
       () => {
         const tokenIndex = process.library[0].indexOf(process.token)
-        
+
         const currentVectors = process.library[2][tokenIndex]
         const targetVectors = process.library[2][process.index]
 
-        const compareResult = cosineSimilarity(currentVectors, targetVectors)
+        const compareResult = cosineSimilarity(currentVectors, targetVectors) * euclideanDistance(currentVectors, targetVectors)
 
         process.result.push({ token: process.library[0][process.index], percent: compareResult })
 
