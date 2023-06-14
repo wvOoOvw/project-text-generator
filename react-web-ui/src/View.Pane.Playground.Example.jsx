@@ -38,20 +38,10 @@ function App() {
 
   return <>
 
-    <div style={{ width: '100%', height: '100%', overflow: 'auto' }}>
+    <div style={{ width: '100%', height: '100%', margin: 'auto', paddingBottom: 64, paddingTop: 62, overflow: 'auto' }}>
       <div style={{ height: 'fit-content', margin: 16 }}>
 
         <Grid container spacing={2} justifyContent='center'>
-
-          {
-            origin ?
-              <Grid item xs={12}>
-                <div style={{ maxWidth: 720, margin: 'auto', display: 'block', position: 'relative' }}>
-                  <TextField variant='standard' sx={{ '& input': { fontSize: 16, textAlign: 'center' } }} autoComplete='off' fullWidth value={filter} onChange={e => setFilter(e.target.value)} />
-                </div>
-              </Grid>
-              : null
-          }
 
           {
             renderList.map((i, index) => {
@@ -75,17 +65,21 @@ function App() {
             })
           }
 
-          {
-            count ?
-              <Grid item xs={12}>
-                <Pagination color='primary' count={count} page={page} onChange={(e, v) => setPage(v)} style={{ margin: 'auto', width: 'fit-content' }} />
-              </Grid>
-              : null
-          }
-
         </Grid>
 
       </div>
+    </div >
+
+    <div style={{ position: 'absolute', top: 16, left: 0, right: 0, margin: 'auto', width: 'fit-content', display: 'flex', alignItems: 'center' }}>
+      {
+        origin ? <TextField variant='standard' style={{ width: 720, maxWidth: '100%' }} sx={{ '& input': { fontSize: 16, textAlign: 'center' } }} autoComplete='off' value={filter} onChange={e => setFilter(e.target.value)} /> : null
+      }
+    </div>
+
+    <div style={{ position: 'absolute', bottom: 16, left: 0, right: 0, margin: 'auto', width: 'fit-content', display: 'flex', alignItems: 'center' }}>
+      {
+        count ? <Pagination color='primary' count={count} page={page} onChange={(e, v) => setPage(v)} style={{ margin: 'auto', width: 'fit-content' }} /> : null
+      }
     </div>
 
   </>

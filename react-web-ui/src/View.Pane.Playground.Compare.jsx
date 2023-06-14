@@ -3,20 +3,15 @@ import React from 'react'
 import Grid from '@mui/material/Grid'
 import Button from '@mui/material/Button'
 import Card from '@mui/material/Card'
-import CardContent from '@mui/material/CardContent'
 import CardActionArea from '@mui/material/CardActionArea'
 import TextField from '@mui/material/TextField'
 import Pagination from '@mui/material/Pagination'
-import Slider from '@mui/material/Slider'
 import Dialog from '@mui/material/Dialog';
-import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
-import DialogActions from '@mui/material/DialogActions'
-import Tooltip from '@mui/material/Tooltip'
 
 import Imitation from './utils.imitation'
 
-import { tokenFormat, requestRender, requestCallback } from './utils.common'
+import { requestRender, requestCallback } from './utils.common'
 
 import { comparator } from '../text-comparator'
 
@@ -107,7 +102,7 @@ function App() {
 
     Imitation.setState(pre => { pre.loading = pre.loading + 1; return pre })
 
-    const result = await comparatorProcessLoop(comparator(compare, Imitation.state.library))
+    const result = await comparatorProcessLoop(comparator(Imitation.state.library[0].indexOf(compare), Imitation.state.library))
 
     Imitation.setState(pre => { pre.loading = pre.loading - 1; return pre })
 

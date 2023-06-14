@@ -36,9 +36,7 @@ const comparator = (token, library) => {
 
     const functions = [
       () => {
-        const tokenIndex = process.library[0].indexOf(process.token)
-
-        const currentVectors = process.library[2][tokenIndex]
+        const currentVectors = process.library[2][process.token]
         const targetVectors = process.library[2][process.index]
 
         const compareResult = cosineSimilarity(currentVectors, targetVectors) * euclideanDistance(currentVectors, targetVectors)
