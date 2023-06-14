@@ -46,7 +46,7 @@ function SettingDialog(props) {
           iterations {props.setting.iterations}
         </Grid>
         <Grid item xs={12}>
-          <Slider value={props.setting.iterations} onChange={(e, v) => props.setSetting(pre => { pre.iterations = v; return { ...pre } })} min={1} max={200} step={1} />
+          <Slider value={props.setting.iterations} onChange={(e, v) => props.setSetting(pre => { pre.iterations = v; return { ...pre } })} min={1} max={1000} step={1} />
         </Grid>
       </Grid>
     </DialogContent>
@@ -98,7 +98,7 @@ function App() {
 
     console.log(tokenArray)
 
-    const result = await calculatorProcessLoop(calculator(tokenArray, setting, [[], [], [], [], []]))
+    const result = await calculatorProcessLoop(calculator(tokenArray, setting, [[], [], []]))
 
     console.log(result)
 

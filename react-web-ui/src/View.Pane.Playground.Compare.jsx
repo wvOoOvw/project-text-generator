@@ -16,7 +16,9 @@ import Tooltip from '@mui/material/Tooltip'
 
 import Imitation from './utils.imitation'
 
-import { generator } from '../text-generator/index'
+import { tokenFormat, requestRender, requestCallback } from './utils.common'
+
+import { comparator } from '../text-comparator'
 
 function TokenDialog(props) {
   const [origin, setOrigin] = React.useState([])
@@ -88,23 +90,33 @@ function TokenDialog(props) {
 }
 
 function App() {
-  const [promptLength, setPromptLength] = React.useState(4)
-  const [promptContent, setPromptContent] = React.useState([])
-  const [promptResult, setPromptResult] = React.useState([])
-  const [promptModal, setPromptModal] = React.useState()
-  const [setting, setSetting] = React.useState({ createTokenLength: 1024, memoryContextLength: 16, toTop: 1, temperature: 1, repeatLength: 8, repeatDistance: 1024, repeatMaxTime: 16, punctuationSpace: 8, stopToken: '' })
+  const [compare, setCompare] = React.useState()
+  const [result, setResult] = React.useState([])
+  const [tokenDialog, setTokenDialog] = React.useState()
 
-  const computeResult = () => {
-    const generatorProcess = generator(promptContent, setting, Imitation.state.library)
+  const compareResult = async () => {
+    const comparatorProcessLoop = async (comparatorProcess) => {
+      const r = await new Promise(r => {
+        const loop = () => comparatorProcess.next ? requestCallback()(() => { comparatorProcess.next(); loop() }) : r(comparatorProcess.result)
 
-    generatorProcess.next()
+        loop()
+      })
 
-    setPromptResult(generatorProcess.searchResult)
+      return r
+    }
+
+    Imitation.setState(pre => { pre.loading = pre.loading + 1; return pre })
+
+    const result = await comparatorProcessLoop(comparator(compare, Imitation.state.library))
+
+    Imitation.setState(pre => { pre.loading = pre.loading - 1; return pre })
+
+    console.log(result)
+
+    setResult(result)
   }
 
-  React.useEffect(() => computeResult(), [promptContent, setting])
-
-  React.useEffect(() => setPromptContent(new Array(promptLength).fill().map(i => '')), [promptLength])
+  React.useEffect(() => compare ? compareResult() : undefined, [compare])
 
   return <>
     <div style={{ width: '100%', height: '100%', margin: 'auto', padding: 16, paddingBottom: 68, overflow: 'auto' }}>
@@ -113,17 +125,7 @@ function App() {
         <Grid item xs={12}>
           <Grid container spacing={1} justifyContent='center'>
             {
-              promptContent.map((i, index) => {
-                return <Grid item key={index}><Button variant='contained' onClick={() => { promptContent[index] = ''; setPromptContent([...promptContent]); setPromptModal(index) }}>{i ? i : '____'}</Button></Grid>
-              })
-            }
-          </Grid>
-        </Grid>
-
-        <Grid item xs={12}>
-          <Grid container spacing={1} justifyContent='center'>
-            {
-              promptResult.map((i, index) => {
+              result.sort((a, b) => b.percent - a.percent).map((i, index) => {
                 return <Grid item key={index}>
                   <Card>
                     <CardActionArea style={{ padding: 12, lineHeight: 1 }}>
@@ -136,14 +138,15 @@ function App() {
           </Grid>
         </Grid>
 
-        <TokenDialog open={promptModal !== undefined} onClose={() => setPromptModal()} onClick={v => { promptContent[promptModal] = v; setPromptContent([...promptContent]); setPromptModal() }} />
-
       </Grid>
     </div>
 
     <div style={{ position: 'absolute', bottom: 16, left: 0, right: 0, margin: 'auto', width: 'fit-content', display: 'flex', alignItems: 'center' }}>
-      <Slider style={{ width: 480, maxWidth: '100%', margin: '0 8px' }} value={promptLength} onChange={(e, v) => setPromptLength(v)} min={1} max={16} step={1} />
+      <Button variant='contained' onClick={() => { setTokenDialog(true) }}>{compare ? compare : '____'}</Button>
     </div>
+
+    <TokenDialog open={tokenDialog !== undefined} onClose={() => setTokenDialog()} onClick={v => { setCompare(v); setTokenDialog() }} />
+
   </>
 }
 
