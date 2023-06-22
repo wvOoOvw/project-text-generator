@@ -1,3 +1,14 @@
+const softmax = (vector) => {
+  const maxVal = Math.max(...vector);
+  const expVector = vector.map((x) => Math.exp(x - maxVal));
+  const sumExp = expVector.reduce((a, b) => a + b, 0);
+  return expVector.map((x) => x / sumExp);
+}
+
+const sigmoid = (x) => {
+  return 1 / (1 + Math.exp(-x));
+}
+
 const shuffleArray = (array) => {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -7,9 +18,7 @@ const shuffleArray = (array) => {
 }
 
 const calculator = (token, setting, library) => {
-  const resultLibrary = library
-
-  const process = { token: token, setting: setting, step: 0, index: 0, result: resultLibrary, next: () => next() }
+  const process = { token: token, setting: setting, step: 0, result: library, next: () => next() }
 
   const next = () => {
 
@@ -19,15 +28,17 @@ const calculator = (token, setting, library) => {
           i.forEach(i_ => {
             if (process.result[0].indexOf(i_) === -1) {
               process.result[0].push(i_)
-              process.result[2].push(new Array(process.setting.dimensions).fill().map(() => Math.random()))
+              process.result[2].push(new Array(process.setting.dimensions).fill().map(() => Math.random() * 0.2 + 0.4))
             }
           })
         })
 
         process.result[1] = process.token.map(i => i.map(i => process.result[0].indexOf(i)))
 
+        process.step = process.step + 1
+      },
+      () => {
         process.index = 0
-
         process.step = process.step + 1
       },
       () => {
@@ -53,6 +64,8 @@ const calculator = (token, setting, library) => {
 
           const all = [...pre, ...next].map(i => process.result[2][i])
 
+          if (all.length === 0) return
+
           var result = new Array(process.setting.dimensions).fill(0)
 
           all.forEach(i => i.forEach((i, index) => result[index] = result[index] + i))
@@ -62,21 +75,27 @@ const calculator = (token, setting, library) => {
           process.result[2][current[0]] = process.result[2][current[0]].map((i, index) => i + result[index] * process.setting.rate)
         })
 
-        process.index = process.index + 1
+        // process.result[2].forEach((i, index) => {
+        //   var max = 0
 
-        if (process.index === process.setting.iterations) process.step = process.step + 1
-      },
-      () => {
+        //   i.forEach((i_) => max = Math.max(max, i_))
+
+        //   if (max > 1) i.forEach((i_, index_) => process.result[2][index][index_] = process.result[2][index][index_] / max)
+        // })
+
         var max = 0
 
         process.result[2].forEach((i) => i.forEach((i_) => max = Math.max(max, i_)))
 
         process.result[2].forEach((i, index) => i.forEach((i_, index_) => process.result[2][index][index_] = process.result[2][index][index_] / max))
 
-        process.step = process.step + 1
+
+        process.index = process.index + 1
+
+        if (process.index === process.setting.iterations) process.step = process.step + 1
       },
       () => {
-        process.result[2].forEach((i, index) => i.forEach((i_, index_) => process.result[2][index][index_] = Number(process.result[2][index][index_].toFixed(12))))
+        process.result[2].forEach((i, index) => i.forEach((i_, index_) => process.result[2][index][index_] = Number(process.result[2][index][index_].toFixed(8))))
 
         process.step = process.step + 1
       }

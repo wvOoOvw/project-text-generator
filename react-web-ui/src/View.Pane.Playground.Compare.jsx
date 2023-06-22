@@ -36,7 +36,7 @@ function TokenDialog(props) {
 
   return <Dialog open={props.open} sx={{ '& .MuiDialog-paper': { width: '100%', maxWidth: 1080 } }} onClose={() => props.onClose()}>
     <DialogContent>
-      <Grid container spacing={2}>
+      <Grid container spacing={2} justifyContent='center'>
 
         <Grid item xs={12}>
           <Button fullWidth variant='contained' color='inherit' style={{ maxWidth: 720, height: 36, padding: 0, margin: '0px auto', display: 'block', position: 'relative' }} component='div'>
@@ -84,7 +84,7 @@ function ResultDialog(props) {
 
   return <Dialog open={props.open} sx={{ '& .MuiDialog-paper': { width: '100%', maxWidth: 1080 } }} onClose={() => props.onClose()}>
     <DialogContent>
-      <Grid container spacing={2}>
+      <Grid container spacing={2} justifyContent='center'>
 
         <Grid item xs={12}>
           <Button fullWidth variant='contained' color='inherit' style={{ maxWidth: 720, height: 36, padding: 0, margin: '0px auto', display: 'block', position: 'relative' }} component='div'>
@@ -115,6 +115,8 @@ function ResultDialog(props) {
 }
 
 function App() {
+  const keyRef = React.useRef(Math.random())
+
   const [compare, setCompare] = React.useState()
   const [tokenDialog, setTokenDialog] = React.useState()
   const [tokenDialogOrigin, setTokenDialogOrigin] = React.useState(Object.values(Imitation.state.library[0]))
@@ -132,27 +134,28 @@ function App() {
       return r
     }
 
-    Imitation.setState(pre => { pre.loading = pre.loading + 1; return pre })
-
     const result = await comparatorProcessLoop(comparator(Imitation.state.library[0].indexOf(compare), Imitation.state.library)).then(res => res.sort((a, b) => b.percent - a.percent))
 
-    Imitation.setState(pre => { pre.loading = pre.loading - 1; return pre })
-
     setResultDialog(true)
-    
+
     setResultDialogOrigin(result)
   }
 
   return <>
 
-    <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-      <Button style={{ margin: 8 }} variant='contained' onClick={() => { setTokenDialog(true) }}>{compare ? compare : '____'}</Button>
-      <Button style={{ margin: 8 }} variant='contained' onClick={() => { compareResult() }}><SendIcon /></Button>
+    <div style={{ width: '100%', height: '100%', margin: 'auto', paddingBottom: 68, paddingTop: 0, overflow: 'auto' }}>
+      <div style={{ height: '100%', margin: '0 16px', display: 'flex', justifyContent: 'center', alignContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+        <Button style={{ margin: 8 }} variant='contained' onClick={() => { keyRef.current = Math.random(); setTokenDialog(true) }}>{compare ? compare : '____'}</Button>
+      </div>
     </div>
 
-    <TokenDialog open={Boolean(tokenDialog)} onClose={() => setTokenDialog()} onClick={v => { setCompare(v); setTokenDialog() }} origin={tokenDialogOrigin}/>
+    <div style={{ position: 'absolute', bottom: 16, left: 0, right: 0, margin: 'auto', width: 'fit-content', display: 'flex' }}>
+      <Button style={{ margin: '0 8px' }} variant='contained' onClick={() => { keyRef.current = Math.random(); compareResult() }}><SendIcon /></Button>
+    </div>
 
-    <ResultDialog open={Boolean(resultDialog)} onClose={() => setResultDialog()} onClick={v => { setCompare(v); setResultDialog() }} origin={resultDialogOrigin} />
+    <TokenDialog key={keyRef.current + 1} open={Boolean(tokenDialog)} onClose={() => setTokenDialog()} onClick={v => { setCompare(v); setTokenDialog() }} origin={tokenDialogOrigin} />
+
+    <ResultDialog key={keyRef.current + 2} open={Boolean(resultDialog)} onClose={() => setResultDialog()} onClick={v => { setCompare(v); setResultDialog() }} origin={resultDialogOrigin} />
 
   </>
 }

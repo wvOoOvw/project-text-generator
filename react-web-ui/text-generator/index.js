@@ -1,23 +1,32 @@
-function calculateSimilarity(str1, str2) {
-  const m = str1.length;
-  const n = str2.length;
+function cosineSimilarity(vec1, vec2) {
+  if (vec1.length !== vec2.length) return 0
 
-  if (m === 0 && n === 0) return 1;
-  if (m === 0) return 0;
-  if (n === 0) return 0;
-
-  const d = [];
-  for (let i = 0; i <= m; i++) d[i] = [i];
-  for (let j = 0; j <= n; j++) d[0][j] = j;
-
-  for (let j = 1; j <= n; j++) {
-    for (let i = 1; i <= m; i++) {
-      if (str1[i - 1] === str2[j - 1]) d[i][j] = d[i - 1][j - 1];
-      if (str1[i - 1] !== str2[j - 1]) d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + 1);
-    }
+  let dotProduct = 0;
+  for (let i = 0; i < vec1.length; i++) {
+    dotProduct += vec1[i] * vec2[i];
   }
 
-  return 1 - d[m][n] / Math.max(m, n);
+  const magnitude1 = Math.sqrt(vec1.reduce((sum, val) => sum + Math.pow(val, 2), 0));
+  const magnitude2 = Math.sqrt(vec2.reduce((sum, val) => sum + Math.pow(val, 2), 0));
+
+  const similarity = dotProduct / (magnitude1 * magnitude2);
+
+  return similarity;
+}
+
+function euclideanDistance(vec1, vec2) {
+  if (vec1.length !== vec2.length) return 0
+
+  let sumOfSquares = 0;
+
+  for (let i = 0; i < vec1.length; i++) {
+    const diff = vec1[i] - vec2[i];
+    sumOfSquares += Math.pow(diff, 2);
+  }
+
+  const distance = Math.sqrt(sumOfSquares);
+
+  return 1 / (1 + distance);
 }
 
 const search = (process) => {
