@@ -106,29 +106,44 @@ const repeat = (process) => {
 }
 
 const generator = (token, setting, library) => {
-  const process = { token: token, setting: setting, library: library, result: [], cacheRepeat: { result: '', index: 0 }, next: () => next() }
+  const process = { token: token, setting: setting, library: library, step: 0, result: [], next: () => next() }
+
 
   const next = () => {
-    if (Array.isArray(process.library) === false) {
-      process.next = undefined
-      return process
-    }
 
-    repeat(process)
-    search(process)
-    match(process)
+    const functions = [
+      () => {
+        if (Array.isArray(process.library) === false) process.step = -1
+        if (Array.isArray(process.library) === true) process.step = process.step + 1
+      },
+      () => {
+        process.index = 0
+        process.step = process.step + 1
+        process.cacheRepeat = { result: '', index: 0 }
+      },
+      () => {
+        repeat(process)
+        search(process)
+        match(process)
 
-    console.log(process.searchResult, process.matchResult)
+        console.log(process.searchResult, process.matchResult)
 
-    process.index = process.index + 1
+        process.index = process.index + 1
 
-    if (process.matchResult !== '') process.result.push(process.matchResult)
-    if (process.matchResult === '') process.next = undefined
-    if (process.cacheRepeat.index > 4) process.next = undefined
-    if (process.setting.stopToken && process.setting.stopToken.includes(process.matchResult)) process.next = undefined
-    if (process.result.length === process.setting.createTokenLength) process.next = undefined
+        if (process.matchResult !== '') process.result.push(process.matchResult)
+        
+        if (process.matchResult === '') process.step = -1
+        if (process.cacheRepeat.index > 4) process.step = -1
+        if (process.setting.stopToken && process.setting.stopToken.includes(process.matchResult)) process.step = -1
+        if (process.result.length === process.setting.createTokenLength) process.step = -1
+      }
+    ]
+
+    if (functions[process.step] !== undefined) functions[process.step]()
+    if (functions[process.step] === undefined) process.next = undefined
 
     return process
+
   }
 
   return process

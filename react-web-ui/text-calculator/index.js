@@ -13,12 +13,14 @@ const shuffleArray = (array) => {
 }
 
 const calculator = (token, setting, library) => {
-  const process = { token: token, setting: setting, step: 0, result: new Array(4).fill().map(i => []), next: () => next() }
+  const process = { token: token, setting: setting, step: 0, result: [], next: () => next() }
 
   const next = () => {
 
     const functions = [
       () => {
+        process.result = new Array(4).fill().map(i => [])
+        
         process.token.forEach(i => {
           i.forEach(i_ => {
             if (process.result[0].indexOf(i_) === -1) process.result[0].push(i_)
