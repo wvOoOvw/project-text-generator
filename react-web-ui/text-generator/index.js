@@ -1,112 +1,49 @@
-function cosineSimilarity(vec1, vec2) {
-  if (vec1.length !== vec2.length) return 0
+const getWeight = (object) => {
+  var total = 0
 
-  let dotProduct = 0;
-  for (let i = 0; i < vec1.length; i++) {
-    dotProduct += vec1[i] * vec2[i];
-  }
+  if (object.w !== undefined) total = total + object.w
 
-  const magnitude1 = Math.sqrt(vec1.reduce((sum, val) => sum + Math.pow(val, 2), 0));
-  const magnitude2 = Math.sqrt(vec2.reduce((sum, val) => sum + Math.pow(val, 2), 0));
+  Object.keys(object).filter(i => i !== 'w').forEach(i => total = total + getWeight(object[i]))
 
-  const similarity = dotProduct / (magnitude1 * magnitude2);
-
-  return similarity;
-}
-
-function euclideanDistance(vec1, vec2) {
-  if (vec1.length !== vec2.length) return 0
-
-  let sumOfSquares = 0;
-
-  for (let i = 0; i < vec1.length; i++) {
-    const diff = vec1[i] - vec2[i];
-    sumOfSquares += Math.pow(diff, 2);
-  }
-
-  const distance = Math.sqrt(sumOfSquares);
-
-  return 1 / (1 + distance);
+  return total
 }
 
 const search = (process) => {
   process.searchResult = []
 
-  const memoryLength = process.setting.memoryContextLength
+  const memoryContextLength = process.setting.memoryContextLength
 
-  const searchTokenReverse = [...process.token, ...process.result].reverse()
-  const searchTokenIndex = [...process.token, ...process.result].map(i => process.library[0].indexOf(i))
+  const all = [...process.token, ...process.result]
+  const reverse = [...process.token, ...process.result].reverse()
+  const min = Math.max(all.length - memoryContextLength, 0)
+  const max = all.length
+  const use = all.slice(min, max).map(i => process.library[0].indexOf(i))
 
-  const searchIndex = searchTokenIndex.length - 1
-  const searchLastToken = searchTokenIndex[searchIndex]
+  process.searchResult = use.reduce((t, i, index) => {
+    if (t.length > 0) return t
 
-  if (process.library[3][searchLastToken] === undefined) return
+    var cache = process.library[3][0]
 
-  process.searchResult = process.library[3][searchLastToken].reduce((t, i) => {
-    const paragraph = process.library[2][i[0]]
-    const paragraphIndex = i[1]
-    const paragraphWeight = 1
-    const paragraphResult = paragraph[paragraphIndex + 1]
-    const paragraphAbove = paragraph.slice(0, paragraphIndex + 1)
+    const list = use.slice(index, use.length)
 
-    if (paragraphResult === undefined) return t
+    list.forEach(i => cache = cache && cache[i] ? cache[i] : null)
 
-    var length = 1
-
-    while (length) {
-      if (length > memoryLength) break
-      if (length === memoryLength) break
-      if (paragraph[paragraphIndex - length] === undefined) break
-      if (searchTokenIndex[searchIndex - length] === undefined) break
-      if (paragraph[paragraphIndex - length] !== searchTokenIndex[searchIndex - length]) break
-      length = length + 1
-    }
-
-    // const similarityLength = Math.min(searchTokenIndex.length, paragraphAbove.length, 32)
-
-    // const calculateSimilarityParmas = [
-    //   searchTokenIndex.slice(searchTokenIndex.length - similarityLength, Math.max(searchTokenIndex.length - length, 0)),
-    //   paragraphAbove.slice(paragraphAbove.length - similarityLength, Math.max(paragraphAbove.length - length, 0))
-    // ]
-
-    // const similarity = calculateSimilarity(...calculateSimilarityParmas)
-
-    const similarity = 1
-
-    t.push({ token: paragraphResult, weight: paragraphWeight, length: length, similarity: similarity })
+    if (cache) return Object.entries(cache).map(i => ({ token: process.library[0][i[0]], weight: getWeight(i[1]) }))
 
     return t
-  }, [])
-
-  process.searchResult = process.searchResult.reduce((t, i) => {
-    const find = t.find(i_ => i_[0].token === i.token)
-
-    if (find === undefined) t.push([i])
-    if (find !== undefined) find.push(i)
-
-    return t
-  }, [])
-
-  process.searchResult = process.searchResult.reduce((t, i) => {
-    const token = process.library[0][i[0].token]
-    const weight = i.reduce((t, i) => t + i.weight * i.length * i.similarity, 0)
-
-    t.push({ token: token, weight: weight })
-
-    return t
-  }, [])
+  }, process.searchResult)
 
   process.searchResult = process.searchResult.map(i => {
     if (i.token.match(/[！？。，]/)) {
-      const index = searchTokenReverse.findIndex(i => i.match(/[！？。，]/))
+      const index = reverse.findIndex(i => i.match(/[！？。，]/))
       if (index > -1 && index < process.setting.punctuationSpace) i.weight = i.weight / 4
     }
 
     const checkList = [[/^‘$/, /^’$/], [/^“$/, /^”$/], [/^<$/, /^>$/], [/^（$/, /^）$/], [/^《$/, /^》$/]]
 
     checkList.forEach(i_ => {
-      const index = searchTokenReverse.findIndex(i => i.match(i_[0]))
-      const index_ = searchTokenReverse.findIndex(i => i.match(i_[1]))
+      const index = reverse.findIndex(i => i.match(i_[0]))
+      const index_ = reverse.findIndex(i => i.match(i_[1]))
 
       if (i.token.match(i_[0]) !== null) {
         if (index !== -1 && index_ === -1) i.weight = i.weight / 4
@@ -127,7 +64,7 @@ const search = (process) => {
 }
 
 const match = (process) => {
-  var toTop = process.setting.toTop + (1 - process.setting.toTop) * (process.cacheRepeat.index / 4)
+  var topP = process.setting.topP + (1 - process.setting.topP) * (process.cacheRepeat.index / 4)
   var temperature = process.setting.temperature + (0 - process.setting.temperature) * (process.cacheRepeat.index / 4)
 
   const weightMiddle = process.searchResult.reduce((t, i) => t + i.weight, 0) / process.searchResult.length
@@ -138,7 +75,7 @@ const match = (process) => {
 
   process.searchResult = process.searchResult.sort((a, b) => b.weight - a.weight)
   process.searchResult = process.searchResult.map((i, index) => { i.percent = i.weight / allWeight; i.percentAccumulation = index === 0 ? i.percent : i.percent + process.searchResult[index - 1].percentAccumulation; return i })
-  process.searchResult = process.searchResult.filter(i => i.percentAccumulation - i.percent <= toTop)
+  process.searchResult = process.searchResult.filter(i => i.percentAccumulation - i.percent <= topP)
 
   var allWeight = process.searchResult.reduce((t, i) => t + i.weight, 0)
 

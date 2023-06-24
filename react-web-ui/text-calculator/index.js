@@ -1,12 +1,7 @@
-const softmax = (vector) => {
-  const maxVal = Math.max(...vector);
-  const expVector = vector.map((x) => Math.exp(x - maxVal));
-  const sumExp = expVector.reduce((a, b) => a + b, 0);
-  return expVector.map((x) => x / sumExp);
-}
-
 const sigmoid = (x) => {
-  return 1 / (1 + Math.exp(-x));
+  if (x === 0) return 0
+  if (x > 0) return 1 / (1 + Math.exp(-x)) - 0.5
+  if (x < 0) return -1 / (1 + Math.exp(-x)) + 0.5
 }
 
 const shuffleArray = (array) => {
@@ -18,7 +13,7 @@ const shuffleArray = (array) => {
 }
 
 const calculator = (token, setting, library) => {
-  const process = { token: token, setting: setting, step: 0, result: library, next: () => next() }
+  const process = { token: token, setting: setting, step: 0, result: new Array(4).fill().map(i => []), next: () => next() }
 
   const next = () => {
 
@@ -26,14 +21,13 @@ const calculator = (token, setting, library) => {
       () => {
         process.token.forEach(i => {
           i.forEach(i_ => {
-            if (process.result[0].indexOf(i_) === -1) {
-              process.result[0].push(i_)
-              process.result[2].push(new Array(process.setting.dimensions).fill().map(() => Math.random() * 0.2 + 0.4))
-            }
+            if (process.result[0].indexOf(i_) === -1) process.result[0].push(i_)
           })
         })
 
         process.result[1] = process.token.map(i => i.map(i => process.result[0].indexOf(i)))
+        process.result[2] = new Array(process.result[0].length).fill().map(() => new Array(process.setting.vectorsDimensions).fill().map(() => Math.random() * 2 - 1))
+        process.result[3] = [{}]
 
         process.step = process.step + 1
       },
@@ -42,60 +36,105 @@ const calculator = (token, setting, library) => {
         process.step = process.step + 1
       },
       () => {
+        var expect = new Array(process.result[2].length).fill().map(() => new Array(process.setting.vectorsDimensions).fill().map(() => []))
+
         var list = []
 
         process.result[1].forEach((i, index) => {
           i.forEach((i_, index_) => {
-            const min = Math.max(index_ - process.setting.windows, 0)
-            const max = Math.min(index_ + process.setting.windows, i.length - 1)
+            const min = Math.max(index_ - process.setting.vectorsWindows, 0)
+            const max = Math.min(index_ + process.setting.vectorsWindows, i.length - 1)
 
-            const pre = i.slice(min, index_)
-            const current = i.slice(index_, index_ + 1)
-            const next = i.slice(index_ + 1, max + 1)
+            const pre = i.slice(min, index_).map(i => process.result[2][i])
+            const current = i.slice(index_, index_ + 1).map(i => process.result[2][i])
+            const next = i.slice(index_ + 1, max + 1).map(i => process.result[2][i])
+            const all = [...pre, ...next]
 
-            list.push({ pre, current, next })
+            const tokenIndex = i_
+
+            list.push({ pre, current, next, all, tokenIndex })
           })
         })
 
         list = shuffleArray(list)
 
         list.forEach((i) => {
-          const { pre, current, next } = i
+          const { pre, current, next, all, tokenIndex } = i
 
-          const all = [...pre, ...next].map(i => process.result[2][i])
+          var result = new Array(process.setting.vectorsDimensions).fill(0)
 
-          if (all.length === 0) return
+          result.forEach((i, index) => result[index] = all.reduce((t, i) => t + i[index], 0) / all.length)
 
-          var result = new Array(process.setting.dimensions).fill(0)
-
-          all.forEach(i => i.forEach((i, index) => result[index] = result[index] + i))
-
-          result = result.map((i) => i / (process.setting.windows * 2))
-
-          process.result[2][current[0]] = process.result[2][current[0]].map((i, index) => i + result[index] * process.setting.rate)
+          expect[tokenIndex].forEach((i, index) => expect[tokenIndex][index].push(result[index]))
         })
+
+        expect.forEach((i, index) => expect[index].forEach((i_, index_) => expect[index][index_] = expect[index][index_].reduce((t, i) => t + i, 0) / expect[index][index_].length))
+
+        process.result[2].forEach((i, index) => process.result[2][index].forEach((i_, index_) => process.result[2][index][index_] = process.result[2][index][index_] + (expect[index][index_] - process.result[2][index][index_]) * process.setting.vectorsRate))
 
         // process.result[2].forEach((i, index) => {
         //   var max = 0
-
         //   i.forEach((i_) => max = Math.max(max, i_))
-
         //   if (max > 1) i.forEach((i_, index_) => process.result[2][index][index_] = process.result[2][index][index_] / max)
         // })
 
-        var max = 0
-
-        process.result[2].forEach((i) => i.forEach((i_) => max = Math.max(max, i_)))
-
-        process.result[2].forEach((i, index) => i.forEach((i_, index_) => process.result[2][index][index_] = process.result[2][index][index_] / max))
-
+        // var max = 0
+        // process.result[2].forEach((i) => i.forEach((i_) => max = Math.max(max, i_)))
+        // process.result[2].forEach((i, index) => i.forEach((i_, index_) => process.result[2][index][index_] = process.result[2][index][index_] / max))
 
         process.index = process.index + 1
 
-        if (process.index === process.setting.iterations) process.step = process.step + 1
+        if (process.index === process.setting.vectorsIterations) process.step = process.step + 1
       },
       () => {
         process.result[2].forEach((i, index) => i.forEach((i_, index_) => process.result[2][index][index_] = Number(process.result[2][index][index_].toFixed(8))))
+
+        process.step = process.step + 1
+      },
+      () => {
+        var list = []
+
+        process.result[1].forEach((i, index) => {
+          i.forEach((i_, index_) => {
+            const min = Math.max(index_ - process.setting.ngramWindows, 0)
+            const max = Math.min(index_ + process.setting.ngramWindows, i.length - 1)
+
+            const pre = i.slice(min, index_)
+            const current = i.slice(index_, index_ + 1)
+            const next = i.slice(index_ + 1, max + 1)
+            const all = [...pre, ...next]
+
+            const tokenIndex = i_
+
+            list.push({ pre, current, next, all, tokenIndex })
+          })
+        })
+
+        list.forEach((i) => {
+          const { pre, current, next, all, tokenIndex } = i
+
+          if (pre.length === 0) return
+
+          var currentPosition = process.result[3][0]
+
+          pre.forEach(i => {
+            if (currentPosition[i] === undefined) currentPosition[i] = {}
+            currentPosition = currentPosition[i]
+          })
+
+          if (currentPosition[current[0]] === undefined) currentPosition[current[0]] = { w: 0 }
+          if (currentPosition[current[0]] !== undefined) currentPosition[current[0]].w = currentPosition[current[0]].w + 1
+        })
+
+        process.step = process.step + 1
+      },
+      () => {
+        const loop = (object) => {
+          if (Object.keys(object).length > 1) delete (object.w)
+          Object.keys(object).forEach(i => loop(object[i]))
+        }
+
+        loop(process.result[3][0])
 
         process.step = process.step + 1
       }

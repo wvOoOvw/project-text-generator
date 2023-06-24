@@ -4,7 +4,6 @@ import Grid from '@mui/material/Grid'
 import Button from '@mui/material/Button'
 import Card from '@mui/material/Card'
 import CardActionArea from '@mui/material/CardActionArea'
-import TextField from '@mui/material/TextField'
 import Slider from '@mui/material/Slider'
 import Pagination from '@mui/material/Pagination'
 import Dialog from '@mui/material/Dialog';
@@ -18,21 +17,56 @@ import SettingsIcon from '@mui/icons-material/Settings'
 
 import Imitation from './utils.imitation'
 
-import { requestRender, requestCallback } from './utils.common'
-
-import { predictor } from '../text-predictor/index'
+import { generator } from '../text-generator/index'
 
 function SettingDialog(props) {
   return <Dialog open={props.open} sx={{ '& .MuiDialog-paper': { width: '100%', maxWidth: 720 } }} onClose={() => props.onClose()}>
     <DialogTitle style={{ fontSize: 16 }}>Settings</DialogTitle>
     <DialogContent dividers>
       <Grid container spacing={1}>
+
         <Grid item xs={12}>
-          Windows {props.setting.windows}
+          Create Token Length {props.setting.createTokenLength}
         </Grid>
         <Grid item xs={12}>
-          <Slider value={props.setting.windows} onChange={(e, v) => props.setSetting(pre => { pre.windows = v; return { ...pre } })} min={1} max={32} step={1} />
+          <Slider value={props.setting.createTokenLength} onChange={(e, v) => props.setSetting(pre => { pre.createTokenLength = v; return { ...pre } })} min={1} max={2048} step={1} />
         </Grid>
+
+        <Grid item xs={12}>
+          Memory Context Length {props.setting.memoryContextLength}
+        </Grid>
+        <Grid item xs={12}>
+          <Slider value={props.setting.memoryContextLength} onChange={(e, v) => props.setSetting(pre => { pre.memoryContextLength = v; return { ...pre } })} min={1} max={64} step={1} />
+        </Grid>
+
+        <Grid item xs={12}>
+          Top P {props.setting.topP}
+        </Grid>
+        <Grid item xs={12}>
+          <Slider value={props.setting.topP} onChange={(e, v) => props.setSetting(pre => { pre.topP = v; return { ...pre } })} min={0} max={1} step={0.01} />
+        </Grid>
+
+        <Grid item xs={12}>
+          Temperature {props.setting.temperature}
+        </Grid>
+        <Grid item xs={12}>
+          <Slider value={props.setting.temperature} onChange={(e, v) => props.setSetting(pre => { pre.temperature = v; return { ...pre } })} min={0} max={2} step={0.01} />
+        </Grid>
+
+        <Grid item xs={12}>
+          Repeat Length {props.setting.repeatLength}
+        </Grid>
+        <Grid item xs={12}>
+          <Slider value={props.setting.repeatLength} onChange={(e, v) => props.setSetting(pre => { pre.repeatLength = v; return { ...pre } })} min={0} max={64} step={1} />
+        </Grid>
+
+        <Grid item xs={12}>
+          Punctuation Space {props.setting.punctuationSpace}
+        </Grid>
+        <Grid item xs={12}>
+          <Slider value={props.setting.punctuationSpace} onChange={(e, v) => props.setSetting(pre => { pre.punctuationSpace = v; return { ...pre } })} min={0} max={64} step={1} />
+        </Grid>
+
       </Grid>
     </DialogContent>
     <DialogActions>
@@ -141,7 +175,7 @@ function App() {
   const keyRef = React.useRef(Math.random())
 
   const [token, setToken] = React.useState([])
-  const [setting, setSetting] = React.useState({ windows: 4 })
+  const [setting, setSetting] = React.useState({ createTokenLength: 1, memoryContextLength: 4, topP: 0.9, temperature: 1.5, repeatLength: 8, repeatDistance: 1024, repeatMaxTime: 16, punctuationSpace: 8, stopToken: '' })
   const [settingDialog, setSettingDialog] = React.useState()
   const [tokenDialog, setTokenDialog] = React.useState()
   const [tokenDialogIndex, setTokenDialogIndex] = React.useState()
@@ -149,27 +183,27 @@ function App() {
   const [resultDialog, setResultDialog] = React.useState()
   const [resultDialogOrigin, setResultDialogOrigin] = React.useState([])
 
-  const predictResult = async () => {
+  const generate = async () => {
+    Imitation.setState(pre => { pre.loading = pre.loading + 1; return pre })
+
     console.log(token)
 
-    const predictorProcessLoop = async (predictorProcess) => {
-      const r = await new Promise(r => {
-        const loop = () => predictorProcess.next ? requestCallback()(() => { predictorProcess.next(); loop() }) : r(predictorProcess.result)
+    const generatorProcess = generator(token, setting, Imitation.state.library)
 
-        loop()
-      })
+    generatorProcess.next()
 
-      return r
-    }
+    const result = generatorProcess.searchResult
 
-    const result = await predictorProcessLoop(predictor(token.map(i => Imitation.state.library[0].indexOf(i)), Imitation.state.library)).then(res => res.sort((a, b) => b.percent - a.percent))
+    console.log(result)
+
+    Imitation.setState(pre => { pre.loading = pre.loading - 1; return pre })
 
     setResultDialog(true)
 
     setResultDialogOrigin(result)
   }
 
-  React.useEffect(() => setToken(new Array(setting.windows * 2 + 1).fill('')), [setting.windows])
+  React.useEffect(() => setToken(new Array(setting.memoryContextLength).fill('')), [setting.memoryContextLength])
 
   return <>
 
@@ -177,16 +211,16 @@ function App() {
       <div style={{ height: '100%', margin: '0 16px', display: 'flex', justifyContent: 'center', alignContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
         {
           token.map((i, index) => {
-            if (index === (token.length - 1) / 2) return <Button disabled style={{ margin: 8 }} variant='contained' key={index}>...</Button>
-            if (index !== (token.length - 1) / 2) return <Button style={{ margin: 8 }} variant='contained' onClick={() => { keyRef.current = Math.random(); setToken(pre => { pre[index] = ''; return [...pre] }); setTokenDialog(true); setTokenDialogIndex(index) }} key={index}>{i ? i : '____'}</Button>
+            return <Button style={{ margin: 8 }} variant='contained' onClick={() => { keyRef.current = Math.random(); setToken(pre => { pre[index] = ''; return [...pre] }); setTokenDialog(true); setTokenDialogIndex(index) }} key={index}>{i ? i : '____'}</Button>
           })
         }
+        <Button disabled style={{ margin: 8 }} variant='contained'>...</Button>
       </div>
     </div>
 
     <div style={{ position: 'absolute', bottom: 16, left: 0, right: 0, margin: 'auto', width: 'fit-content', display: 'flex' }}>
       <Button style={{ margin: '0 8px' }} variant='contained' onClick={() => { keyRef.current = Math.random(); setSettingDialog(true) }}><SettingsIcon /></Button>
-      <Button style={{ margin: '0 8px' }} variant='contained' onClick={() => { keyRef.current = Math.random(); predictResult() }}><SendIcon /></Button>
+      <Button style={{ margin: '0 8px' }} variant='contained' onClick={() => { keyRef.current = Math.random(); generate() }}><SendIcon /></Button>
     </div>
 
     <TokenDialog key={keyRef.current + 1} open={Boolean(tokenDialog)} onClose={() => setTokenDialog()} onClick={v => { setToken(pre => { pre[tokenDialogIndex] = v; return [...pre] }); setTokenDialog() }} origin={tokenDialogOrigin} index={tokenDialogIndex} />

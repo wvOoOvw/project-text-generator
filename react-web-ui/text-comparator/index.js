@@ -30,16 +30,27 @@ function euclideanDistance(vec1, vec2) {
 }
 
 const comparator = (token, library) => {
-  const process = { token: token, step: 0, index: 0, library: library, result: [], next: () => next() }
+  const process = { token: token, library: library, step: 0, result: [], next: () => next() }
 
   const next = () => {
 
     const functions = [
       () => {
-        const currentVectors = process.library[2][process.token]
+        process.tokenIndex = process.library[0].indexOf(process.token)
+
+        if (process.tokenIndex === -1) process.step = -1
+        if (process.tokenIndex !== -1) process.step = process.step + 1
+        if (process.tokenIndex !== -1) process.index = 0
+      },
+      () => {
+        process.index = 0
+        process.step = process.step + 1
+      },
+      () => {
+        const currentVectors = process.library[2][process.tokenIndex]
         const targetVectors = process.library[2][process.index]
 
-        const compareResult = cosineSimilarity(currentVectors, targetVectors) * euclideanDistance(currentVectors, targetVectors)
+        const compareResult = cosineSimilarity(currentVectors, targetVectors)
 
         process.result.push({ token: process.library[0][process.index], index: process.index, percent: compareResult })
 

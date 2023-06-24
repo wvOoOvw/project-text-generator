@@ -4,13 +4,16 @@ import Grid from '@mui/material/Grid'
 import Button from '@mui/material/Button'
 import Card from '@mui/material/Card'
 import CardActionArea from '@mui/material/CardActionArea'
-import TextField from '@mui/material/TextField'
 import Pagination from '@mui/material/Pagination'
-import Dialog from '@mui/material/Dialog';
-import DialogContent from '@mui/material/DialogContent';
+import Dialog from '@mui/material/Dialog'
+import DialogTitle from '@mui/material/DialogTitle'
+import DialogContent from '@mui/material/DialogContent'
+import DialogActions from '@mui/material/DialogActions'
+import Slider from '@mui/material/Slider'
 
 import FilterAltIcon from '@mui/icons-material/FilterAlt'
 import SendIcon from '@mui/icons-material/Send'
+import SettingsIcon from '@mui/icons-material/Settings'
 
 import Imitation from './utils.imitation'
 
@@ -114,10 +117,31 @@ function ResultDialog(props) {
   </Dialog>
 }
 
+function SettingDialog(props) {
+  return <Dialog open={props.open} sx={{ '& .MuiDialog-paper': { width: '100%', maxWidth: 720 } }} onClose={() => props.onClose()}>
+    <DialogTitle style={{ fontSize: 16 }}>Settings</DialogTitle>
+    <DialogContent dividers>
+      <Grid container spacing={1}>
+        <Grid item xs={12}>
+          expansion {props.setting.expansion}
+        </Grid>
+        <Grid item xs={12}>
+          <Slider value={props.setting.expansion} onChange={(e, v) => props.setSetting(pre => { pre.expansion = v; return { ...pre } })} min={1} max={10} step={1} />
+        </Grid>
+      </Grid>
+    </DialogContent>
+    <DialogActions>
+      <Button variant='contained' onClick={() => props.onClose()}>Save</Button>
+    </DialogActions>
+  </Dialog>
+}
+
 function App() {
   const keyRef = React.useRef(Math.random())
 
   const [compare, setCompare] = React.useState()
+  const [setting, setSetting] = React.useState({ expansion: 1 })
+  const [settingDialog, setSettingDialog] = React.useState()
   const [tokenDialog, setTokenDialog] = React.useState()
   const [tokenDialogOrigin, setTokenDialogOrigin] = React.useState(Object.values(Imitation.state.library[0]))
   const [resultDialog, setResultDialog] = React.useState()
@@ -134,7 +158,7 @@ function App() {
       return r
     }
 
-    const result = await comparatorProcessLoop(comparator(Imitation.state.library[0].indexOf(compare), Imitation.state.library)).then(res => res.sort((a, b) => b.percent - a.percent))
+    const result = await comparatorProcessLoop(comparator(compare, Imitation.state.library)).then(res => res.sort((a, b) => b.percent - a.percent).map(i => { i.percent = Math.pow(i.percent, setting.expansion); return i }))
 
     setResultDialog(true)
 
@@ -150,8 +174,11 @@ function App() {
     </div>
 
     <div style={{ position: 'absolute', bottom: 16, left: 0, right: 0, margin: 'auto', width: 'fit-content', display: 'flex' }}>
-      <Button style={{ margin: '0 8px' }} variant='contained' onClick={() => { keyRef.current = Math.random(); compareResult() }}><SendIcon /></Button>
+      <Button variant='contained' style={{ textTransform: 'none', margin: '0 4px' }} onClick={() => setSettingDialog(true)}><SettingsIcon /></Button>
+      <Button variant='contained' style={{ textTransform: 'none', margin: '0 4px' }} onClick={() => compareResult()}><SendIcon /></Button>
     </div>
+
+    <SettingDialog open={Boolean(settingDialog)} onClose={() => setSettingDialog()} setting={setting} setSetting={setSetting} prompt={prompt} />
 
     <TokenDialog key={keyRef.current + 1} open={Boolean(tokenDialog)} onClose={() => setTokenDialog()} onClick={v => { setCompare(v); setTokenDialog() }} origin={tokenDialogOrigin} />
 

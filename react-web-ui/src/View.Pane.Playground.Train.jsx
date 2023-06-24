@@ -7,7 +7,6 @@ import DialogContent from '@mui/material/DialogContent'
 import DialogTitle from '@mui/material/DialogTitle'
 import DialogActions from '@mui/material/DialogActions'
 import Slider from '@mui/material/Slider'
-import Tooltip from '@mui/material/Tooltip'
 
 import SettingsIcon from '@mui/icons-material/Settings'
 import SendIcon from '@mui/icons-material/Send'
@@ -24,33 +23,42 @@ function SettingDialog(props) {
     <DialogTitle style={{ fontSize: 16 }}>Settings</DialogTitle>
     <DialogContent dividers>
       <Grid container spacing={1}>
+
         <Grid item xs={12}>
-          dimensions {props.setting.dimensions}
+          vectorsDimensions {props.setting.vectorsDimensions}
         </Grid>
         <Grid item xs={12}>
-          <Slider value={props.setting.dimensions} onChange={(e, v) => props.setSetting(pre => { pre.dimensions = v; return { ...pre } })} min={0} max={200} step={1} />
+          <Slider value={props.setting.vectorsDimensions} onChange={(e, v) => props.setSetting(pre => { pre.vectorsDimensions = v; return { ...pre } })} min={0} max={200} step={1} />
         </Grid>
 
         <Grid item xs={12}>
-          windows {props.setting.windows}
+          vectorsWindows {props.setting.vectorsWindows}
         </Grid>
         <Grid item xs={12}>
-          <Slider value={props.setting.windows} onChange={(e, v) => props.setSetting(pre => { pre.windows = v; return { ...pre } })} min={1} max={32} step={1} />
+          <Slider value={props.setting.vectorsWindows} onChange={(e, v) => props.setSetting(pre => { pre.vectorsWindows = v; return { ...pre } })} min={1} max={32} step={1} />
         </Grid>
 
         <Grid item xs={12}>
-          rate {props.setting.rate}
+          vectorsRate {props.setting.vectorsRate}
         </Grid>
         <Grid item xs={12}>
-          <Slider value={props.setting.rate} onChange={(e, v) => props.setSetting(pre => { pre.rate = v; return { ...pre } })} min={0} max={0.5} step={0.01} />
+          <Slider value={props.setting.vectorsRate} onChange={(e, v) => props.setSetting(pre => { pre.vectorsRate = v; return { ...pre } })} min={0} max={0.1} step={0.001} />
         </Grid>
 
         <Grid item xs={12}>
-          iterations {props.setting.iterations}
+          vectorsIterations {props.setting.vectorsIterations}
         </Grid>
         <Grid item xs={12}>
-          <Slider value={props.setting.iterations} onChange={(e, v) => props.setSetting(pre => { pre.iterations = v; return { ...pre } })} min={0} max={1000} step={1} />
+          <Slider value={props.setting.vectorsIterations} onChange={(e, v) => props.setSetting(pre => { pre.vectorsIterations = v; return { ...pre } })} min={0} max={1000} step={1} />
         </Grid>
+
+        <Grid item xs={12}>
+          ngramWindows {props.setting.ngramWindows}
+        </Grid>
+        <Grid item xs={12}>
+          <Slider value={props.setting.ngramWindows} onChange={(e, v) => props.setSetting(pre => { pre.ngramWindows = v; return { ...pre } })} min={1} max={128} step={1} />
+        </Grid>
+
       </Grid>
     </DialogContent>
     <DialogActions>
@@ -62,7 +70,7 @@ function SettingDialog(props) {
 
 function App() {
   const [prompt, setPrompt] = React.useState(Imitation.state.library[1].map(i => i.map(i => Imitation.state.library[0][i]).join('')).join('\n\n'))
-  const [setting, setSetting] = React.useState({ dimensions: 100, rate: 0.1, windows: 4, iterations: 100 })
+  const [setting, setSetting] = React.useState({ vectorsDimensions: 100, vectorsRate: 0.025, vectorsWindows: 4, vectorsIterations: 100, ngramWindows: 8 })
   const [settingDialog, setSettingDialog] = React.useState()
 
   const train = async () => {
@@ -102,7 +110,7 @@ function App() {
 
     console.log(tokenArray)
 
-    const result = await calculatorProcessLoop(calculator(tokenArray, setting, [[], [], []]))
+    const result = await calculatorProcessLoop(calculator(tokenArray, setting))
 
     console.log(result)
 

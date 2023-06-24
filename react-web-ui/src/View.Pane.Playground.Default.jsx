@@ -36,11 +36,11 @@ function App() {
         </Button>
       </div>
 
-      <Divider />
+      {/* <Divider />
 
       <div style={{ margin: 'auto', width: 'fit-content', padding: '48px 0' }}>
         <Advence />
-      </div>
+      </div> */}
 
     </div>
 
