@@ -10,7 +10,11 @@ Dict.forEach(dict => {
   dict.forEach(i => {
     var useObject = DictObject
 
-    i.split('').forEach(i_ => { useObject[i_] = useObject[i_] ? useObject[i_] : {}; useObject = useObject[i_]; })
+    i.split('').forEach((i_, index_) => {
+      useObject[i_] = useObject[i_] ? useObject[i_] : {}
+      useObject[i_]['_use'] = useObject[i_]['_use'] ? useObject[i_]['_use'] : index_ === i.length - 1
+      useObject = useObject[i_]
+    })
   })
 })
 
@@ -28,6 +32,7 @@ const tokenizer = (text) => {
         var searchObject = DictObject
         var searchIndex = 1
         var searchResult = ''
+        var searchCache = ''
 
         while (searchIndex) {
           const current = process.text.slice(process.index + searchIndex - 1, process.index + searchIndex)
@@ -37,7 +42,8 @@ const tokenizer = (text) => {
           }
 
           if (searchObject[current]) {
-            searchResult = searchResult + current
+            if (searchObject[current]['_use']) searchResult = searchCache + current
+            searchCache = searchCache + current
             searchObject = searchObject[current]
             searchIndex = searchIndex + 1
           }
@@ -80,6 +86,6 @@ const tokenizer = (text) => {
 
 module.exports.tokenizer = tokenizer
 
-// const tokenizerProcess = tokenizer(`秋天天气真好啊123`)
+// const tokenizerProcess = tokenizer(`觥饭不及壶`)
 
 // while (tokenizerProcess.next) console.log(tokenizerProcess.next().result)
