@@ -47,8 +47,8 @@ const comparator = (token, library) => {
         process.step = process.step + 1
       },
       () => {
-        const currentVectors = process.library[2][process.tokenIndex]
-        const targetVectors = process.library[2][process.index]
+        const currentVectors = process.library[3][process.tokenIndex]
+        const targetVectors = process.library[3][process.index]
 
         const compareResult = cosineSimilarity(currentVectors, targetVectors)
 
@@ -56,7 +56,7 @@ const comparator = (token, library) => {
 
         process.index = process.index + 1
 
-        if (process.library[2][process.index] === undefined) process.step = process.step + 1
+        if (process.library[3][process.index] === undefined) process.step = process.step + 1
       }
     ]
 

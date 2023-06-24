@@ -26,8 +26,8 @@ const calculator = (token, setting, library) => {
         })
 
         process.result[1] = process.token.map(i => i.map(i => process.result[0].indexOf(i)))
-        process.result[2] = new Array(process.result[0].length).fill().map(() => new Array(process.setting.vectorsDimensions).fill().map(() => Math.random() * 2 - 1))
-        process.result[3] = [{}]
+        process.result[2] = [{}]
+        process.result[3] = new Array(process.result[0].length).fill().map(() => new Array(process.setting.vectorsDimensions).fill().map(() => Math.random() * 2 - 1))
 
         process.step = process.step + 1
       },
@@ -36,7 +36,7 @@ const calculator = (token, setting, library) => {
         process.step = process.step + 1
       },
       () => {
-        var expect = new Array(process.result[2].length).fill().map(() => new Array(process.setting.vectorsDimensions).fill().map(() => []))
+        var expect = new Array(process.result[3].length).fill().map(() => new Array(process.setting.vectorsDimensions).fill().map(() => []))
 
         var list = []
 
@@ -45,9 +45,9 @@ const calculator = (token, setting, library) => {
             const min = Math.max(index_ - process.setting.vectorsWindows, 0)
             const max = Math.min(index_ + process.setting.vectorsWindows, i.length - 1)
 
-            const pre = i.slice(min, index_).map(i => process.result[2][i])
-            const current = i.slice(index_, index_ + 1).map(i => process.result[2][i])
-            const next = i.slice(index_ + 1, max + 1).map(i => process.result[2][i])
+            const pre = i.slice(min, index_).map(i => process.result[3][i])
+            const current = i.slice(index_, index_ + 1).map(i => process.result[3][i])
+            const next = i.slice(index_ + 1, max + 1).map(i => process.result[3][i])
             const all = [...pre, ...next]
 
             const tokenIndex = i_
@@ -70,24 +70,24 @@ const calculator = (token, setting, library) => {
 
         expect.forEach((i, index) => expect[index].forEach((i_, index_) => expect[index][index_] = expect[index][index_].reduce((t, i) => t + i, 0) / expect[index][index_].length))
 
-        process.result[2].forEach((i, index) => process.result[2][index].forEach((i_, index_) => process.result[2][index][index_] = process.result[2][index][index_] + (expect[index][index_] - process.result[2][index][index_]) * process.setting.vectorsRate))
+        process.result[3].forEach((i, index) => process.result[3][index].forEach((i_, index_) => process.result[3][index][index_] = process.result[3][index][index_] + (expect[index][index_] - process.result[3][index][index_]) * process.setting.vectorsRate))
 
-        // process.result[2].forEach((i, index) => {
+        // process.result[3].forEach((i, index) => {
         //   var max = 0
         //   i.forEach((i_) => max = Math.max(max, i_))
-        //   if (max > 1) i.forEach((i_, index_) => process.result[2][index][index_] = process.result[2][index][index_] / max)
+        //   if (max > 1) i.forEach((i_, index_) => process.result[3][index][index_] = process.result[3][index][index_] / max)
         // })
 
         // var max = 0
-        // process.result[2].forEach((i) => i.forEach((i_) => max = Math.max(max, i_)))
-        // process.result[2].forEach((i, index) => i.forEach((i_, index_) => process.result[2][index][index_] = process.result[2][index][index_] / max))
+        // process.result[3].forEach((i) => i.forEach((i_) => max = Math.max(max, i_)))
+        // process.result[3].forEach((i, index) => i.forEach((i_, index_) => process.result[3][index][index_] = process.result[3][index][index_] / max))
 
         process.index = process.index + 1
 
         if (process.index === process.setting.vectorsIterations) process.step = process.step + 1
       },
       () => {
-        process.result[2].forEach((i, index) => i.forEach((i_, index_) => process.result[2][index][index_] = Number(process.result[2][index][index_].toFixed(8))))
+        process.result[3].forEach((i, index) => i.forEach((i_, index_) => process.result[3][index][index_] = Number(process.result[3][index][index_].toFixed(8))))
 
         process.step = process.step + 1
       },
@@ -115,7 +115,7 @@ const calculator = (token, setting, library) => {
 
           if (pre.length === 0) return
 
-          var currentPosition = process.result[3][0]
+          var currentPosition = process.result[2][0]
 
           pre.forEach(i => {
             if (currentPosition[i] === undefined) currentPosition[i] = {}
@@ -134,7 +134,7 @@ const calculator = (token, setting, library) => {
           Object.keys(object).forEach(i => loop(object[i]))
         }
 
-        loop(process.result[3][0])
+        loop(process.result[2][0])
 
         process.step = process.step + 1
       }

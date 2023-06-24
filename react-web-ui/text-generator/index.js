@@ -22,7 +22,7 @@ const search = (process) => {
   process.searchResult = use.reduce((t, i, index) => {
     if (t.length > 0) return t
 
-    var cache = process.library[3][0]
+    var cache = process.library[2][0]
 
     const list = use.slice(index, use.length)
 
