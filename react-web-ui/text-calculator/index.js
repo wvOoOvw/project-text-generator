@@ -1,9 +1,3 @@
-const sigmoid = (x) => {
-  if (x === 0) return 0
-  if (x > 0) return 1 / (1 + Math.exp(-x)) - 0.5
-  if (x < 0) return -1 / (1 + Math.exp(-x)) + 0.5
-}
-
 const shuffleArray = (array) => {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -80,10 +74,6 @@ const calculator = (token, setting, library) => {
         //   if (max > 1) i.forEach((i_, index_) => process.result[3][index][index_] = process.result[3][index][index_] / max)
         // })
 
-        // var max = 0
-        // process.result[3].forEach((i) => i.forEach((i_) => max = Math.max(max, i_)))
-        // process.result[3].forEach((i, index) => i.forEach((i_, index_) => process.result[3][index][index_] = process.result[3][index][index_] / max))
-
         process.index = process.index + 1
 
         if (process.index === process.setting.vectorsIterations) process.step = process.step + 1
@@ -139,7 +129,7 @@ const calculator = (token, setting, library) => {
         loop(process.result[2][0])
 
         process.step = process.step + 1
-      }
+      },
     ]
 
     if (functions[process.step] !== undefined) functions[process.step]()

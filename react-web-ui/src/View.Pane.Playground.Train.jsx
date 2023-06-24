@@ -70,7 +70,7 @@ function SettingDialog(props) {
 
 function App() {
   const [prompt, setPrompt] = React.useState(Imitation.state.library[1].map(i => i.map(i => Imitation.state.library[0][i]).join('')).join('\n\n'))
-  const [setting, setSetting] = React.useState({ vectorsDimensions: 100, vectorsRate: 0.025, vectorsWindows: 4, vectorsIterations: 100, ngramWindows: 8 })
+  const [setting, setSetting] = React.useState({ vectorsDimensions: 50, vectorsRate: 0.025, vectorsWindows: 4, vectorsIterations: 100, ngramWindows: 8 })
   const [settingDialog, setSettingDialog] = React.useState()
 
   const train = async () => {

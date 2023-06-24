@@ -19,6 +19,8 @@ import Imitation from './utils.imitation'
 
 import { generator } from '../text-generator/index'
 
+import { tokenFormat, requestRender, requestCallback } from './utils.common'
+
 function SettingDialog(props) {
   return <Dialog open={props.open} sx={{ '& .MuiDialog-paper': { width: '100%', maxWidth: 720 } }} onClose={() => props.onClose()}>
     <DialogTitle style={{ fontSize: 16 }}>Settings</DialogTitle>
@@ -184,15 +186,21 @@ function App() {
   const [resultDialogOrigin, setResultDialogOrigin] = React.useState([])
 
   const generate = async () => {
+    const generatorProcessLoop = async (generatorProcess) => {
+      const r = await new Promise(r => {
+        const loop = () => generatorProcess.next ? requestRender()(() => { generatorProcess.next(); loop() }) : r(generatorProcess.searchResult)
+
+        loop()
+      })
+
+      return r
+    }
+
     Imitation.setState(pre => { pre.loading = pre.loading + 1; return pre })
 
     console.log(token)
 
-    const generatorProcess = generator(token, setting, Imitation.state.library)
-
-    generatorProcess.next()
-
-    const result = generatorProcess.searchResult
+    const result = await generatorProcessLoop(generator(token, setting, Imitation.state.library))
 
     console.log(result)
 
