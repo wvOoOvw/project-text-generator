@@ -188,7 +188,7 @@ function App() {
   const generate = async () => {
     const generatorProcessLoop = async (generatorProcess) => {
       const r = await new Promise(r => {
-        const loop = () => generatorProcess.next ? requestRender()(() => { generatorProcess.next(); loop() }) : r(generatorProcess.searchResult)
+        const loop = () => generatorProcess.next ? requestCallback()(() => { generatorProcess.next(); loop() }) : r(generatorProcess.searchResult)
 
         loop()
       })
@@ -203,6 +203,8 @@ function App() {
     const result = await generatorProcessLoop(generator(token, setting, Imitation.state.library))
 
     console.log(result)
+
+    await new Promise(r => setTimeout(r, 500))
 
     Imitation.setState(pre => { pre.loading = pre.loading - 1; return pre })
 

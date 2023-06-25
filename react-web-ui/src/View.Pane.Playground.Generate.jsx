@@ -129,9 +129,9 @@ function App() {
     <textarea value={prompt} onChange={e => setPrompt(e.target.value)} style={{ width: '100%', height: '100%', lineHeight: 1.5, border: 'none', outline: 'none', resize: 'none', padding: 16, paddingBottom: 68 }} ref={el => ref.current = el} />
 
     <div style={{ position: 'absolute', bottom: 16, left: 0, right: 0, margin: 'auto', width: 'fit-content', display: 'flex' }}>
-      <Button variant='contained' style={{ textTransform: 'none', margin: '0 4px' }} onClick={() => setSettingDialog(true)}><SettingsIcon /></Button>
-      <Button variant='contained' style={{ textTransform: 'none', margin: '0 4px' }} onClick={() => generate()}><SendIcon /></Button>
-      <Button variant='contained' style={{ textTransform: 'none', margin: '0 4px' }} onClick={() => generate({ createTokenLength: 1 })}>Next</Button>
+      <Button variant='contained' style={{ textTransform: 'none', margin: '0 8px' }} onClick={() => setSettingDialog(true)}><SettingsIcon /></Button>
+      <Button variant='contained' style={{ textTransform: 'none', margin: '0 8px' }} onClick={() => generate()}><SendIcon /></Button>
+      <Button variant='contained' style={{ textTransform: 'none', margin: '0 8px' }} onClick={() => generate({ createTokenLength: 1 })}>Next</Button>
     </div>
 
     <SettingDialog open={Boolean(settingDialog)} onClose={() => setSettingDialog()} setting={setting} setSetting={setSetting} prompt={prompt} />

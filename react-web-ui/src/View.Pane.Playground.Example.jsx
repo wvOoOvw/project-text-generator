@@ -47,17 +47,15 @@ function App() {
         {
           renderList.map((i, index) => {
             return <Card onClick={() => apply(i)} style={{ width: 320, maxWidth: '100%', height: 220, margin: 8 }} key={index}>
-              <Tooltip title={i.name}>
-                <CardActionArea style={{ width: '100%', height: '100%' }}>
-                  <CardContent style={{ width: '100%', height: '100%' }}>
-                    <div style={{ fontSize: 16, textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }}>
-                      {i.name}
-                    </div>
-                    <Divider style={{ margin: '16px 0' }} />
-                    <div style={{ lineHeight: 1.5 }}>{i.description}</div>
-                  </CardContent>
-                </CardActionArea>
-              </Tooltip>
+              <CardActionArea style={{ width: '100%', height: '100%' }}>
+                <CardContent style={{ width: '100%', height: '100%' }}>
+                  <div style={{ fontSize: 16, textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }}>
+                    {i.name}
+                  </div>
+                  <Divider style={{ margin: '16px 0' }} />
+                  <div style={{ lineHeight: 1.5 }}>{i.description}</div>
+                </CardContent>
+              </CardActionArea>
             </Card>
           })
         }

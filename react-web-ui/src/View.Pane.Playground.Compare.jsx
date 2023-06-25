@@ -158,7 +158,17 @@ function App() {
       return r
     }
 
+    Imitation.setState(pre => { pre.loading = pre.loading + 1; return pre })
+
+    console.log(compare)
+
     const result = await comparatorProcessLoop(comparator(compare, Imitation.state.library)).then(res => res.sort((a, b) => b.percent - a.percent).map(i => { i.percent = Math.pow(i.percent, setting.expansion); return i }))
+
+    console.log(result)
+
+    await new Promise(r => setTimeout(r, 500))
+
+    Imitation.setState(pre => { pre.loading = pre.loading - 1; return pre })
 
     setResultDialog(true)
 
@@ -174,8 +184,8 @@ function App() {
     </div>
 
     <div style={{ position: 'absolute', bottom: 16, left: 0, right: 0, margin: 'auto', width: 'fit-content', display: 'flex' }}>
-      <Button variant='contained' style={{ textTransform: 'none', margin: '0 4px' }} onClick={() => setSettingDialog(true)}><SettingsIcon /></Button>
-      <Button variant='contained' style={{ textTransform: 'none', margin: '0 4px' }} onClick={() => compareResult()}><SendIcon /></Button>
+      <Button variant='contained' style={{ textTransform: 'none', margin: '0 8px' }} onClick={() => setSettingDialog(true)}><SettingsIcon /></Button>
+      <Button variant='contained' style={{ textTransform: 'none', margin: '0 8px' }} onClick={() => compareResult()}><SendIcon /></Button>
     </div>
 
     <SettingDialog open={Boolean(settingDialog)} onClose={() => setSettingDialog()} setting={setting} setSetting={setSetting} prompt={prompt} />
