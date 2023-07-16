@@ -24,7 +24,7 @@ function SettingDialog(props) {
     <DialogContent dividers>
       <Grid container spacing={1}>
 
-        <Grid item xs={12}>
+        {/* <Grid item xs={12}>
           vectorsDimensions {props.setting.vectorsDimensions}
         </Grid>
         <Grid item xs={12}>
@@ -50,7 +50,7 @@ function SettingDialog(props) {
         </Grid>
         <Grid item xs={12}>
           <Slider value={props.setting.vectorsIterations} onChange={(e, v) => props.setSetting(pre => { pre.vectorsIterations = v; return { ...pre } })} min={0} max={1000} step={1} />
-        </Grid>
+        </Grid> */}
 
         <Grid item xs={12}>
           ngramWindows {props.setting.ngramWindows}
