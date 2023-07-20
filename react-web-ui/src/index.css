@@ -11,10 +11,6 @@ body * {
   /* user-select: none; */
 }
 
-textarea {
-  line-height: 1.5 !important;
-}
-
 ::-webkit-scrollbar {
   width: 0;
   height: 0;

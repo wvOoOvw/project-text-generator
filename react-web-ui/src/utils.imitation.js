@@ -9,7 +9,7 @@ ImitationINS.state = {
 
   visitorId: '',
 
-  playgroundView: 'Action',
+  playgroundView: 'Default',
 
   library: null,
 }

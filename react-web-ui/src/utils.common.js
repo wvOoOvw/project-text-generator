@@ -35,7 +35,7 @@ const tokenFormat = (token, action) => {
   if (action === 2) {
     token.forEach((i, index) => {
       r.push(token[index])
-      if (token[index].match(/^[a-z|A-Z|'|,|\.]+$/) && token[index + 1] && token[index + 1].match(/^[a-z|A-Z|'|,|\.]+$/)) r.push(' ')
+      if (token[index].match(/^[a-z|A-Z|'|,|\.]+$/) && token[index + 1] && token[index + 1].match(/^[a-z|A-Z|']+$/)) r.push(' ')
       if (token[index] === '.' && token[index + 1] && token[index + 1].match(/^[a-z|A-Z|'|,|\.]+$/)) r.push(' ')
       if (token[index] === ',' && token[index + 1] && token[index + 1].match(/^[a-z|A-Z|'|,|\.]+$/)) r.push(' ')
     })

@@ -133,7 +133,7 @@ const generator = (token, setting, library) => {
         if (process.matchResult !== '') process.result.push(process.matchResult)
         
         if (process.matchResult === '') process.step = -1
-        if (process.cacheRepeat.index > 4) process.step = -1
+        if (process.cacheRepeat.index > process.setting.repeatMaxTime) process.step = -1
         if (process.setting.stopToken && process.setting.stopToken.includes(process.matchResult)) process.step = -1
         if (process.result.length === process.setting.createTokenLength) process.step = -1
       }

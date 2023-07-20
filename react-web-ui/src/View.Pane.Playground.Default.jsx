@@ -1,37 +1,22 @@
 import React from 'react'
 
-import Button from '@mui/material/Button'
-import Divider from '@mui/material/Divider'
+import Paper from '@mui/material/Paper'
 
-import Imitation from './utils.imitation'
+const Action = React.lazy(() => import('./View.Pane.Playground.Action'))
+const Train = React.lazy(() => import('./View.Pane.Playground.Train'))
+const Generate = React.lazy(() => import('./View.Pane.Playground.Generate'))
 
 function App() {
 
   return <>
 
-    <div style={{ width: '100%', height: '100%', padding: 16, overflow: 'auto' }}>
+    <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column' }}>
 
-      <div style={{ margin: 'auto', width: 'fit-content', padding: '48px 0' }}>
-        <div style={{ fontSize: 32, marginBottom: 16, textAlign: 'center' }}>Text Generator Web</div>
-        <div style={{ textAlign: 'center' }}>For Free</div>
-      </div>
+      <Paper style={{ margin: 16 }}><Action /></Paper>
 
-      <Divider />
-
-      <div style={{ margin: 'auto', width: 'fit-content', padding: '48px 0' }}>
-        <div style={{ fontSize: 20, marginBottom: 32, textAlign: 'center' }}>How to use</div>
-        <Button fullWidth color='inherit' style={{ textTransform: 'none', marginBottom: 16, display: 'flex', justifyContent: 'left', alignItems: 'center', flexWrap: 'wrap' }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'Example'; return pre })}>
-          <div>Step 1. preselect example model (optional)</div>
-        </Button>
-        <Button fullWidth color='inherit' style={{ textTransform: 'none', marginBottom: 16, display: 'flex', justifyContent: 'left', alignItems: 'center', flexWrap: 'wrap' }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'Predict'; return pre })}>
-          <div>Step 2. view your model's information</div>
-        </Button>
-        <Button fullWidth color='inherit' style={{ textTransform: 'none', marginBottom: 16, display: 'flex', justifyContent: 'left', alignItems: 'center', flexWrap: 'wrap' }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'Train'; return pre })}>
-          <div>Step 3. train your custom model</div>
-        </Button>
-        <Button fullWidth color='inherit' style={{ textTransform: 'none', marginBottom: 16, display: 'flex', justifyContent: 'left', alignItems: 'center', flexWrap: 'wrap' }} onClick={() => Imitation.setState(pre => { pre.playgroundView = 'Generate'; return pre })}>
-          <div>Step 4. use your model to generate text</div>
-        </Button>
+      <div style={{ display: 'flex', flexGrow: 1 }}>
+        <Paper style={{ width: '50%', margin: 16, position: 'relative' }}><Train /></Paper>
+        <Paper style={{ width: '50%', margin: 16, position: 'relative' }}><Generate /></Paper>
       </div>
 
     </div>

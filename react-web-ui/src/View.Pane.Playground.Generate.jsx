@@ -8,15 +8,12 @@ import DialogTitle from '@mui/material/DialogTitle'
 import DialogActions from '@mui/material/DialogActions'
 import Slider from '@mui/material/Slider'
 
-import SettingsIcon from '@mui/icons-material/Settings'
-import SendIcon from '@mui/icons-material/Send'
-
 import Imitation from './utils.imitation'
 
 import { tokenizer } from '../text-tokenizer/index'
 import { generator } from '../text-generator/index'
 
-import { tokenFormat, requestRender } from './utils.common'
+import { requestRender } from './utils.common'
 
 function SettingDialog(props) {
   return <Dialog open={props.open} sx={{ '& .MuiDialog-paper': { width: '100%', maxWidth: 720 } }} onClose={() => props.onClose()}>
@@ -78,7 +75,7 @@ function SettingDialog(props) {
 function App() {
   const ref = React.useRef()
   const [prompt, setPrompt] = React.useState('')
-  const [setting, setSetting] = React.useState({ createTokenLength: 1024, memoryContextLength: 4, topP: 0.9, temperature: 1.5, repeatLength: 8, repeatDistance: 1024, repeatMaxTime: 16, punctuationSpace: 8, stopToken: '' })
+  const [setting, setSetting] = React.useState({ createTokenLength: 1024, memoryContextLength: 4, topP: 0.9, temperature: 1.5, repeatLength: 8, repeatDistance: 1024, repeatMaxTime: 4, punctuationSpace: 8, stopToken: '' })
   const [settingDialog, setSettingDialog] = React.useState()
   const [running, setRunning] = React.useState(false)
 
@@ -95,7 +92,7 @@ function App() {
 
     const generatorProcessLoop = async (generatorProcess) => {
       const r = await new Promise(r => {
-        const loop = () => generatorProcess.next ? requestRender()(() => { generatorProcess.next(); setPrompt([...generatorProcess.token, ...tokenFormat(generatorProcess.result, 2)].join('')); loop() }) : r(generatorProcess.result)
+        const loop = () => generatorProcess.next ? requestRender()(() => { generatorProcess.next(); setPrompt([...generatorProcess.token, ...generatorProcess.result].join('')); loop() }) : r(generatorProcess.result)
 
         loop()
       })
@@ -128,9 +125,11 @@ function App() {
 
     <textarea value={prompt} onChange={e => setPrompt(e.target.value)} style={{ width: '100%', height: '100%', lineHeight: 1.5, border: 'none', outline: 'none', resize: 'none', padding: 16, paddingBottom: 68 }} ref={el => ref.current = el} />
 
+    <div style={{ position: 'absolute', bottom: 16, left: 16, fontSize: 12 }}>{prompt.length}</div>
+
     <div style={{ position: 'absolute', bottom: 16, left: 0, right: 0, margin: 'auto', width: 'fit-content', display: 'flex' }}>
-      <Button variant='contained' style={{ textTransform: 'none', margin: '0 8px' }} onClick={() => setSettingDialog(true)}><SettingsIcon /></Button>
-      <Button variant='contained' style={{ textTransform: 'none', margin: '0 8px' }} onClick={() => generate()}><SendIcon /></Button>
+      <Button variant='contained' style={{ textTransform: 'none', margin: '0 8px' }} onClick={() => setSettingDialog(true)}>Setting</Button>
+      <Button variant='contained' style={{ textTransform: 'none', margin: '0 8px' }} onClick={() => generate()}>Generate</Button>
       <Button variant='contained' style={{ textTransform: 'none', margin: '0 8px' }} onClick={() => generate({ createTokenLength: 1 })}>Next</Button>
     </div>
 

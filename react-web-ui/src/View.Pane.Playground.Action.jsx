@@ -58,7 +58,7 @@ function App() {
 
   return <>
 
-    <div style={{ width: '100%', height: '100%', margin: 'auto', padding: 16, paddingBottom: 68, overflow: 'auto', display: 'flex', justifyContent: 'center', alignContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+    <div style={{ width: '100%', height: '100%', margin: 'auto', padding: 16, overflow: 'auto', display: 'flex', justifyContent: 'center', alignContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
       <Button variant='contained' style={{ textTransform: 'none', margin: 8 }} onClick={clear}>Clear Storage</Button>
       <Button variant='contained' style={{ textTransform: 'none', margin: 8 }} onClick={input}>Input Library</Button>
       <Button variant='contained' style={{ textTransform: 'none', margin: 8 }} onClick={copy}>Copy Library</Button>
