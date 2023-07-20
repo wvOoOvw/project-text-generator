@@ -11,7 +11,7 @@ function App() {
     Imitation.dispatch()
   }
 
-  const copy = () => {
+  const output = () => {
     const input = document.createElement('input')
     document.body.appendChild(input)
     input.setAttribute('value', JSON.stringify(Imitation.state.library))
@@ -61,7 +61,7 @@ function App() {
     <div style={{ width: '100%', height: '100%', margin: 'auto', padding: 16, overflow: 'auto', display: 'flex', justifyContent: 'center', alignContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
       <Button variant='contained' style={{ textTransform: 'none', margin: 8 }} onClick={clear}>Clear Storage</Button>
       <Button variant='contained' style={{ textTransform: 'none', margin: 8 }} onClick={input}>Input Library</Button>
-      <Button variant='contained' style={{ textTransform: 'none', margin: 8 }} onClick={copy}>Copy Library</Button>
+      <Button variant='contained' style={{ textTransform: 'none', margin: 8 }} onClick={output}>Output Library</Button>
       <Button variant='contained' style={{ textTransform: 'none', margin: 8 }} onClick={download}>Download Library</Button>
       <label>
         <Button variant='contained' style={{ textTransform: 'none', margin: 8 }} component='div'>Upload Library</Button>

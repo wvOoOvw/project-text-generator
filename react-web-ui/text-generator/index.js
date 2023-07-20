@@ -26,7 +26,7 @@ const search = (process) => {
 
     const list = use.slice(index, use.length)
 
-    list.forEach(i => cache = cache && cache[i] ? cache[i] : null)
+    list.forEach(i => cache = cache && cache[i] && cache[i].w === undefined ? cache[i] : null)
 
     if (cache) return Object.entries(cache).map(i => ({ token: process.library[0][i[0]], weight: getWeight(i[1]) }))
 
@@ -125,8 +125,6 @@ const generator = (token, setting, library) => {
         repeat(process)
         search(process)
         match(process)
-
-        console.log(process.searchResult, process.matchResult)
 
         process.index = process.index + 1
 

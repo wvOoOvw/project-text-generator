@@ -91,7 +91,7 @@ function App() {
   }
 
   React.useEffect(() => {
-    if (prompt === '') setPrompt(Imitation.state.library[1].map(i => i.map(i => (Imitation.state.library[0][i])).join('')).join('\n\n'))
+    if (Imitation.state.library) setPrompt(Imitation.state.library[1].map(i => i.map(i => (Imitation.state.library[0][i])).join('')).join('\n\n'))
   }, [Imitation.state.library])
 
   return <>
