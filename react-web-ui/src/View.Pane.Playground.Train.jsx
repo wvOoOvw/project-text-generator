@@ -38,7 +38,7 @@ function SettingDialog(props) {
 }
 
 function App() {
-  const [prompt, setPrompt] = React.useState(Imitation.state.library ? Imitation.state.library[1].map(i => i.map(i => (Imitation.state.library[0][i])).join('')).join('\n\n') : '')
+  const [prompt, setPrompt] = React.useState('')
   const [setting, setSetting] = React.useState({ ngramWindows: 8 })
   const [settingDialog, setSettingDialog] = React.useState()
 
@@ -89,6 +89,10 @@ function App() {
     Imitation.state.message = 'Updated'
     Imitation.dispatch()
   }
+
+  React.useEffect(() => {
+    if (prompt === '') setPrompt(Imitation.state.library[1].map(i => i.map(i => (Imitation.state.library[0][i])).join('')).join('\n\n'))
+  }, [Imitation.state.library])
 
   return <>
 
