@@ -6,7 +6,7 @@ import Imitation from './utils.imitation'
 
 function App() {
   const clear = () => {
-    Imitation.state.library = [[], [], [], []]
+    Imitation.state.library = null
     Imitation.state.message = 'Clear'
     Imitation.dispatch()
   }
@@ -48,10 +48,19 @@ function App() {
     reader.readAsText(file)
   }
 
+  const input = () => {
+    const data = window.prompt()
+
+    Imitation.state.library = JSON.parse(data)
+    Imitation.state.message = 'Load'
+    Imitation.dispatch()
+  }
+
   return <>
 
     <div style={{ width: '100%', height: '100%', margin: 'auto', padding: 16, paddingBottom: 68, overflow: 'auto', display: 'flex', justifyContent: 'center', alignContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
       <Button variant='contained' style={{ textTransform: 'none', margin: 8 }} onClick={clear}>Clear Storage</Button>
+      <Button variant='contained' style={{ textTransform: 'none', margin: 8 }} onClick={input}>Input Library</Button>
       <Button variant='contained' style={{ textTransform: 'none', margin: 8 }} onClick={copy}>Copy Library</Button>
       <Button variant='contained' style={{ textTransform: 'none', margin: 8 }} onClick={download}>Download Library</Button>
       <label>

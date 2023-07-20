@@ -5,8 +5,6 @@ import Divider from '@mui/material/Divider'
 
 import Imitation from './utils.imitation'
 
-import { Advence } from './View.Extal.Advence'
-
 function App() {
 
   return <>
@@ -35,12 +33,6 @@ function App() {
           <div>Step 4. use your model to generate text</div>
         </Button>
       </div>
-
-      {/* <Divider />
-
-      <div style={{ margin: 'auto', width: 'fit-content', padding: '48px 0' }}>
-        <Advence />
-      </div> */}
 
     </div>
 

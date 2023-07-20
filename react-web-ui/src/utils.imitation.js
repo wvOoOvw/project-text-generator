@@ -9,11 +9,9 @@ ImitationINS.state = {
 
   visitorId: '',
 
-  advence: false,
+  playgroundView: 'Action',
 
-  playgroundView: 'Default',
-
-  library: [[], [], [], []],
+  library: null,
 }
 
 export default ImitationINS

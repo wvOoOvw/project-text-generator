@@ -24,6 +24,7 @@ function SuspenseLoading() {
   return null
 }
 
+
 function App() {
   return <Paper style={{ width: '100%', height: '100%', background: 'rgba(255, 255, 255, 1)', position: 'relative' }}>
 
@@ -48,11 +49,11 @@ function App() {
     }
 
     {
-      Imitation.state.playgroundView === 'Train' ? <React.Suspense fallback={<SuspenseLoading />} children={<Train />} /> : null
+      Imitation.state.playgroundView === 'Train' && Imitation.state.library ? <React.Suspense fallback={<SuspenseLoading />} children={<Train />} /> : null
     }
 
     {
-      Imitation.state.playgroundView === 'Generate' ? <React.Suspense fallback={<SuspenseLoading />} children={<Generate />} /> : null
+      Imitation.state.playgroundView === 'Generate' && Imitation.state.library ? <React.Suspense fallback={<SuspenseLoading />} children={<Generate />} /> : null
     }
 
     {
