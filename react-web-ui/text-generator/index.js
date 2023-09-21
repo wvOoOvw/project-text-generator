@@ -28,13 +28,13 @@ const search = (process) => {
 
     list.forEach(i => cache = cache && cache[i] && cache[i].w === undefined ? cache[i] : null)
 
-    if (cache) return Object.entries(cache).map(i => ({ token: process.library[0][i[0]], weight: getWeight(i[1]) }))
+    if (cache) return Object.entries(cache).map(i => ({ token: i[0], word: process.library[0][i[0]], weight: getWeight(i[1]) }))
 
     return t
   }, process.searchResult)
 
   process.searchResult = process.searchResult.map(i => {
-    if (i.token.match(/[！？。，]/)) {
+    if (i.word.match(/[！？。，]/)) {
       const index = reverse.findIndex(i => i.match(/[！？。，]/))
       if (index > -1 && index < process.setting.punctuationSpace) i.weight = i.weight / 4
     }
@@ -45,12 +45,12 @@ const search = (process) => {
       const index = reverse.findIndex(i => i.match(i_[0]))
       const index_ = reverse.findIndex(i => i.match(i_[1]))
 
-      if (i.token.match(i_[0]) !== null) {
+      if (i.word.match(i_[0]) !== null) {
         if (index !== -1 && index_ === -1) i.weight = i.weight / 4
         if (index !== -1 && index_ !== -1 && index < index_) i.weight = i.weight / 4
       }
 
-      if (i.token.match(i_[1]) !== null) {
+      if (i.word.match(i_[1]) !== null) {
         if (index === -1 && index_ === -1) i.weight = i.weight / 4
         if (index === -1 && index_ !== -1) i.weight = i.weight / 4
         if (index !== -1 && index_ !== -1 && index > index_) i.weight = i.weight / 4
@@ -64,6 +64,8 @@ const search = (process) => {
 }
 
 const match = (process) => {
+  process.matchResult = null
+
   var topP = process.setting.topP + (1 - process.setting.topP) * (process.cacheRepeat.index / 4)
   var temperature = process.setting.temperature + (0 - process.setting.temperature) * (process.cacheRepeat.index / 4)
 
@@ -84,7 +86,9 @@ const match = (process) => {
 
   const random = Math.random()
 
-  process.matchResult = process.searchResult.reduce((t, i) => t === '' && random < i.percentAccumulation ? i.token : t, '')
+  process.matchResult = process.searchResult.reduce((t, i) => t === null && random < i.percentAccumulation ? i.word : t, process.matchResult)
+
+  if (process.matchResult === null && process.token.length === 0) process.matchResult = process.library[0][Math.floor(Math.random() * process.library[0].length)]
 }
 
 const repeat = (process) => {
@@ -108,7 +112,6 @@ const repeat = (process) => {
 const generator = (token, setting, library) => {
   const process = { token: token, setting: setting, library: library, step: 0, result: [], next: () => next() }
 
-
   const next = () => {
 
     const functions = [
@@ -128,9 +131,9 @@ const generator = (token, setting, library) => {
 
         process.index = process.index + 1
 
-        if (process.matchResult !== '') process.result.push(process.matchResult)
-        
-        if (process.matchResult === '') process.step = -1
+        if (process.matchResult !== null) process.result.push(process.matchResult)
+
+        if (process.matchResult === null) process.step = -1
         if (process.cacheRepeat.index > process.setting.repeatMaxTime) process.step = -1
         if (process.setting.stopToken && process.setting.stopToken.includes(process.matchResult)) process.step = -1
         if (process.result.length === process.setting.createTokenLength) process.step = -1
