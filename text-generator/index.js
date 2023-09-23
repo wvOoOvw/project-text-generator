@@ -28,13 +28,13 @@ const search = (process) => {
 
     list.forEach(i => cache = cache && cache[i] && cache[i].w === undefined ? cache[i] : null)
 
-    if (cache) return Object.entries(cache).map(i => ({ token: i[0], word: process.library[0][i[0]], weight: getWeight(i[1]) }))
+    if (cache) return Object.entries(cache).map(i => ({ tokenIndex: i[0], token: process.library[0][i[0]], weight: getWeight(i[1]) }))
 
     return t
   }, process.searchResult)
 
   process.searchResult = process.searchResult.map(i => {
-    if (i.word.match(/[！？。，]/)) {
+    if (i.token.match(/[！？。，]/)) {
       const index = reverse.findIndex(i => i.match(/[！？。，]/))
       if (index > -1 && index < process.setting.punctuationSpace) i.weight = i.weight / 4
     }
@@ -45,12 +45,12 @@ const search = (process) => {
       const index = reverse.findIndex(i => i.match(i_[0]))
       const index_ = reverse.findIndex(i => i.match(i_[1]))
 
-      if (i.word.match(i_[0]) !== null) {
+      if (i.token.match(i_[0]) !== null) {
         if (index !== -1 && index_ === -1) i.weight = i.weight / 4
         if (index !== -1 && index_ !== -1 && index < index_) i.weight = i.weight / 4
       }
 
-      if (i.word.match(i_[1]) !== null) {
+      if (i.token.match(i_[1]) !== null) {
         if (index === -1 && index_ === -1) i.weight = i.weight / 4
         if (index === -1 && index_ !== -1) i.weight = i.weight / 4
         if (index !== -1 && index_ !== -1 && index > index_) i.weight = i.weight / 4
@@ -86,7 +86,7 @@ const match = (process) => {
 
   const random = Math.random()
 
-  process.matchResult = process.searchResult.reduce((t, i) => t === null && random < i.percentAccumulation ? i.word : t, process.matchResult)
+  process.matchResult = process.searchResult.reduce((t, i) => t === null && random < i.percentAccumulation ? i.token : t, process.matchResult)
 
   if (process.matchResult === null && process.token.length === 0) process.matchResult = process.library[0][Math.floor(Math.random() * process.library[0].length)]
 }

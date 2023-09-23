@@ -33,14 +33,8 @@ const tokenizer = (text) => {
 
         var matchResult = searchResult ? searchResult : process.text.slice(process.index, process.index + 1)
 
-        if (matchResult.match(/^[\d]+$/)) {
-          while (process.text[process.index + matchResult.length] && process.text[process.index + matchResult.length].match(/^[a-z|A-Z|\d|-|\/|\.]+$/)) {
-            matchResult = matchResult + process.text[process.index + matchResult.length]
-          }
-        }
-
-        if (matchResult.match(/^[a-z|A-Z]+$/)) {
-          while (process.text[process.index + matchResult.length] && process.text[process.index + matchResult.length].match(/^[a-z|A-Z|\d|-|'|\/]+$/)) {
+        if (matchResult.match(/^[a-z|A-Z|\d|-|%|\/|\.]+$/)) {
+          while (process.text[process.index + matchResult.length] && process.text[process.index + matchResult.length].match(/^[a-z|A-Z|\d|-|%|\/|\.]+$/)) {
             matchResult = matchResult + process.text[process.index + matchResult.length]
           }
         }
@@ -68,6 +62,6 @@ const tokenizer = (text) => {
 
 module.exports.tokenizer = tokenizer
 
-// const tokenizerProcess = tokenizer(`觥饭不及壶`)
+// const tokenizerProcess = tokenizer(`皮糜烂的，80%都是混合真菌感染\n\n这种情况要想把感染源遏`)
 
 // while (tokenizerProcess.next) console.log(tokenizerProcess.next().result)
