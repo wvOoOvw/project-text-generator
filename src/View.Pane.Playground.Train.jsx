@@ -45,7 +45,7 @@ function App() {
       const r = await new Promise(r => {
         const loop = () => {
           requestIdleCallback(idle => {
-            while (idle.timeRemaining() > 0 && tokenizerProcess.next !== null) tokenizerProcess.next()
+            while (idle.timeRemaining() > 2 && tokenizerProcess.next !== null) tokenizerProcess.next()
             if (tokenizerProcess.next !== null) loop(r)
             if (tokenizerProcess.next === null) r(tokenizerProcess.result)
           })
@@ -61,7 +61,7 @@ function App() {
       const r = await new Promise(r => {
         const loop = () => {
           requestIdleCallback(idle => {
-            while (idle.timeRemaining() > 0 && calculatorProcess.next !== null) calculatorProcess.next()
+            while (idle.timeRemaining() > 2 && calculatorProcess.next !== null) calculatorProcess.next()
             if (calculatorProcess.next !== null) loop(r)
             if (calculatorProcess.next === null) r(calculatorProcess.result)
           })
