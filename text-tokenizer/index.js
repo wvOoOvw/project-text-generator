@@ -52,7 +52,7 @@ const tokenizer = (text) => {
     ]
 
     if (functions[process.step] !== undefined) functions[process.step]()
-    if (functions[process.step] === undefined) process.next = undefined
+    if (functions[process.step] === undefined) process.next = null
 
     return process
   }

@@ -10,8 +10,6 @@ import Slider from '@mui/material/Slider'
 
 import Imitation from './utils.imitation'
 
-import { requestCallback } from './utils.common'
-
 import { tokenizer } from '../text-tokenizer/index'
 import { calculator } from '../text-calculator/index'
 
@@ -45,7 +43,13 @@ function App() {
   const train = async () => {
     const tokenizerProcessLoop = async (tokenizerProcess) => {
       const r = await new Promise(r => {
-        const loop = () => tokenizerProcess.next ? requestCallback()(() => { tokenizerProcess.next(); loop() }) : r(tokenizerProcess.result)
+        const loop = () => {
+          requestIdleCallback(idle => {
+            while (idle.timeRemaining() > 0 && tokenizerProcess.next !== null) tokenizerProcess.next()
+            if (tokenizerProcess.next !== null) loop(r)
+            if (tokenizerProcess.next === null) r(tokenizerProcess.result)
+          })
+        }
 
         loop()
       })
@@ -55,7 +59,13 @@ function App() {
 
     const calculatorProcessLoop = async (calculatorProcess) => {
       const r = await new Promise(r => {
-        const loop = () => calculatorProcess.next ? requestCallback()(() => { calculatorProcess.next(); loop() }) : r(calculatorProcess.result)
+        const loop = () => {
+          requestIdleCallback(idle => {
+            while (idle.timeRemaining() > 0 && calculatorProcess.next !== null) calculatorProcess.next()
+            if (calculatorProcess.next !== null) loop(r)
+            if (calculatorProcess.next === null) r(calculatorProcess.result)
+          })
+        }
 
         loop()
       })

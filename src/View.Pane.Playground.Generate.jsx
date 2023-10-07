@@ -13,8 +13,6 @@ import Imitation from './utils.imitation'
 import { tokenizer } from '../text-tokenizer/index'
 import { generator } from '../text-generator/index'
 
-import { requestRender } from './utils.common'
-
 function SettingDialog(props) {
   return <Dialog open={props.open} sx={{ '& .MuiDialog-paper': { width: '100%', maxWidth: 720 } }} onClose={() => props.onClose()}>
     <DialogTitle style={{ fontSize: 16 }}>Settings</DialogTitle>
@@ -82,7 +80,13 @@ function App() {
   const generate = async (paramsSetting) => {
     const tokenizerProcessLoop = async (tokenizerProcess) => {
       const r = await new Promise(r => {
-        const loop = () => tokenizerProcess.next ? requestRender()(() => { tokenizerProcess.next(); loop() }) : r(tokenizerProcess.result)
+        const loop = () => {
+          requestIdleCallback(idle => {
+            while (idle.timeRemaining() > 0 && tokenizerProcess.next !== null) tokenizerProcess.next()
+            if (tokenizerProcess.next !== null) loop(r)
+            if (tokenizerProcess.next === null) r(tokenizerProcess.result)
+          })
+        }
 
         loop()
       })
@@ -92,7 +96,13 @@ function App() {
 
     const generatorProcessLoop = async (generatorProcess) => {
       const r = await new Promise(r => {
-        const loop = () => generatorProcess.next ? requestRender()(() => { generatorProcess.next(); setPrompt([...generatorProcess.token, ...generatorProcess.result].join('')); loop() }) : r(generatorProcess.result)
+        const loop = () => {
+          requestIdleCallback(idle => {
+            while (idle.timeRemaining() > 0 && generatorProcess.next !== null) { generatorProcess.next(); setPrompt([...generatorProcess.token, ...generatorProcess.result].join('')); }
+            if (generatorProcess.next !== null) loop(r)
+            if (generatorProcess.next === null) r(generatorProcess.result)
+          })
+        }
 
         loop()
       })
