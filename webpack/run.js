@@ -4,7 +4,7 @@ if (process.argv.includes('--dev')) {
   const webpackConfig = require('./webpack.dev')
   const compiler = webpack(webpackConfig)
 
-  const serverConfig = { port: 8001, open: true }
+  const serverConfig = { port: 8000, open: true }
   if (process.argv.filter(i => i.includes('port'))[0]) serverConfig.port = process.argv.filter(i => i.includes('port'))[0].split('=')[1]
 
   const WebpackDevServer = require('webpack-dev-server')

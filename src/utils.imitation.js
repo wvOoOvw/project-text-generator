@@ -7,11 +7,7 @@ ImitationINS.state = {
 
   message: '',
 
-  visitorId: '',
-
-  playgroundView: 'Default',
-
-  library: null,
+  library: undefined,
 }
 
 export default ImitationINS
