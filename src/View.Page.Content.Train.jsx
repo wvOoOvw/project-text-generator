@@ -31,10 +31,10 @@ function SettingDialog(props) {
       <Grid container spacing={1}>
 
         <Grid item xs={12}>
-          Ngram Windows {props.ngramWindows}
+          Ngram Windows {value.ngramWindows}
         </Grid>
         <Grid item xs={12}>
-          <Slider value={props.ngramWindows} onChange={(e, v) => setValue(pre => { pre.ngramWindows = v; return { ...pre } })} min={1} max={128} step={1} />
+          <Slider value={value.ngramWindows} onChange={(e, v) => setValue(pre => { pre.ngramWindows = v; return { ...pre } })} min={1} max={128} step={1} />
         </Grid>
 
       </Grid>
