@@ -144,7 +144,7 @@ function App() {
 
     if (result) setResult(result)
 
-    if (result.every(i => i === '')) Imitation.setState(pre => { pre.message = '当前上下文没有匹配'; return pre })
+    if (result.every(i => i === '')) Imitation.setState(pre => { pre.message = 'Can not match word'; return pre })
 
     Imitation.setState(pre => { pre.loading = pre.loading - 1; return pre })
   }

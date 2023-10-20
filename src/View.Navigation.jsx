@@ -36,7 +36,7 @@ function Example() {
 
     const library = await example.find(i => i.label === model).value()
 
-    Imitation.setState(pre => { pre.loading = pre.loading - 1; pre.library = library; pre.message = 'Load'; return pre })
+    Imitation.setState(pre => { pre.loading = pre.loading - 1; pre.library = library; pre.message = 'Loaded Library'; return pre })
   }
 
   return <>
@@ -69,7 +69,7 @@ function Example() {
 function Action() {
   const clear = () => {
     Imitation.state.library = null
-    Imitation.state.message = 'Clear'
+    Imitation.state.message = 'Cleared Library'
     Imitation.dispatch()
   }
 
@@ -81,7 +81,7 @@ function Action() {
     document.execCommand('copy')
     document.body.removeChild(input)
 
-    Imitation.setState(pre => { pre.message = 'Copy'; return pre })
+    Imitation.setState(pre => { pre.message = 'Copied Library'; return pre })
   }
 
   const download = () => {
@@ -103,7 +103,7 @@ function Action() {
 
     reader.onload = (event) => {
       Imitation.state.library = JSON.parse(event.target.result)
-      Imitation.state.message = 'Load'
+      Imitation.state.message = 'Loaded Library'
       Imitation.dispatch()
     }
 
@@ -114,7 +114,7 @@ function Action() {
     const library = window.prompt()
 
     Imitation.state.library = JSON.parse(library)
-    Imitation.state.message = 'Load'
+    Imitation.state.message = 'Loaded Library'
     Imitation.dispatch()
   }
 

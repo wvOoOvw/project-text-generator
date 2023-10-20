@@ -104,7 +104,7 @@ function App() {
     Imitation.setState(pre => { pre.loading = pre.loading - 1; return pre })
 
     Imitation.state.library = result
-    Imitation.state.message = 'Updated'
+    Imitation.state.message = 'Updated Library'
     Imitation.dispatch()
   }
 
