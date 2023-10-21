@@ -29,7 +29,7 @@ function SettingDialog(props) {
   const [value, setValue] = React.useState(props.value)
 
   return <Dialog open={true} sx={{ '& .MuiDialog-paper': { width: '100%', maxWidth: 720 } }} onClose={() => props.onClose()}>
-    <DialogTitle style={{ fontSize: 16 }}>Settings</DialogTitle>
+    <DialogTitle style={{ fontSize: 16 }}>Setting</DialogTitle>
     <DialogContent dividers>
       <Grid container spacing={1}>
 
