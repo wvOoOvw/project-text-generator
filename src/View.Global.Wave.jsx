@@ -3,7 +3,7 @@ import React from 'react'
 import Animation from './View.Component.Animation'
 
 function App() {
-  return <Animation tag='div' restore={true} animation={[{ opacity: 0 }, { opacity: 1 }]} style={{ position: 'fixed', zIndex: -1, top: 0, width: '100%', height: '100%', transition: '2.5s all' }} >
+  return <Animation tag='div' restore={true} animation={[{ opacity: 0 }, { opacity: 1 }]} style={{ position: 'fixed', zIndex: -1, top: 0, width: '100%', height: '100%', transition: '0.5s all' }} >
     <div style={{ position: 'absolute', bottom: 0, width: '100%' }}>
       <svg
         style={{ position: 'relative', width: '100%', height: Math.max(window.innerWidth * 0.05, 40), marginBottom: '-7px' }}
